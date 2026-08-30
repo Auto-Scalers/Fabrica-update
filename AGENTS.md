@@ -28,7 +28,7 @@ This sub-project is primarily a **read-only analysis workspace**. No app to buil
 - Standard CLI tools. No build step.
 
 ## Plan
-The master plan lives at `Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md`. It defines:
+The master plan lives at `.Fabrica-update-board/UPDATE-PIPELINE-PLAN.md`. It defines:
 - 3 sources (`.backup/orca` baseline, current Fabrica, new upstream Orca).
 - 3 phases of analytics: (1) rebrand diff, (2) upstream diff, (3) implementation mapping.
 - The "massive file" output: `REBRAND-DIFF-MAP` — line-mapped diff with intent tags + our patterns.

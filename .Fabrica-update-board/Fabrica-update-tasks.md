@@ -1,6 +1,6 @@
 # Fabrica-update — Tasks
 
-> Single source of truth for the **update pipeline** sub-project. The master plan lives at `Fabrica-app/.Fabrica-app-board/UPDATE-PIPELINE-PLAN.md` — this file owns execution details. Status enum: ⬜ TODO · 🔶 IN_PROGRESS · 👀 VERIFY · ✅ DONE · 🚫 BLOCKED · ❌ CANCELLED.
+> Single source of truth for the **update pipeline** sub-project. The master plan lives at `.Fabrica-update-board/UPDATE-PIPELINE-PLAN.md` — this file owns execution details. Status enum: ⬜ TODO · 🔶 IN_PROGRESS · 👀 VERIFY · ✅ DONE · 🚫 BLOCKED · ❌ CANCELLED.
 
 ## High-Level Goals
 1. Map the Orca↔Fabrica diff surface (rebrand diff + upstream diff + implementation mapping).
