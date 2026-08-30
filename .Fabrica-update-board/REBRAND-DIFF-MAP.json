@@ -1,0 +1,1145 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generated": "2026-08-30",
+    "phase": "Phase 1 — Rebrand Diff Analytics",
+    "task": "T1",
+    "worker": "T1 aggregate (T1-A, T1-B, T1-C, T1-D, T1-INTENT-REFERENCE)",
+    "comparison": {
+      "baseline": "orca-baseline/ (frozen Orca fork baseline)",
+      "target": "Fabrica-app/ (current Fabrica code)"
+    },
+    "stats": {
+      "totalFilesChanged": 872,
+      "totalDiffHunks": 1800,
+      "rebrandPatterns": 62,
+      "customLogicAdditions": 22,
+      "debrandCleanupRemovals": 14,
+      "incidentalChanges": 10,
+      "bugsFound": 2
+    },
+    "areaBreakdown": {
+      "configRoot": { "filesChanged": 35, "dominantIntent": "rebrand" },
+      "srcMain": { "filesChanged": 196, "dominantIntent": "rebrand+custom-logic" },
+      "srcCli": { "filesChanged": 72, "dominantIntent": "rebrand" },
+      "srcRenderer": { "filesChanged": 13, "dominantIntent": "rebrand" },
+      "srcShared": { "filesChanged": 300, "dominantIntent": "rebrand+custom-logic" },
+      "srcPreload": { "filesChanged": 9, "dominantIntent": "rebrand+custom-logic" },
+      "srcRelay": { "filesChanged": 59, "dominantIntent": "rebrand" },
+      "srcTypes": { "filesChanged": 1, "dominantIntent": "rebrand" },
+      "rendererAssets": { "filesChanged": 8, "dominantIntent": "rebrand+custom-logic" },
+      "mobile": { "filesChanged": 5, "dominantIntent": "rebrand+custom-logic" },
+      "native": { "filesChanged": 6, "dominantIntent": "rebrand" }
+    }
+  },
+  "patterns": [
+    {
+      "id": "P1",
+      "name": "Package identity",
+      "orcaValue": "orca, stablyai, com.stablyai.orca",
+      "fabricaValue": "fabrica, Auto-Scalers, ai.autoscalers.fabrica",
+      "scope": ["package.json", "electron-builder", "app ID", "bundle ID"],
+      "syncRule": "Always apply; never reintroduce Orca identity"
+    },
+    {
+      "id": "P2",
+      "name": "Env var prefix",
+      "orcaValue": "ORCA_*",
+      "fabricaValue": "FABRICA_*",
+      "scope": ["all env vars", "build constants", "compile-time defines"],
+      "syncRule": "Port new upstream ORCA_ var, apply FABRICA_ prefix"
+    },
+    {
+      "id": "P3",
+      "name": "GitHub URLs",
+      "orcaValue": "stablyai/orca",
+      "fabricaValue": "Auto-Scalers/fabrica (or Fabrica-app)",
+      "scope": ["CI workflows", "source code", "docs", "casks", "READMEs"],
+      "syncRule": "Replace org + repo; main repo is Fabrica-app"
+    },
+    {
+      "id": "P4",
+      "name": "Domain/homepage",
+      "orcaValue": "onorca.dev",
+      "fabricaValue": "fabrica-ai.vercel.app",
+      "scope": ["all API endpoints", "docs", "kill-list", "changelog", "telemetry", "feedback"],
+      "syncRule": "Never reintroduce onorca.dev"
+    },
+    {
+      "id": "P5",
+      "name": "User data directory",
+      "orcaValue": "~/.orca, ~/.config/orca, Application Support/orca",
+      "fabricaValue": "~/.fabrica, ~/.config/Fabrica, Application Support/Fabrica",
+      "scope": ["driven by productName", "dev override fabrica-dev"],
+      "syncRule": "Follow productName"
+    },
+    {
+      "id": "P6",
+      "name": "App bundle",
+      "orcaValue": "Orca.app",
+      "fabricaValue": "Fabrica.app",
+      "scope": ["macOS app bundle name", "all cask references"],
+      "syncRule": "Always use Fabrica.app"
+    },
+    {
+      "id": "P7",
+      "name": "Linux executable",
+      "orcaValue": "orca-ide",
+      "fabricaValue": "fabrica",
+      "scope": ["Linux binary name"],
+      "syncRule": "Use fabrica; never orca-ide"
+    },
+    {
+      "id": "P8",
+      "name": "CLI binary",
+      "orcaValue": "orca, orca.cmd, orca.exe",
+      "fabricaValue": "fabrica, fabrica.cmd, fabrica.exe",
+      "scope": ["CLI entry points", "installer paths", "packaging"],
+      "syncRule": "Single command; no dual-variant"
+    },
+    {
+      "id": "P9",
+      "name": "Helper apps",
+      "orcaValue": "Orca Computer Use.app, orca-notification-status",
+      "fabricaValue": "Fabrica Computer Use.app, fabrica-notification-status",
+      "scope": ["macOS helper apps", "signing", "permission detection"],
+      "syncRule": "Always Fabrica names"
+    },
+    {
+      "id": "P10",
+      "name": "Asset files",
+      "orcaValue": "orca-*.gif, orca-cli.*, SymbolsNerdFontMono-*",
+      "fabricaValue": "fabrica-*.gif, fabrica-cli.*, FabricaNerdFontSymbols-*",
+      "scope": ["docs assets", "Nerd Font files"],
+      "syncRule": "Rename all orca-prefixed assets"
+    },
+    {
+      "id": "P11",
+      "name": "Plugin names",
+      "orcaValue": "engines.orca, orca-* IDs, stablyai publisher",
+      "fabricaValue": "engines.fabrica, fabrica-* IDs, autoscalers publisher",
+      "scope": ["plugin manifests", "marketplace index", "kill-list"],
+      "syncRule": "All plugin identity must use fabrica"
+    },
+    {
+      "id": "P12",
+      "name": "CSS custom properties",
+      "orcaValue": "--orca-*",
+      "fabricaValue": "--fabrica-*",
+      "scope": ["all CSS variables", "class names", "data attributes"],
+      "syncRule": "Port upstream --orca-* to --fabrica-*"
+    },
+    {
+      "id": "P13",
+      "name": "Font family",
+      "orcaValue": "Geist, Geist Mono",
+      "fabricaValue": "Inter",
+      "scope": ["CSS @font-face", "constants.ts", "all font references"],
+      "syncRule": "Replace Geist to Inter"
+    },
+    {
+      "id": "P14",
+      "name": "Wire tokens/protocol",
+      "orcaValue": "orca_server_ready, ORCA-RELAY, orca://, __ORCA_*__",
+      "fabricaValue": "fabrica_server_ready, FABRICA-RELAY, fabrica://, __FABRICA_*__",
+      "scope": ["IPC", "SSH relay", "deep links", "protocol markers"],
+      "syncRule": "Port upstream markers, apply fabrica prefix"
+    },
+    {
+      "id": "P15",
+      "name": "YAML config file",
+      "orcaValue": "orca.yaml",
+      "fabricaValue": "FABRICA.yaml",
+      "scope": ["UI labels", "comments", "config file name"],
+      "syncRule": "Replace orca.yaml to FABRICA.yaml"
+    },
+    {
+      "id": "P16",
+      "name": "Persistence files",
+      "orcaValue": "orca-data.json",
+      "fabricaValue": "FABRICA-data.json",
+      "scope": ["runtime data persistence"],
+      "syncRule": "Replace orca-data to FABRICA-data"
+    },
+    {
+      "id": "P17",
+      "name": "Commit trailer",
+      "orcaValue": "Co-authored-by: Orca <help@stably.ai>",
+      "fabricaValue": "Co-authored-by: Fabrica <fabrica.studio.contact@gmail.com>",
+      "scope": ["git attribution"],
+      "syncRule": "Always use Fabrica trailer"
+    },
+    {
+      "id": "P18",
+      "name": "Email/support",
+      "orcaValue": "help@stably.ai",
+      "fabricaValue": "fabrica.studio.contact@gmail.com",
+      "scope": ["contact/support references"],
+      "syncRule": "Replace stably.ai email"
+    },
+    {
+      "id": "P19",
+      "name": "NPM scope",
+      "orcaValue": "@stablyai/*, @orca/*",
+      "fabricaValue": "@autoscalers/*, @fabrica/*",
+      "scope": ["scoped packages"],
+      "syncRule": "Rename scope"
+    },
+    {
+      "id": "P20",
+      "name": "Mobile bundle ID",
+      "orcaValue": "com.stably.orca.mobile",
+      "fabricaValue": "com.autoscalers.fabrica.mobile",
+      "scope": ["iOS + Android bundle/package"],
+      "syncRule": "Always use autoscalers"
+    },
+    {
+      "id": "P21",
+      "name": "Ownership literal",
+      "orcaValue": "orca-managed",
+      "fabricaValue": "FABRICA-managed",
+      "scope": ["worktree ownership type"],
+      "syncRule": "Preserve FABRICA-managed"
+    },
+    {
+      "id": "P22",
+      "name": "Shortcut policy",
+      "orcaValue": "orca-first",
+      "fabricaValue": "FABRICA-first",
+      "scope": ["terminal shortcut policy"],
+      "syncRule": "Preserve FABRICA-first"
+    }
+  ],
+  "changes": [
+    {
+      "area": "Config files (root)",
+      "filesChanged": 35,
+      "changeCount": 100,
+      "intentBreakdown": { "rebrand": 98, "customLogic": 2 },
+      "keyFiles": [
+        {
+          "path": "package.json",
+          "status": "modified",
+          "hunks": 9,
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": [
+            "package name orca to fabrica",
+            "GitHub org stablyai to Auto-Scalers",
+            "CLI bin orca to fabrica",
+            "env vars ORCA_MAC_* to FABRICA_MAC_*",
+            "scoped package @stablyai/playwright-test to @autoscalers/playwright-test",
+            "NEW: @supabase/supabase-js dependency"
+          ]
+        },
+        {
+          "path": "config/electron-builder.config.cjs",
+          "status": "modified",
+          "hunks": 40,
+          "intent": "rebrand",
+          "keyPatterns": [
+            "app ID com.stablyai.orca to ai.autoscalers.fabrica",
+            "product name Orca to Fabrica",
+            "all ORCA_* env vars to FABRICA_*",
+            "Linux exe simplified orca-ide to fabrica",
+            "GitHub publish stablyai/orca to Auto-Scalers/fabrica"
+          ]
+        },
+        {
+          "path": "electron.vite.config.ts",
+          "status": "modified",
+          "hunks": 18,
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": [
+            "all ORCA_* env vars to FABRICA_*",
+            "global flags __ORCA_*__ to __FABRICA_*__",
+            "plugin name orca-main-bootstrap to fabrica-main-bootstrap",
+            "CUSTOM: Supabase URL/anon key compile-time injection"
+          ]
+        },
+        {
+          "path": "vite.web.config.ts",
+          "status": "modified",
+          "hunks": 2,
+          "intent": "rebrand"
+        },
+        {
+          "path": "Casks/fabrica.rb",
+          "status": "renamed",
+          "hunks": 11,
+          "intent": "rebrand"
+        },
+        {
+          "path": "Casks/fabrica@rc.rb",
+          "status": "renamed",
+          "hunks": 10,
+          "intent": "rebrand"
+        },
+        {
+          "path": "tsconfig.json",
+          "status": "identical"
+        },
+        {
+          "path": "pnpm-workspace.yaml",
+          "status": "identical"
+        },
+        {
+          "path": "components.json",
+          "status": "identical"
+        }
+      ]
+    },
+    {
+      "area": "src/main/",
+      "filesChanged": 196,
+      "changeCount": 600,
+      "intentBreakdown": { "rebrand": 95, "customLogic": 3, "incidental": 2 },
+      "keyFiles": [
+        {
+          "path": "src/main/startup/configure-process.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["ORCA_* env vars to FABRICA_*", "data dir paths", "orca-dev to fabrica-dev"]
+        },
+        {
+          "path": "src/main/runtime/orchestration/cli-command.ts",
+          "status": "modified",
+          "intent": "custom-logic",
+          "keyPatterns": ["CLI type simplified from 'orca'|'orca-ide' to 'fabrica' single command"]
+        },
+        {
+          "path": "src/main/ipc/feedback.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["onorca.dev to fabrica-ai.vercel.app"]
+        },
+        {
+          "path": "src/main/updater-changelog.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["onorca.dev to fabrica-ai.vercel.app"]
+        },
+        {
+          "path": "src/main/plugins/plugin-kill-list-service.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["onorca.dev to fabrica-ai.vercel.app"]
+        },
+        {
+          "path": "src/main/server/serve-readiness.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["orca_server_ready to fabrica_server_ready"]
+        },
+        {
+          "path": "src/main/runtime/tls-certificate.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["CN=Orca Runtime to CN=Fabrica Runtime", "orca-tls-* to fabrica-tls-*"]
+        },
+        {
+          "path": "src/main/ssh/ssh-remote-cli-launcher.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["ORCA_RELAY_* to FABRICA_RELAY_* env vars"]
+        },
+        {
+          "path": "src/main/pty/wsl-fabrica-env.ts",
+          "status": "renamed",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/main/cli/linux-bare-fabrica-dispatcher.ts",
+          "status": "renamed",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/main/ipc/orca-profiles.ts",
+          "status": "removed",
+          "intent": "custom-logic"
+        },
+        {
+          "path": "src/main/ipc/orca-profile-org-members-handlers.ts",
+          "status": "removed",
+          "intent": "custom-logic"
+        },
+        {
+          "path": "src/main/telemetry/client.ts",
+          "status": "modified",
+          "intent": "incidental",
+          "keyPatterns": ["BUG: waitForCaptureEnqueue corrupted to waitFFABRICAptureEnqueue"]
+        },
+        {
+          "path": "src/main/telemetry/consent.ts",
+          "status": "modified",
+          "intent": "incidental",
+          "keyPatterns": ["BUG: orca_disabled to FABRICA_disabled (casing inconsistency)"]
+        }
+      ]
+    },
+    {
+      "area": "src/cli/",
+      "filesChanged": 72,
+      "changeCount": 300,
+      "intentBreakdown": { "rebrand": 97, "customLogic": 3 },
+      "keyFiles": [
+        {
+          "path": "src/cli/runtime-client.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["serveOrcaApp to serveFABRICAApp"]
+        },
+        {
+          "path": "src/cli/runtime/launch.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["launchOrcaApp to launchFABRICAApp", "ORCA_OPEN_COMMAND to FABRICA_OPEN_COMMAND"]
+        },
+        {
+          "path": "src/cli/runtime/client.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["orca://pair? to fabrica://pair?", "ORCA_PAIRING_CODE to FABRICA_PAIRING_CODE"]
+        },
+        {
+          "path": "src/cli/specs/core.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["all orca usage strings to fabrica"]
+        },
+        {
+          "path": "src/cli/bundled-skill-guides.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["all skill IDs renamed", "descriptions Orca to Fabrica"]
+        },
+        {
+          "path": "src/cli/runtime/metadata.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["data dir paths: macOS/Windows/Linux"]
+        }
+      ]
+    },
+    {
+      "area": "src/renderer/",
+      "filesChanged": 13,
+      "changeCount": 40,
+      "intentBreakdown": { "rebrand": 95, "incidental": 5 },
+      "keyFiles": [
+        {
+          "path": "src/renderer/index.html",
+          "status": "modified",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/popout.html",
+          "status": "modified",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/web-index.html",
+          "status": "modified",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/src/App.tsx",
+          "status": "modified",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/src/components/Landing.tsx",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["ORCA_GITHUB_URL to FABRICA_GITHUB_URL", "starOrca to starFABRICA"]
+        },
+        {
+          "path": "src/renderer/src/components/UpdateCard.tsx",
+          "status": "modified",
+          "intent": "rebrand+incidental",
+          "keyPatterns": ["Orca to Fabrica in update notifications", "INCIDENTAL: errorCard to errCard"]
+        },
+        {
+          "path": "src/renderer/src/components/StarNagCard.tsx",
+          "status": "modified",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/src/components/NewWorkspaceComposerCard.tsx",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["orca.yaml to FABRICA.yaml"]
+        },
+        {
+          "path": "src/renderer/src/components/editor/CombinedDiffViewer.tsx",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["ORCA_EDITOR_EXTERNAL_FILE_CHANGE_EVENT to FABRICA_EDITOR_EXTERNAL_FILE_CHANGE_EVENT"]
+        }
+      ]
+    },
+    {
+      "area": "src/shared/",
+      "filesChanged": 300,
+      "changeCount": 500,
+      "intentBreakdown": { "rebrand": 96, "customLogic": 3, "incidental": 1 },
+      "keyFiles": [
+        {
+          "path": "src/shared/orca-attribution.ts",
+          "status": "renamed",
+          "intent": "rebrand",
+          "keyPatterns": ["FABRICA_GIT_COMMIT_TRAILER", "email fabrica.studio.contact@gmail.com"]
+        },
+        {
+          "path": "src/shared/orca-profiles.ts",
+          "status": "renamed",
+          "intent": "rebrand",
+          "keyPatterns": ["OrcaProfile* to FABRICAProfile*", "OrcaCloud* to FABRICACloud*"]
+        },
+        {
+          "path": "src/shared/orca-yaml.ts",
+          "status": "renamed",
+          "intent": "rebrand",
+          "keyPatterns": ["OrcaVmRecipe to FABRICAVmRecipe", "parseOrcaYaml to parseFABRICAYaml"]
+        },
+        {
+          "path": "src/shared/constants.ts",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": ["DEFAULT_APP_FONT_FAMILY Inter", "FABRICA_BROWSER_PARTITION", "CUSTOM: font swap"]
+        },
+        {
+          "path": "src/shared/types.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["FABRICACreatedAt", "FABRICAWorkspaceLayout", "FABRICA-managed"]
+        },
+        {
+          "path": "src/shared/app-icon.ts",
+          "status": "modified",
+          "intent": "custom-logic",
+          "keyPatterns": ["Icon set redesigned: dark/light (was watercolor/blue)", "DEFAULT_APP_ICON_ID light"]
+        },
+        {
+          "path": "src/shared/release-channel.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["Auto-Scalers/Fabrica-hourly/daily/adhoc/Fabrica-app"]
+        },
+        {
+          "path": "src/shared/supabase-auth.ts",
+          "status": "added",
+          "intent": "custom-logic",
+          "keyPatterns": ["NEW: Supabase auth types (Fabrica-only)"]
+        }
+      ]
+    },
+    {
+      "area": "src/preload/",
+      "filesChanged": 9,
+      "changeCount": 80,
+      "intentBreakdown": { "rebrand": 90, "customLogic": 10 },
+      "keyFiles": [
+        {
+          "path": "src/preload/api-types.ts",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": ["26 OrcaProfile* to FABRICAProfile* types", "FABRICAProfiles IPC", "CUSTOM: supabaseAuth block"]
+        },
+        {
+          "path": "src/preload/index.ts",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": ["16 IPC channels renamed", "checkFABRICAStarred/starFABRICA", "CUSTOM: supabaseAuth IPC"]
+        },
+        {
+          "path": "src/preload/e2e-config.ts",
+          "status": "modified",
+          "intent": "rebrand"
+        }
+      ]
+    },
+    {
+      "area": "src/relay/",
+      "filesChanged": 59,
+      "changeCount": 250,
+      "intentBreakdown": { "rebrand": 100 },
+      "keyFiles": [
+        {
+          "path": "src/relay/protocol.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["ORCA-RELAY v0.1.0 READY to FABRICA-RELAY v0.1.0 READY"]
+        },
+        {
+          "path": "src/relay/relay-handshake.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["orca-relay-handshake to FABRICA-RELAY-handshake"]
+        }
+      ],
+      "note": "Zero leftover ORCA_ or orca in Fabrica-app — rebrand complete"
+    },
+    {
+      "area": "src/types/",
+      "filesChanged": 1,
+      "changeCount": 6,
+      "intentBreakdown": { "rebrand": 100 },
+      "keyFiles": [
+        {
+          "path": "src/types/build-constants.d.ts",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["FABRICA_BUILD_IDENTITY", "FABRICA_POSTHOG_WRITE_KEY", "FABRICA_DIAGNOSTICS_TOKEN_URL"]
+        }
+      ]
+    },
+    {
+      "area": "src/renderer/src/assets/",
+      "filesChanged": 8,
+      "changeCount": 200,
+      "intentBreakdown": { "rebrand": 70, "customLogic": 30 },
+      "keyFiles": [
+        {
+          "path": "src/renderer/src/assets/main.css",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": [
+            "Geist to Inter font family",
+            "--orca-security-* to --fabrica-security-* (20+ vars)",
+            ".orca-* to .FABRICA-* classes (~50)",
+            "CUSTOM: ~192 lines new CSS (workspace kanban, agent lineage, settings-shell, feature wall)"
+          ]
+        },
+        {
+          "path": "src/renderer/src/assets/terminal.css",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["--orca-* to --fabrica-* CSS vars"]
+        },
+        {
+          "path": "src/renderer/src/assets/markdown-preview.css",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": [".orca-details to .FABRICA-details", "data-orca-toggle to data-FABRICA-toggle"]
+        },
+        {
+          "path": "src/renderer/src/assets/rich-markdown-editor.css",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": ["CUSTOM: review rails, inline search/replace, table controls, mermaid preview"]
+        },
+        {
+          "path": "src/renderer/src/assets/mobile-page.css",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": ["CUSTOM: mobile page UI components"]
+        },
+        {
+          "path": "src/renderer/src/assets/fonts/Geist-Variable.woff2",
+          "status": "removed",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/src/assets/fonts/SymbolsNerdFontMono-Regular.woff2",
+          "status": "removed",
+          "intent": "rebrand"
+        },
+        {
+          "path": "src/renderer/src/assets/fonts/FabricaNerdFontSymbols-Regular.woff2",
+          "status": "added",
+          "intent": "rebrand"
+        }
+      ]
+    },
+    {
+      "area": "mobile/",
+      "filesChanged": 5,
+      "changeCount": 30,
+      "intentBreakdown": { "rebrand": 80, "customLogic": 20 },
+      "keyFiles": [
+        {
+          "path": "mobile/app.json",
+          "status": "modified",
+          "intent": "rebrand+custom-logic",
+          "keyPatterns": [
+            "expo.name Fabrica",
+            "slug fabrica-mobile",
+            "bundle IDs com.autoscalers.fabrica.mobile",
+            "CUSTOM: EAS config (extra.eas.projectId, owner auto-scalers)",
+            "CUSTOM: android.permission.CAMERA added"
+          ]
+        },
+        {
+          "path": "mobile/package.json",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["name fabrica-mobile", "@fabrica/expo-two-way-audio"]
+        },
+        {
+          "path": "mobile/eas.json",
+          "status": "added",
+          "intent": "custom-logic",
+          "keyPatterns": ["NEW: EAS Build configuration"]
+        }
+      ]
+    },
+    {
+      "area": "native/",
+      "filesChanged": 6,
+      "changeCount": 120,
+      "intentBreakdown": { "rebrand": 100 },
+      "keyFiles": [
+        {
+          "path": "native/computer-use-macos/Package.swift",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["FabricaComputerUseMacOS targets"]
+        },
+        {
+          "path": "native/computer-use-macos/Sources/OrcaComputerUseMacOS/main.swift",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["fabrica-computer-use-macos provider", "bundle ID ai.autoscalers.fabrica"]
+        },
+        {
+          "path": "native/computer-use-linux/runtime.py",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["fabrica-computer-use-linux provider"]
+        },
+        {
+          "path": "native/computer-use-windows/runtime.ps1",
+          "status": "modified",
+          "intent": "rebrand",
+          "keyPatterns": ["50+ function renames Orca to Fabrica", "FabricaDesktopWin32 class"]
+        },
+        {
+          "path": "native/windows-cli-launcher/FabricaCliLauncher.cs",
+          "status": "renamed",
+          "intent": "rebrand",
+          "keyPatterns": ["Fabrica.exe", "FABRICA_NODE_OPTIONS", "FABRICA_CLI_COMMAND"]
+        }
+      ]
+    }
+  ],
+  "customLogic": [
+    {
+      "id": "CL1",
+      "feature": "Supabase auth integration",
+      "description": "SUPABASE_URL/SUPABASE_ANON_KEY compile-time injection, Supabase auth types, IPC channels (supabaseAuth:getStatus, signIn, signOut)",
+      "files": [
+        "electron.vite.config.ts",
+        "src/preload/api-types.ts",
+        "src/preload/index.ts",
+        "src/shared/supabase-auth.ts"
+      ],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL2",
+      "feature": "Plugin marketplace loader",
+      "description": "Git-clone + cache + bootstrap + discovery + IPC (not in Orca)",
+      "files": ["Fabrica-plugins/ plugin loader files"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL3",
+      "feature": "Plugin update mechanism",
+      "description": "Version checking via content hashes, install with rollback",
+      "files": ["Fabrica-plugins/"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL4",
+      "feature": "Cloudflare Workers relay server",
+      "description": "E2EE WebSocket bridge (CF Workers + Durable Objects + Hono + Supabase auth)",
+      "files": ["Fabrica-relay/"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL5",
+      "feature": "Backend API routes",
+      "description": "10 routes: auth/share/diagnostics/changelog on Vercel",
+      "files": ["Fabrica-web/app/api/v1/desktop/"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL6",
+      "feature": "Plugin content hash verification",
+      "description": "SHA-256 re-hash compare for integrity",
+      "files": ["plugin-content-integrity.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL7",
+      "feature": "Plugin install trust verification",
+      "description": "Reserved official identities must come from Auto-Scalers org",
+      "files": ["plugin-install-trust.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL8",
+      "feature": "Plugin marketplace provenance",
+      "description": "Official marketplace owner validation",
+      "files": ["plugin-marketplace-provenance.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL9",
+      "feature": "Kill-list management",
+      "description": "JSON document with id/name/reason/severity/blockedVersions",
+      "files": ["kill-list.json", "plugin-kill-list-service.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL10",
+      "feature": "Plugin review process",
+      "description": "3 gates: automated validation, maintainer review, listing decision",
+      "files": ["Plugin repos"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL11",
+      "feature": "Plugin submission guidelines",
+      "description": "Fork, add entry, PR, review, merge",
+      "files": ["Plugin repos"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL12",
+      "feature": "Plugin validation rules",
+      "description": "Index entry rules + manifest rules + rename compliance",
+      "files": ["Plugin repos"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL13",
+      "feature": "Plugin signing research",
+      "description": "Hash-addressed + namespace-trust model",
+      "files": ["Plugin repos"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL14",
+      "feature": "OKLCH visual palette",
+      "description": "160 oklch color token references from Fabrica-web",
+      "files": ["src/renderer/src/assets/main.css"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL15",
+      "feature": "WCAG AA contrast fixes",
+      "description": "Token-level OKLCH adjustments for readability",
+      "files": ["main.css", "terminal.css", "mobile-page.css"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL16",
+      "feature": "Colored icon/logo variants",
+      "description": "Dark/light brand variants, DEFAULT_APP_ICON_ID=light",
+      "files": ["src/shared/app-icon.ts", "assets/"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL17",
+      "feature": "Non-technical UI copy",
+      "description": "Rewrote settings descriptions to drop jargon",
+      "files": ["en.json", "es.json"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL18",
+      "feature": "Font/zoom defaults",
+      "description": "uiZoomLevel bumped 0 to 0.5 on first launch",
+      "files": ["constants.ts", "ui.ts", "startup-ui-hydration.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL19",
+      "feature": "Remote factory namespace",
+      "description": "~/.factory to ~/.fabrica-factory",
+      "files": ["11 hook-service.ts files"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL20",
+      "feature": "Skills prefix",
+      "description": "Lowercase fabrica- prefix for skill names",
+      "files": ["8 skill dirs + constants + guides + manifest"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL21",
+      "feature": "Marketplace owner validation",
+      "description": "owner: auto-scalers must match OFFICIAL_MARKETPLACE_OWNER",
+      "files": ["fabrica-marketplace.json"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL22",
+      "feature": "CJK locale en-fallback",
+      "description": "Replaced corrupted ko/ja/zh catalogs with en.json copies",
+      "files": ["ko.json", "ja.json", "zh.json"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL23",
+      "feature": "CLI command simplification",
+      "description": "Single fabrica command replaces dual orca/orca-ide",
+      "files": ["src/main/runtime/orchestration/cli-command.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL24",
+      "feature": "Linux CLI naming",
+      "description": "fabrica instead of orca-ide (no GNOME conflict)",
+      "files": ["src/main/cli/cli-installer.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL25",
+      "feature": "EAS build config",
+      "description": "EAS Build configuration for mobile",
+      "files": ["mobile/eas.json", "mobile/app.json"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL26",
+      "feature": "New CSS features",
+      "description": "Workspace kanban, agent lineage, settings-shell, feature wall, review rails, mermaid preview, mobile page UI",
+      "files": ["main.css", "rich-markdown-editor.css", "mobile-page.css"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL27",
+      "feature": "Font family swap",
+      "description": "Geist/Geist Mono to Inter (custom-logic, not standard rebrand)",
+      "files": ["main.css", "constants.ts", "rich-markdown-editor.css"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    },
+    {
+      "id": "CL28",
+      "feature": "Icon set redesign",
+      "description": "Watercolor/blue Orca icons to dark/light Fabrica icons",
+      "files": ["src/shared/app-icon.ts"],
+      "preserveRule": "ALWAYS PRESERVE — Fabrica-only"
+    }
+  ],
+  "debrandCleanup": [
+    {
+      "id": "D1",
+      "what": "Orca profile system files",
+      "whyRemoved": "Fabrica uses Supabase auth, not Orca cloud profiles",
+      "files": [
+        "src/main/ipc/orca-profiles.ts",
+        "src/main/ipc/orca-profile-org-members-handlers.ts",
+        "src/main/ipc/orca-profiles.test.ts",
+        "src/main/ipc/orca-profile-auth-handlers.test.ts",
+        "src/main/ipc/orca-profile-org-members-handlers.test.ts"
+      ],
+      "keepRemoved": true
+    },
+    {
+      "id": "D2",
+      "what": "GNOME screen reader warnings",
+      "whyRemoved": "CLI is fabrica, no naming conflict with GNOME Orca",
+      "files": ["14 files: skill-guides, agent-launch-remote.ts, tui-agent-config.ts"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D3",
+      "what": "Historical GitHub issue URLs",
+      "whyRemoved": "stablyai/orca#9902, stablyai/orca#5049 Orca-internal",
+      "files": ["docs/findings"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D4",
+      "what": "Legacy CLI type variants",
+      "whyRemoved": "'orca' | 'orca-ide' | 'orca-dev' no longer valid",
+      "files": ["coordinator.ts", "fabrica-runtime.ts", "9 test mocks"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D5",
+      "what": "FABRICA-browser enum value (broken-case artifact)",
+      "whyRemoved": "Should be lowercase fabrica-browser",
+      "files": ["preferences.ts"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D6",
+      "what": "com.autoscalers.fabrica appId (interim)",
+      "whyRemoved": "Was intermediate; final is ai.autoscalers.fabrica",
+      "files": ["20 source files (migrated)"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D7",
+      "what": "onfabrica.dev / onorca.dev domains",
+      "whyRemoved": "Dead DNS",
+      "files": ["All endpoint references (repointed to fabrica-ai.vercel.app)"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D8",
+      "what": "onFABRICA.dev domain variant",
+      "whyRemoved": "Dead DNS",
+      "files": ["Feature-wall docs, kill-list, telemetry, feedback"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D9",
+      "what": "stablyai GitHub org references",
+      "whyRemoved": "Old org",
+      "files": ["CI workflows, source, docs, READMEs"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D10",
+      "what": "stablyai/homebrew-orca cask repo",
+      "whyRemoved": "Old org",
+      "files": ["homebrew-bump.yml"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D11",
+      "what": "@stablyai/playwright-test npm scope",
+      "whyRemoved": "Old scope",
+      "files": ["268 imports (forked to @autoscalers)"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D12",
+      "what": "@orca/expo-two-way-audio npm scope",
+      "whyRemoved": "Old scope",
+      "files": ["mobile README"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D13",
+      "what": "ErrFABRICArd (rebrand corruption)",
+      "whyRemoved": "Accidental corruption during rebrand",
+      "files": ["4 files (fixed)"],
+      "keepRemoved": true
+    },
+    {
+      "id": "D14",
+      "what": "UNSUPPORTED_MARKETPLACE_CATEGORIES filter",
+      "whyRemoved": "Orca had categories filter; Fabrica shows all",
+      "files": ["Marketplace code"],
+      "keepRemoved": true
+    }
+  ],
+  "incidentalChanges": [
+    {
+      "id": "I1",
+      "what": "Dependency bumps (pnpm)",
+      "files": ["package.json", "lockfiles"],
+      "syncRule": "Take upstream if compatible; verify no rebrand regressions"
+    },
+    {
+      "id": "I2",
+      "what": "Whitespace / line-ending normalization",
+      "files": ["Various"],
+      "syncRule": "Keep normalized"
+    },
+    {
+      "id": "I3",
+      "what": "UTF-8 encoding fixes (CP1252 to UTF-8)",
+      "files": ["56 files"],
+      "syncRule": "All files must be strict UTF-8"
+    },
+    {
+      "id": "I4",
+      "what": "Test fixture normalization",
+      "files": ["test files"],
+      "syncRule": "Update assertions to expect Fabrica values"
+    },
+    {
+      "id": "I5",
+      "what": "Snapshot regeneration",
+      "files": ["__snapshots__/"],
+      "syncRule": "Regenerate after rebrand; verify legitimacy"
+    },
+    {
+      "id": "I6",
+      "what": "as const lint fix",
+      "files": ["single file"],
+      "syncRule": "Take if upstream has it"
+    },
+    {
+      "id": "I7",
+      "what": "Mobile locale test updates",
+      "files": ["6 locale test suites"],
+      "syncRule": "Tests updated for en-fallback in ko/ja/zh"
+    },
+    {
+      "id": "I8",
+      "what": "BOM removal",
+      "files": ["174 files"],
+      "syncRule": "Zero BOMs verified"
+    },
+    {
+      "id": "I9",
+      "what": "mock-server-key-pair ESM fix",
+      "files": ["test file"],
+      "syncRule": "Fixed; pre-existing environmental issue"
+    },
+    {
+      "id": "I10",
+      "what": "Pre-existing test failures (448 desktop)",
+      "files": ["test files"],
+      "syncRule": "Baseline residual — not rebrand-caused; 0 new failures"
+    }
+  ],
+  "bugs": [
+    {
+      "id": "B1",
+      "severity": "high",
+      "file": "src/main/telemetry/client.ts",
+      "description": "Function name corruption: waitForCaptureEnqueue became waitFFABRICAptureEnqueue (ORCA substring replaced mid-word)",
+      "syncRule": "Must fix before any sync",
+      "fix": "Rename waitFFABRICAptureEnqueue back to waitForCaptureEnqueue in all occurrences",
+      "fixVerification": "grep -r 'waitFFABRICAptureEnqueue' src/ should return 0 hits; pnpm typecheck should pass"
+    },
+    {
+      "id": "B2",
+      "severity": "low",
+      "file": "src/main/telemetry/consent.ts",
+      "description": "Telemetry reason casing inconsistency: orca_disabled became FABRICA_disabled (should be fabrica_disabled)",
+      "syncRule": "Cosmetic — fix for consistency",
+      "fix": "Rename FABRICA_disabled to fabrica_disabled in all occurrences",
+      "fixVerification": "grep -r 'FABRICA_disabled' src/ should return 0 hits; pnpm lint should pass"
+    }
+  ],
+  "syncImplications": {
+    "preservationRules": [
+      "All Fabrica/FABRICA identifiers must be preserved — any upstream Orca identifier update must be adapted",
+      "fabrica-ai.vercel.app domain must replace any onorca.dev references from upstream",
+      "Auto-Scalers/Fabrica-app GitHub org+repo must replace any stablyai/orca references",
+      "Inter font family must replace any Geist/Geist Mono from upstream",
+      "Fabrica Nerd Font Symbols must replace any Orca Nerd Font Symbols",
+      "--fabrica-* CSS variables must replace any --orca-*",
+      "FABRICA.yaml must replace any orca.yaml references",
+      "FABRICA-data.json must replace any orca-data.json",
+      "fabrica.studio.contact@gmail.com commit trailer must replace help@stably.ai",
+      "fabrica CLI command must replace orca/orca-ide",
+      "Dark/light icon set must replace watercolor/blue",
+      "supabase-auth.ts and all Supabase auth infrastructure must be preserved (Fabrica-only)",
+      "FABRICA-managed ownership literal must be preserved",
+      "FABRICA-first shortcut policy must be preserved",
+      "All 28 custom logic features must be preserved verbatim"
+    ],
+    "riskAreas": [
+      { "area": "types.ts, fabrica-profiles.ts", "risk": "Large type rename surface — upstream type additions must be renamed" },
+      { "area": "Agent/runtime hook/relay/VM recipe files", "risk": "Upstream changes must be adapted with fabrica prefix" },
+      { "area": "telemetry-events.ts", "risk": "Upstream schema additions must be renamed" },
+      { "area": "Plugin repos", "risk": "Upstream plugin changes must use fabrica identifiers" },
+      { "area": "relay/, SSH", "risk": "Protocol markers must match between client and server" }
+    ],
+    "safeToPortVerbatim": "Internal logic changes not touching Orca identifiers (env vars, domains, URLs, string literals containing Orca, bundle IDs)",
+    "mustPortAndRebrand": "Any new ORCA_* env vars, onorca.dev URLs, orca_* wire tokens, Orca string references, stablyai org references, or com.stablyai.orca bundle IDs",
+    "requiresMergeDecision": "Changes to orchestration CLI command type, changes overlapping custom logic features (Supabase auth, plugin marketplace, relay server)"
+  }
+}
