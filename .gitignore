@@ -1,0 +1,12 @@
+﻿# Read-only reference copies (too large for git; re-copy from upstream sources as needed)
+orca-baseline/
+upstream-orca/
+
+# Node / build artifacts
+node_modules/
+.next/
+dist/
+out/
+build/
+*.log
+.DS_Store
