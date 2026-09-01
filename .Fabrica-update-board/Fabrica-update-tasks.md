@@ -2,6 +2,8 @@
 
 > Single source of truth for the **update pipeline** sub-project. Master plan: `.Fabrica-update-board/UPDATE-PIPELINE-PLAN.md`. Status: ⬜ TODO · 🔶 IN_PROGRESS · 👀 VERIFY · ✅ DONE · 🚫 BLOCKED · ❌ CANCELLED.
 
+**Pipeline order (upstream-first):** T0 (update upstream) → T1 (upstream diff) → T2 (targeted rebrand diff, scoped to upstream-touching files only) → T3 (implementation mapping) → T4 (sync runbook).
+
 ## What Exists in This Workspace
 
 | Directory/File | What It Is |
@@ -17,22 +19,24 @@ No deliverables produced yet. Read-only analysis workspace — no code changes t
 **In scope:** `Fabrica-app/`, `Fabrica-plugins/`, and all 8 plugin repos inside `Fabrica-plugins/`.
 **Out of scope:** `Fabrica-web/`, `Fabrica-relay/`, `Fabrica-atlas/`, `Fabrica-marketing/`.
 
+Upstream sources: `https://github.com/stablyai/orca` (the app) and `https://github.com/stablyai/orca-plugins` (the plugins).
+
 ---
 
 ## Rollup
 
 | Metric | Value |
 |---|---|
-| Total tasks | 4 |
+| Total tasks | 5 |
 | ✅ DONE | 0 |
 | 🔶 IN_PROGRESS | 0 |
 | 👀 VERIFY | 0 |
-| ⬜ TODO | 4 |
+| ⬜ TODO | 5 |
 | 🚫 BLOCKED | 0 |
 | ❌ CANCELLED | 0 |
 | Completion | 0% |
 
-_Last recount: 2026-08-31_
+_Last recount: 2026-09-01_
 
 ---
 
@@ -40,9 +44,10 @@ _Last recount: 2026-08-31_
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| T1 | Phase 1 — Rebrand diff (`orca-baseline/` vs `Fabrica-app/`) → `REBRAND-DIFF-MAP.md` + `.json` | ⬜ | Line-level map of everything we changed. Intent tags: rebrand / custom logic / debrand cleanup / incidental. |
-| T2 | Phase 2 — Upstream diff (`orca-baseline/` vs `upstream-orca/`) → `UPSTREAM-DIFF-MAP.md` + `.json` | ⬜ | Depends on T1. Risk tags: safe / rebrand-touching / conflicting / incompatible. |
-| T3 | Phase 3 — Cross-reference rebrand map + upstream map → `SYNC-IMPLEMENTATION-PLAN.md` | ⬜ | Depends on T1 + T2. Per-change action: port verbatim / port+rebrand / merge / skip+rewrite. |
+| T0 | Update `upstream-orca/` to latest commit; record hash | ⬜ | Pull/fetch latest from confirmed repo + branch (Q1). Record exact commit hash. |
+| T1 | Phase 1 — Upstream diff (`orca-baseline/` vs `upstream-orca/`) → `UPSTREAM-DIFF-MAP.md` + `.json` | ⬜ | Depends on T0. Risk tags: safe / rebrand-touching / conflicting / incompatible. |
+| T2 | Phase 2 — Targeted rebrand diff (`orca-baseline/` vs `Fabrica-app/`, scoped to upstream-touching files) → `REBRAND-DIFF-MAP.md` + `.json` | ⬜ | Depends on T1. Only diff rebrand in files where upstream changed. Intent tags: rebrand / custom logic / debrand cleanup / incidental. |
+| T3 | Phase 3 — Cross-reference upstream map + rebrand map → `SYNC-IMPLEMENTATION-PLAN.md` | ⬜ | Depends on T1 + T2. Per-change action: port verbatim / port+rebrand / merge / skip+rewrite. |
 | T4 | Phase 4 — Sync script + runbook → `UPDATE-SYNC-RUNBOOK.md` | ⬜ | Depends on T1+T2+T3. Repeatable per-release procedure. |
 
 ---
@@ -59,8 +64,8 @@ _Last recount: 2026-08-31_
 
 | Field | Value |
 |---|---|
-| **Current Phase** | Phase 1 — Rebrand Diff |
-| **Current Task** | T1 ready. No progress. |
-| **Next Action** | Dispatch T1 (rebrand diff: orca-baseline vs Fabrica-app → REBRAND-DIFF-MAP). |
-| **Blockers** | None. Discovery + analysis + plans only. |
-| **Last Checkpoint** | 2026-08-31 |
+| **Current Phase** | Phase 0 — Update upstream-orca |
+| **Current Task** | T0 ready. No progress. |
+| **Next Action** | Dispatch T0 (update `upstream-orca/` to latest commit from `stablyai/orca`). |
+| **Blockers** | None — Q1 answered (upstream = `stablyai/orca`, scope includes `stablyai/orca-plugins`). |
+| **Last Checkpoint** | 2026-09-01 |
