@@ -28,13 +28,13 @@ Upstream sources: `https://github.com/stablyai/orca` (the app) and `https://gith
 | Metric | Value |
 |---|---|
 | Total tasks | 5 |
-| ✅ DONE | 0 |
+| ✅ DONE | 1 |
 | 🔶 IN_PROGRESS | 0 |
 | 👀 VERIFY | 0 |
-| ⬜ TODO | 5 |
+| ⬜ TODO | 4 |
 | 🚫 BLOCKED | 0 |
 | ❌ CANCELLED | 0 |
-| Completion | 0% |
+| Completion | 20% |
 
 _Last recount: 2026-09-01_
 
@@ -44,10 +44,10 @@ _Last recount: 2026-09-01_
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| T0 | Update `upstream-orca/` to latest commit; record hash | ⬜ | Pull/fetch latest from confirmed repo + branch (Q1). Record exact commit hash. |
+| T0 | Update `upstream-orca/` to latest commit; record hash | ✅ | Commit `d7123591ce` (2026-09-01, "perf(git): pack the loose refs Orca's own fetches leave behind (#17857)") |
 | T1 | Phase 1 — Upstream diff (`orca-baseline/` vs `upstream-orca/`) → `UPSTREAM-DIFF-MAP.md` + `.json` | ⬜ | Depends on T0. Risk tags: safe / rebrand-touching / conflicting / incompatible. |
 | T2 | Phase 2 — Targeted rebrand diff (`orca-baseline/` vs `Fabrica-app/`, scoped to upstream-touching files) → `REBRAND-DIFF-MAP.md` + `.json` | ⬜ | Depends on T1. Only diff rebrand in files where upstream changed. Intent tags: rebrand / custom logic / debrand cleanup / incidental. |
-| T3 | Phase 3 — Cross-reference upstream map + rebrand map → `SYNC-IMPLEMENTATION-PLAN.md` | ⬜ | Depends on T1 + T2. Per-change action: port verbatim / port+rebrand / merge / skip+rewrite. |
+| T3 | Phase 3 — Cross-reference upstream map + rebrand map → `SYNC-IMPLEMENTATION-PLAN.md` | ⬜ | Depends on T1+T2. Per-change action: port verbatim / port+rebrand / merge / skip+rewrite. |
 | T4 | Phase 4 — Sync script + runbook → `UPDATE-SYNC-RUNBOOK.md` | ⬜ | Depends on T1+T2+T3. Repeatable per-release procedure. |
 
 ---
@@ -57,6 +57,7 @@ _Last recount: 2026-09-01_
 | Task | Session name | task_id | dispatch_id (ctx) | terminal (term) | Status |
 |------|--------------|---------|-------------------|-----------------|--------|
 | init | sub-project-init | task_fabrica_update_init | ctx_local | term_local_fabrica_update_init | ✅ done 2026-08-29 — AGENTS.md + tasks file written; `orca-baseline/` populated; `upstream-orca/` cloned. |
+| T0 | update-upstream-orca | ses_fa023ba56ffeOOLCORRcjQx5zS | — | — | ✅ done 2026-09-01 — upstream-orca/ updated to `d7123591ce` (corrected after verification). |
 
 ---
 
@@ -64,8 +65,8 @@ _Last recount: 2026-09-01_
 
 | Field | Value |
 |---|---|
-| **Current Phase** | Phase 0 — Update upstream-orca |
-| **Current Task** | T0 ready. No progress. |
-| **Next Action** | Dispatch T0 (update `upstream-orca/` to latest commit from `stablyai/orca`). |
-| **Blockers** | None — Q1 answered (upstream = `stablyai/orca`, scope includes `stablyai/orca-plugins`). |
+| **Current Phase** | Phase 1 — Upstream diff analytics |
+| **Current Task** | T0 done. T1 ready to dispatch. |
+| **Next Action** | Dispatch T1 (produce UPSTREAM-DIFF-MAP from orca-baseline/ vs upstream-orca/). |
+| **Blockers** | None — T0 complete, upstream-orca/ at `8b7d778a2e`. |
 | **Last Checkpoint** | 2026-09-01 |
