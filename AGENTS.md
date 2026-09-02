@@ -8,9 +8,9 @@ This is the **Fabrica update pipeline** sub-project — the workspace for analyz
 
 | Directory/File | What It Is |
 |---|---|
-| `orca-baseline/` | Frozen Orca source Fabrica was rebranded from (copy of `.backup/orca`). **Read-only.** |
+| `orca-baseline/` | Frozen Orca source Fabrica was rebranded from (copy of `../.backup/orca`). **Read-only.** |
 | `upstream-orca/` | Current upstream Orca (`stablyai/orca`). **Read-only.** |
-| `.Fabrica-update-board/UPDATE-PIPELINE-PLAN.md` | Master plan: two-diff framework, 4 phases, strict preservation rules. |
+| `.Fabrica-update-board/UPDATE-PIPELINE-PLAN.md` | Master plan: two-diff framework, 3 phases, strict preservation rules. |
 | `.Fabrica-update-board/Fabrica-update-tasks.md` | Task file — single source of truth for execution. |
 
 No deliverables produced yet. This is a read-only analysis workspace.
@@ -32,8 +32,8 @@ Read-only analysis workspace. No build step. Workers use:
 ## Plan
 
 Master plan: `.Fabrica-update-board/UPDATE-PIPELINE-PLAN.md`. Defines:
-- 3 sources (`.backup/orca` baseline, current Fabrica, new upstream Orca).
-- 4 phases: (1) rebrand diff, (2) upstream diff, (3) implementation mapping, (4) sync workflow.
+- 3 sources (`orca-baseline/`, current Fabrica, new upstream Orca).
+- 3 phases: (0) update upstream, (1) upstream diff, (2) targeted rebrand diff, (3) implementation mapping with risk × intent matrix.
 - Strict rules: preserve everything we changed; adapt updates to our patterns; read-only on `orca-baseline/` + `upstream-orca/`.
 
 ## Definition of Done

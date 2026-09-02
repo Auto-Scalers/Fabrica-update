@@ -1,0 +1,6 @@
+﻿{
+  "timestamp": "2026-09-02T19:20:33.8914161+01:00",
+  "total_entries": 15567,
+  "action_counts": {"port_and_rebrand":507,"skip":26,"port_verbatim":13250,"verify_and_remove":423,"merge":1361},
+  "risk_counts": {"rebrand-touching":1894,"safe":13673}
+}

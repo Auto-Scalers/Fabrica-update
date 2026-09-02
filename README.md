@@ -4,7 +4,7 @@ Read-only analysis workspace for the Fabrica update pipeline — maps the Orca�
 
 ## What This Is
 
-- `orca-baseline/` — frozen Orca source Fabrica was rebranded from (copy of `.backup/orca`). Read-only reference.
+- `orca-baseline/` — frozen Orca source Fabrica was rebranded from (copy of `../.backup/orca`). Read-only reference.
 - `upstream-orca/` — current upstream Orca (`stablyai/orca`). Read-only comparison source.
 - `.Fabrica-update-board/` — task file, master plan, and analysis outputs.
 
@@ -22,7 +22,7 @@ orca-baseline/                          # Frozen Orca fork baseline (read-only)
 upstream-orca/                          # Current upstream Orca (read-only)
 .Fabrica-update-board/
   Fabrica-update-tasks.md               # Task file — single source of truth
-  UPDATE-PIPELINE-PLAN.md               # Master plan: 2-diff framework, 4 phases
+  UPDATE-PIPELINE-PLAN.md               # Master plan: 2-diff framework, 3 phases
   .archive/                             # Archived/old tracking files
 AGENTS.md                               # Worker instructions
 ```
@@ -31,10 +31,10 @@ AGENTS.md                               # Worker instructions
 
 | Phase | What | Output |
 |-------|------|--------|
-| 1 | Rebrand diff (`orca-baseline` vs `Fabrica-app`) | `REBRAND-DIFF-MAP.md` + `.json` |
-| 2 | Upstream diff (`orca-baseline` vs `upstream-orca`) | `UPSTREAM-DIFF-MAP.md` + `.json` |
-| 3 | Implementation mapping (cross-reference both diffs) | `SYNC-IMPLEMENTATION-PLAN.md` |
-| 4 | Sync script + runbook | `UPDATE-SYNC-RUNBOOK.md` |
+| 0 | Update upstream Orca to latest commit | `upstream-orca/` at recorded hash |
+| 1 | Upstream diff (`orca-baseline` vs `upstream-orca`) | `UPSTREAM-DIFF-MAP.md` + `.json` |
+| 2 | Targeted rebrand diff (`orca-baseline` vs `Fabrica-app`, scoped to upstream-touching files) | `REBRAND-DIFF-MAP.md` + `.json` |
+| 3 | Implementation mapping (risk × intent matrix → action) | `SYNC-IMPLEMENTATION-PLAN.md` |
 
 ## Related
 

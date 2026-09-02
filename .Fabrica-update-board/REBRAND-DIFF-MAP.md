@@ -1,0 +1,5314 @@
+﻿# Rebrand Diff Map
+
+> Generated: 2026-09-02 19:17
+> Scope: Files changed in upstream (from T1), compared: orca-baseline/ vs Fabrica-app/
+> Intent tags: rebrand / custom_logic / debrand_cleanup / incidental
+
+## Summary
+
+| Category | Count |
+|----------|-------|
+| Upstream-changed files checked | 15144 |
+| Rebrand-modified (we changed) | 1894 |
+| Rebrand-unchanged (safe to port) | 3302 |
+| Fabrica-only (not in baseline) | 0 |
+| Not in Fabrica | 73 |
+
+### Intent Breakdown (rebrand-modified)
+| custom_logic | 1361 |
+| incidental | 26 |
+| rebrand | 507 |
+
+---
+
+## Rebrand-Modified (1894)
+
+Files where upstream changed AND we changed them â€” highest sync risk.
+ - `.gitattributes` [custom_logic]
+ - `.github/CONTRIBUTING.md` [rebrand]
+ - `.github/workflows/computer-e2e.yml` [custom_logic]
+ - `.github/workflows/daemon-relocation-spike.yml` [rebrand]
+ - `.github/workflows/e2e.yml` [custom_logic]
+ - `.github/workflows/golden-e2e-experiment.yml` [custom_logic]
+ - `.github/workflows/linux-wayland-gpu-sandbox.yml` [custom_logic]
+ - `.github/workflows/mobile-android-release.yml` [rebrand]
+ - `.github/workflows/mobile-ios-release.yml` [custom_logic]
+ - `.github/workflows/pr.yml` [custom_logic]
+ - `.github/workflows/release-cut.yml` [rebrand]
+ - `.github/workflows/release-mac-build.yml` [custom_logic]
+ - `.github/workflows/terminal-ime-e2e.yml` [custom_logic]
+ - `.github/workflows/terminal-perf.yml` [custom_logic]
+ - `.github/workflows/win-crash-survival-e2e.yml` [rebrand]
+ - `.github/workflows/windows-signing-rehearsal.yml` [rebrand]
+ - `.github/workflows/windows-terminal-restart-e2e.yml` [custom_logic]
+ - `.github/workflows/win-update-e2e.yml` [rebrand]
+ - `.github/workflows/win-update-survival-e2e.yml` [rebrand]
+ - `AGENTS.md` [rebrand]
+ - `config/build-plugins/plain-node-entry-guard.ts` [custom_logic]
+ - `config/docker/headless-pairing/Dockerfile` [custom_logic]
+ - `config/electron-builder.config.cjs` [rebrand]
+ - `config/localization-coverage-allowlist.json` [custom_logic]
+ - `config/max-lines-baseline.txt` [custom_logic]
+ - `config/packaged-runtime-node-modules.cjs` [incidental]
+ - `config/patches/node-pty@1.1.0.patch` [rebrand]
+ - `config/reliability-gates.jsonc` [rebrand]
+ - `config/scripts/benchmark-artifact-comparison.test.mjs` [custom_logic]
+ - `config/scripts/build-notification-status-macos.mjs` [custom_logic]
+ - `config/scripts/build-windows-cli-launcher.mjs` [rebrand]
+ - `config/scripts/build-windows-cli-launcher.test.mjs` [rebrand]
+ - `config/scripts/check-changed-code-quality.mjs` [custom_logic]
+ - `config/scripts/check-react-doctor-changed.mjs` [custom_logic]
+ - `config/scripts/check-terminal-perf-report-budgets.test.mjs` [custom_logic]
+ - `config/scripts/computer-e2e-workflow.test.mjs` [rebrand]
+ - `config/scripts/computer-use-modifier-safety.test.mjs` [rebrand]
+ - `config/scripts/computer-use-skill-guidance.test.mjs` [custom_logic]
+ - `config/scripts/daemon-boot-smoke.mjs` [custom_logic]
+ - `config/scripts/daily-build-version.mjs` [custom_logic]
+ - `config/scripts/electron-builder-config.test.mjs` [rebrand]
+ - `config/scripts/electron-vite-output-contract.test.ts` [custom_logic]
+ - `config/scripts/ensure-native-runtime.mjs` [rebrand]
+ - `config/scripts/ensure-native-runtime.test.mjs` [rebrand]
+ - `config/scripts/generate-bundled-skill-guides.mjs` [rebrand]
+ - `config/scripts/generate-bundled-skill-guides.test.mjs` [rebrand]
+ - `config/scripts/git-binary-compatibility-workflow.test.mjs` [custom_logic]
+ - `config/scripts/git-diff-blob-concurrency-benchmark.mjs` [custom_logic]
+ - `config/scripts/install-electron-package-binary.mjs` [custom_logic]
+ - `config/scripts/install-electron-package-binary.test.mjs` [custom_logic]
+ - `config/scripts/legacy-worker-recovery-persistence-benchmark.mjs` [custom_logic]
+ - `config/scripts/locale-ja-phrase-fixes.mjs` [rebrand]
+ - `config/scripts/locale-key-overrides.mjs` [rebrand]
+ - `config/scripts/locale-ko-key-overrides.json` [rebrand]
+ - `config/scripts/locale-ko-value-overrides.mjs` [rebrand]
+ - `config/scripts/locale-translation-policy.es-pr.test.mjs` [rebrand]
+ - `config/scripts/locale-translation-policy.ja-relocalization.test.mjs` [custom_logic]
+ - `config/scripts/locale-translation-policy.mjs` [rebrand]
+ - `config/scripts/locale-translation-policy.zh-round5.test.mjs` [rebrand]
+ - `config/scripts/locale-zh-phrase-fixes-round5.mjs` [rebrand]
+ - `config/scripts/locale-zh-value-overrides.mjs` [rebrand]
+ - `config/scripts/macos-computer-helper-owner-loss-benchmark.mjs` [rebrand]
+ - `config/scripts/mjpeg-frame-parser-alloc-benchmark.mjs` [custom_logic]
+ - `config/scripts/mobile-pairing-qrcode-import-plugin.test.mjs` [custom_logic]
+ - `config/scripts/orchestration-skill-guidance.test.mjs` [rebrand]
+ - `config/scripts/package-electron-runtime-contract.test.mjs` [custom_logic]
+ - `config/scripts/plain-node-entry-guard.test.ts` [custom_logic]
+ - `config/scripts/pr-workflow-parallelism.test.mjs` [custom_logic]
+ - `config/scripts/rebuild-native-deps.mjs` [rebrand]
+ - `config/scripts/rebuild-native-deps.test.mjs` [rebrand]
+ - `config/scripts/relay-watcher-fault-harness.mjs` [custom_logic]
+ - `config/scripts/remote-shared-control-retirement-probe.ts` [custom_logic]
+ - `config/scripts/run-codex-real-account-validation.mjs` [custom_logic]
+ - `config/scripts/run-electron-vite-dev.mjs` [rebrand]
+ - `config/scripts/run-electron-vite-targets-in-parallel.mjs` [custom_logic]
+ - `config/scripts/run-idle-cpu-benchmark.mjs` [rebrand]
+ - `config/scripts/run-ssh-docker-bulk-open-freeze-e2e.mjs` [custom_logic]
+ - `config/scripts/run-ssh-docker-terminal-parking-e2e.mjs` [custom_logic]
+ - `config/scripts/run-ssh-staged-upload-reliability.mjs` [custom_logic]
+ - `config/scripts/run-terminal-ibus-hangul-e2e.mjs` [custom_logic]
+ - `config/scripts/skills-cli-package-workflow.test.mjs` [custom_logic]
+ - `config/scripts/smoke-packaged-hang-watchdog-worker.mjs` [rebrand]
+ - `config/scripts/terminal-e2e-helpers.mjs` [rebrand]
+ - `config/scripts/verify-agent-hook-stdin-lifecycle.mjs` [rebrand]
+ - `config/scripts/verify-cli-bin.mjs` [custom_logic]
+ - `config/scripts/verify-computer-native.mjs` [rebrand]
+ - `config/scripts/verify-linux-glibc-floor.cjs` [rebrand]
+ - `config/scripts/verify-linux-glibc-floor.test.mjs` [custom_logic]
+ - `config/scripts/verify-linux-wayland-gpu-sandbox.mjs` [custom_logic]
+ - `config/scripts/verify-telemetry-constants.mjs` [rebrand]
+ - `config/scripts/windows-apphang-repro/wsl-workspace-fixture.mjs` [rebrand]
+ - `config/scripts/windows-signing-workflow-contract.test.mjs` [custom_logic]
+ - `config/scripts/wsl-git-shell-benchmark.mjs` [custom_logic]
+ - `config/vitest.config.ts` [custom_logic]
+ - `docs/readme/README.es.md` [rebrand]
+ - `docs/readme/README.fr.md` [rebrand]
+ - `docs/readme/README.ja.md` [rebrand]
+ - `docs/readme/README.ko.md` [rebrand]
+ - `docs/readme/README.pt.md` [rebrand]
+ - `docs/readme/README.zh-CN.md` [rebrand]
+ - `docs/reference/git-compatibility.md` [rebrand]
+ - `docs/reference/headless-linux-server.md` [rebrand]
+ - `docs/reference/linux-glibc-compatibility.md` [rebrand]
+ - `docs/reference/remote-wire-compatibility.md` [rebrand]
+ - `docs/reference/windows-setup-shell.md` [rebrand]
+ - `docs/STYLEGUIDE.md` [rebrand]
+ - `electron.vite.config.ts` [custom_logic]
+ - `mobile/app.json` [rebrand]
+ - `mobile/app/index.tsx` [rebrand]
+ - `mobile/app/pair-scan.tsx` [custom_logic]
+ - `mobile/fastlane/Fastfile` [rebrand]
+ - `mobile/package.json` [custom_logic]
+ - `mobile/pnpm-lock.yaml` [custom_logic]
+ - `mobile/scripts/mock-server-rpc-handlers.ts` [custom_logic]
+ - `mobile/scripts/repro-terminal-colors.ts` [custom_logic]
+ - `mobile/scripts/repro-worktree-startup-stream.ts` [custom_logic]
+ - `mobile/src/agent-history/MobileAgentSessionHistoryPanel.tsx` [custom_logic]
+ - `mobile/src/browser/browser-url.test.ts` [custom_logic]
+ - `mobile/src/browser/MobileBrowserPane.tsx` [custom_logic]
+ - `mobile/src/components/CustomKeyModal.tsx` [custom_logic]
+ - `mobile/src/components/MobileHostCard.test.tsx` [custom_logic]
+ - `mobile/src/components/MobileHostCard.tsx` [custom_logic]
+ - `mobile/src/components/mobile-markdown-preview-html.ts` [custom_logic]
+ - `mobile/src/components/MobileRichMarkdownEditor.tsx` [custom_logic]
+ - `mobile/src/components/mobile-rich-markdown-editor-html.ts` [custom_logic]
+ - `mobile/src/components/NewWorktreeModal.test.tsx` [custom_logic]
+ - `mobile/src/components/NewWorktreeModal.tsx` [custom_logic]
+ - `mobile/src/components/WorktreeListRow.test.ts` [custom_logic]
+ - `mobile/src/components/WorktreeListRow.tsx` [custom_logic]
+ - `mobile/src/diagnostics/connection-diagnostics-report.test.ts` [custom_logic]
+ - `mobile/src/diagnostics/connection-diagnostics-report.ts` [custom_logic]
+ - `mobile/src/files/mobile-file-preview-route.test.ts` [custom_logic]
+ - `mobile/src/hooks/use-mobile-dictation.ts` [custom_logic]
+ - `mobile/src/hooks/use-mobile-dictation-source.test.ts` [custom_logic]
+ - `mobile/src/session/ai-vault-resume-launch.test.ts` [custom_logic]
+ - `mobile/src/session/mobile-diff-review-loaders.ts` [custom_logic]
+ - `mobile/src/session/mobile-native-chat-send.test.ts` [custom_logic]
+ - `mobile/src/session/mobile-session-route.test.ts` [custom_logic]
+ - `mobile/src/session/mobile-session-route-types.ts` [custom_logic]
+ - `mobile/src/session/mobile-session-startup-source.test.ts` [rebrand]
+ - `mobile/src/session/use-mobile-file-tap-handlers.test.ts` [custom_logic]
+ - `mobile/src/session/use-mobile-native-chat-message-send.ts` [custom_logic]
+ - `mobile/src/tasks/github-project-host-routing-source.test.ts` [incidental]
+ - `mobile/src/tasks/setup-hook-trust.test.ts` [custom_logic]
+ - `mobile/src/tasks/setup-hook-trust.ts` [custom_logic]
+ - `mobile/src/terminal/terminal-ios-dictation-write-back.test.ts` [rebrand]
+ - `mobile/src/terminal/terminal-webview-html.ts` [custom_logic]
+ - `mobile/src/terminal/terminal-webview-text-zoom.test.ts` [incidental]
+ - `mobile/src/transport/mobile-endpoint-supervisor.test.ts` [custom_logic]
+ - `mobile/src/transport/mobile-endpoint-supervisor-test-fakes.ts` [custom_logic]
+ - `mobile/src/transport/mobile-relay-host-overlay-store.ts` [custom_logic]
+ - `mobile/src/transport/mobile-relay-invite-director.test.ts` [custom_logic]
+ - `mobile/src/transport/mobile-relay-physical-client.test.ts` [custom_logic]
+ - `mobile/src/transport/mobile-relay-resume-director.test.ts` [custom_logic]
+ - `mobile/src/transport/mobile-relay-rpc-session.test.ts` [custom_logic]
+ - `mobile/src/transport/mobile-relay-runtime-failover.test.ts` [custom_logic]
+ - `mobile/src/transport/pairing-relay-candidate.test.ts` [custom_logic]
+ - `mobile/src/transport/pre-profile-pairing-coordinator.test.ts` [custom_logic]
+ - `mobile/src/transport/rpc-client.test.ts` [custom_logic]
+ - `mobile/src/transport/rpc-client.ts` [custom_logic]
+ - `mobile/src/transport/rpc-client-live-recovery.test.ts` [custom_logic]
+ - `mobile/src/worktree/home-resume-card.test.ts` [custom_logic]
+ - `mobile/src/worktree/mobile-workspace-lineage.test.ts` [custom_logic]
+ - `mobile/src/worktree/workspace-list-sections.test.ts` [custom_logic]
+ - `mobile/src/worktree/worktree-list-snapshot.test.ts` [custom_logic]
+ - `native/computer-use-windows/runtime.ps1` [rebrand]
+ - `package.json` [rebrand]
+ - `pnpm-lock.yaml` [custom_logic]
+ - `README.md` [rebrand]
+ - `resources/linux/packaging/after-install.sh` [rebrand]
+ - `resources/linux/packaging/after-remove.sh` [rebrand]
+ - `resources/skills/current-manifest.json` [custom_logic]
+ - `resources/skills/snapshot-registry.json` [custom_logic]
+ - `src/cli/args.test.ts` [custom_logic]
+ - `src/cli/browser.test.ts` [custom_logic]
+ - `src/cli/bundled-skill-guides.ts` [rebrand]
+ - `src/cli/command-suggestion.ts` [custom_logic]
+ - `src/cli/computer-format.ts` [custom_logic]
+ - `src/cli/format.test.ts` [rebrand]
+ - `src/cli/format.ts` [custom_logic]
+ - `src/cli/format-recovery.test.ts` [custom_logic]
+ - `src/cli/handlers/account.ts` [rebrand]
+ - `src/cli/handlers/agent-hooks.test.ts` [custom_logic]
+ - `src/cli/handlers/agent-hooks.ts` [custom_logic]
+ - `src/cli/handlers/automations.ts` [custom_logic]
+ - `src/cli/handlers/browser-tab.ts` [custom_logic]
+ - `src/cli/handlers/computer-action-routing.test.ts` [custom_logic]
+ - `src/cli/handlers/core.ts` [rebrand]
+ - `src/cli/handlers/emulator.test.ts` [custom_logic]
+ - `src/cli/handlers/file-absolute-paths.test.ts` [custom_logic]
+ - `src/cli/handlers/linear.test.ts` [custom_logic]
+ - `src/cli/handlers/orchestration.test.ts` [custom_logic]
+ - `src/cli/handlers/orchestration.ts` [rebrand]
+ - `src/cli/handlers/orchestration-gate-cli.test.ts` [custom_logic]
+ - `src/cli/handlers/orchestration-migration.test.ts` [custom_logic]
+ - `src/cli/handlers/skills.ts` [rebrand]
+ - `src/cli/handlers/terminal.test.ts` [custom_logic]
+ - `src/cli/handlers/terminal.ts` [custom_logic]
+ - `src/cli/handlers/vm.ts` [rebrand]
+ - `src/cli/handlers/worktree.ts` [rebrand]
+ - `src/cli/help.ts` [rebrand]
+ - `src/cli/index.test.ts` [rebrand]
+ - `src/cli/index.ts` [custom_logic]
+ - `src/cli/linear-request-builders.ts` [custom_logic]
+ - `src/cli/runtime/client.ts` [rebrand]
+ - `src/cli/runtime/launch.test.ts` [rebrand]
+ - `src/cli/runtime/launch.ts` [rebrand]
+ - `src/cli/runtime/serve-signal-exit-diagnostic.test.ts` [rebrand]
+ - `src/cli/runtime/serve-update-supervisor.ts` [rebrand]
+ - `src/cli/runtime/status.test.ts` [custom_logic]
+ - `src/cli/runtime/status.ts` [custom_logic]
+ - `src/cli/runtime/transport.test.ts` [custom_logic]
+ - `src/cli/runtime/websocket-transport.test.ts` [custom_logic]
+ - `src/cli/runtime-client.test.ts` [custom_logic]
+ - `src/cli/runtime-client-deferral.test.ts` [custom_logic]
+ - `src/cli/selectors.ts` [rebrand]
+ - `src/cli/serve-electron-flag-parity.test.ts` [custom_logic]
+ - `src/cli/skills.test.ts` [rebrand]
+ - `src/cli/specs/agent-hooks.ts` [rebrand]
+ - `src/cli/specs/automations.ts` [rebrand]
+ - `src/cli/specs/browser-basic.ts` [custom_logic]
+ - `src/cli/specs/core.ts` [rebrand]
+ - `src/cli/specs/environment.ts` [rebrand]
+ - `src/cli/specs/linear-mcp.ts` [custom_logic]
+ - `src/cli/specs/orchestration.ts` [rebrand]
+ - `src/cli/specs/orchestration-worker-specs.ts` [rebrand]
+ - `src/cli/specs/project.ts` [rebrand]
+ - `src/cli/specs/skills.ts` [rebrand]
+ - `src/main/agent-hooks/first-work-branch-rename.test.ts` [custom_logic]
+ - `src/main/agent-hooks/first-work-branch-rename.ts` [custom_logic]
+ - `src/main/agent-hooks/first-work-branch-rename-test-harness.ts` [custom_logic]
+ - `src/main/agent-hooks/first-work-folder-rename.test.ts` [custom_logic]
+ - `src/main/agent-hooks/first-work-folder-rename.ts` [custom_logic]
+ - `src/main/agent-hooks/hook-stdin-contract.ts` [custom_logic]
+ - `src/main/agent-hooks/installer-utils.test.ts` [custom_logic]
+ - `src/main/agent-hooks/installer-utils.ts` [custom_logic]
+ - `src/main/agent-hooks/managed-agent-hook-controls.ts` [custom_logic]
+ - `src/main/agent-hooks/managed-agent-hook-registry.ts` [custom_logic]
+ - `src/main/agent-hooks/managed-hook-local-filesystem.test.ts` [custom_logic]
+ - `src/main/agent-hooks/managed-hook-owner-identity.ts` [custom_logic]
+ - `src/main/agent-hooks/managed-hook-runtime.test.ts` [custom_logic]
+ - `src/main/agent-hooks/managed-hook-stdin-lifecycle.test.ts` [custom_logic]
+ - `src/main/agent-hooks/manual-compact-hook-stream.test.ts` [custom_logic]
+ - `src/main/agent-hooks/remote-hook-service-installers.test.ts` [custom_logic]
+ - `src/main/agent-hooks/remote-managed-hook-installers.ts` [custom_logic]
+ - `src/main/agent-hooks/restored-subagent-liveness-sweep.test.ts` [custom_logic]
+ - `src/main/agent-hooks/server.ts` [custom_logic]
+ - `src/main/agent-hooks/server-grok-discovery.test.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-fs-adapter.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-relay-deps.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-relay-guest-install.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-relay-launch.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-relay-live.integration.test.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-relay-manager.test.ts` [custom_logic]
+ - `src/main/agent-hooks/wsl-hook-relay-manager.ts` [custom_logic]
+ - `src/main/agent-trust-presets.test.ts` [custom_logic]
+ - `src/main/agent-trust-presets.ts` [custom_logic]
+ - `src/main/ai-vault/cached-session-list.ts` [custom_logic]
+ - `src/main/ai-vault/codex-session-root-dedup.test.ts` [custom_logic]
+ - `src/main/ai-vault/codex-session-root-dedup.ts` [custom_logic]
+ - `src/main/ai-vault/remote-session-scanner.test.ts` [custom_logic]
+ - `src/main/ai-vault/remote-session-scanner-sources.ts` [custom_logic]
+ - `src/main/ai-vault/session-delete-target.test.ts` [custom_logic]
+ - `src/main/ai-vault/session-parse-cache-persistence.test.ts` [custom_logic]
+ - `src/main/ai-vault/session-scanner.test.ts` [custom_logic]
+ - `src/main/ai-vault/session-scanner-agent-sources.ts` [rebrand]
+ - `src/main/ai-vault/session-scanner-background.ts` [custom_logic]
+ - `src/main/ai-vault/session-scanner-parse-cache-agents.test.ts` [custom_logic]
+ - `src/main/amp/hook-service.ts` [rebrand]
+ - `src/main/antigravity/hook-service.test.ts` [custom_logic]
+ - `src/main/antigravity/hook-service.ts` [custom_logic]
+ - `src/main/artifacts/artifact-cloud-request.ts` [custom_logic]
+ - `src/main/artifacts/artifact-cloud-service.ts` [rebrand]
+ - `src/main/artifacts/artifact-publisher.ts` [custom_logic]
+ - `src/main/artifacts/artifact-share-record-store.ts` [custom_logic]
+ - `src/main/automations/headless-workspace-create.test.ts` [custom_logic]
+ - `src/main/automations/headless-workspace-create.ts` [custom_logic]
+ - `src/main/automations/hermes-cron-output.ts` [custom_logic]
+ - `src/main/automations/run-target-resolution.ts` [rebrand]
+ - `src/main/automations/service.test.ts` [custom_logic]
+ - `src/main/automations/service.ts` [rebrand]
+ - `src/main/automations/service-precheck.test.ts` [custom_logic]
+ - `src/main/bitbucket/client.test.ts` [custom_logic]
+ - `src/main/bitbucket/client.ts` [custom_logic]
+ - `src/main/browser/agent-browser-bridge.ts` [custom_logic]
+ - `src/main/browser/browser-backend.ts` [custom_logic]
+ - `src/main/browser/browser-clicked-link-routing.test.ts` [custom_logic]
+ - `src/main/browser/browser-clicked-link-routing.ts` [custom_logic]
+ - `src/main/browser/browser-cookie-import.test.ts` [custom_logic]
+ - `src/main/browser/browser-cookie-import.ts` [rebrand]
+ - `src/main/browser/browser-cookie-import-replacement.test.ts` [custom_logic]
+ - `src/main/browser/browser-download-destination.test.ts` [custom_logic]
+ - `src/main/browser/browser-manager.ts` [rebrand]
+ - `src/main/browser/browser-session-permission-policy.ts` [custom_logic]
+ - `src/main/browser/browser-session-registry.persistence.test.ts` [custom_logic]
+ - `src/main/browser/browser-session-registry.test.ts` [custom_logic]
+ - `src/main/browser/browser-session-registry.ts` [custom_logic]
+ - `src/main/browser/browser-session-startup.test.ts` [custom_logic]
+ - `src/main/browser/browser-session-startup.ts` [custom_logic]
+ - `src/main/browser/browser-session-ua.ts` [custom_logic]
+ - `src/main/browser/browser-webauthn-access.ts` [custom_logic]
+ - `src/main/browser/cdp-bridge.ts` [rebrand]
+ - `src/main/browser/cdp-bridge-integration.test.ts` [custom_logic]
+ - `src/main/browser/cdp-print-to-pdf.test.ts` [custom_logic]
+ - `src/main/browser/cdp-print-to-pdf.ts` [custom_logic]
+ - `src/main/browser/cdp-ws-proxy.test.ts` [custom_logic]
+ - `src/main/browser/cdp-ws-proxy.ts` [rebrand]
+ - `src/main/browser/grab-guest-script.test.ts` [custom_logic]
+ - `src/main/browser/grab-guest-script.ts` [custom_logic]
+ - `src/main/browser/offscreen-browser-backend.ts` [custom_logic]
+ - `src/main/browser/popup-origin-bar-window.ts` [custom_logic]
+ - `src/main/browser/snapshot-engine.ts` [custom_logic]
+ - `src/main/claude/hook-service.test.ts` [custom_logic]
+ - `src/main/claude/hook-service.ts` [custom_logic]
+ - `src/main/claude/hook-settings.ts` [custom_logic]
+ - `src/main/claude/statusline-script.ts` [custom_logic]
+ - `src/main/claude-accounts/runtime-auth-service.ts` [rebrand]
+ - `src/main/claude-accounts/service.ts` [rebrand]
+ - `src/main/claude-usage/scanner.test.ts` [custom_logic]
+ - `src/main/claude-usage/scanner-large-directory.test.ts` [custom_logic]
+ - `src/main/claude-usage/store.test.ts` [custom_logic]
+ - `src/main/claude-usage/store.ts` [custom_logic]
+ - `src/main/cli/cli-installer.test.ts` [custom_logic]
+ - `src/main/cli/cli-installer.ts` [rebrand]
+ - `src/main/cli/packaged-cli-assets.test.ts` [custom_logic]
+ - `src/main/cli/wsl-cli-installer.test.ts` [rebrand]
+ - `src/main/cli/wsl-cli-installer.ts` [rebrand]
+ - `src/main/cli/wsl-cli-scripts.ts` [rebrand]
+ - `src/main/codex/codex-app-server-capability-cache.ts` [custom_logic]
+ - `src/main/codex/codex-app-server-client.test.ts` [custom_logic]
+ - `src/main/codex/codex-app-server-client.ts` [custom_logic]
+ - `src/main/codex/codex-app-server-session.ts` [rebrand]
+ - `src/main/codex/codex-config-mirror.test.ts` [custom_logic]
+ - `src/main/codex/codex-config-mirror.ts` [custom_logic]
+ - `src/main/codex/codex-home-paths.ts` [rebrand]
+ - `src/main/codex/codex-hook-trust-grant.test.ts` [custom_logic]
+ - `src/main/codex/codex-hook-trust-grant.ts` [custom_logic]
+ - `src/main/codex/codex-legacy-session-resume.test.ts` [custom_logic]
+ - `src/main/codex/codex-legacy-session-resume.ts` [rebrand]
+ - `src/main/codex/codex-pane-account-registry.ts` [custom_logic]
+ - `src/main/codex/codex-pane-launch-account.ts` [custom_logic]
+ - `src/main/codex/codex-real-home-hook-install.test.ts` [custom_logic]
+ - `src/main/codex/codex-real-home-hook-install.ts` [rebrand]
+ - `src/main/codex/codex-real-home-path.test.ts` [custom_logic]
+ - `src/main/codex/codex-real-home-path.ts` [custom_logic]
+ - `src/main/codex/codex-session-backfill.test.ts` [custom_logic]
+ - `src/main/codex/codex-session-backfill.ts` [custom_logic]
+ - `src/main/codex/codex-session-index-heal.test.ts` [custom_logic]
+ - `src/main/codex/codex-session-index-heal.ts` [custom_logic]
+ - `src/main/codex/codex-session-resume-home.test.ts` [rebrand]
+ - `src/main/codex/codex-session-resume-home.ts` [custom_logic]
+ - `src/main/codex/codex-session-source-home.ts` [custom_logic]
+ - `src/main/codex/codex-stale-pane-accounts.test.ts` [custom_logic]
+ - `src/main/codex/codex-state-db-backfill-recovery.test.ts` [custom_logic]
+ - `src/main/codex/codex-state-db-backfill-recovery.ts` [custom_logic]
+ - `src/main/codex/codex-trust-grant-ledger.ts` [custom_logic]
+ - `src/main/codex/codex-user-hook-trust-rebase.test.ts` [custom_logic]
+ - `src/main/codex/codex-wsl-hook-install-plan.test.ts` [custom_logic]
+ - `src/main/codex/codex-wsl-hook-install-plan.ts` [custom_logic]
+ - `src/main/codex/config-settings-baseline.ts` [custom_logic]
+ - `src/main/codex/config-settings-promotion.ts` [custom_logic]
+ - `src/main/codex/config-sync-stall.test.ts` [custom_logic]
+ - `src/main/codex/config-sync-stall.ts` [custom_logic]
+ - `src/main/codex/config-toml-trust.ts` [custom_logic]
+ - `src/main/codex/hook-service.ts` [custom_logic]
+ - `src/main/codex/hook-service-trust-grant.test.ts` [custom_logic]
+ - `src/main/codex/hook-service-wsl-runtime.test.ts` [custom_logic]
+ - `src/main/codex/hook-trust-promotion.test.ts` [custom_logic]
+ - `src/main/codex/hook-trust-promotion.ts` [custom_logic]
+ - `src/main/codex/retained-codex-hook-state.test.ts` [custom_logic]
+ - `src/main/codex/wsl-codex-session-bridge.test.ts` [custom_logic]
+ - `src/main/codex-accounts/host-codex-managed-home-ownership.ts` [rebrand]
+ - `src/main/codex-accounts/legacy-shared-auth-migration.test.ts` [custom_logic]
+ - `src/main/codex-accounts/managed-codex-auth-readiness.test.ts` [custom_logic]
+ - `src/main/codex-accounts/runtime-home-mirrored-status-home.test.ts` [custom_logic]
+ - `src/main/codex-accounts/runtime-home-service.ts` [custom_logic]
+ - `src/main/codex-accounts/runtime-home-service-per-account-migration.test.ts` [custom_logic]
+ - `src/main/codex-accounts/runtime-home-windows-profile-ownership.test.ts` [custom_logic]
+ - `src/main/codex-accounts/service.test.ts` [rebrand]
+ - `src/main/codex-accounts/service.ts` [rebrand]
+ - `src/main/codex-accounts/wsl-codex-command.test.ts` [custom_logic]
+ - `src/main/codex-cli/command.test.ts` [custom_logic]
+ - `src/main/codex-usage/scanner.ts` [custom_logic]
+ - `src/main/codex-usage/scanner-large-directory.test.ts` [custom_logic]
+ - `src/main/codex-usage/scanner-paths.test.ts` [rebrand]
+ - `src/main/codex-usage/store.ts` [custom_logic]
+ - `src/main/command-code/command-code-managed-script.ts` [rebrand]
+ - `src/main/command-code/hook-service.test.ts` [custom_logic]
+ - `src/main/computer/macos-native-provider-transport.ts` [custom_logic]
+ - `src/main/computer/sidecar-client.ts` [custom_logic]
+ - `src/main/copilot/hook-service.ts` [custom_logic]
+ - `src/main/crash-reporting/crash-report-store.test.ts` [custom_logic]
+ - `src/main/crash-reporting/process-gone-classification.test.ts` [custom_logic]
+ - `src/main/crash-reporting/process-gone-classification.ts` [custom_logic]
+ - `src/main/crash-reporting/process-gone-recorder.test.ts` [custom_logic]
+ - `src/main/cursor/hook-service.test.ts` [custom_logic]
+ - `src/main/cursor/hook-service.ts` [custom_logic]
+ - `src/main/daemon/client.test.ts` [rebrand]
+ - `src/main/daemon/daemon-entry.ts` [custom_logic]
+ - `src/main/daemon/daemon-health.test.ts` [custom_logic]
+ - `src/main/daemon/daemon-health.ts` [custom_logic]
+ - `src/main/daemon/daemon-host-relocation.test.ts` [rebrand]
+ - `src/main/daemon/daemon-host-relocation.ts` [rebrand]
+ - `src/main/daemon/daemon-init.ts` [custom_logic]
+ - `src/main/daemon/daemon-process-inspection.test.ts` [custom_logic]
+ - `src/main/daemon/daemon-pty-adapter.test.ts` [custom_logic]
+ - `src/main/daemon/daemon-pty-adapter.ts` [custom_logic]
+ - `src/main/daemon/daemon-spawner.test.ts` [custom_logic]
+ - `src/main/daemon/daemon-spawner.ts` [custom_logic]
+ - `src/main/daemon/daemon-stream-droppability-lifecycle.test.ts` [custom_logic]
+ - `src/main/daemon/daemon-tcc-attribution.test.ts` [custom_logic]
+ - `src/main/daemon/headless-emulator.ts` [custom_logic]
+ - `src/main/daemon/node-pty-error-hints.test.ts` [rebrand]
+ - `src/main/daemon/node-pty-fd-leak.test.ts` [custom_logic]
+ - `src/main/daemon/pty-subprocess.test.ts` [custom_logic]
+ - `src/main/daemon/pty-subprocess.ts` [rebrand]
+ - `src/main/daemon/pty-subprocess-foreground-degraded-scan.test.ts` [custom_logic]
+ - `src/main/daemon/pty-subprocess-foreground-scan-cadence.test.ts` [custom_logic]
+ - `src/main/daemon/session.test.ts` [custom_logic]
+ - `src/main/daemon/session-ingest-throughput.bench.test.ts` [custom_logic]
+ - `src/main/daemon/session-terminal-control.test.ts` [custom_logic]
+ - `src/main/daemon/shell-ready.test.ts` [custom_logic]
+ - `src/main/daemon/shell-ready.ts` [custom_logic]
+ - `src/main/daemon/terminal-host.test.ts` [custom_logic]
+ - `src/main/daemon/terminal-host-session-create.ts` [custom_logic]
+ - `src/main/devin/hook-config-json.ts` [custom_logic]
+ - `src/main/devin/hook-service.test.ts` [custom_logic]
+ - `src/main/devin/hook-service.ts` [custom_logic]
+ - `src/main/diagnostics/main-thread-churn-probe.ts` [custom_logic]
+ - `src/main/droid/hook-service.test.ts` [custom_logic]
+ - `src/main/droid/hook-service.ts` [custom_logic]
+ - `src/main/emulator/emulator-bridge.test.ts` [custom_logic]
+ - `src/main/emulator/emulator-bridge.ts` [custom_logic]
+ - `src/main/emulator/serve-sim-execution.ts` [custom_logic]
+ - `src/main/ephemeral-vm-recipe-runner.test.ts` [custom_logic]
+ - `src/main/ephemeral-vm-runtime-service.test.ts` [custom_logic]
+ - `src/main/ephemeral-vm-runtime-service.ts` [custom_logic]
+ - `src/main/gemini/hook-service.test.ts` [custom_logic]
+ - `src/main/gemini/hook-service.ts` [custom_logic]
+ - `src/main/ghostty/index.ts` [custom_logic]
+ - `src/main/ghostty/mapper.ts` [custom_logic]
+ - `src/main/git/remote.test.ts` [rebrand]
+ - `src/main/git/remote.ts` [custom_logic]
+ - `src/main/git/remote-url-probe.test.ts` [custom_logic]
+ - `src/main/git/remove-worktree.test.ts` [custom_logic]
+ - `src/main/git/repo.test.ts` [custom_logic]
+ - `src/main/git/runner.ts` [custom_logic]
+ - `src/main/git/runner-command-exec.test.ts` [rebrand]
+ - `src/main/git/runner-wsl-direct-read.test.ts` [custom_logic]
+ - `src/main/git/runner-wsl-gh-fallback.test.ts` [rebrand]
+ - `src/main/git/status.test.ts` [custom_logic]
+ - `src/main/git/status.ts` [custom_logic]
+ - `src/main/git/upstream.test.ts` [rebrand]
+ - `src/main/git/worktree.ts` [custom_logic]
+ - `src/main/git/worktree-shared-directories.test.ts` [custom_logic]
+ - `src/main/git/worktree-shared-directories.ts` [custom_logic]
+ - `src/main/git/worktree-sparse-checkout.test.ts` [custom_logic]
+ - `src/main/git/wsl-git-read-environment.ts` [custom_logic]
+ - `src/main/github/auth-diagnose.ts` [custom_logic]
+ - `src/main/github/client.ts` [rebrand]
+ - `src/main/github/client-pr-local-runtime.test.ts` [rebrand]
+ - `src/main/github/client-work-items.test.ts` [rebrand]
+ - `src/main/github/conflict-summary.ts` [custom_logic]
+ - `src/main/github/gh-utils.test.ts` [rebrand]
+ - `src/main/github/github-enterprise-repository.test.ts` [custom_logic]
+ - `src/main/github/github-pr-stack.test.ts` [rebrand]
+ - `src/main/github/github-repository-identity.ssh-host-alias.test.ts` [custom_logic]
+ - `src/main/github/issues.test.ts` [rebrand]
+ - `src/main/github/project-view.ts` [rebrand]
+ - `src/main/github/pr-refresh-coordinator.ts` [incidental]
+ - `src/main/github/work-item-details-pr-files.test.ts` [rebrand]
+ - `src/main/gitlab/gl-utils.test.ts` [rebrand]
+ - `src/main/gitlab/issues.test.ts` [rebrand]
+ - `src/main/gitlab/work-item-details.ts` [custom_logic]
+ - `src/main/global-fetch-call-site-audit.test.ts` [custom_logic]
+ - `src/main/grok/hook-service.test.ts` [custom_logic]
+ - `src/main/grok/hook-service.ts` [custom_logic]
+ - `src/main/grok/windows-grok-hook-script.test.ts` [custom_logic]
+ - `src/main/grok/windows-grok-hook-script.ts` [custom_logic]
+ - `src/main/hermes/hook-service.ts` [rebrand]
+ - `src/main/hooks.test.ts` [custom_logic]
+ - `src/main/hooks.ts` [rebrand]
+ - `src/main/hooks-runner.test.ts` [custom_logic]
+ - `src/main/host-tree-removal.ts` [custom_logic]
+ - `src/main/index.ts` [rebrand]
+ - `src/main/ipc/agent-hooks.ts` [custom_logic]
+ - `src/main/ipc/browser-session-profile-ipc.test.ts` [custom_logic]
+ - `src/main/ipc/cli.ts` [custom_logic]
+ - `src/main/ipc/codex-config-sync.test.ts` [custom_logic]
+ - `src/main/ipc/crash-reporting.test.ts` [custom_logic]
+ - `src/main/ipc/crash-reporting-renderer-breadcrumbs.test.ts` [custom_logic]
+ - `src/main/ipc/created-worktree-reconciliation.test.ts` [custom_logic]
+ - `src/main/ipc/dashboard-payload-validation.test.ts` [custom_logic]
+ - `src/main/ipc/ephemeral-vm.test.ts` [custom_logic]
+ - `src/main/ipc/ephemeral-vm.ts` [custom_logic]
+ - `src/main/ipc/ephemeral-vm-recipe-context.ts` [custom_logic]
+ - `src/main/ipc/ephemeral-vm-runtime-handlers.ts` [rebrand]
+ - `src/main/ipc/filesystem.test.ts` [custom_logic]
+ - `src/main/ipc/filesystem-auth.test.ts` [custom_logic]
+ - `src/main/ipc/filesystem-import-ssh.ts` [rebrand]
+ - `src/main/ipc/filesystem-import-ssh-path-safety.test.ts` [custom_logic]
+ - `src/main/ipc/filesystem-list-files.test.ts` [incidental]
+ - `src/main/ipc/filesystem-list-files-git-directory-expansion.test.ts` [custom_logic]
+ - `src/main/ipc/filesystem-mutations.ts` [custom_logic]
+ - `src/main/ipc/filesystem-watcher-real.test.ts` [custom_logic]
+ - `src/main/ipc/filesystem-watcher-wsl.ts` [custom_logic]
+ - `src/main/ipc/floating-workspace-directory.test.ts` [custom_logic]
+ - `src/main/ipc/github.ts` [custom_logic]
+ - `src/main/ipc/gitlab.test.ts` [rebrand]
+ - `src/main/ipc/hosted-review.test.ts` [custom_logic]
+ - `src/main/ipc/hosted-review.ts` [custom_logic]
+ - `src/main/ipc/mobile.test.ts` [custom_logic]
+ - `src/main/ipc/mobile.ts` [custom_logic]
+ - `src/main/ipc/native-chat.test.ts` [custom_logic]
+ - `src/main/ipc/notification-options.ts` [rebrand]
+ - `src/main/ipc/notifications.ts` [rebrand]
+ - `src/main/ipc/parcel-watcher-entry-path.test.ts` [custom_logic]
+ - `src/main/ipc/parcel-watcher-process-entry.test.ts` [custom_logic]
+ - `src/main/ipc/parcel-watcher-process-entry.ts` [custom_logic]
+ - `src/main/ipc/pet.test.ts` [custom_logic]
+ - `src/main/ipc/plugins.ts` [custom_logic]
+ - `src/main/ipc/preflight.ts` [custom_logic]
+ - `src/main/ipc/preflight-command-exec.test.ts` [custom_logic]
+ - `src/main/ipc/preflight-command-exec.ts` [custom_logic]
+ - `src/main/ipc/preflight-windows-path-refresh.repro.test.ts` [custom_logic]
+ - `src/main/ipc/preflight-wsl-agent-detection.test.ts` [custom_logic]
+ - `src/main/ipc/preflight-wsl-agent-detection.ts` [custom_logic]
+ - `src/main/ipc/pty.ts` [rebrand]
+ - `src/main/ipc/pty-spawn-timing.ts` [custom_logic]
+ - `src/main/ipc/repos.ts` [custom_logic]
+ - `src/main/ipc/repos-add-linked-worktree.test.ts` [custom_logic]
+ - `src/main/ipc/repos-create.test.ts` [custom_logic]
+ - `src/main/ipc/repos-remote.test.ts` [rebrand]
+ - `src/main/ipc/runtime.ts` [custom_logic]
+ - `src/main/ipc/runtime-environment-pairing-verification.ts` [rebrand]
+ - `src/main/ipc/settings.test.ts` [custom_logic]
+ - `src/main/ipc/ssh.test.ts` [custom_logic]
+ - `src/main/ipc/ssh.ts` [custom_logic]
+ - `src/main/ipc/telemetry.test.ts` [custom_logic]
+ - `src/main/ipc/telemetry.ts` [custom_logic]
+ - `src/main/ipc/ui.ts` [custom_logic]
+ - `src/main/ipc/workspace-cleanup.ts` [custom_logic]
+ - `src/main/ipc/workspace-cleanup-scan.ts` [custom_logic]
+ - `src/main/ipc/workspace-space.test.ts` [custom_logic]
+ - `src/main/ipc/worktree-base-directory-poller.test.ts` [custom_logic]
+ - `src/main/ipc/worktree-base-directory-poller.ts` [custom_logic]
+ - `src/main/ipc/worktree-git-common-watch.test.ts` [custom_logic]
+ - `src/main/ipc/worktree-head-identity-reader.test.ts` [custom_logic]
+ - `src/main/ipc/worktree-logic.test.ts` [rebrand]
+ - `src/main/ipc/worktree-logic.ts` [custom_logic]
+ - `src/main/ipc/worktree-logic-wsl.test.ts` [custom_logic]
+ - `src/main/ipc/worktree-push-target-cleanup.test.ts` [custom_logic]
+ - `src/main/ipc/worktree-push-target-setup.test.ts` [rebrand]
+ - `src/main/ipc/worktree-push-target-setup.ts` [custom_logic]
+ - `src/main/ipc/worktree-remote.ts` [custom_logic]
+ - `src/main/ipc/worktrees.ts` [custom_logic]
+ - `src/main/ipc/worktrees-windows.test.ts` [custom_logic]
+ - `src/main/jira/client.test.ts` [custom_logic]
+ - `src/main/jira/client.ts` [custom_logic]
+ - `src/main/keybindings/keybinding-file.ts` [custom_logic]
+ - `src/main/kimi/hook-service.ts` [custom_logic]
+ - `src/main/kimi/kimi-hook-config-toml.ts` [custom_logic]
+ - `src/main/kimi/kimi-runtime-home.ts` [custom_logic]
+ - `src/main/linear/client.test.ts` [custom_logic]
+ - `src/main/linear/client.ts` [custom_logic]
+ - `src/main/linear/issue-activity-raw.ts` [custom_logic]
+ - `src/main/linear/issue-context.test.ts` [incidental]
+ - `src/main/linear/issue-context.ts` [custom_logic]
+ - `src/main/linear/issue-context-client.ts` [rebrand]
+ - `src/main/linear/issue-context-current.test.ts` [incidental]
+ - `src/main/linear/issue-context-raw.ts` [custom_logic]
+ - `src/main/linear/issue-context-workspaces.ts` [custom_logic]
+ - `src/main/linear/issue-relation-mutation.ts` [custom_logic]
+ - `src/main/linear/issues.test.ts` [custom_logic]
+ - `src/main/linear/mcp-issue-list.test.ts` [custom_logic]
+ - `src/main/linear/mcp-issue-list.ts` [rebrand]
+ - `src/main/linear/projects.ts` [custom_logic]
+ - `src/main/linux-package-install-command.test.ts` [custom_logic]
+ - `src/main/linux-package-install-command.ts` [custom_logic]
+ - `src/main/linux-package-install-diagnostic.test.ts` [custom_logic]
+ - `src/main/linux-package-update-recovery.test.ts` [custom_logic]
+ - `src/main/linux-update-package-type.test.ts` [custom_logic]
+ - `src/main/memory/collector.ts` [custom_logic]
+ - `src/main/memory/hydrate-local-pty-registry.ts` [custom_logic]
+ - `src/main/menu/register-app-menu.ts` [rebrand]
+ - `src/main/mimo/hook-service.test.ts` [custom_logic]
+ - `src/main/mimo/hook-service.ts` [custom_logic]
+ - `src/main/minimax/minimax-cookie-store.ts` [custom_logic]
+ - `src/main/native-chat/host-readable-transcript-path.test.ts` [custom_logic]
+ - `src/main/native-chat/session-file-resolver.test.ts` [custom_logic]
+ - `src/main/native-chat/session-file-resolver.ts` [custom_logic]
+ - `src/main/native-chat/session-file-resolver-codex-roots.test.ts` [custom_logic]
+ - `src/main/native-chat/session-file-resolver-wsl.test.ts` [custom_logic]
+ - `src/main/native-chat/transcript-read-cache.test.ts` [custom_logic]
+ - `src/main/native-chat/transcript-watch.ts` [custom_logic]
+ - `src/main/native-chat/transcript-watch-error.test.ts` [custom_logic]
+ - `src/main/native-chat/transcript-watch-liveness.test.ts` [custom_logic]
+ - `src/main/native-chat/transcript-watch-wsl-exact-path.test.ts` [custom_logic]
+ - `src/main/network/macos-tailscale-dns-diagnostic.ts` [custom_logic]
+ - `src/main/observability/bundle.test.ts` [custom_logic]
+ - `src/main/observability/logs-directory.ts` [rebrand]
+ - `src/main/observability/redactor.test.ts` [custom_logic]
+ - `src/main/opencode/hook-plugin-lifecycle-delivery.test.ts` [custom_logic]
+ - `src/main/opencode/hook-service.test.ts` [custom_logic]
+ - `src/main/opencode/hook-service.ts` [custom_logic]
+ - `src/main/opencode-usage/scanner.test.ts` [custom_logic]
+ - `src/main/opencode-usage/store.test.ts` [custom_logic]
+ - `src/main/opencode-usage/store.ts` [custom_logic]
+ - `src/main/persistence.ts` [rebrand]
+ - `src/main/persistence-async-write-syscalls.test.ts` [custom_logic]
+ - `src/main/persistence-duplicate-repo-id-host-scope.test.ts` [custom_logic]
+ - `src/main/persistence-feature-interaction-broadcast.benchmark.test.ts` [custom_logic]
+ - `src/main/persistence-protected-secret-fail-closed.test.ts` [custom_logic]
+ - `src/main/persistence-protected-secret-write-race.test.ts` [custom_logic]
+ - `src/main/persistence-proxy-secret-recovery.test.ts` [custom_logic]
+ - `src/main/persistence-single-serialize.test.ts` [custom_logic]
+ - `src/main/pi/agent-status-extension-source.test.ts` [custom_logic]
+ - `src/main/pi/agent-status-handler-source.ts` [custom_logic]
+ - `src/main/pi/legacy-omp-overlay-migration.ts` [custom_logic]
+ - `src/main/pi/titlebar-extension-overlay-path.test.ts` [custom_logic]
+ - `src/main/pi/titlebar-extension-service.test.ts` [custom_logic]
+ - `src/main/pi/titlebar-extension-service.ts` [custom_logic]
+ - `src/main/pi/titlebar-extension-source.ts` [custom_logic]
+ - `src/main/plugins/plugin-approved-vm-recipes.ts` [custom_logic]
+ - `src/main/plugins/plugin-enablement.test.ts` [custom_logic]
+ - `src/main/plugins/plugin-host-methods.test.ts` [custom_logic]
+ - `src/main/plugins/plugin-host-runtime.ts` [custom_logic]
+ - `src/main/plugins/plugin-host-service-bindings.ts` [custom_logic]
+ - `src/main/plugins/plugin-vm-recipe-registry.ts` [custom_logic]
+ - `src/main/ports/advertised-url-watcher.ts` [custom_logic]
+ - `src/main/ports/port-scan-command-client.test.ts` [custom_logic]
+ - `src/main/ports/workspace-port-ownership.ts` [rebrand]
+ - `src/main/powershell-osc133-bootstrap.test.ts` [custom_logic]
+ - `src/main/powershell-osc133-bootstrap.ts` [custom_logic]
+ - `src/main/project-groups/folder-workspace-path-status.test.ts` [custom_logic]
+ - `src/main/providers/__tests__/shell-ready-framework/README.md` [rebrand]
+ - `src/main/providers/__tests__/shell-ready-framework/shell-script-test.ts` [custom_logic]
+ - `src/main/providers/__tests__/shell-ready-framework-example.test.ts` [custom_logic]
+ - `src/main/providers/agent-foreground-process.test.ts` [custom_logic]
+ - `src/main/providers/local-pty-provider.ts` [rebrand]
+ - `src/main/providers/local-pty-shell-ready.ts` [custom_logic]
+ - `src/main/providers/macos-tcc-login-shell.test.ts` [custom_logic]
+ - `src/main/providers/macos-tcc-login-shell.ts` [custom_logic]
+ - `src/main/providers/provider-dispatch.test.ts` [custom_logic]
+ - `src/main/providers/pty-process-info.ts` [custom_logic]
+ - `src/main/providers/pty-provider-contract.ts` [custom_logic]
+ - `src/main/providers/ssh-filesystem-provider.test.ts` [custom_logic]
+ - `src/main/providers/ssh-git-provider.ts` [rebrand]
+ - `src/main/providers/ssh-pty-provider.test.ts` [custom_logic]
+ - `src/main/providers/ssh-pty-session-reattach.ts` [custom_logic]
+ - `src/main/providers/windows-foreground-process-rows.test.ts` [custom_logic]
+ - `src/main/providers/windows-foreground-process-rows.ts` [custom_logic]
+ - `src/main/providers/windows-shell-args.test.ts` [custom_logic]
+ - `src/main/providers/windows-shell-args.ts` [custom_logic]
+ - `src/main/pty/codex-home-wsl-env.ts` [custom_logic]
+ - `src/main/pty/omp-shell-wrapper.node-pty.test.ts` [custom_logic]
+ - `src/main/pty/omp-shell-wrapper.ts` [custom_logic]
+ - `src/main/pty/shell-startup-env.test.ts` [custom_logic]
+ - `src/main/pty/shell-startup-env.ts` [custom_logic]
+ - `src/main/pty/windows-environment-path.test.ts` [custom_logic]
+ - `src/main/quit-path-durable-write-blocking.test.ts` [custom_logic]
+ - `src/main/rate-limits/claude-fetcher.ts` [custom_logic]
+ - `src/main/rate-limits/claude-pty.ts` [custom_logic]
+ - `src/main/rate-limits/codex-fetcher.test.ts` [custom_logic]
+ - `src/main/rate-limits/codex-fetcher.ts` [custom_logic]
+ - `src/main/rate-limits/minimax-request-context.ts` [custom_logic]
+ - `src/main/rate-limits/service.ts` [custom_logic]
+ - `src/main/repo-git-remote-identity.test.ts` [custom_logic]
+ - `src/main/repo-icon-autodetect.test.ts` [rebrand]
+ - `src/main/repo-worktrees.ts` [custom_logic]
+ - `src/main/runtime/claude-agent-teams-service.test.ts` [custom_logic]
+ - `src/main/runtime/claude-agent-teams-service.ts` [custom_logic]
+ - `src/main/runtime/claude-agent-teams-shim-env.test.ts` [custom_logic]
+ - `src/main/runtime/claude-agent-teams-shim-env.ts` [custom_logic]
+ - `src/main/runtime/claude-agent-teams-tmux-dispatcher.ts` [custom_logic]
+ - `src/main/runtime/fetch-remote-cache.test.ts` [custom_logic]
+ - `src/main/runtime/fit-override-integration.test.ts` [custom_logic]
+ - `src/main/runtime/folder-workspace-pty-identity.test.ts` [custom_logic]
+ - `src/main/runtime/graph-sync-mobile-snapshot-gating.test.ts` [custom_logic]
+ - `src/main/runtime/graph-sync-payload-partition.test.ts` [custom_logic]
+ - `src/main/runtime/headless-tab-group-split-layout.ts` [custom_logic]
+ - `src/main/runtime/headless-terminal-split-layout.ts` [custom_logic]
+ - `src/main/runtime/linear-save-issue.test.ts` [custom_logic]
+ - `src/main/runtime/missing-worktree-terminal-reconciliation.test.ts` [custom_logic]
+ - `src/main/runtime/missing-worktree-terminal-reconciliation.ts` [custom_logic]
+ - `src/main/runtime/mobile-notification-replay.ts` [custom_logic]
+ - `src/main/runtime/mobile-pairing-userdata-path.test.ts` [custom_logic]
+ - `src/main/runtime/mobile-presence-lock.test.ts` [custom_logic]
+ - `src/main/runtime/mobile-subscribe-integration.test.ts` [custom_logic]
+ - `src/main/runtime/multi-client-navigation-isolation.integration.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/__snapshots__/preamble.test.ts.snap` [custom_logic]
+ - `src/main/runtime/orchestration/cli-command.ts` [custom_logic]
+ - `src/main/runtime/orchestration/coordinator.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/coordinator.ts` [custom_logic]
+ - `src/main/runtime/orchestration/db.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/db.ts` [rebrand]
+ - `src/main/runtime/orchestration/federation-ack-checkpoints.ts` [custom_logic]
+ - `src/main/runtime/orchestration/federation-sync.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/federation-sync.ts` [rebrand]
+ - `src/main/runtime/orchestration/formatter.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/formatter.ts` [custom_logic]
+ - `src/main/runtime/orchestration/groups.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/groups.ts` [custom_logic]
+ - `src/main/runtime/orchestration/lifecycle-reconciliation.test.ts` [rebrand]
+ - `src/main/runtime/orchestration/mutation-receipt-capacity.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/orchestration-adopted-run-binding.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/orchestration-db-retention-pagination.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/orchestration-legacy-storage-db.test.ts` [incidental]
+ - `src/main/runtime/orchestration/orchestration-legacy-storage-test-fixture.ts` [custom_logic]
+ - `src/main/runtime/orchestration/orchestration-run-delivery-db.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/orchestration-version-skew-migration.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/preamble.test.ts` [custom_logic]
+ - `src/main/runtime/orchestration/preamble.ts` [rebrand]
+ - `src/main/runtime/orchestration/setup-completion-signal.ts` [custom_logic]
+ - `src/main/runtime/orchestration/worker-output-archive.ts` [custom_logic]
+ - `src/main/runtime/orchestration-cli-subprocess.test.ts` [custom_logic]
+ - `src/main/runtime/pty-waiver-source-invariant.test.ts` [custom_logic]
+ - `src/main/runtime/relay/desktop-relay-service.ts` [custom_logic]
+ - `src/main/runtime/relay/mobile-relay-e2ee.integration.test.ts` [custom_logic]
+ - `src/main/runtime/relay/relay-control-client.test.ts` [custom_logic]
+ - `src/main/runtime/relay/relay-session-broker.test.ts` [custom_logic]
+ - `src/main/runtime/relay/relay-session-broker-contract.ts` [custom_logic]
+ - `src/main/runtime/remote-agent-session-host-authority.integration.test.ts` [custom_logic]
+ - `src/main/runtime/remote-desktop-driver.test.ts` [custom_logic]
+ - `src/main/runtime/remote-runtime-request-connection.integration.test.ts` [custom_logic]
+ - `src/main/runtime/remote-server-updater.ts` [custom_logic]
+ - `src/main/runtime/repo-icon-fork-backfill.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/core.ts` [custom_logic]
+ - `src/main/runtime/rpc/dispatcher.ts` [custom_logic]
+ - `src/main/runtime/rpc/dispatcher-computer-errors.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/dispatcher-feature-interactions.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/errors.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/errors.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/ai-vault.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/artifact-sharing-capability-grant.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/automations.test.ts` [rebrand]
+ - `src/main/runtime/rpc/methods/browser.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/client-ui.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/client-ui-schemas.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/files.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/files-path-search.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/files-terminal-path-resolution.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/git.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/github.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/gitlab.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/hosted-review.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/jira.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/linear-agent-access.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/linear-agent-project-access.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration.ts` [rebrand]
+ - `src/main/runtime/rpc/methods/orchestration-federated-worker-start.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation-agent-launch.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation-control.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation-control-mail.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation-folder-placement.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation-output.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-federation-setup.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-manual-dispatch-release.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-migration-behavior.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-runs.ts` [rebrand]
+ - `src/main/runtime/rpc/methods/orchestration-run-scope.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-observation.ts` [rebrand]
+ - `src/main/runtime/rpc/methods/orchestration-worker-output.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-output.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-release.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-release-completion.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-release-recovery.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-workers-new-worktree.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-workers-recovery.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-start-receipt.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-start-validation.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/orchestration-worker-topology.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/plugins.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/preflight.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/repo.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/session-tabs.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/session-tabs-move-validation.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/ssh.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/task-resume-state-schema.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/terminal.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/worktree.test.ts` [rebrand]
+ - `src/main/runtime/rpc/methods/worktree-catalog-snapshot-method.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/worktree-rm-pty-waiver.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/methods/worktree-schemas.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-11745-regression-verification.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-contract-fence.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-compatibility.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-compatibility-dispatcher.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-compatibility-dispatcher-test-fixture.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-coordinator-race.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-lifecycle.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-mail.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-question.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-question-takeover.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-legacy-takeover-dispatcher.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-mutation-executor.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-mutation-ledger.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/orchestration-runtime-update-settlement.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/runtime-close-attribution.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/runtime-close-attribution-topology.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/streaming.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-multiplex-escape-tail.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-output-batching.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-provider-snapshot-sequence.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-subscribe-blank-mount.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-subscribe-buffer.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-subscribe-lease-only.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-subscribe-mount-replay.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/terminal-subscribe-renderer-recovery-output.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/ws-transport.test.ts` [custom_logic]
+ - `src/main/runtime/rpc/ws-transport.ts` [custom_logic]
+ - `src/main/runtime/runtime-remove-project-host-scope.test.ts` [custom_logic]
+ - `src/main/runtime/runtime-rpc.ts` [rebrand]
+ - `src/main/runtime/terminal-list-stale-leaf-liveness.test.ts` [custom_logic]
+ - `src/main/runtime/terminal-model-query-authority.ts` [custom_logic]
+ - `src/main/runtime/terminal-query-responder.test.ts` [custom_logic]
+ - `src/main/runtime/terminal-restore-record-seed.test.ts` [custom_logic]
+ - `src/main/runtime/terminal-send-stale-leaf-liveness.test.ts` [custom_logic]
+ - `src/main/runtime/terminal-subscribe-exit-waiter-leak.test.ts` [custom_logic]
+ - `src/main/runtime/terminal-subscriber-driven-daemon-attach.test.ts` [custom_logic]
+ - `src/main/runtime/worktree-teardown.test.ts` [custom_logic]
+ - `src/main/runtime/worktree-teardown.ts` [custom_logic]
+ - `src/main/runtime/worktree-teardown-unstopped-pty.test.ts` [custom_logic]
+ - `src/main/server/serve-readiness.test.ts` [rebrand]
+ - `src/main/server/serve-readiness.ts` [rebrand]
+ - `src/main/shell-ready-marker-scanner.ts` [custom_logic]
+ - `src/main/shell-templates.ts` [custom_logic]
+ - `src/main/skills/discovery.test.ts` [custom_logic]
+ - `src/main/skills/skill-discovery-wsl.test.ts` [custom_logic]
+ - `src/main/skills/skill-discovery-wsl-plugins.test.ts` [custom_logic]
+ - `src/main/skills/skill-freshness-inventory.test.ts` [rebrand]
+ - `src/main/skills/skill-freshness-inventory.ts` [incidental]
+ - `src/main/skills/skill-git-tree-identity.test.ts` [custom_logic]
+ - `src/main/skills/skill-package-identity.test.ts` [custom_logic]
+ - `src/main/source-control/forge-provider.test.ts` [custom_logic]
+ - `src/main/source-control/hosted-review-creation.test.ts` [custom_logic]
+ - `src/main/source-control/hosted-review-creation.ts` [rebrand]
+ - `src/main/source-control/hosted-review-creation-eligibility.test.ts` [custom_logic]
+ - `src/main/source-control/hosted-review-git-options.ts` [custom_logic]
+ - `src/main/speech/model-manager-download-resume.test.ts` [custom_logic]
+ - `src/main/speech/openai-api-key-store.test.ts` [custom_logic]
+ - `src/main/speech/openai-api-key-store.ts` [custom_logic]
+ - `src/main/speech/stt-service.ts` [custom_logic]
+ - `src/main/sqlite/sync-database.test.ts` [custom_logic]
+ - `src/main/ssh/sftp-namespace-resolution.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-channel-multiplexer.ts` [custom_logic]
+ - `src/main/ssh/ssh-config-host-picker.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-connection.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-connection.ts` [custom_logic]
+ - `src/main/ssh/ssh-connection-sftp-namespace.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-connection-utils.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-build-toolchain.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-cross-version-isolation.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-deploy.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-deploy.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-install-lock.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-install-lock-commands.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-install-namespace.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-native-deps-install.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-native-deps-install-fixture.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-orphan-abandon-paths.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-session.ts` [rebrand]
+ - `src/main/ssh/ssh-relay-session-agent-hooks.integration.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-session-reconnect-incarnation.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-sftp-namespace-install.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-upload-cancel.docker.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-upload-stage-commands.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-relay-versioned-install.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-cli-host-passthrough.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-cli-host-passthrough.ts` [rebrand]
+ - `src/main/ssh/ssh-remote-cli-launcher.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-commands.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-commands.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-linear-read-cli.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-linear-write-support.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-node-toolchain-probe.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-orchestration-compatibility.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-remote-orchestration-post-output.ts` [custom_logic]
+ - `src/main/ssh/ssh-system-fallback.test.ts` [custom_logic]
+ - `src/main/ssh/ssh-system-transport.integration.test.ts` [custom_logic]
+ - `src/main/ssh/system-ssh-args.ts` [custom_logic]
+ - `src/main/startup/configure-process.test.ts` [custom_logic]
+ - `src/main/startup/configure-process.ts` [rebrand]
+ - `src/main/startup/dev-education-suppression.test.ts` [custom_logic]
+ - `src/main/startup/dev-education-suppression.ts` [custom_logic]
+ - `src/main/startup/dev-instance-identity.test.ts` [rebrand]
+ - `src/main/startup/dev-instance-identity.ts` [rebrand]
+ - `src/main/startup/ensure-virtual-display.ts` [custom_logic]
+ - `src/main/startup/gpu-fallback-marker.test.ts` [custom_logic]
+ - `src/main/startup/hydrate-shell-path.ts` [rebrand]
+ - `src/main/startup/run-electron-vite-dev.test.ts` [rebrand]
+ - `src/main/startup/serve-mode-argv.test.ts` [custom_logic]
+ - `src/main/startup/serve-mode-argv-cli-redirect-order.test.ts` [custom_logic]
+ - `src/main/startup/single-instance-lock-exit.electron.test.ts` [custom_logic]
+ - `src/main/startup/single-instance-lock-headless-exit.test.ts` [custom_logic]
+ - `src/main/stats/collector.ts` [rebrand]
+ - `src/main/stats/types.ts` [custom_logic]
+ - `src/main/telemetry/client.ts` [custom_logic]
+ - `src/main/telemetry/client-test-harness.ts` [custom_logic]
+ - `src/main/telemetry/consent.test.ts` [custom_logic]
+ - `src/main/telemetry/consent.ts` [custom_logic]
+ - `src/main/terminal-history.test.ts` [custom_logic]
+ - `src/main/terminal-history-async-delete.test.ts` [custom_logic]
+ - `src/main/terminal-history-gc.ts` [custom_logic]
+ - `src/main/terminal-history-tombstone-retry.test.ts` [custom_logic]
+ - `src/main/text-generation/commit-message-agent-environment.test.ts` [custom_logic]
+ - `src/main/text-generation/commit-message-agent-environment.ts` [custom_logic]
+ - `src/main/text-generation/commit-message-text-generation.ts` [rebrand]
+ - `src/main/updater.check-failure.test.ts` [rebrand]
+ - `src/main/updater.headless-serve-install.test.ts` [custom_logic]
+ - `src/main/updater.install-failure-cause.test.ts` [custom_logic]
+ - `src/main/updater.ts` [rebrand]
+ - `src/main/updater-changelog.ts` [custom_logic]
+ - `src/main/updater-events.test.ts` [custom_logic]
+ - `src/main/updater-events.ts` [custom_logic]
+ - `src/main/updater-linux-package-recovery-actions.test.ts` [custom_logic]
+ - `src/main/updater-prerelease-feed.test.ts` [rebrand]
+ - `src/main/updater-prerelease-feed.ts` [rebrand]
+ - `src/main/updater-prerelease-feed-readiness.test.ts` [rebrand]
+ - `src/main/updater-release-builds.test.ts` [rebrand]
+ - `src/main/warp-themes/discovery.ts` [custom_logic]
+ - `src/main/win32-utils.test.ts` [custom_logic]
+ - `src/main/window/attach-main-window-services.test.ts` [custom_logic]
+ - `src/main/window/attach-main-window-services.ts` [custom_logic]
+ - `src/main/window/clipboard-image-temp-file.ts` [custom_logic]
+ - `src/main/window/clipboard-ipc-handlers.test.ts` [custom_logic]
+ - `src/main/window/clipboard-remote-file-copy.ts` [custom_logic]
+ - `src/main/window/createMainWindow.test.ts` [custom_logic]
+ - `src/main/window/createMainWindow.ts` [rebrand]
+ - `src/main/window/dashboard-popout-window.test.ts` [custom_logic]
+ - `src/main/window/dashboard-popout-window.ts` [rebrand]
+ - `src/main/window/privileged-window-navigation.ts` [custom_logic]
+ - `src/main/windows-pty-root-identity.test.ts` [custom_logic]
+ - `src/main/workspace-space-analysis.test.ts` [custom_logic]
+ - `src/main/workspace-space-analysis-capacity.test.ts` [custom_logic]
+ - `src/main/workspace-space-analysis-du-timeout.test.ts` [custom_logic]
+ - `src/main/worktree-removal-authority.test.ts` [custom_logic]
+ - `src/main/worktree-removal-safety.test.ts` [custom_logic]
+ - `src/main/worktree-removal-safety.ts` [custom_logic]
+ - `src/main/worktree-removal-session-partition-fencing.test.ts` [custom_logic]
+ - `src/main/worktree-root-preparation.test.ts` [custom_logic]
+ - `src/main/worktree-trash.test.ts` [custom_logic]
+ - `src/main/worktree-trash.ts` [custom_logic]
+ - `src/main/wsl.test.ts` [custom_logic]
+ - `src/main/wsl.ts` [custom_logic]
+ - `src/main/wsl-unc-delete.test.ts` [custom_logic]
+ - `src/preload/api-types.ts` [custom_logic]
+ - `src/preload/app-restart-checkpoint-routing.test.ts` [custom_logic]
+ - `src/preload/index.ts` [custom_logic]
+ - `src/preload/renderer-restart-wiring.ts` [custom_logic]
+ - `src/relay/agent-hook-integration.test.ts` [custom_logic]
+ - `src/relay/agent-hook-server.test.ts` [custom_logic]
+ - `src/relay/agent-hook-server.ts` [custom_logic]
+ - `src/relay/dispatcher.ts` [custom_logic]
+ - `src/relay/external-automations-handler.ts` [custom_logic]
+ - `src/relay/fs-handler-list-files-ignored.test.ts` [custom_logic]
+ - `src/relay/git-exec-validator.test.ts` [rebrand]
+ - `src/relay/git-handler.test.ts` [custom_logic]
+ - `src/relay/git-handler.ts` [custom_logic]
+ - `src/relay/git-handler-worktree-ops.ts` [custom_logic]
+ - `src/relay/git-response-stream.ts` [custom_logic]
+ - `src/relay/plugin-overlay.ts` [custom_logic]
+ - `src/relay/plugin-overlay-env.test.ts` [custom_logic]
+ - `src/relay/plugin-overlay-env.ts` [custom_logic]
+ - `src/relay/pty-handler.ts` [rebrand]
+ - `src/relay/pty-shell-launch.test.ts` [custom_logic]
+ - `src/relay/pty-shell-launch.ts` [custom_logic]
+ - `src/relay/relay.ts` [custom_logic]
+ - `src/relay/subprocess.test.ts` [custom_logic]
+ - `src/renderer/src/App.tsx` [rebrand]
+ - `src/renderer/src/app-startup-routing.test.ts` [custom_logic]
+ - `src/renderer/src/assets/main.css` [rebrand]
+ - `src/renderer/src/assets/mobile-page.css` [custom_logic]
+ - `src/renderer/src/assets/terminal.css` [custom_logic]
+ - `src/renderer/src/components/activity/ActivityPrototypePage.test.ts` [custom_logic]
+ - `src/renderer/src/components/artifacts/ArtifactCollection.test.tsx` [custom_logic]
+ - `src/renderer/src/components/artifacts/ArtifactPreview.tsx` [custom_logic]
+ - `src/renderer/src/components/artifacts/ArtifactPublishButton.test.tsx` [custom_logic]
+ - `src/renderer/src/components/artifacts/ArtifactPublishButton.tsx` [rebrand]
+ - `src/renderer/src/components/artifacts/artifact-publish-flow.test.ts` [rebrand]
+ - `src/renderer/src/components/artifacts/artifact-publish-flow.ts` [rebrand]
+ - `src/renderer/src/components/artifacts/ArtifactsPage.test.tsx` [rebrand]
+ - `src/renderer/src/components/artifacts/ArtifactsPage.tsx` [rebrand]
+ - `src/renderer/src/components/automations/AutomationDetail.tsx` [rebrand]
+ - `src/renderer/src/components/automations/AutomationEditorDialog.tsx` [custom_logic]
+ - `src/renderer/src/components/automations/AutomationEditorDialogFooter.tsx` [rebrand]
+ - `src/renderer/src/components/automations/AutomationEditorDialogHeader.tsx` [rebrand]
+ - `src/renderer/src/components/automations/AutomationEditorPromptSection.tsx` [rebrand]
+ - `src/renderer/src/components/automations/automation-host-client.test.ts` [rebrand]
+ - `src/renderer/src/components/automations/automation-list-search.test.ts` [custom_logic]
+ - `src/renderer/src/components/automations/AutomationMissedRunGraceField.tsx` [rebrand]
+ - `src/renderer/src/components/automations/automation-project-groups.test.ts` [custom_logic]
+ - `src/renderer/src/components/automations/automation-run-context.test.ts` [rebrand]
+ - `src/renderer/src/components/automations/AutomationsDetailPane.tsx` [rebrand]
+ - `src/renderer/src/components/automations/AutomationSessionField.tsx` [rebrand]
+ - `src/renderer/src/components/automations/automation-setup-decision.test.ts` [rebrand]
+ - `src/renderer/src/components/automations/automation-setup-decision.ts` [custom_logic]
+ - `src/renderer/src/components/automations/AutomationSetupDecisionField.tsx` [custom_logic]
+ - `src/renderer/src/components/automations/AutomationsPage.tsx` [custom_logic]
+ - `src/renderer/src/components/automations/automation-target-availability.test.ts` [rebrand]
+ - `src/renderer/src/components/browser-pane/BrowserPane.tsx` [rebrand]
+ - `src/renderer/src/components/cmd-j/palette-filter-options.test.ts` [rebrand]
+ - `src/renderer/src/components/cmd-j/palette-project-results.ts` [incidental]
+ - `src/renderer/src/components/cmd-j/palette-results.test.ts` [rebrand]
+ - `src/renderer/src/components/cmd-j/palette-results.ts` [incidental]
+ - `src/renderer/src/components/cmd-j/quick-action-context.ts` [custom_logic]
+ - `src/renderer/src/components/cmd-j/worktree-checks-review-index.test.ts` [custom_logic]
+ - `src/renderer/src/components/crash-report/CrashReportDialogSurface.tsx` [rebrand]
+ - `src/renderer/src/components/dashboard/build-dashboard-snapshot.test.ts` [custom_logic]
+ - `src/renderer/src/components/dashboard/DashboardAgentRow.test.tsx` [custom_logic]
+ - `src/renderer/src/components/dashboard/dashboard-worktree-launch-options.test.ts` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/AgentKanbanCard.test.tsx` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/agent-map.css` [incidental]
+ - `src/renderer/src/components/dashboard-popout/AgentMap.test.tsx` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/agent-map-filter.test.ts` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/agent-map-label-declutter.test.ts` [custom_logic]
+ - `src/renderer/src/components/dashboard-popout/agent-map-layout.test.ts` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/AgentMapProjectLabel.test.tsx` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/agent-map-render-test-harness.tsx` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/AgentMapWorkspaceContextMenu.test.tsx` [rebrand]
+ - `src/renderer/src/components/dashboard-popout/preview-terminal-compatibility.ts` [custom_logic]
+ - `src/renderer/src/components/dashboard-popout/preview-terminal-shortcuts.test.ts` [custom_logic]
+ - `src/renderer/src/components/diff-comments/DiffCommentCard.tsx` [custom_logic]
+ - `src/renderer/src/components/diff-comments/useDiffCommentDecorator.tsx` [custom_logic]
+ - `src/renderer/src/components/editor/details-markdown-html.test.ts` [custom_logic]
+ - `src/renderer/src/components/editor/details-markdown-html.ts` [custom_logic]
+ - `src/renderer/src/components/editor/editor-autosave.test.ts` [custom_logic]
+ - `src/renderer/src/components/editor/editor-autosave.ts` [custom_logic]
+ - `src/renderer/src/components/editor/editor-autosave-controller.ts` [custom_logic]
+ - `src/renderer/src/components/editor/markdown-doc-links.test.ts` [custom_logic]
+ - `src/renderer/src/components/editor/markdown-doc-links.ts` [custom_logic]
+ - `src/renderer/src/components/editor/MarkdownPreview.test.ts` [custom_logic]
+ - `src/renderer/src/components/editor/MarkdownPreview.tsx` [custom_logic]
+ - `src/renderer/src/components/editor/markdown-render-mode.ts` [custom_logic]
+ - `src/renderer/src/components/editor/markdown-round-trip.test.ts` [custom_logic]
+ - `src/renderer/src/components/editor/monaco-context-menu-paste.ts` [custom_logic]
+ - `src/renderer/src/components/editor/MonacoEditor.tsx` [custom_logic]
+ - `src/renderer/src/components/editor/rich-markdown-extensions.ts` [custom_logic]
+ - `src/renderer/src/components/editor/rich-markdown-html-superscript-link.test.ts` [rebrand]
+ - `src/renderer/src/components/editor/rich-markdown-key-handler.ts` [custom_logic]
+ - `src/renderer/src/components/editor/useEditorPanelContentState.test.tsx` [custom_logic]
+ - `src/renderer/src/components/editor/useEditorPanelVisibilityContentState.test.tsx` [custom_logic]
+ - `src/renderer/src/components/emulator-pane/EmulatorPaneOverlayLayer.tsx` [custom_logic]
+ - `src/renderer/src/components/feature-tips/CliSkillSetupTerminal.tsx` [rebrand]
+ - `src/renderer/src/components/feature-tips/feature-tip-modal-state.test.ts` [custom_logic]
+ - `src/renderer/src/components/feature-tips/feature-tip-startup-gate.test.ts` [rebrand]
+ - `src/renderer/src/components/feature-wall/BrowserAnimatedVisual.tsx` [custom_logic]
+ - `src/renderer/src/components/feature-wall/BrowserUseSkillSetupCard.tsx` [rebrand]
+ - `src/renderer/src/components/feature-wall/EditorAnimatedVisual.tsx` [custom_logic]
+ - `src/renderer/src/components/feature-wall/FeatureWallBrowserAction.tsx` [custom_logic]
+ - `src/renderer/src/components/feature-wall/feature-wall-setup-progress.test.ts` [rebrand]
+ - `src/renderer/src/components/feature-wall/feature-wall-setup-progress.ts` [custom_logic]
+ - `src/renderer/src/components/feature-wall/WorkbenchAnimatedVisual.tsx` [custom_logic]
+ - `src/renderer/src/components/floating-terminal/FloatingTerminalOrchestrationDialog.tsx` [rebrand]
+ - `src/renderer/src/components/floating-terminal/FloatingTerminalPanel.tsx` [rebrand]
+ - `src/renderer/src/components/floating-terminal/floating-terminal-panel-bounds.ts` [custom_logic]
+ - `src/renderer/src/components/floating-terminal/floating-terminal-trigger-position.ts` [custom_logic]
+ - `src/renderer/src/components/github/github-rate-limit-display.tsx` [rebrand]
+ - `src/renderer/src/components/github/IssueSourceIndicator.tsx` [custom_logic]
+ - `src/renderer/src/components/GitHubItemDialog.tsx` [rebrand]
+ - `src/renderer/src/components/github-project/columns.ts` [custom_logic]
+ - `src/renderer/src/components/github-project/column-widths.ts` [custom_logic]
+ - `src/renderer/src/components/github-project/GhAuthErrorHelp.test.ts` [custom_logic]
+ - `src/renderer/src/components/github-project/GhAuthErrorHelp.tsx` [rebrand]
+ - `src/renderer/src/components/github-project/github-project-picker-filter.test.ts` [custom_logic]
+ - `src/renderer/src/components/github-project/ProjectItemSlugDialog.tsx` [custom_logic]
+ - `src/renderer/src/components/github-project/project-row-filtering.test.ts` [rebrand]
+ - `src/renderer/src/components/github-project/ProjectViewWrapper.tsx` [rebrand]
+ - `src/renderer/src/components/github-project/project-view-wrapper-source-context-boundary.test.ts` [custom_logic]
+ - `src/renderer/src/components/github-project/project-visible-table-cache.test.ts` [custom_logic]
+ - `src/renderer/src/components/github-pr-reviewer-display.test.ts` [incidental]
+ - `src/renderer/src/components/gitlab/gitlab-rate-limit-display.tsx` [rebrand]
+ - `src/renderer/src/components/Landing.tsx` [rebrand]
+ - `src/renderer/src/components/landing-preflight-dismissal.test.ts` [rebrand]
+ - `src/renderer/src/components/landing-preflight-dismissal.ts` [custom_logic]
+ - `src/renderer/src/components/landing-preflight-issues.test.ts` [rebrand]
+ - `src/renderer/src/components/landing-preflight-issues.ts` [rebrand]
+ - `src/renderer/src/components/landing-preflight-runtime-boundary.test.ts` [custom_logic]
+ - `src/renderer/src/components/linear-api-key-dialog.tsx` [rebrand]
+ - `src/renderer/src/components/linear-issue-view-storage.test.ts` [custom_logic]
+ - `src/renderer/src/components/linear-issue-view-storage.ts` [custom_logic]
+ - `src/renderer/src/components/linear-issue-workspace-text.test.ts` [rebrand]
+ - `src/renderer/src/components/LinuxPackageInstallRecoveryCard.test.tsx` [rebrand]
+ - `src/renderer/src/components/LinuxPackageInstallRecoveryCard.tsx` [rebrand]
+ - `src/renderer/src/components/mobile/MobileHero.test.tsx` [rebrand]
+ - `src/renderer/src/components/mobile/MobileHero.tsx` [rebrand]
+ - `src/renderer/src/components/mobile/MobileHeroPairingStep.tsx` [rebrand]
+ - `src/renderer/src/components/mobile/MobilePage.test.tsx` [rebrand]
+ - `src/renderer/src/components/mobile/MobilePage.tsx` [custom_logic]
+ - `src/renderer/src/components/mobile/mobile-platform-copy.ts` [rebrand]
+ - `src/renderer/src/components/native-chat/native-chat-attachment-upload.test.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/native-chat-attachment-upload.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/native-chat-availability.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/NativeChatComposer.tsx` [incidental]
+ - `src/renderer/src/components/native-chat/NativeChatMessageList.tsx` [incidental]
+ - `src/renderer/src/components/native-chat/native-chat-pane-resolution.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/native-chat-runtime-send.test.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/native-chat-session-assembler.test.ts` [incidental]
+ - `src/renderer/src/components/native-chat/native-chat-session-transport.test.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/native-chat-view-types.ts` [custom_logic]
+ - `src/renderer/src/components/native-chat/use-native-chat-composer-attachments.test.tsx` [custom_logic]
+ - `src/renderer/src/components/native-chat/use-native-chat-composer-paste.test.tsx` [custom_logic]
+ - `src/renderer/src/components/native-chat/use-native-chat-external-attachments.test.tsx` [custom_logic]
+ - `src/renderer/src/components/native-chat/use-native-chat-external-attachments.ts` [custom_logic]
+ - `src/renderer/src/components/new-workspace/run-target-options.ts` [custom_logic]
+ - `src/renderer/src/components/new-workspace/smart-workspace-command-value.test.ts` [custom_logic]
+ - `src/renderer/src/components/new-workspace/SmartWorkspaceNameField.jira-accessibility.test.tsx` [rebrand]
+ - `src/renderer/src/components/new-workspace/smart-workspace-source-results.test.ts` [custom_logic]
+ - `src/renderer/src/components/new-workspace/use-jira-url-source.test.tsx` [custom_logic]
+ - `src/renderer/src/components/new-workspace/use-recent-project-ids.ts` [custom_logic]
+ - `src/renderer/src/components/NewWorkspaceComposerCard.test.tsx` [rebrand]
+ - `src/renderer/src/components/NewWorkspaceComposerCard.tsx` [custom_logic]
+ - `src/renderer/src/components/NewWorkspaceComposerModal.tsx` [custom_logic]
+ - `src/renderer/src/components/notifications/mac-notification-permission-card.tsx` [rebrand]
+ - `src/renderer/src/components/onboarding/AgentStep.tsx` [rebrand]
+ - `src/renderer/src/components/onboarding/NotificationStep.tsx` [rebrand]
+ - `src/renderer/src/components/onboarding/onboarding-feature-setup.test.ts` [rebrand]
+ - `src/renderer/src/components/onboarding/OnboardingFlow.tsx` [rebrand]
+ - `src/renderer/src/components/onboarding/show-onboarding-event.ts` [custom_logic]
+ - `src/renderer/src/components/onboarding/theme-chrome-preview.tsx` [custom_logic]
+ - `src/renderer/src/components/onboarding/WindowsTerminalStep.tsx` [rebrand]
+ - `src/renderer/src/components/pet/pet-agent-state.test.ts` [rebrand]
+ - `src/renderer/src/components/pr-comments-resolution-prompt.ts` [rebrand]
+ - `src/renderer/src/components/PullRequestPage.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/active-checks-status.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/ai-vault-scope-paths.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/ai-vault-session-projects.test.ts` [rebrand]
+ - `src/renderer/src/components/right-sidebar/ai-vault-session-refresh.test.ts` [rebrand]
+ - `src/renderer/src/components/right-sidebar/ai-vault-session-refresh.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/ai-vault-session-resume.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/AiVaultSessionSubagents.tsx` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/AiVaultSessionVirtualList.tsx` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/ai-vault-session-worktree.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/ai-vault-session-worktree-map.test.tsx` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/buildSourceControlAgentDeliveryPlan.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/ChecksPanel.review-header.test.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/ChecksPanel.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/checks-panel-review-copy.ts` [rebrand]
+ - `src/renderer/src/components/right-sidebar/checks-panel-review-state-model.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/FileExplorer.tsx` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/FileExplorerRow.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/fork-push-target-label.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/git-status-file-watch-refresh.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/git-status-refresh.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/PortsPanel.test.tsx` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/PortsPanel.tsx` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/push-target-upstream-refresh-cache.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/SourceControl.hosted-review-header-link.test.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/SourceControl.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/SourceControlAgentActionDialogForm.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/source-control-branch-context-row.test.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/source-control-create-review-blocked-action.ts` [rebrand]
+ - `src/renderer/src/components/right-sidebar/source-control-dropdown-items.create-pr-intent.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/source-control-manual-review-url.test.ts` [rebrand]
+ - `src/renderer/src/components/right-sidebar/source-control-primary-action-types.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/useFileExplorerKeys.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/useGitStatusPolling.rerender.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/useGitStatusPolling.test.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/use-hosted-review-actions.test.tsx` [rebrand]
+ - `src/renderer/src/components/right-sidebar/useSourceControlAgentActionDialog.ts` [custom_logic]
+ - `src/renderer/src/components/right-sidebar/useSourceControlAgentActionStart.ts` [custom_logic]
+ - `src/renderer/src/components/settings/AccountsPane.test.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/AccountsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AdvancedNetworkSettingsSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AdvancedPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/agent-awake-copy.ts` [rebrand]
+ - `src/renderer/src/components/settings/agent-skill-installed-command-callers.test.ts` [custom_logic]
+ - `src/renderer/src/components/settings/AgentSkillSetupPanel.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AgentSkillSetupPanel.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/AgentsPane.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AgentsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AppearanceInterfaceSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AppearancePane.test.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/AppearancePane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/appearance-sidebar-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/appearance-status-bar-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/AppearanceWindowSidebarSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/ArtifactsSettingsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AutomationsSettingsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/AutoRenameBranchFromWorkSetting.tsx` [rebrand]
+ - `src/renderer/src/components/settings/BrowserLocalhostWorktreeLabelsSetting.tsx` [rebrand]
+ - `src/renderer/src/components/settings/BrowserPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/browser-search.test.ts` [rebrand]
+ - `src/renderer/src/components/settings/browser-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/BrowserUseCookieImportStep.tsx` [rebrand]
+ - `src/renderer/src/components/settings/BrowserUsePane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/BrowserUseSkillStep.tsx` [rebrand]
+ - `src/renderer/src/components/settings/CliSection.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/CliSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/CliSkillRuntimeSetup.test.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/CliSkillRuntimeSetup.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/codex-session-source-home-control.tsx` [rebrand]
+ - `src/renderer/src/components/settings/CommitMessageAiPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/ComputerUseSkillSetupPanel.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/DeveloperPermissionsPane.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/EphemeralVmRecipeRow.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/EphemeralVmRuntimesSection.test.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/EphemeralVmsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/ExperimentalPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/FloatingWorkspacePane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/GeneralEditorSettingsSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/general-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/GeneralUpdateSettingsSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/GitPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/git-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/linear-agent-skill-install-cta.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/LinearAgentSkillPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/MobileEmulatorSettingsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/MobilePairingQrSection.test.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/MobilePairingQrSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/MobilePane.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/MobileSettingsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/mobile-settings-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/notification-settings-copy.ts` [rebrand]
+ - `src/renderer/src/components/settings/NotificationSoundSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/NotificationsPane.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/OrchestrationPane.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/OrchestrationPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/OrchestrationSetupCard.tsx` [rebrand]
+ - `src/renderer/src/components/settings/PrivacyPane.test.ts` [custom_logic]
+ - `src/renderer/src/components/settings/PrivacyPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/provider-account-scope.ts` [rebrand]
+ - `src/renderer/src/components/settings/provider-account-visibility.ts` [custom_logic]
+ - `src/renderer/src/components/settings/QuickCommandsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/ReleaseChannelSection.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/RemoteServerUpdateStatus.tsx` [rebrand]
+ - `src/renderer/src/components/settings/RepositoryForkSyncSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/repository-git-hooks-search-entries.ts` [custom_logic]
+ - `src/renderer/src/components/settings/RepositoryHooksSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/repository-host-setup-options.ts` [rebrand]
+ - `src/renderer/src/components/settings/RepositoryHostSetupsSection.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/RepositoryHostSetupsSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/RepositoryHostSetupsSection.workspace-window.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/repository-icon-github.test.ts` [rebrand]
+ - `src/renderer/src/components/settings/RepositoryIconPicker.github-avatar-refresh.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/RepositoryPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/repository-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/repository-source-control-ai-labels.ts` [rebrand]
+ - `src/renderer/src/components/settings/RuntimeEnvironmentsPane.test.ts` [rebrand]
+ - `src/renderer/src/components/settings/RuntimeEnvironmentsPane.tsx` [rebrand]
+ - `src/renderer/src/components/settings/Settings.tsx` [rebrand]
+ - `src/renderer/src/components/settings/shortcut-definition-catalog.ts` [custom_logic]
+ - `src/renderer/src/components/settings/shortcut-groups.test.ts` [custom_logic]
+ - `src/renderer/src/components/settings/ShortcutsPane.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/shortcuts-search.ts` [rebrand]
+ - `src/renderer/src/components/settings/source-control-action-recipe-options.ts` [rebrand]
+ - `src/renderer/src/components/settings/SourceControlAiActionRecipeDefaults.tsx` [rebrand]
+ - `src/renderer/src/components/settings/TaskSourceLinearSetup.tsx` [rebrand]
+ - `src/renderer/src/components/settings/TasksPane.test.tsx` [rebrand]
+ - `src/renderer/src/components/settings/TerminalCursorAppearanceSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/TerminalThemeSections.tsx` [rebrand]
+ - `src/renderer/src/components/settings/TerminalWindowSection.tsx` [rebrand]
+ - `src/renderer/src/components/settings/token-source-control-integration-cards.tsx` [rebrand]
+ - `src/renderer/src/components/settings/use-linear-agent-skill-setup.ts` [custom_logic]
+ - `src/renderer/src/components/settings/WorkspaceDirectorySetting.test.tsx` [custom_logic]
+ - `src/renderer/src/components/settings/WorkspaceDirectorySetting.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/active-worktree-focus-after-delete.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/AddProjectFromFolderDialog.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/AddProjectFromFolderDialog.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/add-remote-host-ssh-actions.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/add-remote-host-ssh-actions.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/AddRepoDialogStepContent.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/AddRepoHostSelector.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/AddRepoNestedImportStep.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/AddRepoNestedImportStep.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/AddRepoStartSteps.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/AddRepoSteps.default-checkout.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/AddRepoSteps.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/create-project-defaults.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/create-project-defaults.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/default-branch-visible-under-hide-sleeping.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/DeleteWorktreeDialog.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/delete-worktree-dialog-copy.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/delete-worktree-flow.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/delete-worktree-flow.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/delete-worktree-toast.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/delete-worktree-toast.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/folder-workspace-composer-submit.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/folder-workspace-composer-submit.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/ForgetSshWorkspaceDialog.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/host-rename-remove.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/host-section-rows.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/imported-worktrees-card-candidates.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/ImportedWorktreesVisibilityLine.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/linear-agent-skill-runtime.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/LinearAgentSkillSetupDialog.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/LinearAgentSkillSetupPrompt.reminder-toast.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/LinearAgentSkillSetupPrompt.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/LinearAgentSkillSetupPrompt.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/LinearAgentSkillSetupPrompt.update-command.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/local-base-ref-suggestion-toast.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/new-external-worktrees-inbox-candidates.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/NewExternalWorktreesInboxLine.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/NewExternalWorktreesInboxLine.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/preserved-branch-batch-toast.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/preserved-branch-toast.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/project-added-default-checkout.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/ProjectAddedDialog.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/RemoveFolderDialog.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/repo-header-create-state.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/SetupScriptPromptCard.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/SidebarFeedbackDialog.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/SidebarNav.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/SidebarNav.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/SidebarWorkspaceFilterSection.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/sidebar-workspace-option-items.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/smart-sort.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/ssh-host-remove-workspaces.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/ssh-workspace-forget-resolution.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/useAddRepoCloneFlow.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/use-add-repo-host-selection.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/useCreateRepo.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/useSetupScriptPromptRevalidation.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/useWorkspaceBoardPanel.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/use-worktree-card-foundation.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/use-worktree-card-lifecycle-effects.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/use-worktree-card-secondary-details.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/workspace-board-task-status-sync.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/WorkspaceKanbanDrawerHeader.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/workspace-kanban-search.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.affiliate-list-mode.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.compact-hover.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.compact-ports-hover-independence.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.hosted-review-refresh.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.lineage.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.merged-pr-display.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.pinned-repo-icon.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.pr-display.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.quick-actions.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCard.ssh-reconnect-prompt.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeCardAgents.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCardAgents.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCardCliDetailSection.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/worktree-card-header.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeCardIssueDetailSection.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeCardMeta.interaction.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCardMeta.test.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeCardMeta.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/worktree-card-meta-types.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/worktree-card-model.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/worktree-card-pr-display.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/worktree-card-presentation.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeCardReviewDetailSection.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/worktree-card-surface.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeContextMenu.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeList.card-memo-stability.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeList.lineage-agent-expansion-coupling.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeList.lineage-child-card.test.ts` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeList.lineage-child-real-card.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeList.status-lane-lineage-drop.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeList.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeMetaDialog.test.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/WorktreeMetaDialog.tsx` [custom_logic]
+ - `src/renderer/src/components/sidebar/worktree-meta-updates.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeOpenInMenu.tsx` [rebrand]
+ - `src/renderer/src/components/sidebar/worktree-title-derived-agent-rows.test.ts` [rebrand]
+ - `src/renderer/src/components/sidebar/WorktreeVisibilityDialog.tsx` [rebrand]
+ - `src/renderer/src/components/stats/usage-overview-model.test.ts` [custom_logic]
+ - `src/renderer/src/components/status-bar/mergeSnapshotAndSessions.test.ts` [rebrand]
+ - `src/renderer/src/components/status-bar/PetStatusSegment.tsx` [rebrand]
+ - `src/renderer/src/components/status-bar/ResourceUsageStatusSegment.rows.test.tsx` [rebrand]
+ - `src/renderer/src/components/status-bar/ResourceUsageStatusSegment.tsx` [rebrand]
+ - `src/renderer/src/components/status-bar/StatusBar.tsx` [custom_logic]
+ - `src/renderer/src/components/status-bar/status-bar-provider-visibility.ts` [custom_logic]
+ - `src/renderer/src/components/status-bar/tooltip.test.ts` [rebrand]
+ - `src/renderer/src/components/status-bar/UpdateStatusSegment.tsx` [rebrand]
+ - `src/renderer/src/components/tab-bar/BrowserTab.tsx` [custom_logic]
+ - `src/renderer/src/components/tab-bar/EditorFileTab.test.tsx` [custom_logic]
+ - `src/renderer/src/components/tab-bar/SortableTab.tsx` [custom_logic]
+ - `src/renderer/src/components/tab-bar/TabBar.windows-shell-launch.test.ts` [custom_logic]
+ - `src/renderer/src/components/tab-bar/use-tab-bar-runtime-model.ts` [custom_logic]
+ - `src/renderer/src/components/tab-group/AiVaultSessionDropLayer.tsx` [rebrand]
+ - `src/renderer/src/components/tab-group/useTabGroupWorkspaceModel.focus.test.ts` [rebrand]
+ - `src/renderer/src/components/task-page-cache-selectors.test.ts` [rebrand]
+ - `src/renderer/src/components/task-page-default-repo-selection.test.ts` [rebrand]
+ - `src/renderer/src/components/task-page-github-status-actions.test.ts` [rebrand]
+ - `src/renderer/src/components/task-page-jira-item-source-context.test.ts` [custom_logic]
+ - `src/renderer/src/components/task-page-localized-options.tsx` [custom_logic]
+ - `src/renderer/src/components/Terminal.tsx` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/codex-detached-pane-restart.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/codex-detached-pane-restart.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/issue-12112-agent-pane-startup-color-reply-leak.repro.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/issue-4631-terminal-hover-link-provider.repro.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/keyboard-handlers.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/keyboard-handlers.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/layout-serialization.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/layout-serialization.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/pane-foreground-agent-tracker.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/parked-terminal-byte-watcher.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/parked-terminal-command-status.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/pty-connection.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/pty-dispatcher-pi-routing.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/pty-transport.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/remote-hidden-output-restore-outcomes.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/remote-runtime-pty-transport.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-bracketed-paste.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-clipboard-paste.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalContextMenu.test.tsx` [rebrand]
+ - `src/renderer/src/components/terminal-pane/TerminalErrorToast.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/TerminalErrorToast.tsx` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-file-link-actions.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-file-open-routing.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-handle-links.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalLinkActionPopover.test.tsx` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-link-action-routing.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-link-open-hints.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-link-open-hints.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-link-pty-mouse-suppression.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-live-layout-reconciliation.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-notification-pane-visibility.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalOverlaySlot.tsx` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalPane.tsx` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalPaneHeaderOverlay.tsx` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalPaneOverlayLayer.react185.test.tsx` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-paste-model.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-render-desync-sentinel.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-runtime-host-link-routing.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-shortcut-policy.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-shortcut-policy.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/TerminalSshReconnectOverlay.tsx` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-title-tracker-parity.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/terminal-url-link-click.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-url-link-hit-testing.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/terminal-visibility-resume.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/use-notification-dispatch.test.ts` [rebrand]
+ - `src/renderer/src/components/terminal-pane/use-notification-dispatch.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/use-terminal-pane-context-menu.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/use-terminal-pane-lifecycle.test.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/use-terminal-pane-lifecycle.ts` [custom_logic]
+ - `src/renderer/src/components/terminal-pane/xterm-bypass-policy.ts` [custom_logic]
+ - `src/renderer/src/components/ui/repo-multi-combobox.test.ts` [custom_logic]
+ - `src/renderer/src/components/UpdateCard.error-card.test.tsx` [rebrand]
+ - `src/renderer/src/components/UpdateCard.test.ts` [custom_logic]
+ - `src/renderer/src/components/UpdateCard.tsx` [rebrand]
+ - `src/renderer/src/components/UpdateErrorCardContent.tsx` [incidental]
+ - `src/renderer/src/components/workspace-cleanup/inactive-workspace-estimate.ts` [custom_logic]
+ - `src/renderer/src/components/workspace-cleanup/WorkspaceCleanupDialog.mount-gating.test.tsx` [custom_logic]
+ - `src/renderer/src/components/workspace-cleanup/WorkspaceCleanupDialog.tsx` [rebrand]
+ - `src/renderer/src/components/WorktreeJumpPalette.tsx` [rebrand]
+ - `src/renderer/src/constants/terminal.ts` [custom_logic]
+ - `src/renderer/src/hooks/resolve-zoom-target.ts` [custom_logic]
+ - `src/renderer/src/hooks/useAutomationDispatchEvents.test.ts` [custom_logic]
+ - `src/renderer/src/hooks/useAutomationDispatchEvents.ts` [custom_logic]
+ - `src/renderer/src/hooks/useComposerState.ts` [custom_logic]
+ - `src/renderer/src/hooks/useComposerState-host-context-boundaries.test.ts` [rebrand]
+ - `src/renderer/src/hooks/useComposerState-host-retarget.test.ts` [rebrand]
+ - `src/renderer/src/hooks/useDetectedAgents.ts` [custom_logic]
+ - `src/renderer/src/hooks/useEditorExternalWatch.test.ts` [rebrand]
+ - `src/renderer/src/hooks/useEditorExternalWatch.ts` [custom_logic]
+ - `src/renderer/src/hooks/useEphemeralVmRecipeOptions.ts` [custom_logic]
+ - `src/renderer/src/hooks/useGlobalFileDrop.ts` [custom_logic]
+ - `src/renderer/src/hooks/useInstalledAgentSkills.react.test.tsx` [custom_logic]
+ - `src/renderer/src/hooks/useInstalledAgentSkills.test.ts` [rebrand]
+ - `src/renderer/src/hooks/useInstalledAgentSkills.ts` [incidental]
+ - `src/renderer/src/hooks/useIpcEvents.ts` [rebrand]
+ - `src/renderer/src/hooks/useModalReturnFocus.test.tsx` [custom_logic]
+ - `src/renderer/src/hooks/useModalReturnFocus.ts` [custom_logic]
+ - `src/renderer/src/hooks/useSettingsNavigationMetadata.test.ts` [rebrand]
+ - `src/renderer/src/hooks/useSettingsNavigationMetadata.ts` [rebrand]
+ - `src/renderer/src/hooks/worktree-file-change-event.ts` [custom_logic]
+ - `src/renderer/src/i18n/ko-ui-semantic-mistranslations.test.ts` [rebrand]
+ - `src/renderer/src/i18n/locale-english-regression.test.ts` [custom_logic]
+ - `src/renderer/src/i18n/locales/en.json` [rebrand]
+ - `src/renderer/src/i18n/locales/es.json` [rebrand]
+ - `src/renderer/src/i18n/locales/ja.json` [rebrand]
+ - `src/renderer/src/i18n/locales/ko.json` [rebrand]
+ - `src/renderer/src/i18n/locales/zh.json` [rebrand]
+ - `src/renderer/src/i18n/native-chat-locales.test.ts` [incidental]
+ - `src/renderer/src/lib/active-agent-note-send.ts` [custom_logic]
+ - `src/renderer/src/lib/active-agent-note-send-result.ts` [rebrand]
+ - `src/renderer/src/lib/activity-thread-display.test.ts` [custom_logic]
+ - `src/renderer/src/lib/activity-thread-display.ts` [custom_logic]
+ - `src/renderer/src/lib/agent-background-session-test-state.ts` [custom_logic]
+ - `src/renderer/src/lib/agent-catalog.tsx` [custom_logic]
+ - `src/renderer/src/lib/agent-paste-draft.test.ts` [rebrand]
+ - `src/renderer/src/lib/agent-session-continuation.ts` [rebrand]
+ - `src/renderer/src/lib/agent-skill-nav-install-status.test.ts` [custom_logic]
+ - `src/renderer/src/lib/agent-status.test.ts` [rebrand]
+ - `src/renderer/src/lib/ai-vault-resume-command.test.ts` [custom_logic]
+ - `src/renderer/src/lib/ai-vault-resume-command.ts` [custom_logic]
+ - `src/renderer/src/lib/ai-vault-session-drag.ts` [custom_logic]
+ - `src/renderer/src/lib/ai-vault-session-resume-preparation.test.ts` [custom_logic]
+ - `src/renderer/src/lib/browser-page-palette-activation.test.ts` [custom_logic]
+ - `src/renderer/src/lib/browser-palette-search.test.ts` [custom_logic]
+ - `src/renderer/src/lib/browser-palette-search.ts` [custom_logic]
+ - `src/renderer/src/lib/codex-pane-restart-eligibility.ts` [custom_logic]
+ - `src/renderer/src/lib/codex-pane-selection-lane.ts` [custom_logic]
+ - `src/renderer/src/lib/codex-session-restart.test.ts` [custom_logic]
+ - `src/renderer/src/lib/codex-session-restart.ts` [custom_logic]
+ - `src/renderer/src/lib/command-code-prompt-status-seed.ts` [custom_logic]
+ - `src/renderer/src/lib/connection-context.test.ts` [custom_logic]
+ - `src/renderer/src/lib/desktop-window-chrome.ts` [custom_logic]
+ - `src/renderer/src/lib/editor-file-operation-owner.test.ts` [custom_logic]
+ - `src/renderer/src/lib/ensure-hooks-confirmed.test.ts` [custom_logic]
+ - `src/renderer/src/lib/ensure-hooks-confirmed.ts` [custom_logic]
+ - `src/renderer/src/lib/ephemeral-vm-runtime-cleanup.test.ts` [custom_logic]
+ - `src/renderer/src/lib/ephemeral-vm-workspace-target.test.ts` [rebrand]
+ - `src/renderer/src/lib/ephemeral-vm-workspace-target.ts` [rebrand]
+ - `src/renderer/src/lib/feature-education-telemetry.ts` [custom_logic]
+ - `src/renderer/src/lib/file-preview.test.ts` [rebrand]
+ - `src/renderer/src/lib/file-preview.ts` [rebrand]
+ - `src/renderer/src/lib/floating-workspace-terminal-actions.test.ts` [custom_logic]
+ - `src/renderer/src/lib/folder-workspace-path-status.ts` [rebrand]
+ - `src/renderer/src/lib/http-link-modifier-routing.test.ts` [rebrand]
+ - `src/renderer/src/lib/http-link-routing.test.ts` [rebrand]
+ - `src/renderer/src/lib/http-link-routing.ts` [custom_logic]
+ - `src/renderer/src/lib/i18n-jsx-spacing-guard.test.ts` [custom_logic]
+ - `src/renderer/src/lib/keyboard-layout/option-as-alt-probe.test.ts` [custom_logic]
+ - `src/renderer/src/lib/keyboard-layout/option-as-alt-probe.ts` [custom_logic]
+ - `src/renderer/src/lib/launch-agent-background-session.test.ts` [custom_logic]
+ - `src/renderer/src/lib/launch-agent-in-new-tab.test.ts` [rebrand]
+ - `src/renderer/src/lib/launch-agent-in-new-tab.ts` [custom_logic]
+ - `src/renderer/src/lib/launch-work-item-direct.test.ts` [rebrand]
+ - `src/renderer/src/lib/launch-work-item-direct.ts` [custom_logic]
+ - `src/renderer/src/lib/launch-work-item-direct-agent.ts` [custom_logic]
+ - `src/renderer/src/lib/launch-work-item-direct-preflight.ts` [custom_logic]
+ - `src/renderer/src/lib/launch-worktree-background-terminals.ts` [custom_logic]
+ - `src/renderer/src/lib/lazy-chunk-recovery-reload.test.ts` [custom_logic]
+ - `src/renderer/src/lib/linear-agent-skill-update-command.test.ts` [custom_logic]
+ - `src/renderer/src/lib/linear-issue-workspace-attachment.test.ts` [incidental]
+ - `src/renderer/src/lib/markdown-document-templates.test.ts` [custom_logic]
+ - `src/renderer/src/lib/markdown-document-templates.ts` [custom_logic]
+ - `src/renderer/src/lib/new-workspace.ts` [custom_logic]
+ - `src/renderer/src/lib/new-workspace-composer-repo.test.ts` [custom_logic]
+ - `src/renderer/src/lib/new-workspace-project-options.test.ts` [rebrand]
+ - `src/renderer/src/lib/notes-send-agent-targets.ts` [custom_logic]
+ - `src/renderer/src/lib/open-mobile-emulator-tab.ts` [custom_logic]
+ - `src/renderer/src/lib/orchestration-skill-coverage.test.ts` [rebrand]
+ - `src/renderer/src/lib/pane-manager/pane-dom-creation.ts` [custom_logic]
+ - `src/renderer/src/lib/pane-manager/pane-lifecycle.test.ts` [custom_logic]
+ - `src/renderer/src/lib/pane-manager/pane-lifecycle.ts` [custom_logic]
+ - `src/renderer/src/lib/pane-manager/pane-manager.ts` [custom_logic]
+ - `src/renderer/src/lib/pane-manager/pane-manager-types.ts` [custom_logic]
+ - `src/renderer/src/lib/pane-manager/pane-terminal-output-scheduler.test.ts` [rebrand]
+ - `src/renderer/src/lib/pane-manager/pane-terminal-output-scheduler.ts` [rebrand]
+ - `src/renderer/src/lib/pane-manager/terminal-keyboard-protocol.ts` [custom_logic]
+ - `src/renderer/src/lib/pane-manager/xterm-user-scrolling-contract.test.ts` [custom_logic]
+ - `src/renderer/src/lib/pending-worktree-creation.ts` [custom_logic]
+ - `src/renderer/src/lib/pr-comment-action-state.ts` [custom_logic]
+ - `src/renderer/src/lib/pr-comment-reactions.test.ts` [custom_logic]
+ - `src/renderer/src/lib/project-host-clone-url.test.ts` [rebrand]
+ - `src/renderer/src/lib/project-host-setup-options.test.ts` [rebrand]
+ - `src/renderer/src/lib/project-host-setup-options.ts` [rebrand]
+ - `src/renderer/src/lib/project-host-workspace-target.test.ts` [rebrand]
+ - `src/renderer/src/lib/react-error-boundary-reporting.ts` [custom_logic]
+ - `src/renderer/src/lib/repo-search.test.ts` [rebrand]
+ - `src/renderer/src/lib/repo-slug-index.ts` [custom_logic]
+ - `src/renderer/src/lib/scroll-cache.ts` [custom_logic]
+ - `src/renderer/src/lib/settings-navigation-types.ts` [custom_logic]
+ - `src/renderer/src/lib/setup-script-prompt.test.ts` [custom_logic]
+ - `src/renderer/src/lib/shutdown-checkpoint-guard.test.ts` [custom_logic]
+ - `src/renderer/src/lib/shutdown-checkpoint-guard.ts` [custom_logic]
+ - `src/renderer/src/lib/simulator-palette-search.test.ts` [custom_logic]
+ - `src/renderer/src/lib/simulator-palette-search.ts` [custom_logic]
+ - `src/renderer/src/lib/source-control-agent-action-plan.ts` [rebrand]
+ - `src/renderer/src/lib/startup-ui-hydration.ts` [incidental]
+ - `src/renderer/src/lib/tab-agent.test.ts` [rebrand]
+ - `src/renderer/src/lib/terminal-quick-command-project-scope.test.ts` [rebrand]
+ - `src/renderer/src/lib/terminal-worktree-route.test.ts` [custom_logic]
+ - `src/renderer/src/lib/text-control-paste-ownership.test.ts` [custom_logic]
+ - `src/renderer/src/lib/text-control-paste-ownership.ts` [custom_logic]
+ - `src/renderer/src/lib/tui-agent-startup.test.ts` [custom_logic]
+ - `src/renderer/src/lib/updater-beforeunload.test.ts` [custom_logic]
+ - `src/renderer/src/lib/updater-beforeunload.ts` [custom_logic]
+ - `src/renderer/src/lib/use-tab-agent.test.ts` [rebrand]
+ - `src/renderer/src/lib/window-visibility-interval.ts` [custom_logic]
+ - `src/renderer/src/lib/workspace-port-actions.ts` [custom_logic]
+ - `src/renderer/src/lib/workspace-session.ts` [custom_logic]
+ - `src/renderer/src/lib/workspace-session-reconnect-targets.ts` [custom_logic]
+ - `src/renderer/src/lib/workspace-tab-agent-metadata.test.ts` [rebrand]
+ - `src/renderer/src/lib/workspace-tab-palette-activation.test.ts` [custom_logic]
+ - `src/renderer/src/lib/workspace-tab-palette-search.test.ts` [custom_logic]
+ - `src/renderer/src/lib/worktree-activation-created-agent.test.ts` [custom_logic]
+ - `src/renderer/src/lib/worktree-activation-empty-remote.test.ts` [custom_logic]
+ - `src/renderer/src/lib/worktree-creation-flow.test.ts` [rebrand]
+ - `src/renderer/src/lib/worktree-palette-review-match.test.ts` [rebrand]
+ - `src/renderer/src/lib/worktree-palette-search.test.ts` [rebrand]
+ - `src/renderer/src/lib/worktree-palette-search.ts` [custom_logic]
+ - `src/renderer/src/main.tsx` [rebrand]
+ - `src/renderer/src/popout.tsx` [rebrand]
+ - `src/renderer/src/runtime/gitlab-job-trace-client.test.ts` [custom_logic]
+ - `src/renderer/src/runtime/remote-host-file-open-repro.test.ts` [custom_logic]
+ - `src/renderer/src/runtime/remote-runtime-terminal-multiplexer.ts` [rebrand]
+ - `src/renderer/src/runtime/remote-server-update-coordinator.test.ts` [rebrand]
+ - `src/renderer/src/runtime/runtime-environment-ssh-state.ts` [custom_logic]
+ - `src/renderer/src/runtime/runtime-file-client.test.ts` [rebrand]
+ - `src/renderer/src/runtime/runtime-file-client.ts` [rebrand]
+ - `src/renderer/src/runtime/runtime-hooks-client.ts` [custom_logic]
+ - `src/renderer/src/runtime/runtime-jira-client.test.ts` [custom_logic]
+ - `src/renderer/src/runtime/runtime-provider-accounts-client.ts` [custom_logic]
+ - `src/renderer/src/runtime/runtime-skills-client.ts` [custom_logic]
+ - `src/renderer/src/runtime/runtime-terminal-inspection.test.ts` [custom_logic]
+ - `src/renderer/src/runtime/runtime-terminal-inspection.ts` [custom_logic]
+ - `src/renderer/src/runtime/web-runtime-session.test.ts` [custom_logic]
+ - `src/renderer/src/runtime/web-runtime-session.ts` [rebrand]
+ - `src/renderer/src/store/index.ts` [custom_logic]
+ - `src/renderer/src/store/selectors.test.ts` [rebrand]
+ - `src/renderer/src/store/selectors.ts` [incidental]
+ - `src/renderer/src/store/slices/agent-status.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/agent-status.ts` [custom_logic]
+ - `src/renderer/src/store/slices/agent-status-drop-ipc.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/browser.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/browser.ts` [custom_logic]
+ - `src/renderer/src/store/slices/cmd-j-create-actions.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/detected-agents.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/diffComments.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/editor.ts` [custom_logic]
+ - `src/renderer/src/store/slices/editor-rekey-open-files.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/github.ts` [custom_logic]
+ - `src/renderer/src/store/slices/github-project-row-owner.ts` [custom_logic]
+ - `src/renderer/src/store/slices/github-pr-refresh-states-leak.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/hosted-review.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/hosted-review-cache.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/hosted-review-cache-race.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/purge-stale-runtime-host-state.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/repos.runtime-fallback.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-all-hosts.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-all-hosts-generation.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/repos-host-identity-routing.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/repos-project-groups.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-project-groups-delete.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-project-host-capability.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-project-runtime.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-remove-missing-remote-project.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/repos-runtime-project-groups.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-runtime-routing-fixture.ts` [custom_logic]
+ - `src/renderer/src/store/slices/repos-shared-project-badge-color.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/repos-ssh-host-reconciliation.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/restored-editor-owner-reparent.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/runtime-environment-ssh.ts` [custom_logic]
+ - `src/renderer/src/store/slices/runtime-status.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/runtime-status.ts` [custom_logic]
+ - `src/renderer/src/store/slices/runtime-status-hydration.ts` [custom_logic]
+ - `src/renderer/src/store/slices/settings.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/settings.ts` [custom_logic]
+ - `src/renderer/src/store/slices/store-session-cascades.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/store-test-helpers.ts` [custom_logic]
+ - `src/renderer/src/store/slices/terminal-quick-command-hosts.ts` [rebrand]
+ - `src/renderer/src/store/slices/terminals.ts` [custom_logic]
+ - `src/renderer/src/store/slices/ui.ts` [custom_logic]
+ - `src/renderer/src/store/slices/workspace-space.test.ts` [custom_logic]
+ - `src/renderer/src/store/slices/worktree-helpers.ts` [custom_logic]
+ - `src/renderer/src/store/slices/worktree-nav-history-view-entries.test.ts` [rebrand]
+ - `src/renderer/src/store/slices/worktrees.ts` [rebrand]
+ - `src/renderer/src/store/types.ts` [custom_logic]
+ - `src/renderer/src/web/web-preload-api.ts` [rebrand]
+ - `src/renderer/src/web/web-runtime-client.test.ts` [rebrand]
+ - `src/renderer/src/web/web-runtime-client.ts` [rebrand]
+ - `src/renderer/src/web/web-runtime-direct-proxy-live.integration.test.ts` [custom_logic]
+ - `src/shared/agent-detection.test.ts` [custom_logic]
+ - `src/shared/agent-hook-listener.ts` [custom_logic]
+ - `src/shared/agent-hook-relay.test.ts` [custom_logic]
+ - `src/shared/agent-hook-relay.ts` [custom_logic]
+ - `src/shared/agent-hook-types.ts` [custom_logic]
+ - `src/shared/agent-kind.ts` [custom_logic]
+ - `src/shared/agent-process-recognition.test.ts` [custom_logic]
+ - `src/shared/agent-process-recognition.ts` [custom_logic]
+ - `src/shared/agent-row-conversation-name.test.ts` [custom_logic]
+ - `src/shared/agent-row-conversation-name.ts` [custom_logic]
+ - `src/shared/agent-scratch-worktrees.test.ts` [custom_logic]
+ - `src/shared/agent-session-host-authority.ts` [incidental]
+ - `src/shared/agent-status-field-normalization.ts` [custom_logic]
+ - `src/shared/agent-status-types.test.ts` [custom_logic]
+ - `src/shared/agent-status-types.ts` [custom_logic]
+ - `src/shared/agent-title-core.ts` [custom_logic]
+ - `src/shared/ai-vault-resume-command.test.ts` [custom_logic]
+ - `src/shared/ai-vault-resume-command.ts` [custom_logic]
+ - `src/shared/ai-vault-session-deletion.ts` [custom_logic]
+ - `src/shared/artifact-sharing-gate.ts` [custom_logic]
+ - `src/shared/browser-guest-events.ts` [custom_logic]
+ - `src/shared/browser-url.test.ts` [custom_logic]
+ - `src/shared/browser-url.ts` [custom_logic]
+ - `src/shared/claude-model-list-probe.test.ts` [custom_logic]
+ - `src/shared/claude-model-list-probe.ts` [custom_logic]
+ - `src/shared/claude-subagent-roster.test.ts` [custom_logic]
+ - `src/shared/claude-subagent-roster.ts` [custom_logic]
+ - `src/shared/claude-subagent-row-lifecycle.test.ts` [custom_logic]
+ - `src/shared/cli-workspace-provenance.ts` [custom_logic]
+ - `src/shared/codex-pet-sprite-defaults.ts` [custom_logic]
+ - `src/shared/commit-message-agent-output.ts` [custom_logic]
+ - `src/shared/commit-message-agent-spec.test.ts` [custom_logic]
+ - `src/shared/commit-message-agent-spec.ts` [custom_logic]
+ - `src/shared/commit-message-plan.ts` [custom_logic]
+ - `src/shared/commit-message-prompt.ts` [custom_logic]
+ - `src/shared/constants.ts` [rebrand]
+ - `src/shared/contextual-tours.test.ts` [custom_logic]
+ - `src/shared/contextual-tours.ts` [custom_logic]
+ - `src/shared/cross-platform-path.test.ts` [custom_logic]
+ - `src/shared/draft-paste-ready-scanner.ts` [incidental]
+ - `src/shared/ephemeral-vm-recipe-diagnostics.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipe-doctor.test.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipe-doctor.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipe-lifecycle-payload.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipe-process.test.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipe-process.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipe-runner.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipes.test.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-recipes.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-runtimes.ts` [custom_logic]
+ - `src/shared/ephemeral-vm-runtime-store.ts` [custom_logic]
+ - `src/shared/execution-host-registry.test.ts` [custom_logic]
+ - `src/shared/execution-host-registry.ts` [custom_logic]
+ - `src/shared/external-worktree-inbox.test.ts` [custom_logic]
+ - `src/shared/external-worktree-inbox.ts` [custom_logic]
+ - `src/shared/feature-interactions.test.ts` [incidental]
+ - `src/shared/folder-workspace-worktree.test.ts` [custom_logic]
+ - `src/shared/git-binary-compatibility.test.ts` [custom_logic]
+ - `src/shared/git-capability-cache.ts` [custom_logic]
+ - `src/shared/git-effective-upstream.ts` [custom_logic]
+ - `src/shared/git-history-log-parser.ts` [custom_logic]
+ - `src/shared/gitlab-job-trace-check-details.test.ts` [custom_logic]
+ - `src/shared/gitlab-pipeline-checks.test.ts` [custom_logic]
+ - `src/shared/gitlab-types.ts` [custom_logic]
+ - `src/shared/hermes-startup-query.ts` [custom_logic]
+ - `src/shared/hosted-review-github.test.ts` [custom_logic]
+ - `src/shared/keybindings.ts` [custom_logic]
+ - `src/shared/local-build-compatibility-contract.json` [custom_logic]
+ - `src/shared/local-build-compatibility-contract.ts` [custom_logic]
+ - `src/shared/marine-creatures.ts` [custom_logic]
+ - `src/shared/native-chat-agent-support.ts` [custom_logic]
+ - `src/shared/native-chat-image-transcript-markers.test.ts` [custom_logic]
+ - `src/shared/native-chat-session-option-commands.ts` [custom_logic]
+ - `src/shared/new-workspace/fork-push-warning.ts` [custom_logic]
+ - `src/shared/new-workspace/workspace-source.ts` [custom_logic]
+ - `src/shared/new-workspace-dialog-repo.test.ts` [custom_logic]
+ - `src/shared/node-cli-command-resolution.ts` [custom_logic]
+ - `src/shared/pane-agent-owner.ts` [custom_logic]
+ - `src/shared/plugins/plugin-vm-recipe-artifact.ts` [custom_logic]
+ - `src/shared/posix-command-path-lookup.test.ts` [custom_logic]
+ - `src/shared/posix-command-path-lookup.ts` [custom_logic]
+ - `src/shared/project-host-setup-projection.test.ts` [rebrand]
+ - `src/shared/protocol-version.ts` [custom_logic]
+ - `src/shared/pty-slave-line-discipline-echo.ts` [custom_logic]
+ - `src/shared/pty-startup-ingress.test.ts` [custom_logic]
+ - `src/shared/pty-startup-ingress.ts` [custom_logic]
+ - `src/shared/pty-startup-reply-delivery.ts` [custom_logic]
+ - `src/shared/quick-open-filter.ts` [incidental]
+ - `src/shared/quick-open-readdir-walk.test.ts` [custom_logic]
+ - `src/shared/release-channel.test.ts` [rebrand]
+ - `src/shared/release-channel.ts` [rebrand]
+ - `src/shared/remote-runtime-client.test.ts` [custom_logic]
+ - `src/shared/remote-runtime-client.ts` [custom_logic]
+ - `src/shared/remote-runtime-request-connection.ts` [custom_logic]
+ - `src/shared/remote-runtime-shared-control-connection.test.ts` [custom_logic]
+ - `src/shared/remote-runtime-shared-control-protocol.ts` [custom_logic]
+ - `src/shared/remote-runtime-transport-error-agreement.test.ts` [custom_logic]
+ - `src/shared/renderer-restart-preparation.ts` [custom_logic]
+ - `src/shared/renderer-shutdown-events.ts` [custom_logic]
+ - `src/shared/repro-7732-gitlab-job-id-dropped.test.ts` [custom_logic]
+ - `src/shared/resolved-worktree-lineage.test.ts` [rebrand]
+ - `src/shared/ripgrep-process-availability.test.ts` [custom_logic]
+ - `src/shared/setup-agent-sequencing.test.ts` [custom_logic]
+ - `src/shared/setup-agent-sequencing.ts` [custom_logic]
+ - `src/shared/setup-agent-sequencing.windows.test.ts` [custom_logic]
+ - `src/shared/skills-cli-agent-keys.ts` [custom_logic]
+ - `src/shared/ssh-types.ts` [custom_logic]
+ - `src/shared/startup-command-submission.ts` [custom_logic]
+ - `src/shared/telemetry-events.test.ts` [rebrand]
+ - `src/shared/telemetry-events.ts` [custom_logic]
+ - `src/shared/terminal-file-link-conformance.ts` [custom_logic]
+ - `src/shared/terminal-fonts.test.ts` [custom_logic]
+ - `src/shared/terminal-kitty-keyboard-mode-tracker.test.ts` [custom_logic]
+ - `src/shared/terminal-kitty-keyboard-mode-tracker.ts` [custom_logic]
+ - `src/shared/terminal-mode-2031-final-state.test.ts` [custom_logic]
+ - `src/shared/terminal-mode-reset-profiles.ts` [custom_logic]
+ - `src/shared/terminal-output-side-effects.ts` [custom_logic]
+ - `src/shared/terminal-quick-commands.ts` [custom_logic]
+ - `src/shared/terminal-restore-parity-fixture.ts` [custom_logic]
+ - `src/shared/terminal-title-agent-type.test.ts` [custom_logic]
+ - `src/shared/text-search.test.ts` [custom_logic]
+ - `src/shared/tui-agent-config.ts` [rebrand]
+ - `src/shared/tui-agent-launch-defaults.ts` [custom_logic]
+ - `src/shared/tui-agent-startup.test.ts` [custom_logic]
+ - `src/shared/tui-agent-startup.ts` [custom_logic]
+ - `src/shared/window-shortcut-policy.test.ts` [custom_logic]
+ - `src/shared/workspace-cleanup.ts` [custom_logic]
+ - `src/shared/workspace-linked-item-equality.test.ts` [custom_logic]
+ - `src/shared/workspace-linked-item-source-context.test.ts` [custom_logic]
+ - `src/shared/workspace-session-schema.test.ts` [custom_logic]
+ - `src/shared/wsl-login-shell-command.test.ts` [custom_logic]
+ - `src/shared/wsl-login-shell-command.ts` [custom_logic]
+ - `tests/e2e/artificial-opencode-hidden-pressure-scenario.ts` [custom_logic]
+ - `tests/e2e/artificial-opencode-revisit-pressure-scenario.ts` [custom_logic]
+ - `tests/e2e/artificial-opencode-terminal-load.spec.ts` [custom_logic]
+ - `tests/e2e/browser-address-bar-narrow-toolbar.spec.ts` [custom_logic]
+ - `tests/e2e/browser-guest-crash-recovery.spec.ts` [custom_logic]
+ - `tests/e2e/browser-tab.spec.ts` [custom_logic]
+ - `tests/e2e/chinese-ime-chat-input-repro.spec.ts` [custom_logic]
+ - `tests/e2e/codex-composer-echo-latency-probe.ts` [custom_logic]
+ - `tests/e2e/completed-worker-retirement-resume.spec.ts` [custom_logic]
+ - `tests/e2e/completed-worker-retirement-resume.unit.test.ts` [custom_logic]
+ - `tests/e2e/computer-mac-safari.e2e.ts` [custom_logic]
+ - `tests/e2e/computer-windows-store.e2e.ts` [custom_logic]
+ - `tests/e2e/cross-version-wire/release-checkout.ts` [custom_logic]
+ - `tests/e2e/daemon-generation-legacy-close-safety.spec.ts` [custom_logic]
+ - `tests/e2e/fixtures/daemon-generation-legacy-close-client.ts` [custom_logic]
+ - `tests/e2e/fixtures/daemon-generation-reconnect-client.ts` [custom_logic]
+ - `tests/e2e/floating-tab-rename.spec.ts` [custom_logic]
+ - `tests/e2e/floating-workspace-shared-glyph-atlas.spec.ts` [custom_logic]
+ - `tests/e2e/global-setup.ts` [custom_logic]
+ - `tests/e2e/global-teardown.ts` [custom_logic]
+ - `tests/e2e/helpers/alt-screen-frame.ts` [custom_logic]
+ - `tests/e2e/helpers/completed-worker-retirement-fixture.ts` [custom_logic]
+ - `tests/e2e/helpers/computer-driver.ts` [rebrand]
+ - `tests/e2e/helpers/docker-ssh-relay-connection.ts` [custom_logic]
+ - `tests/e2e/helpers/docker-ssh-relay-image.ts` [custom_logic]
+ - `tests/e2e/helpers/docker-ssh-relay-target.ts` [custom_logic]
+ - `tests/e2e/helpers/electron-launch-args.ts` [custom_logic]
+ - `tests/e2e/helpers/electron-launch-args.unit.test.ts` [custom_logic]
+ - `tests/e2e/helpers/electron-process-shutdown.ts` [custom_logic]
+ - `tests/e2e/helpers/headless-paired-runtime-host.ts` [custom_logic]
+ - `tests/e2e/helpers/markdown-ordered-list-exit.ts` [custom_logic]
+ - `tests/e2e/helpers/paired-electron-client.ts` [custom_logic]
+ - `tests/e2e/helpers/pr-comments-sidebar-fixture.ts` [custom_logic]
+ - `tests/e2e/helpers/remote-session-bulk-open-oracle.ts` [custom_logic]
+ - `tests/e2e/helpers/store.ts` [custom_logic]
+ - `tests/e2e/helpers/terminal.ts` [custom_logic]
+ - `tests/e2e/helpers/terminal-pty-write-spy.ts` [custom_logic]
+ - `tests/e2e/helpers/worktree-registration.ts` [custom_logic]
+ - `tests/e2e/issue-12656-terminal-link-tooltip.spec.ts` [custom_logic]
+ - `tests/e2e/korean-ime-terminal-shift-enter-commit.spec.ts` [custom_logic]
+ - `tests/e2e/large-diff-freeze-repro.spec.ts` [custom_logic]
+ - `tests/e2e/multi-client-navigation-isolation.spec.ts` [custom_logic]
+ - `tests/e2e/native-chat-ask-user-question-card.spec.ts` [custom_logic]
+ - `tests/e2e/native-chat-first-flush-race.spec.ts` [custom_logic]
+ - `tests/e2e/notification-settings.spec.ts` [custom_logic]
+ - `tests/e2e/onboarding.spec.ts` [custom_logic]
+ - `tests/e2e/orchestration-idle-mail-delivery.spec.ts` [custom_logic]
+ - `tests/e2e/orchestration-idle-mail-restore.spec.ts` [custom_logic]
+ - `tests/e2e/orchestration-legacy-worker-missing-terminal-recovery.spec.ts` [custom_logic]
+ - `tests/e2e/orchestration-legacy-worker-restart-recovery.spec.ts` [custom_logic]
+ - `tests/e2e/paired-remote-browser-stream-reconnect.spec.ts` [custom_logic]
+ - `tests/e2e/paired-remote-pane-layout-retry.spec.ts` [custom_logic]
+ - `tests/e2e/paired-remote-terminal-host-restart-background-sync.spec.ts` [custom_logic]
+ - `tests/e2e/pr11346-selected-runtime-add.spec.ts` [custom_logic]
+ - `tests/e2e/pr11346-selected-runtime-identity-oracle.ts` [custom_logic]
+ - `tests/e2e/pty-input-write-queue-ssh.spec.ts` [custom_logic]
+ - `tests/e2e/remote-agent-session-focus-authority.spec.ts` [custom_logic]
+ - `tests/e2e/remote-session-bulk-open-freeze-repro.spec.ts` [custom_logic]
+ - `tests/e2e/remote-terminal-tab-retirement.unit.test.ts` [custom_logic]
+ - `tests/e2e/repo-icon-emoji-picker.spec.ts` [custom_logic]
+ - `tests/e2e/session-tabs-decorative-title-fanout.unit.test.ts` [custom_logic]
+ - `tests/e2e/settings-agent-awake.spec.ts` [custom_logic]
+ - `tests/e2e/settings-display-name-ime.spec.ts` [custom_logic]
+ - `tests/e2e/settings-search-responsiveness.spec.ts` [custom_logic]
+ - `tests/e2e/settings-skill-detection.spec.ts` [custom_logic]
+ - `tests/e2e/setup-guide-sidebar.spec.ts` [custom_logic]
+ - `tests/e2e/source-control-create-pr.spec.ts` [custom_logic]
+ - `tests/e2e/source-control-discard-confirmation.spec.ts` [custom_logic]
+ - `tests/e2e/source-control-pr-generation-switch.spec.ts` [custom_logic]
+ - `tests/e2e/ssh-cold-activation-restore.spec.ts` [custom_logic]
+ - `tests/e2e/ssh-config-host-picker.PLAN.md` [rebrand]
+ - `tests/e2e/ssh-config-host-picker.spec.ts` [custom_logic]
+ - `tests/e2e/ssh-pi-compatible-agent-title.spec.ts` [custom_logic]
+ - `tests/e2e/ssh-terminal-parking.spec.ts` [custom_logic]
+ - `tests/e2e/status-bar-caffeinate.spec.ts` [custom_logic]
+ - `tests/e2e/tab-create-entry-file-paths.spec.ts` [custom_logic]
+ - `tests/e2e/tabs.spec.ts` [custom_logic]
+ - `tests/e2e/tasks-page.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-duplicate-pty-renderer-reveal.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-hidden-tui-visual-restore.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-hidden-view-parking.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-ibus-hangul-native.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-ime-cdp-composition.ts` [custom_logic]
+ - `tests/e2e/terminal-ime-pane-arena.ts` [custom_logic]
+ - `tests/e2e/terminal-link-hover-after-worktree-return.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-osc8-cold-park-restore.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-output-scheduler.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-paste-ownership.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-reveal-paused-render-repro.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-tab-close-restart-persistence.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-tab-switch-visual-restore.spec.ts` [custom_logic]
+ - `tests/e2e/terminal-windows-codex-multiline-paste.spec.ts` [rebrand]
+ - `tests/e2e/terminal-windows-shell-paste-ownership.spec.ts` [custom_logic]
+ - `tests/e2e/voice-microphone-selection.spec.ts` [custom_logic]
+ - `tests/e2e/workspace-back-forward-navigation.spec.ts` [custom_logic]
+ - `tests/e2e/workspace-board-lane-virtualization.spec.ts` [rebrand]
+ - `tests/e2e/workspace-space-git-status.spec.ts` [custom_logic]
+ - `tests/e2e/worktree-jump-palette-filter.spec.ts` [custom_logic]
+ - `tests/e2e/worktree-lifecycle.spec.ts` [custom_logic]
+ - `tests/e2e/worktree-smart-sort.spec.ts` [custom_logic]
+ - `tests/e2e/worktree-switch-responsiveness.spec.ts` [custom_logic]
+ - `tests/tools/daemon-relocation-spike/README.md` [rebrand]
+ - `tests/tools/google-signin-ua-probe.cjs` [custom_logic]
+ - `tests/tools/repro-watcher-crash-7547/fixed-child.cjs` [rebrand]
+ - `tests/tools/win-crash-survival-e2e/cli-args.mjs` [rebrand]
+ - `tests/tools/win-update-e2e/app-driver.mjs` [rebrand]
+ - `tests/tools/win-update-e2e/cli-args.mjs` [rebrand]
+ - `tests/tools/win-update-e2e/daemon-processes.mjs` [rebrand]
+ - `tests/tools/win-update-e2e/README.md` [rebrand]
+
+---
+
+## Rebrand-Unchanged (3302)
+
+Files where upstream changed but we did NOT change â€” safe to port verbatim.
+- `.github/actions/install-node-dependencies/action.yml`
+- `.github/pull_request_template.md`
+- `.github/workflows/mobile.yml`
+- `.github/workflows/pullfrog.yml`
+- `.github/workflows/skill-update-roundtrip.yml`
+- `.gitignore`
+- `.oxlintrc.json`
+- `config/docker/headless-pairing/Dockerfile.build`
+- `config/knip.json`
+- `config/oxlint-code-quality-native-plugins.json`
+- `config/oxlint-code-quality-type-aware.json`
+- `config/scripts/build-native-for-platform.mjs`
+- `config/scripts/build-relay.mjs`
+- `config/scripts/check-changed-code-quality.test.mjs`
+- `config/scripts/check-terminal-perf-report-budgets.mjs`
+- `config/scripts/compare-benchmark-artifacts.mjs`
+- `config/scripts/daily-build-version.test.mjs`
+- `config/scripts/generate-skill-bundle-manifest.mjs`
+- `config/scripts/lint-react-doctor-changed.mjs`
+- `config/scripts/locale-cross-locale-key-overrides.mjs`
+- `config/scripts/locale-search-keyword-overrides.mjs`
+- `config/scripts/native-chat-live-session-benchmark.ts`
+- `config/scripts/packaged-hang-watchdog-worker-contract.test.mjs`
+- `config/scripts/pr-e2e-gate-contract.test.mjs`
+- `config/scripts/release-e2e-dispatch-contract.test.mjs`
+- `config/scripts/worktree-refresh-churn-benchmark.mjs`
+- `config/tsconfig.cli.json`
+- `config/tsconfig.node.json`
+- `config/tsconfig.tc.web.json`
+- `config/tsconfig.web.json`
+- `docs/assets/readme-downloads.svg`
+- `docs/assets/star-history.png`
+- `mobile/.oxlintrc.json`
+- `mobile/app/connection-log.tsx`
+- `mobile/app/pair-confirm.tsx`
+- `mobile/app/troubleshoot.tsx`
+- `mobile/Gemfile`
+- `mobile/pnpm-workspace.yaml`
+- `mobile/src/accounts/mobile-accounts-route.test.ts`
+- `mobile/src/agent-history/agent-history-session-worktree.ts`
+- `mobile/src/browser/browser-url.ts`
+- `mobile/src/browser/mobile-browser-view-mode-state.test.ts`
+- `mobile/src/browser/mobile-browser-view-mode-state.ts`
+- `mobile/src/browser/MobileBrowserViewModeSwitch.tsx`
+- `mobile/src/components/AgentSpinner.tsx`
+- `mobile/src/components/AgentStateDot.tsx`
+- `mobile/src/components/ConnectionLog.tsx`
+- `mobile/src/components/markdown-file-path-detection.ts`
+- `mobile/src/components/MobileAgentIcon.tsx`
+- `mobile/src/components/mobile-agent-icon-assets.test.ts`
+- `mobile/src/components/mobile-agent-icon-assets.ts`
+- `mobile/src/components/MobileDiffReviewBody.tsx`
+- `mobile/src/components/MobileDiffReviewDrawers.tsx`
+- `mobile/src/components/MobileDiffReviewFileSummary.tsx`
+- `mobile/src/components/MobileDiffReviewLine.tsx`
+- `mobile/src/components/mobile-markdown-preview-tag-stripper.ts`
+- `mobile/src/components/mobile-rich-markdown-editor-html.test.ts`
+- `mobile/src/components/mounted-bottom-drawer.tsx`
+- `mobile/src/components/new-worktree-agent-selection.ts`
+- `mobile/src/components/new-worktree-form-sheet-visibility.test.ts`
+- `mobile/src/components/new-worktree-form-sheet-visibility.ts`
+- `mobile/src/components/PickerListDrawer.tsx`
+- `mobile/src/components/pr-sidebar/PRActionsSection.tsx`
+- `mobile/src/components/pr-sidebar/pr-actions-state.ts`
+- `mobile/src/components/pr-sidebar/pr-auto-merge-availability.ts`
+- `mobile/src/components/pr-sidebar/PRCheckDetail.tsx`
+- `mobile/src/components/pr-sidebar/pr-check-detail-content.test.ts`
+- `mobile/src/components/pr-sidebar/pr-check-detail-content.ts`
+- `mobile/src/components/pr-sidebar/pr-checks-presentation.test.ts`
+- `mobile/src/components/pr-sidebar/pr-checks-presentation.ts`
+- `mobile/src/components/pr-sidebar/PRChecksSection.tsx`
+- `mobile/src/components/pr-sidebar/PRCommentCard.tsx`
+- `mobile/src/components/pr-sidebar/PRCommentsSection.test.ts`
+- `mobile/src/components/pr-sidebar/PRCommentsSection.tsx`
+- `mobile/src/components/pr-sidebar/PRConflictingFilesSection.tsx`
+- `mobile/src/components/pr-sidebar/pr-conflict-presentation.test.ts`
+- `mobile/src/components/pr-sidebar/pr-conflict-presentation.ts`
+- `mobile/src/components/pr-sidebar/PRReviewersSection.tsx`
+- `mobile/src/components/pr-sidebar/PRSidebarHeader.tsx`
+- `mobile/src/components/pr-sidebar/ReviewerPickerDrawer.tsx`
+- `mobile/src/components/StatusDot.tsx`
+- `mobile/src/components/use-new-worktree-drawer-navigation.ts`
+- `mobile/src/components/worktree-name-suggestion.ts`
+- `mobile/src/diagnostics/host-reachability.test.ts`
+- `mobile/src/diagnostics/host-reachability.ts`
+- `mobile/src/files/file-list-fallback.ts`
+- `mobile/src/files/file-tree.ts`
+- `mobile/src/files/mobile-file-preview-editability.ts`
+- `mobile/src/files/mobile-file-preview-request.test.ts`
+- `mobile/src/files/mobile-file-preview-request.ts`
+- `mobile/src/files/mobile-file-preview-route.ts`
+- `mobile/src/files/MobileFilePreviewScreen.test.ts`
+- `mobile/src/files/MobileFilePreviewScreen.tsx`
+- `mobile/src/files/mobile-file-preview-source.test.ts`
+- `mobile/src/files/mobile-file-preview-source.ts`
+- `mobile/src/files/mobile-file-tab-doc.test.ts`
+- `mobile/src/files/mobile-terminal-artifact-grant-refresh.ts`
+- `mobile/src/home-host-edit-navigation-source.test.ts`
+- `mobile/src/hooks/use-active-worktree-scroll.ts`
+- `mobile/src/host-list-action-sheet-actions.test.ts`
+- `mobile/src/host-list-action-sheet-actions.ts`
+- `mobile/src/session/ai-vault-resume-launch.ts`
+- `mobile/src/session/github-pr-comment-parsers.ts`
+- `mobile/src/session/github-pr-mutations.ts`
+- `mobile/src/session/github-pr-parsers.ts`
+- `mobile/src/session/github-pr-rpc.ts`
+- `mobile/src/session/github-pr-value-readers.ts`
+- `mobile/src/session/markdown-floating-actions-layout.test.ts`
+- `mobile/src/session/markdown-floating-actions-layout.ts`
+- `mobile/src/session/mobile-bulk-close-sheet-actions.ts`
+- `mobile/src/session/mobile-diff-comment-edit.test.ts`
+- `mobile/src/session/mobile-diff-comment-edit.ts`
+- `mobile/src/session/mobile-diff-comments.test.ts`
+- `mobile/src/session/mobile-diff-comments.ts`
+- `mobile/src/session/mobile-diff-review-positioning.ts`
+- `mobile/src/session/mobile-diff-review-queue.test.ts`
+- `mobile/src/session/mobile-diff-review-queue.ts`
+- `mobile/src/session/mobile-diff-review-screen-model.ts`
+- `mobile/src/session/mobile-diff-review-state.ts`
+- `mobile/src/session/mobile-file-tap-open.ts`
+- `mobile/src/session/mobile-native-chat-blocks.test.ts`
+- `mobile/src/session/MobileNativeChatComposer.test.ts`
+- `mobile/src/session/MobileNativeChatComposer.tsx`
+- `mobile/src/session/mobile-native-chat-controller-contract.ts`
+- `mobile/src/session/mobile-native-chat-draft-reconcile.test.ts`
+- `mobile/src/session/mobile-native-chat-draft-reconcile.ts`
+- `mobile/src/session/mobile-native-chat-image-transcript-markers.ts`
+- `mobile/src/session/mobile-native-chat-message-text.ts`
+- `mobile/src/session/mobile-native-chat-open-file.test.ts`
+- `mobile/src/session/MobileNativeChatOverlay.test.ts`
+- `mobile/src/session/MobileNativeChatOverlay.tsx`
+- `mobile/src/session/mobile-native-chat-pending-echo.ts`
+- `mobile/src/session/mobile-native-chat-render-data.test.ts`
+- `mobile/src/session/mobile-native-chat-render-data.ts`
+- `mobile/src/session/mobile-native-chat-send.ts`
+- `mobile/src/session/mobile-native-chat-stream-frame.test.ts`
+- `mobile/src/session/mobile-native-chat-stream-frame.ts`
+- `mobile/src/session/mobile-native-chat-streaming-gate.test.ts`
+- `mobile/src/session/mobile-native-chat-streaming-gate.ts`
+- `mobile/src/session/mobile-native-chat-terminal-stream.test.ts`
+- `mobile/src/session/mobile-native-chat-terminal-stream.ts`
+- `mobile/src/session/MobileNativeChatView.test.ts`
+- `mobile/src/session/MobileNativeChatView.tsx`
+- `mobile/src/session/mobile-new-tab-agent-options.ts`
+- `mobile/src/session/mobile-pr-sidebar-state.ts`
+- `mobile/src/session/mobile-session-last-tab-close.test.ts`
+- `mobile/src/session/mobile-session-review-comment-styles.ts`
+- `mobile/src/session/mobile-session-tabs-stream-health.test.ts`
+- `mobile/src/session/mobile-session-tabs-stream-health.ts`
+- `mobile/src/session/mobile-tab-close-selection.test.ts`
+- `mobile/src/session/mobile-tab-close-selection.ts`
+- `mobile/src/session/mobile-terminal-records.test.ts`
+- `mobile/src/session/mobile-terminal-records.ts`
+- `mobile/src/session/mobile-terminal-tab-agent.test.ts`
+- `mobile/src/session/mobile-terminal-tab-agent.ts`
+- `mobile/src/session/pr-action-mutation-contract.ts`
+- `mobile/src/session/pr-actions-engine.ts`
+- `mobile/src/session/pr-ai-triage-prompt.test.ts`
+- `mobile/src/session/pr-ai-triage-prompt.ts`
+- `mobile/src/session/pr-comment-actions.test.ts`
+- `mobile/src/session/pr-comment-actions.ts`
+- `mobile/src/session/pr-title-edit.ts`
+- `mobile/src/session/quick-command-draft.ts`
+- `mobile/src/session/QuickCommandRow.tsx`
+- `mobile/src/session/QuickCommandsList.tsx`
+- `mobile/src/session/QuickCommandsSheet.test.ts`
+- `mobile/src/session/QuickCommandsSheet.tsx`
+- `mobile/src/session/quick-commands-tab-stability-source.test.ts`
+- `mobile/src/session/use-live-worktree-name.ts`
+- `mobile/src/session/use-mobile-diff-review-comment-actions.ts`
+- `mobile/src/session/use-mobile-diff-review-controller.ts`
+- `mobile/src/session/use-mobile-diff-review-send-actions.test.ts`
+- `mobile/src/session/use-mobile-diff-review-send-actions.ts`
+- `mobile/src/session/use-mobile-file-tap-handlers.ts`
+- `mobile/src/session/use-mobile-native-chat-controller.test.ts`
+- `mobile/src/session/use-mobile-native-chat-controller.ts`
+- `mobile/src/session/use-mobile-native-chat-drafts.test.ts`
+- `mobile/src/session/use-mobile-native-chat-drafts.ts`
+- `mobile/src/session/use-mobile-native-chat-drafts-launch-draft.test.ts`
+- `mobile/src/session/use-mobile-native-chat-message-send.test.ts`
+- `mobile/src/session/use-mobile-native-chat-pinch-gesture.ts`
+- `mobile/src/session/use-mobile-native-chat-session.test.ts`
+- `mobile/src/session/use-mobile-native-chat-session.ts`
+- `mobile/src/session/use-mobile-native-chat-terminal-stream.test.ts`
+- `mobile/src/session/use-mobile-native-chat-terminal-stream.ts`
+- `mobile/src/session/use-mobile-pr-comment-actions.ts`
+- `mobile/src/session/use-mobile-pr-sidebar-controller.test.ts`
+- `mobile/src/session/use-mobile-session-tabs-reconciliation.test.ts`
+- `mobile/src/session/use-mobile-session-tabs-reconciliation.ts`
+- `mobile/src/session/use-quick-commands.test.ts`
+- `mobile/src/session/use-quick-commands.ts`
+- `mobile/src/source-control/mobile-branch-compare.test.ts`
+- `mobile/src/source-control/mobile-branch-compare.ts`
+- `mobile/src/source-control/mobile-create-pr-action.test.ts`
+- `mobile/src/source-control/mobile-create-pr-action.ts`
+- `mobile/src/source-control/MobileGitHistoryList.tsx`
+- `mobile/src/source-control/mobile-pr-chip-summary.test.ts`
+- `mobile/src/source-control/mobile-pr-chip-summary.ts`
+- `mobile/src/tasks/blank-workspace-create.test.ts`
+- `mobile/src/tasks/blank-workspace-create.ts`
+- `mobile/src/tasks/composer-linked-work-item.test.ts`
+- `mobile/src/tasks/composer-linked-work-item.ts`
+- `mobile/src/tasks/composer-source-base-resolve.ts`
+- `mobile/src/tasks/github-check-summary.test.ts`
+- `mobile/src/tasks/github-check-summary.ts`
+- `mobile/src/tasks/github-project-reference.ts`
+- `mobile/src/tasks/github-project-repo-list-load.test.ts`
+- `mobile/src/tasks/github-project-repo-match.ts`
+- `mobile/src/tasks/gitlab-check-summary.ts`
+- `mobile/src/tasks/mobile-agent-catalog.test.ts`
+- `mobile/src/tasks/mobile-agent-catalog.ts`
+- `mobile/src/tasks/mobile-hosted-check-status.ts`
+- `mobile/src/tasks/mobile-tui-agents.ts`
+- `mobile/src/tasks/smart-source-fan-out.ts`
+- `mobile/src/tasks/smart-source-paste-intent.ts`
+- `mobile/src/tasks/smart-source-search-requests.ts`
+- `mobile/src/tasks/source-workspace-create.test.ts`
+- `mobile/src/tasks/source-workspace-create.ts`
+- `mobile/src/tasks/use-mobile-composer-source.ts`
+- `mobile/src/tasks/use-smart-workspace-source.ts`
+- `mobile/src/tasks/workspace-agent-selection.ts`
+- `mobile/src/tasks/workspace-create-params.test.ts`
+- `mobile/src/tasks/workspace-create-params.ts`
+- `mobile/src/tasks/worktree-create-capability.test.ts`
+- `mobile/src/tasks/worktree-create-capability.ts`
+- `mobile/src/tasks/worktree-create-retry.test.ts`
+- `mobile/src/tasks/worktree-create-retry.ts`
+- `mobile/src/terminal/quick-commands.test.ts`
+- `mobile/src/terminal/quick-commands.ts`
+- `mobile/src/terminal/terminal-accessory-keys.ts`
+- `mobile/src/terminal/terminal-foreground-recovery.test.ts`
+- `mobile/src/terminal/terminal-input-connection-gate.test.ts`
+- `mobile/src/terminal/terminal-ios-ime-keyboard.test.ts`
+- `mobile/src/terminal/terminal-keyboard-avoidance-webview.test.ts`
+- `mobile/src/terminal/terminal-live-accessory-raw-send.test.ts`
+- `mobile/src/terminal/terminal-live-accessory-raw-send.ts`
+- `mobile/src/terminal/terminal-live-input-affordance.test.ts`
+- `mobile/src/terminal/terminal-path-tap.ts`
+- `mobile/src/terminal/terminal-viewport-refit.test.ts`
+- `mobile/src/terminal/terminal-webview-engine.test.ts`
+- `mobile/src/terminal/terminal-webview-init-surface.test.ts`
+- `mobile/src/terminal/terminal-webview-reflow.test.ts`
+- `mobile/src/terminal/terminal-webview-scroll-routing.test.ts`
+- `mobile/src/terminal/use-terminal-live-accessory-input-commit.test.ts`
+- `mobile/src/terminal/use-terminal-live-accessory-input-commit.ts`
+- `mobile/src/terminal/use-terminal-live-input-commit.test.ts`
+- `mobile/src/terminal/use-terminal-live-input-commit.ts`
+- `mobile/src/terminal/use-terminal-live-pending-input-flush.ts`
+- `mobile/src/transport/client-context.test.ts`
+- `mobile/src/transport/client-context.tsx`
+- `mobile/src/transport/client-context-connection-metrics.ts`
+- `mobile/src/transport/connection-health.test.ts`
+- `mobile/src/transport/connection-health.ts`
+- `mobile/src/transport/connection-log-buffer.test.ts`
+- `mobile/src/transport/connection-log-buffer.ts`
+- `mobile/src/transport/host-catalog-selection.test.ts`
+- `mobile/src/transport/host-catalog-selection.ts`
+- `mobile/src/transport/host-client-context-state.ts`
+- `mobile/src/transport/host-client-open-registry.ts`
+- `mobile/src/transport/host-removal-lifecycle.ts`
+- `mobile/src/transport/host-status-gates.test.ts`
+- `mobile/src/transport/host-status-gates.ts`
+- `mobile/src/transport/host-store.ts`
+- `mobile/src/transport/mobile-direct-endpoint-probe.test.ts`
+- `mobile/src/transport/mobile-endpoint-lifecycle.ts`
+- `mobile/src/transport/mobile-endpoint-nudge-router.test.ts`
+- `mobile/src/transport/mobile-endpoint-nudge-router.ts`
+- `mobile/src/transport/mobile-endpoint-supervisor.ts`
+- `mobile/src/transport/mobile-endpoint-supervisor-nudge.test.ts`
+- `mobile/src/transport/mobile-endpoint-supervisor-support.ts`
+- `mobile/src/transport/mobile-relay-e2ee-link.ts`
+- `mobile/src/transport/mobile-relay-invite-director.ts`
+- `mobile/src/transport/mobile-relay-physical-client.ts`
+- `mobile/src/transport/mobile-relay-reconnect-controller.test.ts`
+- `mobile/src/transport/mobile-relay-reconnect-controller.ts`
+- `mobile/src/transport/mobile-relay-recovery-log.ts`
+- `mobile/src/transport/mobile-relay-resume-director.ts`
+- `mobile/src/transport/mobile-relay-retry-delays.ts`
+- `mobile/src/transport/mobile-relay-rpc-session.ts`
+- `mobile/src/transport/mobile-relay-rpc-streams.ts`
+- `mobile/src/transport/mobile-relay-session-establisher.ts`
+- `mobile/src/transport/pairing-candidate-race.ts`
+- `mobile/src/transport/pairing-relay-candidate.ts`
+- `mobile/src/transport/pre-profile-pairing-coordinator.ts`
+- `mobile/src/transport/rpc-client-terminal-binary-frame.test.ts`
+- `mobile/src/transport/rpc-client-terminal-binary-frame.ts`
+- `mobile/src/transport/rpc-response-shape.ts`
+- `mobile/src/transport/settings-host-client-lifecycle.test.ts`
+- `mobile/src/transport/stable-logical-rpc-client.test.ts`
+- `mobile/src/transport/stable-logical-rpc-client.ts`
+- `mobile/src/transport/types.ts`
+- `mobile/src/transport/use-all-host-clients.ts`
+- `mobile/src/worktree/agent-row-display.test.ts`
+- `mobile/src/worktree/agent-row-display.ts`
+- `mobile/src/worktree/host-worktree-rpc-types.ts`
+- `mobile/src/worktree/mobile-workspace-lineage.ts`
+- `mobile/src/worktree/mobile-workspace-statuses.ts`
+- `mobile/src/worktree/mobile-worktree-activation-source.test.ts`
+- `mobile/src/worktree/use-workspace-sections.ts`
+- `mobile/src/worktree/workspace-list-sections.ts`
+- `mobile/src/worktree/workspace-list-types.ts`
+- `mobile/src/worktree/workspace-pr-status-groups.ts`
+- `mobile/src/worktree/workspace-view-settings.test.ts`
+- `mobile/src/worktree/workspace-view-settings.ts`
+- `mobile/src/worktree/worktree-list-snapshot.ts`
+- `pnpm-workspace.yaml`
+- `src/cli/args.ts`
+- `src/cli/browser-handler-groups.ts`
+- `src/cli/flags.ts`
+- `src/cli/handler-group-manifest.test.ts`
+- `src/cli/handler-group-manifest.ts`
+- `src/cli/handlers/account.test.ts`
+- `src/cli/handlers/browser-cookie.ts`
+- `src/cli/handlers/browser-env.ts`
+- `src/cli/handlers/browser-storage.ts`
+- `src/cli/handlers/diagnostics.ts`
+- `src/cli/handlers/environment.ts`
+- `src/cli/handlers/file.ts`
+- `src/cli/handlers/linear.ts`
+- `src/cli/handlers/linear-list-issues.ts`
+- `src/cli/handlers/linear-relation-write.ts`
+- `src/cli/handlers/linear-save-issue.ts`
+- `src/cli/handlers/orchestration-lifecycle-rejection.test.ts`
+- `src/cli/handlers/orchestration-worker-cli.test.ts`
+- `src/cli/handlers/project.ts`
+- `src/cli/handlers/worktree-linear-issue-link.ts`
+- `src/cli/linear-format.test.ts`
+- `src/cli/linear-format.ts`
+- `src/cli/linear-save-issue-request.ts`
+- `src/cli/project-format.ts`
+- `src/cli/runtime/websocket-transport.ts`
+- `src/cli/terminal-format.test.ts`
+- `src/cli/terminal-format.ts`
+- `src/cli/test-fixtures.ts`
+- `src/cli/workspace-format.ts`
+- `src/cli/worktree-project-target.ts`
+- `src/main/active-view-preference.ts`
+- `src/main/agent-auth-restart-preservation.test.ts`
+- `src/main/agent-auth-restart-preservation.ts`
+- `src/main/agent-awake-service.test.ts`
+- `src/main/agent-awake-service.ts`
+- `src/main/agent-awake-service-platform-assertions.test.ts`
+- `src/main/agent-hooks/hooks-json-read.ts`
+- `src/main/agent-hooks/hook-status-session-tabs-invalidation.test.ts`
+- `src/main/agent-hooks/hook-status-session-tabs-invalidation.ts`
+- `src/main/agent-hooks/installer-utils-remote.ts`
+- `src/main/agent-hooks/local-agent-cli-presence.ts`
+- `src/main/agent-hooks/managed-agent-hook-controls.test.ts`
+- `src/main/agent-hooks/managed-hook-detection-commands.ts`
+- `src/main/agent-hooks/managed-hook-runtime.ts`
+- `src/main/agent-hooks/restored-subagent-liveness-sweep.ts`
+- `src/main/agent-hooks/server-authority-evidence.test.ts`
+- `src/main/ai-vault/cached-session-list.test.ts`
+- `src/main/ai-vault/remote-session-file-stat.ts`
+- `src/main/ai-vault/remote-session-scanner.ts`
+- `src/main/ai-vault/remote-session-scanner-discovery.ts`
+- `src/main/ai-vault/remote-session-scanner-test-fixtures.ts`
+- `src/main/ai-vault/remote-session-scanner-types.ts`
+- `src/main/ai-vault/session-delete.ts`
+- `src/main/ai-vault/session-delete-target.ts`
+- `src/main/ai-vault/session-first-user-prompt-read.ts`
+- `src/main/ai-vault/session-list-results.test.ts`
+- `src/main/ai-vault/session-list-results.ts`
+- `src/main/ai-vault/session-list-result-validation.test.ts`
+- `src/main/ai-vault/session-list-result-validation.ts`
+- `src/main/ai-vault/session-parse-cache-persistence.ts`
+- `src/main/ai-vault/session-scanner.ts`
+- `src/main/ai-vault/session-scanner-agent-parser.ts`
+- `src/main/ai-vault/session-scanner-antigravity-history.ts`
+- `src/main/ai-vault/session-scanner-antigravity-parser.ts`
+- `src/main/ai-vault/session-scanner-claude-subagents.ts`
+- `src/main/ai-vault/session-scanner-codex-parser.ts`
+- `src/main/ai-vault/session-scanner-codex-title-index.ts`
+- `src/main/ai-vault/session-scanner-copilot-parser.ts`
+- `src/main/ai-vault/session-scanner-cursor-parser.ts`
+- `src/main/ai-vault/session-scanner-devin-parser.ts`
+- `src/main/ai-vault/session-scanner-discovery.ts`
+- `src/main/ai-vault/session-scanner-droid-parser.ts`
+- `src/main/ai-vault/session-scanner-gemini-parsers.ts`
+- `src/main/ai-vault/session-scanner-graph-parsers.ts`
+- `src/main/ai-vault/session-scanner-grok-parser.ts`
+- `src/main/ai-vault/session-scanner-hermes-parser.ts`
+- `src/main/ai-vault/session-scanner-kimi-parser.ts`
+- `src/main/ai-vault/session-scanner-kimi-paths.ts`
+- `src/main/ai-vault/session-scanner-omp-subagent-listing.ts`
+- `src/main/ai-vault/session-scanner-omp-subagent-transcripts.ts`
+- `src/main/ai-vault/session-scanner-opencode-parser.ts`
+- `src/main/ai-vault/session-scanner-opencode-sources.test.ts`
+- `src/main/ai-vault/session-scanner-opencode-sources.ts`
+- `src/main/ai-vault/session-scanner-opencode-sqlite.ts`
+- `src/main/ai-vault/session-scanner-opencode-sqlite-list.ts`
+- `src/main/ai-vault/session-scanner-opencode-sqlite-worker-client.ts`
+- `src/main/ai-vault/session-scanner-parse-cache.ts`
+- `src/main/ai-vault/session-scanner-primary-parsers.ts`
+- `src/main/ai-vault/session-scanner-scope-discovery.ts`
+- `src/main/ai-vault/session-scanner-service-client.test.ts`
+- `src/main/ai-vault/session-scanner-service-client.ts`
+- `src/main/ai-vault/session-scanner-service-client-state.ts`
+- `src/main/ai-vault/session-scanner-service-entry-path.ts`
+- `src/main/ai-vault/session-scanner-service-env.test.ts`
+- `src/main/ai-vault/session-scanner-service-env.ts`
+- `src/main/ai-vault/session-scanner-service-restart-policy.test.ts`
+- `src/main/ai-vault/session-scanner-service-restart-policy.ts`
+- `src/main/ai-vault/session-scanner-service-spawn.ts`
+- `src/main/ai-vault/session-scanner-source-discovery.ts`
+- `src/main/ai-vault/session-scanner-subagent-transcripts.ts`
+- `src/main/ai-vault/session-scanner-test-fixtures.ts`
+- `src/main/ai-vault/session-scanner-types.ts`
+- `src/main/ai-vault/session-scanner-values.ts`
+- `src/main/ai-vault/session-scanner-worker-client.ts`
+- `src/main/ai-vault/session-title-file-reader.ts`
+- `src/main/ai-vault/session-title-request-paths.ts`
+- `src/main/app-relaunch.test.ts`
+- `src/main/app-relaunch.ts`
+- `src/main/automations/external-manager.test.ts`
+- `src/main/automations/external-manager.ts`
+- `src/main/automations/run-target-resolution.test.ts`
+- `src/main/automations/workspace-provenance.ts`
+- `src/main/azure-devops/pull-request-mappers.ts`
+- `src/main/bitbucket/pull-request-mappers.ts`
+- `src/main/browser/anti-detection.test.ts`
+- `src/main/browser/anti-detection.ts`
+- `src/main/browser/browser-certificate-challenge.ts`
+- `src/main/browser/browser-certificate-request-guard.ts`
+- `src/main/browser/browser-certificate-trust-controller.test.ts`
+- `src/main/browser/browser-certificate-trust-controller.ts`
+- `src/main/browser/browser-cookie-import-policy.test.ts`
+- `src/main/browser/browser-cookie-import-policy.ts`
+- `src/main/browser/browser-cookie-import-test-database.ts`
+- `src/main/browser/browser-download-destination.ts`
+- `src/main/browser/browser-google-auth-ua.ts`
+- `src/main/browser/browser-screencast-stream.ts`
+- `src/main/browser/browser-session-user-agent-mode.ts`
+- `src/main/browser/popup-origin-bar-window.test.ts`
+- `src/main/claude-accounts/claude-duplicate-account.test.ts`
+- `src/main/claude-accounts/claude-duplicate-account.ts`
+- `src/main/claude-accounts/runtime-selection.test.ts`
+- `src/main/claude-accounts/runtime-selection.ts`
+- `src/main/claude-usage/scanner.ts`
+- `src/main/claude-usage/types.ts`
+- `src/main/cli/wsl-cli-registration-registry.ts`
+- `src/main/codex/codex-app-server-capability-cache.test.ts`
+- `src/main/codex/codex-app-server-session.test.ts`
+- `src/main/codex/codex-pane-launch-account.test.ts`
+- `src/main/codex/codex-session-backfill-audit.ts`
+- `src/main/codex/codex-session-backfill-date.ts`
+- `src/main/codex/codex-session-backfill-marker.ts`
+- `src/main/codex/codex-session-backfill-types.ts`
+- `src/main/codex/codex-session-index-heal-state.ts`
+- `src/main/codex/codex-session-migration-scheduler.test.ts`
+- `src/main/codex/codex-session-migration-scheduler.ts`
+- `src/main/codex/codex-stale-pane-accounts.ts`
+- `src/main/codex/codex-trust-grant-host.test.ts`
+- `src/main/codex/codex-trust-grant-host.ts`
+- `src/main/codex/codex-trust-grant-telemetry.ts`
+- `src/main/codex/codex-user-hook-trust-rebase.ts`
+- `src/main/codex/codex-user-hook-trust-rebase-client.test.ts`
+- `src/main/codex/retained-codex-hook-state.ts`
+- `src/main/codex/wsl-codex-session-bridge.ts`
+- `src/main/codex-accounts/codex-auth-identity.ts`
+- `src/main/codex-accounts/legacy-shared-auth-migration.ts`
+- `src/main/codex-accounts/managed-codex-auth-readiness.ts`
+- `src/main/codex-accounts/runtime-selection.test.ts`
+- `src/main/codex-accounts/runtime-selection.ts`
+- `src/main/codex-accounts/wsl-codex-command.ts`
+- `src/main/codex-usage/scanner.test.ts`
+- `src/main/computer/computer-action-verification-normalization.ts`
+- `src/main/computer/desktop-script-provider-action-errors.test.ts`
+- `src/main/crash-reporting/crash-breadcrumb-store.test.ts`
+- `src/main/crash-reporting/crash-breadcrumb-store.ts`
+- `src/main/crash-reporting/crash-report-store.ts`
+- `src/main/crash-reporting/durable-crash-breadcrumb.ts`
+- `src/main/crash-reporting/expected-teardown-state.test.ts`
+- `src/main/crash-reporting/process-gone-dedupe.test.ts`
+- `src/main/crash-reporting/process-gone-dedupe.ts`
+- `src/main/crash-reporting/process-gone-diagnostics.test.ts`
+- `src/main/crash-reporting/process-gone-diagnostics.ts`
+- `src/main/crash-reporting/process-gone-killed-one-ordering.test.ts`
+- `src/main/crash-reporting/process-gone-recorder.ts`
+- `src/main/daemon/AGENTS.md`
+- `src/main/daemon/client.ts`
+- `src/main/daemon/daemon-authenticated-client-activity.test.ts`
+- `src/main/daemon/daemon-bundle-staleness.test.ts`
+- `src/main/daemon/daemon-checkpoint-file.ts`
+- `src/main/daemon/daemon-create-or-attach-result.ts`
+- `src/main/daemon/daemon-endpoint-ownership.test.ts`
+- `src/main/daemon/daemon-errors.test.ts`
+- `src/main/daemon/daemon-errors.ts`
+- `src/main/daemon/daemon-foreground-confirmation-protocol.test.ts`
+- `src/main/daemon/daemon-foreground-process-protocol.ts`
+- `src/main/daemon/daemon-health-endpoint-entry.test.ts`
+- `src/main/daemon/daemon-health-socket-cleanup.test.ts`
+- `src/main/daemon/daemon-idle-shutdown.test.ts`
+- `src/main/daemon/daemon-incarnation-evidence.ts`
+- `src/main/daemon/daemon-incarnation-evidence-types.ts`
+- `src/main/daemon/daemon-main.test.ts`
+- `src/main/daemon/daemon-main.ts`
+- `src/main/daemon/daemon-preflight-client-replacement.test.ts`
+- `src/main/daemon/daemon-process-inspection.ts`
+- `src/main/daemon/daemon-protocol-version.test.ts`
+- `src/main/daemon/daemon-protocol-version.ts`
+- `src/main/daemon/daemon-pty-adapter-history-recovery.test.ts`
+- `src/main/daemon/daemon-pty-router.test.ts`
+- `src/main/daemon/daemon-pty-router.ts`
+- `src/main/daemon/daemon-pty-router-events.ts`
+- `src/main/daemon/daemon-pty-router-history-handoff.test.ts`
+- `src/main/daemon/daemon-pty-upgrade-adoption.test.ts`
+- `src/main/daemon/daemon-self-retirement-respawn.test.ts`
+- `src/main/daemon/daemon-server.test.ts`
+- `src/main/daemon/daemon-server.ts`
+- `src/main/daemon/daemon-server-attach-only.test.ts`
+- `src/main/daemon/daemon-server-error-handling.test.ts`
+- `src/main/daemon/daemon-server-kill-attribution.test.ts`
+- `src/main/daemon/daemon-stream-events.ts`
+- `src/main/daemon/degraded-daemon-pty-provider.test.ts`
+- `src/main/daemon/degraded-daemon-pty-provider.ts`
+- `src/main/daemon/history-manager.ts`
+- `src/main/daemon/history-reader.ts`
+- `src/main/daemon/issue-6814-daemon-failure-classification.test.ts`
+- `src/main/daemon/macos-login-session-death-watch.ts`
+- `src/main/daemon/ndjson.test.ts`
+- `src/main/daemon/ndjson.ts`
+- `src/main/daemon/reattach-snapshot.test.ts`
+- `src/main/daemon/repro-12101-mouse-tracking-survives-agent-death.test.ts`
+- `src/main/daemon/session.ts`
+- `src/main/daemon/session-pending-output.test.ts`
+- `src/main/daemon/slow-daemon-session-verification.test.ts`
+- `src/main/daemon/terminal-checkpoint-serializer.test.ts`
+- `src/main/daemon/terminal-checkpoint-serializer.ts`
+- `src/main/daemon/terminal-history-checkpoint-reader.ts`
+- `src/main/daemon/terminal-history-cold-restore-info.ts`
+- `src/main/daemon/terminal-history-seed-segments.test.ts`
+- `src/main/daemon/terminal-history-seed-segments.ts`
+- `src/main/daemon/terminal-history-session-writer.ts`
+- `src/main/daemon/terminal-host.ts`
+- `src/main/daemon/terminal-host-agent-session.test.ts`
+- `src/main/daemon/terminal-host-agent-session-claim.ts`
+- `src/main/daemon/terminal-host-attach-only.test.ts`
+- `src/main/daemon/terminal-host-create-contract.ts`
+- `src/main/daemon/terminal-host-options.ts`
+- `src/main/daemon/terminal-host-pty-owner-backend.test.ts`
+- `src/main/daemon/terminal-host-session-reaping-leak.test.ts`
+- `src/main/daemon/terminal-host-startup.test.ts`
+- `src/main/daemon/terminal-host-wsl-context.test.ts`
+- `src/main/daemon/terminal-mode-rehydrate-sequences.ts`
+- `src/main/daemon/terminal-session-teardown.test.ts`
+- `src/main/daemon/terminal-session-teardown.ts`
+- `src/main/daemon/terminal-snapshot.ts`
+- `src/main/daemon/terminal-snapshot-color-parity.test.ts`
+- `src/main/daemon/terminal-view-attribute-responder.ts`
+- `src/main/daemon/types.ts`
+- `src/main/daemon/wsl-session-context.ts`
+- `src/main/daemon/xterm-env-polyfill.ts`
+- `src/main/diagnostics/main-thread-churn-probe.test.ts`
+- `src/main/durable-file-write.ts`
+- `src/main/emulator/android/adb-devices.ts`
+- `src/main/emulator/emulator-session-registry.ts`
+- `src/main/emulator/mjpeg-frame-parser.ts`
+- `src/main/ephemeral-vm-runtime-ssh.ts`
+- `src/main/ghostty/index.test.ts`
+- `src/main/ghostty/theme-import.test.ts`
+- `src/main/git/commit-object-ref.test.ts`
+- `src/main/git/commit-object-ref.ts`
+- `src/main/git/git-runtime-options.ts`
+- `src/main/git/push-target-validation.ts`
+- `src/main/git/remote-ref-probe-cache.ts`
+- `src/main/git/remote-url-probe.ts`
+- `src/main/git/repo.ts`
+- `src/main/git/repo-search-ref-compat.test.ts`
+- `src/main/git/runner.test.ts`
+- `src/main/git/runner-wsl-linked-gitdir-timeout.test.ts`
+- `src/main/git/status-submodule-path-cache.test.ts`
+- `src/main/git/upstream.ts`
+- `src/main/git/worktree-base-ref-probe.ts`
+- `src/main/git/worktree-include-file.ts`
+- `src/main/git/worktree-symlink-detection.ts`
+- `src/main/git/wsl-linked-worktree-git-routing.test.ts`
+- `src/main/git/wsl-linked-worktree-git-routing.ts`
+- `src/main/gitea/pull-request-mappers.ts`
+- `src/main/github/client-pr-checks.test.ts`
+- `src/main/github/client-work-items-query-paging.test.ts`
+- `src/main/github/comment-reactions.ts`
+- `src/main/github/conflict-summary.test.ts`
+- `src/main/github/conflict-summary-cache.ts`
+- `src/main/github/gh-error-classification.ts`
+- `src/main/github/gh-utils.ts`
+- `src/main/github/github-api-repository.test.ts`
+- `src/main/github/github-api-repository.ts`
+- `src/main/github/github-enterprise-repository.ts`
+- `src/main/github/github-owner-repo-selection.ts`
+- `src/main/github/github-pr-stack.ts`
+- `src/main/github/github-pr-stack-async-merge.ts`
+- `src/main/github/github-remote-identity-parsing.ts`
+- `src/main/github/github-repository-identity.ts`
+- `src/main/github/github-ssh-host-alias-resolution.ts`
+- `src/main/github/issues.ts`
+- `src/main/github/mappers.ts`
+- `src/main/github/merged-pr-commit-membership.ts`
+- `src/main/github/project-view.test.ts`
+- `src/main/github/project-view/internals.ts`
+- `src/main/github/project-view/mutations.test.ts`
+- `src/main/github/project-view/mutations.ts`
+- `src/main/github/project-view/project-error-classification.ts`
+- `src/main/github/pr-refresh-error-classification.ts`
+- `src/main/github/pr-start-point.ts`
+- `src/main/github/rate-limit.ts`
+- `src/main/github/review-head-remote.ts`
+- `src/main/github/work-item-details.ts`
+- `src/main/gitlab/client.test.ts`
+- `src/main/gitlab/client.ts`
+- `src/main/gitlab/gitlab-known-host-probe.ts`
+- `src/main/gitlab/gitlab-preload-args.ts`
+- `src/main/gitlab/gitlab-project-recents.ts`
+- `src/main/gitlab/gitlab-project-ref-resolution.ts`
+- `src/main/gitlab/glab-api-response.ts`
+- `src/main/gitlab/glab-error-classification.ts`
+- `src/main/gitlab/gl-utils.ts`
+- `src/main/gitlab/issues.ts`
+- `src/main/gitlab/mappers.ts`
+- `src/main/gitlab/project-ref-parser.ts`
+- `src/main/gitlab/work-item-details.test.ts`
+- `src/main/headless-automation-dispatcher-source-boundary.test.ts`
+- `src/main/integration-credential-file.ts`
+- `src/main/ipc/agent-hooks.test.ts`
+- `src/main/ipc/agent-pane-authority-ipc.ts`
+- `src/main/ipc/ai-vault.test.ts`
+- `src/main/ipc/ai-vault.ts`
+- `src/main/ipc/ai-vault-resume.ts`
+- `src/main/ipc/ai-vault-scan-coalescing.test.ts`
+- `src/main/ipc/ai-vault-session-title-routing.ts`
+- `src/main/ipc/app.test.ts`
+- `src/main/ipc/app.ts`
+- `src/main/ipc/automations.ts`
+- `src/main/ipc/browser.test.ts`
+- `src/main/ipc/browser.ts`
+- `src/main/ipc/codex-accounts.ts`
+- `src/main/ipc/codex-config-sync.ts`
+- `src/main/ipc/crash-reporting.ts`
+- `src/main/ipc/created-worktree-reconciliation.ts`
+- `src/main/ipc/dashboard-payload-validation.ts`
+- `src/main/ipc/dashboard-popout.ts`
+- `src/main/ipc/dashboard-workspace-payload-validation.ts`
+- `src/main/ipc/filesystem.ts`
+- `src/main/ipc/filesystem-auth.ts`
+- `src/main/ipc/filesystem-download-folder.ts`
+- `src/main/ipc/filesystem-import.test.ts`
+- `src/main/ipc/filesystem-list-files.ts`
+- `src/main/ipc/filesystem-list-files-git-fallback.ts`
+- `src/main/ipc/filesystem-search-git.test.ts`
+- `src/main/ipc/filesystem-search-git.ts`
+- `src/main/ipc/filesystem-search-rg-timeout.test.ts`
+- `src/main/ipc/filesystem-watcher.test.ts`
+- `src/main/ipc/filesystem-watcher.ts`
+- `src/main/ipc/filesystem-watcher-dormant-rearm.test.ts`
+- `src/main/ipc/filesystem-watcher-event-batch.test.ts`
+- `src/main/ipc/filesystem-watcher-large-batch.test.ts`
+- `src/main/ipc/filesystem-watcher-local-unsubscribe.test.ts`
+- `src/main/ipc/filesystem-watcher-native-capacity.test.ts`
+- `src/main/ipc/filesystem-watcher-remote-batch.test.ts`
+- `src/main/ipc/filesystem-watcher-remote-cancellation.test.ts`
+- `src/main/ipc/filesystem-watcher-remote-rearm.test.ts`
+- `src/main/ipc/filesystem-watcher-removal-deadline.test.ts`
+- `src/main/ipc/filesystem-watcher-terminal-resync.test.ts`
+- `src/main/ipc/filesystem-watcher-unwatchable-roots.test.ts`
+- `src/main/ipc/filesystem-watcher-wsl.test.ts`
+- `src/main/ipc/floating-workspace-directory.ts`
+- `src/main/ipc/github-work-item-args.ts`
+- `src/main/ipc/gitlab.ts`
+- `src/main/ipc/git-status-upstream-ref-watch-request.test.ts`
+- `src/main/ipc/git-status-upstream-ref-watch-request.ts`
+- `src/main/ipc/jira.ts`
+- `src/main/ipc/linear.test.ts`
+- `src/main/ipc/linear.ts`
+- `src/main/ipc/local-worktree-runtime-options.ts`
+- `src/main/ipc/markdown-documents.ts`
+- `src/main/ipc/memory.ts`
+- `src/main/ipc/native-chat.ts`
+- `src/main/ipc/notebook.test.ts`
+- `src/main/ipc/onboarding.ts`
+- `src/main/ipc/parcel-watcher-entry-path.ts`
+- `src/main/ipc/parcel-watcher-process-protocol.ts`
+- `src/main/ipc/parcel-watcher-supervisor-subscribe.ts`
+- `src/main/ipc/pet.ts`
+- `src/main/ipc/pet-bundle.ts`
+- `src/main/ipc/preflight-remote-windows-terminal-capabilities.ts`
+- `src/main/ipc/preflight-wsl-command.ts`
+- `src/main/ipc/pty-hidden-delivery-gate.ts`
+- `src/main/ipc/pty-management.ts`
+- `src/main/ipc/pty-startup-barrier-ordering.test.ts`
+- `src/main/ipc/remote-watcher-event-batch.test.ts`
+- `src/main/ipc/remote-watcher-event-batch.ts`
+- `src/main/ipc/remote-workspace.test.ts`
+- `src/main/ipc/remote-workspace.ts`
+- `src/main/ipc/remote-workspace-cache.test.ts`
+- `src/main/ipc/remote-workspace-patch-queue.test.ts`
+- `src/main/ipc/renderer-shutdown-checkpoint.ts`
+- `src/main/ipc/repos-picker.test.ts`
+- `src/main/ipc/repos-remote-client-events.test.ts`
+- `src/main/ipc/repos-sparse-presets.test.ts`
+- `src/main/ipc/rg-availability.test.ts`
+- `src/main/ipc/rg-availability.ts`
+- `src/main/ipc/runtime.test.ts`
+- `src/main/ipc/runtime-environment-call-queue.ts`
+- `src/main/ipc/runtime-environment-connectivity-handlers.ts`
+- `src/main/ipc/runtime-environment-handler-channels.ts`
+- `src/main/ipc/runtime-environment-request-connections.ts`
+- `src/main/ipc/runtime-environments.ts`
+- `src/main/ipc/runtime-environment-shared-control-support.ts`
+- `src/main/ipc/runtime-environment-status-diagnostics.ts`
+- `src/main/ipc/runtime-environment-transport-routing.ts`
+- `src/main/ipc/runtime-watcher-quarantine-queue.ts`
+- `src/main/ipc/session.ts`
+- `src/main/ipc/settings.ts`
+- `src/main/ipc/skills.test.ts`
+- `src/main/ipc/skills.ts`
+- `src/main/ipc/source-control-ai-linked-issue.ts`
+- `src/main/ipc/ssh-browse.ts`
+- `src/main/ipc/ssh-passphrase.ts`
+- `src/main/ipc/ssh-pty-legacy-projection-record.ts`
+- `src/main/ipc/ssh-pty-model-admission-pressure.ts`
+- `src/main/ipc/ssh-pty-source-ack-publication.ts`
+- `src/main/ipc/ssh-pty-source-obligation-ledger.test.ts`
+- `src/main/ipc/ssh-pty-source-obligation-ledger.ts`
+- `src/main/ipc/ssh-pty-source-obligation-state.ts`
+- `src/main/ipc/ssh-pty-source-obligation-transitions.ts`
+- `src/main/ipc/ssh-worktree-create-root-registration.ts`
+- `src/main/ipc/terminal-preview.test.ts`
+- `src/main/ipc/terminal-preview-output-stream.ts`
+- `src/main/ipc/watcher-removal-gate.test.ts`
+- `src/main/ipc/watcher-removal-gate.ts`
+- `src/main/ipc/workspace-cleanup.test.ts`
+- `src/main/ipc/workspace-cleanup-activity.test.ts`
+- `src/main/ipc/workspace-cleanup-activity.ts`
+- `src/main/ipc/workspace-cleanup-candidate.ts`
+- `src/main/ipc/workspace-cleanup-disconnected-ssh.ts`
+- `src/main/ipc/workspace-cleanup-git-evidence.ts`
+- `src/main/ipc/workspace-cleanup-local-git-routing.test.ts`
+- `src/main/ipc/workspace-cleanup-scan-primitives.ts`
+- `src/main/ipc/workspace-ports.test.ts`
+- `src/main/ipc/workspace-space.ts`
+- `src/main/ipc/worktree-base-directory-change-collector.ts`
+- `src/main/ipc/worktree-base-directory-event-filter.test.ts`
+- `src/main/ipc/worktree-base-directory-event-filter.ts`
+- `src/main/ipc/worktree-base-directory-notifications.ts`
+- `src/main/ipc/worktree-base-directory-watcher.test.ts`
+- `src/main/ipc/worktree-base-directory-watcher.ts`
+- `src/main/ipc/worktree-base-directory-watch-targets.ts`
+- `src/main/ipc/worktree-common-git-directory.ts`
+- `src/main/ipc/worktree-folder-rename-target.ts`
+- `src/main/ipc/worktree-git-common-entry-snapshot.ts`
+- `src/main/ipc/worktree-git-common-polling.ts`
+- `src/main/ipc/worktree-git-common-primary-polling.ts`
+- `src/main/ipc/worktree-git-common-watch.ts`
+- `src/main/ipc/worktree-git-status-ref-watch.ts`
+- `src/main/ipc/worktree-head-identity-reader.ts`
+- `src/main/ipc/worktree-head-identity-refresh.ts`
+- `src/main/ipc/worktree-linked-work-item-metadata.ts`
+- `src/main/ipc/worktree-metadata-merge.ts`
+- `src/main/ipc/worktree-push-target-cleanup.ts`
+- `src/main/jira/adf-media-destination.ts`
+- `src/main/jira/attachment-images.test.ts`
+- `src/main/jira/attachment-images.ts`
+- `src/main/jira/issues.test.ts`
+- `src/main/jira/issues.ts`
+- `src/main/jira/jira-issue-summary-timeout.test.ts`
+- `src/main/jira/jira-search-abort.test.ts`
+- `src/main/kimi/kimi-runtime-home.test.ts`
+- `src/main/linear/issue-context-client.test.ts`
+- `src/main/linear/issue-context-current.ts`
+- `src/main/linear/issue-context-errors.ts`
+- `src/main/linear/issue-context-fanout.ts`
+- `src/main/linear/issue-context-includes.test.ts`
+- `src/main/linear/issue-context-includes.ts`
+- `src/main/linear/issue-context-inline-media.test.ts`
+- `src/main/linear/issue-context-pagination.ts`
+- `src/main/linear/issue-context-relations.ts`
+- `src/main/linear/issue-list-filter.ts`
+- `src/main/linear/issue-relation-write.test.ts`
+- `src/main/linear/issue-relation-write.ts`
+- `src/main/linear/linear-team-pages.ts`
+- `src/main/linear/mappers.ts`
+- `src/main/linear/projects.test.ts`
+- `src/main/linear/teams.test.ts`
+- `src/main/linear/teams.ts`
+- `src/main/linux-package-install-diagnostic.ts`
+- `src/main/linux-package-update-recovery.ts`
+- `src/main/linux-update-package-type.ts`
+- `src/main/local-project-runtime-resolution.ts`
+- `src/main/local-worktree-filesystem.test.ts`
+- `src/main/local-worktree-filesystem.ts`
+- `src/main/local-worktree-removal-recovery.ts`
+- `src/main/macos-system-sleep-assertion.ts`
+- `src/main/memory/collector.test.ts`
+- `src/main/memory/host-memory.test.ts`
+- `src/main/memory/host-memory.ts`
+- `src/main/memory/hydrate-local-pty-registry.test.ts`
+- `src/main/memory/process-memory-metric.ts`
+- `src/main/memory/windows-process-resource-collector.ts`
+- `src/main/native-chat/host-readable-transcript-path.ts`
+- `src/main/native-chat/host-readable-transcript-path-fs-gate.test.ts`
+- `src/main/native-chat/session-file-resolver-wsl-scan-gate.test.ts`
+- `src/main/native-chat/transcript-file-version.ts`
+- `src/main/native-chat/transcript-incremental-reader.ts`
+- `src/main/native-chat/transcript-line-decoders-claude.ts`
+- `src/main/native-chat/transcript-read-cache.ts`
+- `src/main/native-chat/transcript-reader.ts`
+- `src/main/native-chat/transcript-stream-lines.test.ts`
+- `src/main/native-chat/transcript-stream-lines.ts`
+- `src/main/native-chat/transcript-tail-reader.ts`
+- `src/main/native-chat/transcript-watch-contract.ts`
+- `src/main/native-chat/transcript-watch-engine.ts`
+- `src/main/native-chat/transcript-watch-resolve-poll.test.ts`
+- `src/main/native-chat/wsl-codex-session-path-scan.ts`
+- `src/main/native-chat/wsl-transcript-fs-gate.test.ts`
+- `src/main/native-chat/wsl-transcript-fs-gate.ts`
+- `src/main/network/proxy-settings.test.ts`
+- `src/main/network/proxy-settings.ts`
+- `src/main/observability/instrumentation.test.ts`
+- `src/main/observability/instrumentation.ts`
+- `src/main/observability/redactor.ts`
+- `src/main/opencode-usage/scanner.ts`
+- `src/main/plugins/plugin-dev-watcher.ts`
+- `src/main/plugins/plugin-git-repository.ts`
+- `src/main/plugins/plugin-worker-output-buffer.ts`
+- `src/main/plugins/plugin-worker-slot-pool.ts`
+- `src/main/ports/advertised-url-watcher.test.ts`
+- `src/main/ports/local-workspace-port-scanner.test.ts`
+- `src/main/ports/local-workspace-port-scanner.ts`
+- `src/main/ports/port-scan-command-client.ts`
+- `src/main/ports/port-scan-command-execution.test.ts`
+- `src/main/ports/ssh-advertised-url-enrichment.ts`
+- `src/main/ports/workspace-port-ownership.test.ts`
+- `src/main/project-groups/folder-workspace-path-status.ts`
+- `src/main/project-groups/nested-repo-discovery.ts`
+- `src/main/project-groups/nested-repo-import.test.ts`
+- `src/main/project-groups/nested-repo-import.ts`
+- `src/main/project-groups/nested-repo-import-target.test.ts`
+- `src/main/project-groups/nested-repo-import-target.ts`
+- `src/main/project-runtime-git-options.test.ts`
+- `src/main/project-runtime-git-options.ts`
+- `src/main/protected-secret-persistence.test.ts`
+- `src/main/protected-secret-persistence.ts`
+- `src/main/providers/agent-foreground-context-paths.ts`
+- `src/main/providers/agent-foreground-process.ts`
+- `src/main/providers/agent-foreground-process-pi.test.ts`
+- `src/main/providers/filesystem-provider-contract.ts`
+- `src/main/providers/git-provider-contract.ts`
+- `src/main/providers/git-provider-status-options.ts`
+- `src/main/providers/local-pty-utils.test.ts`
+- `src/main/providers/local-pty-utils.ts`
+- `src/main/providers/local-pty-utils-windows-fallback.test.ts`
+- `src/main/providers/pty-process-list-admission.test.ts`
+- `src/main/providers/pty-process-list-admission.ts`
+- `src/main/providers/pty-spawn-result.ts`
+- `src/main/providers/ssh-filesystem-provider.ts`
+- `src/main/providers/ssh-filesystem-provider-stream.test.ts`
+- `src/main/providers/ssh-filesystem-provider-watch.ts`
+- `src/main/providers/ssh-filesystem-watch-notifications.test.ts`
+- `src/main/providers/ssh-filesystem-watch-notifications.ts`
+- `src/main/providers/ssh-pty-errors.ts`
+- `src/main/providers/ssh-pty-provider.ts`
+- `src/main/providers/ssh-pty-spawn-request.ts`
+- `src/main/providers/types.ts`
+- `src/main/providers/windows-agent-foreground-process.ts`
+- `src/main/providers/windows-agent-foreground-process-scan-volume.test.ts`
+- `src/main/pty/posix-pty-foreground-group.ts`
+- `src/main/pty/windows-environment-path.ts`
+- `src/main/pty/windows-path-registry-reader.test.ts`
+- `src/main/pty/windows-path-registry-reader.ts`
+- `src/main/pty-descendant-termination.test.ts`
+- `src/main/pty-descendant-termination.ts`
+- `src/main/pwsh.test.ts`
+- `src/main/pwsh.ts`
+- `src/main/quit-teardown-deadline.ts`
+- `src/main/rate-limits/account-runtime-target-sync.ts`
+- `src/main/rate-limits/claude-rate-limit-target.ts`
+- `src/main/rate-limits/codex-rate-limit-target.ts`
+- `src/main/rate-limits/gemini-cli-oauth-extractor.ts`
+- `src/main/rate-limits/initial-account-rate-limit-target.test.ts`
+- `src/main/rate-limits/initial-account-rate-limit-target.ts`
+- `src/main/rate-limits/opencode-go-usage-fetcher.ts`
+- `src/main/remote-agent-trust-presets.test.ts`
+- `src/main/remote-agent-trust-presets.ts`
+- `src/main/repo-git-remote-identity.ts`
+- `src/main/repo-git-remote-identity-enrichment.test.ts`
+- `src/main/repo-git-remote-identity-enrichment.ts`
+- `src/main/repo-git-username-enrichment.test.ts`
+- `src/main/repo-git-username-enrichment.ts`
+- `src/main/repo-icon-autodetect.ts`
+- `src/main/repo-icon-file-detection.test.ts`
+- `src/main/repo-icon-file-detection.ts`
+- `src/main/repo-worktrees.test.ts`
+- `src/main/runtime/claude-agent-teams-types.ts`
+- `src/main/runtime/client-session-tab-selection.test.ts`
+- `src/main/runtime/client-session-tab-selection.ts`
+- `src/main/runtime/client-session-tab-selection-persistence.ts`
+- `src/main/runtime/device-registry.ts`
+- `src/main/runtime/file-watcher-host.test.ts`
+- `src/main/runtime/file-watcher-host.ts`
+- `src/main/runtime/headless-terminal-query-reply-policy.ts`
+- `src/main/runtime/headless-terminal-split-layout.test.ts`
+- `src/main/runtime/mobile-pairing-qr.test.ts`
+- `src/main/runtime/mobile-pairing-qr.ts`
+- `src/main/runtime/mobile-rpc-allowlist.test.ts`
+- `src/main/runtime/mobile-session-terminal-persistence-retirement.test.ts`
+- `src/main/runtime/mobile-session-terminal-persistence-retirement.ts`
+- `src/main/runtime/mobile-session-terminal-retirement.ts`
+- `src/main/runtime/orchestration/context-only-dispatch-release.ts`
+- `src/main/runtime/orchestration/coordinator-drift-probe-coalescing.test.ts`
+- `src/main/runtime/orchestration/db-empty-dispatch-shortcircuit.benchmark.test.ts`
+- `src/main/runtime/orchestration/orchestration-creator-authority-performance.test.ts`
+- `src/main/runtime/orchestration/orchestration-mutation-question-db.test.ts`
+- `src/main/runtime/orchestration/orchestration-reset-db.test.ts`
+- `src/main/runtime/orchestration/orchestration-schema-version-skew.ts`
+- `src/main/runtime/orchestration/orchestration-worker-dispatch-db.test.ts`
+- `src/main/runtime/orchestration/types.ts`
+- `src/main/runtime/orchestration/worker-terminal-ownership.ts`
+- `src/main/runtime/relay/relay-auth-coordinator.test.ts`
+- `src/main/runtime/relay/relay-auth-coordinator.ts`
+- `src/main/runtime/relay/relay-auth-coordinator-recovery.test.ts`
+- `src/main/runtime/relay/relay-http-client.test.ts`
+- `src/main/runtime/relay/relay-http-client.ts`
+- `src/main/runtime/relay/relay-origin-pool.ts`
+- `src/main/runtime/relay/relay-session-broker.ts`
+- `src/main/runtime/repo-worktree-resolution-scan.ts`
+- `src/main/runtime/rpc/dispatcher-stream-options.ts`
+- `src/main/runtime/rpc/e2ee-channel.ts`
+- `src/main/runtime/rpc/e2ee-channel-text-backpressure.test.ts`
+- `src/main/runtime/rpc/methods/ai-vault.ts`
+- `src/main/runtime/rpc/methods/artifacts.test.ts`
+- `src/main/runtime/rpc/methods/artifacts.ts`
+- `src/main/runtime/rpc/methods/automations.ts`
+- `src/main/runtime/rpc/methods/browser-core.ts`
+- `src/main/runtime/rpc/methods/browser-schemas.ts`
+- `src/main/runtime/rpc/methods/browser-screencast.ts`
+- `src/main/runtime/rpc/methods/client-events.ts`
+- `src/main/runtime/rpc/methods/client-ui.ts`
+- `src/main/runtime/rpc/methods/files.ts`
+- `src/main/runtime/rpc/methods/file-watch-event-batcher.test.ts`
+- `src/main/runtime/rpc/methods/file-watch-event-batcher.ts`
+- `src/main/runtime/rpc/methods/folder-workspace.ts`
+- `src/main/runtime/rpc/methods/git.ts`
+- `src/main/runtime/rpc/methods/github.ts`
+- `src/main/runtime/rpc/methods/gitlab.ts`
+- `src/main/runtime/rpc/methods/git-params.ts`
+- `src/main/runtime/rpc/methods/hosted-review.ts`
+- `src/main/runtime/rpc/methods/index.ts`
+- `src/main/runtime/rpc/methods/jira.ts`
+- `src/main/runtime/rpc/methods/linear-agent-access.ts`
+- `src/main/runtime/rpc/methods/linear-issue-attribute-filter-schema.ts`
+- `src/main/runtime/rpc/methods/native-chat.test.ts`
+- `src/main/runtime/rpc/methods/native-chat.ts`
+- `src/main/runtime/rpc/methods/orchestration-federation-relay.ts`
+- `src/main/runtime/rpc/methods/orchestration-federation-start-schema.ts`
+- `src/main/runtime/rpc/methods/orchestration-worker-archive-read.ts`
+- `src/main/runtime/rpc/methods/orchestration-worker-control.ts`
+- `src/main/runtime/rpc/methods/orchestration-worker-launch-preferences.test.ts`
+- `src/main/runtime/rpc/methods/orchestration-worker-launch-preferences.ts`
+- `src/main/runtime/rpc/methods/orchestration-worker-release.ts`
+- `src/main/runtime/rpc/methods/orchestration-workers.ts`
+- `src/main/runtime/rpc/methods/orchestration-worker-stop.ts`
+- `src/main/runtime/rpc/methods/preflight.ts`
+- `src/main/runtime/rpc/methods/project-runtime-rpc-methods.ts`
+- `src/main/runtime/rpc/methods/repo.ts`
+- `src/main/runtime/rpc/methods/repo-update-schema.ts`
+- `src/main/runtime/rpc/methods/session-tab-agent-status-projection.test.ts`
+- `src/main/runtime/rpc/methods/session-tab-agent-status-projection.ts`
+- `src/main/runtime/rpc/methods/session-tab-close-methods.ts`
+- `src/main/runtime/rpc/methods/session-tabs.ts`
+- `src/main/runtime/rpc/methods/session-tabs-schemas.ts`
+- `src/main/runtime/rpc/methods/skills.test.ts`
+- `src/main/runtime/rpc/methods/skills.ts`
+- `src/main/runtime/rpc/methods/ssh.ts`
+- `src/main/runtime/rpc/methods/terminal-create-idempotency.test.ts`
+- `src/main/runtime/rpc/methods/terminal-orphan.ts`
+- `src/main/runtime/rpc/methods/terminal-quick-command-rpc-schema.ts`
+- `src/main/runtime/rpc/methods/ui-state-schema-parity-checks.ts`
+- `src/main/runtime/rpc/methods/worktree.ts`
+- `src/main/runtime/rpc/methods/worktree-schemas.ts`
+- `src/main/runtime/rpc/orchestration-current-authority-precedence.test.ts`
+- `src/main/runtime/rpc/relay-transport.test.ts`
+- `src/main/runtime/rpc/remote-runtime-server-heartbeat.test.ts`
+- `src/main/runtime/rpc/remote-runtime-server-heartbeat.ts`
+- `src/main/runtime/rpc/remote-runtime-server-heartbeat-missed-probe-tolerance.test.ts`
+- `src/main/runtime/rpc/terminal-output-frame-chunks.ts`
+- `src/main/runtime/rpc/workspace-creator-context.ts`
+- `src/main/runtime/rpc/ws-transport-accept-order.test.ts`
+- `src/main/runtime/rpc/ws-transport-transient-packet-loss.test.ts`
+- `src/main/runtime/runtime-folder-workspace.test.ts`
+- `src/main/runtime/runtime-folder-workspace.ts`
+- `src/main/runtime/selected-review-branch.ts`
+- `src/main/runtime/terminal-orphan-topology.ts`
+- `src/main/runtime/unstopped-pty-verification.ts`
+- `src/main/runtime/windows-drive-listing.ts`
+- `src/main/runtime/windows-firewall-remote-scope.ts`
+- `src/main/runtime/workspace-session-failed-write-rollback.ts`
+- `src/main/runtime/workspace-session-terminal-membership-authority.ts`
+- `src/main/skills/claude-plugin-skill-sources-wsl.test.ts`
+- `src/main/skills/claude-plugin-skill-sources-wsl.ts`
+- `src/main/skills/discovery.ts`
+- `src/main/skills/skill-discovery-sources.ts`
+- `src/main/skills/skill-discovery-target.ts`
+- `src/main/skills/skill-discovery-wsl.ts`
+- `src/main/skills/skill-package-identity.ts`
+- `src/main/skills/skill-update-run.ts`
+- `src/main/source-control/forge-provider.ts`
+- `src/main/source-control/forge-review-mappers.ts`
+- `src/main/source-control/pull-request-linked-issue.ts`
+- `src/main/source-control/repo-default-branch.ts`
+- `src/main/speech/model-manager.ts`
+- `src/main/speech/speech-model-deletion.test.ts`
+- `src/main/speech/speech-runtime-service.ts`
+- `src/main/ssh/ssh-config-path-expansion.ts`
+- `src/main/ssh/ssh-config-resolver.test.ts`
+- `src/main/ssh/ssh-connection-store.test.ts`
+- `src/main/ssh/ssh-connection-store.ts`
+- `src/main/ssh/ssh-connection-utils.test.ts`
+- `src/main/ssh/ssh-filesystem-stream-reader.ts`
+- `src/main/ssh/ssh-g-config-resolution.test.ts`
+- `src/main/ssh/ssh-g-config-resolution.ts`
+- `src/main/ssh/ssh-multi-key-authentication.test.ts`
+- `src/main/ssh/ssh-port-forward.test.ts`
+- `src/main/ssh/ssh-proxy-command.ts`
+- `src/main/ssh/ssh-reconnect-error-classification.test.ts`
+- `src/main/ssh/ssh-reconnect-error-classification.ts`
+- `src/main/ssh/ssh-relay-deploy-helpers.test.ts`
+- `src/main/ssh/ssh-relay-exec-command.ts`
+- `src/main/ssh/ssh-relay-session-terminal-error.test.ts`
+- `src/main/ssh/ssh-relay-session-test-fixtures.ts`
+- `src/main/ssh/ssh-remote-cli-format.ts`
+- `src/main/ssh/ssh-remote-linear-activity-output.test.ts`
+- `src/main/ssh/ssh-remote-linear-list-issues.ts`
+- `src/main/ssh/ssh-remote-linear-output.ts`
+- `src/main/ssh/ssh-remote-linear-relation-write.ts`
+- `src/main/ssh/ssh-remote-linear-result-guards.ts`
+- `src/main/ssh/ssh-remote-powershell.ts`
+- `src/main/ssh/ssh-target-id-migration.test.ts`
+- `src/main/ssh/ssh-target-id-migration.ts`
+- `src/main/ssh/ssh-target-readoption.test.ts`
+- `src/main/ssh/ssh-target-readoption.ts`
+- `src/main/ssh/system-ssh-port-forward-provider.ts`
+- `src/main/startup/desktop-startup-ordering.test.ts`
+- `src/main/startup/ensure-virtual-display.test.ts`
+- `src/main/startup/gpu-fallback-marker.ts`
+- `src/main/startup/hydrate-shell-path.test.ts`
+- `src/main/startup/legacy-worker-renderer-recovery.test.ts`
+- `src/main/startup/legacy-worker-renderer-recovery.ts`
+- `src/main/startup/serve-desktop-activation-wiring.test.ts`
+- `src/main/startup/serve-mode-argv.ts`
+- `src/main/synthetic-title-frame-routing.ts`
+- `src/main/synthetic-title-spinner.test.ts`
+- `src/main/synthetic-title-spinner.ts`
+- `src/main/system-fonts.test.ts`
+- `src/main/system-fonts.ts`
+- `src/main/telemetry/cohort-classifier.test.ts`
+- `src/main/telemetry/install-id.test.ts`
+- `src/main/telemetry/onboarding-cohort-classifier.test.ts`
+- `src/main/terminal-history.ts`
+- `src/main/terminal-history-deletion.ts`
+- `src/main/terminal-history-paths.ts`
+- `src/main/terminal-scrollback-snapshot-async-migration.ts`
+- `src/main/terminal-scrollback-snapshots.ts`
+- `src/main/text-generation/pull-request-context.test.ts`
+- `src/main/text-generation/pull-request-context.ts`
+- `src/main/text-generation/pull-request-context-errors.test.ts`
+- `src/main/updater.fallback.test.ts`
+- `src/main/updater.mac-install.test.ts`
+- `src/main/updater-fallback.ts`
+- `src/main/updater-mac-install.ts`
+- `src/main/updater-release-builds.ts`
+- `src/main/usage/usage-worktree-refs.ts`
+- `src/main/usage-worktree-metadata.test.ts`
+- `src/main/usage-worktree-metadata.ts`
+- `src/main/warp-themes/parser.ts`
+- `src/main/win32-utils.ts`
+- `src/main/window/clipboard-dashboard-popout-access.test.ts`
+- `src/main/window/clipboard-ipc-handlers.ts`
+- `src/main/window/focus-existing-window.ts`
+- `src/main/window/history-gc-worktree-ids.test.ts`
+- `src/main/window/history-gc-worktree-ids.ts`
+- `src/main/window/terminal-tab-close-request-relay.test.ts`
+- `src/main/window/terminal-tab-close-request-relay.ts`
+- `src/main/workspace-space-analysis.ts`
+- `src/main/worktree-create-base-prefetch.ts`
+- `src/main/worktree-create-candidates.ts`
+- `src/main/worktree-create-timing.ts`
+- `src/main/worktree-lineage-pruning.test.ts`
+- `src/main/worktree-lineage-pruning.ts`
+- `src/main/worktree-root-preparation.ts`
+- `src/main/wsl-availability.ts`
+- `src/main/wsl-bash-command.ts`
+- `src/main/wsl-unc-delete.ts`
+- `src/preload/browser-find-subscriptions.test.ts`
+- `src/preload/browser-find-subscriptions.ts`
+- `src/preload/gitlab.ts`
+- `src/preload/ssh-authority-forwarding.test.ts`
+- `src/relay/agent-exec-handler.test.ts`
+- `src/relay/ai-vault-service-client.ts`
+- `src/relay/dispatcher-capacity-degradation.test.ts`
+- `src/relay/dispatcher-client-writer.test.ts`
+- `src/relay/external-automations-handler.test.ts`
+- `src/relay/external-automations-handler-log-path.test.ts`
+- `src/relay/fs-handler.ts`
+- `src/relay/fs-handler-file-read.ts`
+- `src/relay/fs-handler-install-rg.ts`
+- `src/relay/fs-handler-list-files.ts`
+- `src/relay/fs-handler-ripgrep-fallback.test.ts`
+- `src/relay/fs-handler-utils.ts`
+- `src/relay/git-exec-validator.ts`
+- `src/relay/git-handler-branch-compare.test.ts`
+- `src/relay/git-handler-ops.ts`
+- `src/relay/git-handler-push-target.ts`
+- `src/relay/git-handler-status-ops.test.ts`
+- `src/relay/git-handler-status-ops.ts`
+- `src/relay/git-handler-utils.ts`
+- `src/relay/git-handler-worktree-ops.test.ts`
+- `src/relay/git-handler-worktree-remove.ts`
+- `src/relay/git-status-upstream-negative-cache.ts`
+- `src/relay/port-scan-handler.test.ts`
+- `src/relay/pty-handler-output-drain-differential.test.ts`
+- `src/relay/pty-handler-source-publication.test.ts`
+- `src/relay/pty-shell-utils.test.ts`
+- `src/relay/pty-shell-utils.ts`
+- `src/relay/pty-source-credit-ledger.test.ts`
+- `src/relay/pty-source-credit-ledger.ts`
+- `src/relay/pty-source-credit-record.ts`
+- `src/relay/pty-source-credit-settlement.ts`
+- `src/relay/relay-pty-source-publication.ts`
+- `src/relay/relay-watcher-event-emitter.test.ts`
+- `src/relay/windows-port-scan.test.ts`
+- `src/relay/workspace-space-scan.ts`
+- `src/renderer/src/assets/mobile-page-qr-layout.test.ts`
+- `src/renderer/src/components/activity/ActivityPrototypePage.tsx`
+- `src/renderer/src/components/agent/AgentCombobox.test.tsx`
+- `src/renderer/src/components/agent/AgentCombobox.tsx`
+- `src/renderer/src/components/agent/AgentSettingsDialog.test.tsx`
+- `src/renderer/src/components/agent-session-continuation/AgentSessionContinuationDialog.tsx`
+- `src/renderer/src/components/agent-session-continuation/agent-session-continuation-selection.ts`
+- `src/renderer/src/components/AgentStateDot.test.ts`
+- `src/renderer/src/components/AgentStateDot.tsx`
+- `src/renderer/src/components/AgentWorkingSpinner.test.tsx`
+- `src/renderer/src/components/AgentWorkingSpinner.tsx`
+- `src/renderer/src/components/artifacts/ArtifactActions.tsx`
+- `src/renderer/src/components/artifacts/ArtifactCollection.tsx`
+- `src/renderer/src/components/artifacts/ArtifactDetailHeader.tsx`
+- `src/renderer/src/components/artifacts/artifact-display-labels.ts`
+- `src/renderer/src/components/automations/AutomationCustomCronPanel.tsx`
+- `src/renderer/src/components/automations/automation-draft-model.ts`
+- `src/renderer/src/components/automations/automation-host-client.ts`
+- `src/renderer/src/components/automations/AutomationListExternalRows.tsx`
+- `src/renderer/src/components/automations/AutomationListLocalRows.test.tsx`
+- `src/renderer/src/components/automations/AutomationListLocalRows.tsx`
+- `src/renderer/src/components/automations/automation-list-search.ts`
+- `src/renderer/src/components/automations/AutomationListSearchField.test.tsx`
+- `src/renderer/src/components/automations/AutomationListSearchField.tsx`
+- `src/renderer/src/components/automations/automation-page-parts.tsx`
+- `src/renderer/src/components/automations/AutomationPrecheckFields.tsx`
+- `src/renderer/src/components/automations/AutomationProjectCombobox.tsx`
+- `src/renderer/src/components/automations/automation-project-groups.ts`
+- `src/renderer/src/components/automations/automation-run-context.ts`
+- `src/renderer/src/components/automations/AutomationRunHistory.tsx`
+- `src/renderer/src/components/automations/automation-run-open-target.ts`
+- `src/renderer/src/components/automations/automation-run-output-snapshot-equivalence.test.ts`
+- `src/renderer/src/components/automations/automation-run-workspace-display.ts`
+- `src/renderer/src/components/automations/AutomationSchedulePicker.test.ts`
+- `src/renderer/src/components/automations/AutomationSchedulePicker.tsx`
+- `src/renderer/src/components/automations/AutomationsListPanel.tsx`
+- `src/renderer/src/components/automations/AutomationsPageSkeleton.tsx`
+- `src/renderer/src/components/automations/automations-table-layout.ts`
+- `src/renderer/src/components/automations/automation-target-availability.ts`
+- `src/renderer/src/components/automations/automation-templates.ts`
+- `src/renderer/src/components/automations/automation-usage-model.test.ts`
+- `src/renderer/src/components/automations/automation-usage-model.ts`
+- `src/renderer/src/components/automations/CreateFromPicker.test.tsx`
+- `src/renderer/src/components/automations/CreateFromPicker.tsx`
+- `src/renderer/src/components/automations/external-automation-display.ts`
+- `src/renderer/src/components/automations/external-automation-list-entries.test.ts`
+- `src/renderer/src/components/automations/external-automation-list-entries.ts`
+- `src/renderer/src/components/automations/ExternalAutomationManagers.test.tsx`
+- `src/renderer/src/components/automations/ExternalAutomationManagers.tsx`
+- `src/renderer/src/components/automations/ExternalAutomationRunTable.tsx`
+- `src/renderer/src/components/automations/external-automation-schedule-display.ts`
+- `src/renderer/src/components/automations/HermesCronOutputView.tsx`
+- `src/renderer/src/components/automations/use-automation-list-search.ts`
+- `src/renderer/src/components/automations/WorkspaceCombobox.tsx`
+- `src/renderer/src/components/cmd-j/palette-activation-focus-routing.test.ts`
+- `src/renderer/src/components/cmd-j/palette-filter.ts`
+- `src/renderer/src/components/cmd-j/PaletteFilterFieldOptions.tsx`
+- `src/renderer/src/components/cmd-j/PaletteFilterMenu.tsx`
+- `src/renderer/src/components/cmd-j/palette-filter-option-list.test.ts`
+- `src/renderer/src/components/cmd-j/palette-filter-options.ts`
+- `src/renderer/src/components/cmd-j/palette-host-badge.ts`
+- `src/renderer/src/components/cmd-j/palette-live-status.test.tsx`
+- `src/renderer/src/components/cmd-j/palette-live-status.tsx`
+- `src/renderer/src/components/cmd-j/palette-query-tokens.test.ts`
+- `src/renderer/src/components/cmd-j/palette-query-tokens.ts`
+- `src/renderer/src/components/cmd-j/palette-section-render-cap.test.ts`
+- `src/renderer/src/components/cmd-j/palette-section-render-cap.ts`
+- `src/renderer/src/components/cmd-j/quick-action-context.test.ts`
+- `src/renderer/src/components/cmd-j/quick-actions.ts`
+- `src/renderer/src/components/cmd-j/worktree-checks-review-index.ts`
+- `src/renderer/src/components/confirmation-dialog.tsx`
+- `src/renderer/src/components/confirmation-dialog-context.ts`
+- `src/renderer/src/components/confirmation-skip-preference.ts`
+- `src/renderer/src/components/contextual-tours/contextual-tour-floating-position.test.ts`
+- `src/renderer/src/components/contextual-tours/contextual-tour-floating-position.ts`
+- `src/renderer/src/components/contextual-tours/contextual-tour-gate.ts`
+- `src/renderer/src/components/contextual-tours/ContextualTourOverlay.tsx`
+- `src/renderer/src/components/contextual-tours/contextual-tour-overlay-measurement.ts`
+- `src/renderer/src/components/contextual-tours/contextual-tour-step-actions.test.ts`
+- `src/renderer/src/components/contextual-tours/contextual-tour-step-actions.ts`
+- `src/renderer/src/components/contextual-tours/use-contextual-tour.ts`
+- `src/renderer/src/components/dashboard/AgentDashboardDrawer.test.tsx`
+- `src/renderer/src/components/dashboard/AgentDashboardDrawer.tsx`
+- `src/renderer/src/components/dashboard/agent-dashboard-performance-isolation.test.ts`
+- `src/renderer/src/components/dashboard/AgentDashboardSettingsMenu.tsx`
+- `src/renderer/src/components/dashboard/agent-finished-timestamp.test.ts`
+- `src/renderer/src/components/dashboard/agent-finished-timestamp.ts`
+- `src/renderer/src/components/dashboard/agent-row-lineage-model.test.ts`
+- `src/renderer/src/components/dashboard/build-dashboard-snapshot.ts`
+- `src/renderer/src/components/dashboard/build-dashboard-snapshot-folder-workspace.test.ts`
+- `src/renderer/src/components/dashboard/build-dashboard-snapshot-orchestration-routing.test.ts`
+- `src/renderer/src/components/dashboard/DashboardAgentRow.tsx`
+- `src/renderer/src/components/dashboard/DashboardAgentRowToolStep.tsx`
+- `src/renderer/src/components/dashboard/dashboard-card-bucket.ts`
+- `src/renderer/src/components/dashboard/dashboard-card-context.test.ts`
+- `src/renderer/src/components/dashboard/dashboard-card-context.ts`
+- `src/renderer/src/components/dashboard/dashboard-card-labels.ts`
+- `src/renderer/src/components/dashboard/dashboard-card-terminal-input.test.ts`
+- `src/renderer/src/components/dashboard/dashboard-card-terminal-input.ts`
+- `src/renderer/src/components/dashboard/dashboard-snapshot-workspaces.ts`
+- `src/renderer/src/components/dashboard/dashboard-worktree-launch-options.ts`
+- `src/renderer/src/components/dashboard/useAgentBucketCounts.test.tsx`
+- `src/renderer/src/components/dashboard/useAgentBucketCounts.ts`
+- `src/renderer/src/components/dashboard/use-agent-row-conversation-name.test.ts`
+- `src/renderer/src/components/dashboard/use-agent-row-conversation-name.ts`
+- `src/renderer/src/components/dashboard/useDashboardData.ts`
+- `src/renderer/src/components/dashboard/useDashboardPopoutBridge.test.tsx`
+- `src/renderer/src/components/dashboard/useDashboardPopoutBridge.ts`
+- `src/renderer/src/components/dashboard/useLiveDashboardSnapshot.test.ts`
+- `src/renderer/src/components/dashboard/useLiveDashboardSnapshot.ts`
+- `src/renderer/src/components/dashboard/useRetainedAgents.test.ts`
+- `src/renderer/src/components/dashboard/useRetainedAgents.ts`
+- `src/renderer/src/components/dashboard/useRetainedAgentsSync.test.ts`
+- `src/renderer/src/components/dashboard-popout/AgentDashboardFilterChips.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentDashboardMapView.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentDashboardToolbar.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentKanbanBoard.test.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentKanbanBoard.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentKanbanCard.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentMap.tsx`
+- `src/renderer/src/components/dashboard-popout/agent-map-agent-placement.ts`
+- `src/renderer/src/components/dashboard-popout/AgentMapCanvas.tsx`
+- `src/renderer/src/components/dashboard-popout/agent-map-filter.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-glow.performance.test.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-label-declutter.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-layout.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-layout-metadata.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-lineage-chevron-path.test.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-lineage-chevron-path.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-node-metadata.ts`
+- `src/renderer/src/components/dashboard-popout/AgentMapScene.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentMapSnapshotWorkspaceMenu.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentMapStatusGlow.test.tsx`
+- `src/renderer/src/components/dashboard-popout/agent-map-worktree-active-status.test.ts`
+- `src/renderer/src/components/dashboard-popout/agent-map-worktree-active-status.ts`
+- `src/renderer/src/components/dashboard-popout/AgentMapWorktreeRingNode.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentTerminalPreview.test.tsx`
+- `src/renderer/src/components/dashboard-popout/AgentTerminalPreview.tsx`
+- `src/renderer/src/components/dashboard-popout/dashboard-agent-status-patch.test.ts`
+- `src/renderer/src/components/dashboard-popout/dashboard-agent-status-patch.ts`
+- `src/renderer/src/components/dashboard-popout/DashboardPopoutRoot.tsx`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-app-menu-clipboard.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-ime-bridge.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-key-handler.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-ligatures.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-options.test.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-options.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-paste.ts`
+- `src/renderer/src/components/dashboard-popout/preview-terminal-shortcuts.ts`
+- `src/renderer/src/components/dashboard-popout/useAgentMapContextMenus.tsx`
+- `src/renderer/src/components/dashboard-popout/useDashboardSnapshot.test.tsx`
+- `src/renderer/src/components/dictation/DictationController.tsx`
+- `src/renderer/src/components/dictation/DictationIndicator.test.tsx`
+- `src/renderer/src/components/dictation/DictationIndicator.tsx`
+- `src/renderer/src/components/dictation/use-hold-dictation-gesture.test.tsx`
+- `src/renderer/src/components/dictation/use-hold-dictation-gesture.ts`
+- `src/renderer/src/components/diff-comments/DiffCommentCard.resize.test.tsx`
+- `src/renderer/src/components/editor/ChangesModeView.tsx`
+- `src/renderer/src/components/editor/check-annotation-open.ts`
+- `src/renderer/src/components/editor/check-annotation-path.test.ts`
+- `src/renderer/src/components/editor/check-annotation-path.ts`
+- `src/renderer/src/components/editor/check-job-step-status.ts`
+- `src/renderer/src/components/editor/CheckRunAnnotations.tsx`
+- `src/renderer/src/components/editor/check-run-details-fix-context.ts`
+- `src/renderer/src/components/editor/check-run-details-fix-with-ai.test.ts`
+- `src/renderer/src/components/editor/check-run-details-fix-with-ai.ts`
+- `src/renderer/src/components/editor/CheckRunDetailsPanel.tsx`
+- `src/renderer/src/components/editor/check-run-details-tab.ts`
+- `src/renderer/src/components/editor/CheckRunJobs.tsx`
+- `src/renderer/src/components/editor/ConflictComponents.tsx`
+- `src/renderer/src/components/editor/ConflictReviewFileTree.tsx`
+- `src/renderer/src/components/editor/DiffNotesSendMenu.tsx`
+- `src/renderer/src/components/editor/DiffSectionBody.tsx`
+- `src/renderer/src/components/editor/DiffSectionItem.tsx`
+- `src/renderer/src/components/editor/diff-section-item-props.ts`
+- `src/renderer/src/components/editor/diff-section-layout.test.ts`
+- `src/renderer/src/components/editor/diff-section-layout.ts`
+- `src/renderer/src/components/editor/diff-section-preview.test.ts`
+- `src/renderer/src/components/editor/diff-section-preview.ts`
+- `src/renderer/src/components/editor/diff-section-types.ts`
+- `src/renderer/src/components/editor/DiffViewer.tsx`
+- `src/renderer/src/components/editor/editor-cmd-save-target.test.ts`
+- `src/renderer/src/components/editor/editor-cmd-save-target.ts`
+- `src/renderer/src/components/editor/EditorContent.monaco-lifecycle.test.tsx`
+- `src/renderer/src/components/editor/EditorContent.test.tsx`
+- `src/renderer/src/components/editor/EditorContent.tsx`
+- `src/renderer/src/components/editor/editor-header.ts`
+- `src/renderer/src/components/editor/editor-header-file-rename.ts`
+- `src/renderer/src/components/editor/EditorPanel.tsx`
+- `src/renderer/src/components/editor/editor-panel-content-types.ts`
+- `src/renderer/src/components/editor/editor-panel-diff-reload.test.ts`
+- `src/renderer/src/components/editor/editor-panel-diff-reload.ts`
+- `src/renderer/src/components/editor/editor-panel-draft-selector.ts`
+- `src/renderer/src/components/editor/editor-panel-git-entry-selector.test.ts`
+- `src/renderer/src/components/editor/EditorPanelHeader.tsx`
+- `src/renderer/src/components/editor/EditorPanelMarkdownActionsMenu.test.tsx`
+- `src/renderer/src/components/editor/EditorPanelMarkdownActionsMenu.tsx`
+- `src/renderer/src/components/editor/editor-panel-render-model.test.ts`
+- `src/renderer/src/components/editor/editor-panel-render-model.ts`
+- `src/renderer/src/components/editor/EditorPanelShell.tsx`
+- `src/renderer/src/components/editor/ImageViewer.test.tsx`
+- `src/renderer/src/components/editor/ImageViewer.tsx`
+- `src/renderer/src/components/editor/ImageViewerPopup.tsx`
+- `src/renderer/src/components/editor/ipynb-parse.test.ts`
+- `src/renderer/src/components/editor/ipynb-parse.ts`
+- `src/renderer/src/components/editor/IpynbViewer.tsx`
+- `src/renderer/src/components/editor/large-diff-section-content.ts`
+- `src/renderer/src/components/editor/markdown-doc-completions.test.ts`
+- `src/renderer/src/components/editor/markdown-doc-completions.ts`
+- `src/renderer/src/components/editor/markdown-document-list-request.test.ts`
+- `src/renderer/src/components/editor/markdown-document-list-request.ts`
+- `src/renderer/src/components/editor/markdown-document-worktree-path-selector.test.ts`
+- `src/renderer/src/components/editor/markdown-rich-mode.test.ts`
+- `src/renderer/src/components/editor/markdown-rich-mode.ts`
+- `src/renderer/src/components/editor/markdown-rich-size-limit.test.ts`
+- `src/renderer/src/components/editor/monaco-markdown-doc-completions.ts`
+- `src/renderer/src/components/editor/NotesSendMenu.test.tsx`
+- `src/renderer/src/components/editor/NotesSendMenu.tsx`
+- `src/renderer/src/components/editor/ReviewNotesSendMenuContent.test.tsx`
+- `src/renderer/src/components/editor/ReviewNotesSendMenuContent.tsx`
+- `src/renderer/src/components/editor/rich-markdown-annotation-submit-highlights.ts`
+- `src/renderer/src/components/editor/RichMarkdownCodeBlock.tsx`
+- `src/renderer/src/components/editor/rich-markdown-commands.tsx`
+- `src/renderer/src/components/editor/rich-markdown-doc-link.ts`
+- `src/renderer/src/components/editor/RichMarkdownEditor.tsx`
+- `src/renderer/src/components/editor/rich-markdown-editor-click-routing.ts`
+- `src/renderer/src/components/editor/rich-markdown-editor-config.ts`
+- `src/renderer/src/components/editor/rich-markdown-editor-props.ts`
+- `src/renderer/src/components/editor/RichMarkdownEditorSurface.tsx`
+- `src/renderer/src/components/editor/rich-markdown-review-annotations.test.ts`
+- `src/renderer/src/components/editor/rich-markdown-review-annotations.ts`
+- `src/renderer/src/components/editor/RichMarkdownReviewNoteLayer.tsx`
+- `src/renderer/src/components/editor/rich-markdown-review-note-layout.test.ts`
+- `src/renderer/src/components/editor/rich-markdown-review-note-layout.ts`
+- `src/renderer/src/components/editor/rich-markdown-review-note-positioning.ts`
+- `src/renderer/src/components/editor/RichMarkdownSearchBar.tsx`
+- `src/renderer/src/components/editor/rich-markdown-slash-command-catalog.tsx`
+- `src/renderer/src/components/editor/rich-markdown-tab-key-handler.test.ts`
+- `src/renderer/src/components/editor/rich-markdown-task-list.ts`
+- `src/renderer/src/components/editor/rich-markdown-terminal-path-paste.ts`
+- `src/renderer/src/components/editor/useClosedEditorTabCleanup.ts`
+- `src/renderer/src/components/editor/useDiffSectionLayoutMetrics.ts`
+- `src/renderer/src/components/editor/useEditorPanelContentState.ts`
+- `src/renderer/src/components/editor/useEditorPanelRemoteSiblingContentState.test.tsx`
+- `src/renderer/src/components/editor/useLocalImageSrc.test.ts`
+- `src/renderer/src/components/editor/useLocalImageSrc.ts`
+- `src/renderer/src/components/editor/useMarkdownDocuments.ts`
+- `src/renderer/src/components/editor/useRichMarkdownEditorInstance.ts`
+- `src/renderer/src/components/editor/useRichMarkdownMenuController.ts`
+- `src/renderer/src/components/editor/useRichMarkdownProgrammaticSync.ts`
+- `src/renderer/src/components/editor/useRichMarkdownReviewController.ts`
+- `src/renderer/src/components/editor/useRichMarkdownReviewData.ts`
+- `src/renderer/src/components/editor/useRichMarkdownReviewEditorEffects.ts`
+- `src/renderer/src/components/editor/useRichMarkdownReviewRailController.ts`
+- `src/renderer/src/components/editor/useRichMarkdownSearch.ts`
+- `src/renderer/src/components/emulator-pane/EmulatorPane.tsx`
+- `src/renderer/src/components/feature-interaction-writer-boundaries.test.ts`
+- `src/renderer/src/components/feature-tips/feature-tip-modal-state.ts`
+- `src/renderer/src/components/feature-tips/feature-tip-startup-gate.ts`
+- `src/renderer/src/components/feature-wall/agents-orchestration/UsageAccountsCard.tsx`
+- `src/renderer/src/components/feature-wall/AiCommitPrSettingsFields.tsx`
+- `src/renderer/src/components/feature-wall/ai-commit-pr-settings-helpers.ts`
+- `src/renderer/src/components/feature-wall/FeatureWallBody.tsx`
+- `src/renderer/src/components/feature-wall/FeatureWallSetupChecklist.tsx`
+- `src/renderer/src/components/feature-wall/FeatureWallSetupWorkflowActions.test.tsx`
+- `src/renderer/src/components/feature-wall/FeatureWallSetupWorkflowActions.tsx`
+- `src/renderer/src/components/feature-wall/FeatureWallTourPanel.tsx`
+- `src/renderer/src/components/feature-wall/KeepAwakeCard.tsx`
+- `src/renderer/src/components/feature-wall/useAiCommitPrSettings.ts`
+- `src/renderer/src/components/floating-terminal/FloatingBrowserSlot.test.tsx`
+- `src/renderer/src/components/floating-terminal/FloatingBrowserSlot.tsx`
+- `src/renderer/src/components/floating-terminal/FloatingTerminalIconContextMenu.tsx`
+- `src/renderer/src/components/github/CommentCodeContext.tsx`
+- `src/renderer/src/components/github/CommentReactions.tsx`
+- `src/renderer/src/components/github/GitHubMarkdownComposer.tsx`
+- `src/renderer/src/components/github/github-markdown-composer-preview-pane.tsx`
+- `src/renderer/src/components/github/github-pr-reviewer-candidate-filter.test.ts`
+- `src/renderer/src/components/github/github-pr-reviewer-candidate-filter.ts`
+- `src/renderer/src/components/github/github-work-item-assignee-filter.ts`
+- `src/renderer/src/components/github/github-work-item-comment-mutations.ts`
+- `src/renderer/src/components/github/github-work-item-edit-mutations.ts`
+- `src/renderer/src/components/github/github-work-item-identity.ts`
+- `src/renderer/src/components/github/IssueSourceSelector.tsx`
+- `src/renderer/src/components/github/PRAssigneesPanel.tsx`
+- `src/renderer/src/components/github/pr-check-presentation.ts`
+- `src/renderer/src/components/github/pr-file-content-size.test.ts`
+- `src/renderer/src/components/github/pr-file-content-size.ts`
+- `src/renderer/src/components/github/pr-file-diff-mapping.ts`
+- `src/renderer/src/components/github/PRFilterDropdowns.tsx`
+- `src/renderer/src/components/github/repro-8784-ghe-avatar-fallback.test.ts`
+- `src/renderer/src/components/github/work-item-state-presentation.tsx`
+- `src/renderer/src/components/github-checks-tab-state.test.ts`
+- `src/renderer/src/components/github-checks-tab-state.ts`
+- `src/renderer/src/components/github-enterprise-slug-routing-boundary.test.ts`
+- `src/renderer/src/components/github-item-dialog-source-boundary.test.ts`
+- `src/renderer/src/components/github-pr-merge-state.ts`
+- `src/renderer/src/components/github-project/github-project-picker-filter.ts`
+- `src/renderer/src/components/github-project/group-sort.test.ts`
+- `src/renderer/src/components/github-project/ProjectCell.tsx`
+- `src/renderer/src/components/github-project/ProjectGroupHeader.tsx`
+- `src/renderer/src/components/github-project/ProjectPicker.tsx`
+- `src/renderer/src/components/github-project/project-picker-browse-cache.test.ts`
+- `src/renderer/src/components/github-project/project-picker-browse-cache.ts`
+- `src/renderer/src/components/github-project/ProjectRow.tsx`
+- `src/renderer/src/components/github-project/project-row-filtering.ts`
+- `src/renderer/src/components/github-project/ProjectViewList.tsx`
+- `src/renderer/src/components/github-project/project-visible-table-cache.ts`
+- `src/renderer/src/components/github-project/slug-dialog/AssigneesEditor.tsx`
+- `src/renderer/src/components/github-project/slug-dialog/Comments.tsx`
+- `src/renderer/src/components/github-project/slug-dialog/LabelsEditor.tsx`
+- `src/renderer/src/components/github-project/slug-dialog/SlugDialogBody.tsx`
+- `src/renderer/src/components/github-pr-reviewer-display.ts`
+- `src/renderer/src/components/GitLabItemDialog.tsx`
+- `src/renderer/src/components/hover-reveal-touch-action-visibility.test.ts`
+- `src/renderer/src/components/jira-issue-sorter.ts`
+- `src/renderer/src/components/JiraIssueWorkspace.tsx`
+- `src/renderer/src/components/jira-project-picker-filter.test.ts`
+- `src/renderer/src/components/jira-project-picker-filter.ts`
+- `src/renderer/src/components/linear-issue-attribute-filter-dropdowns.test.tsx`
+- `src/renderer/src/components/linear-issue-attribute-filter-dropdowns.tsx`
+- `src/renderer/src/components/linear-issue-attribute-filter-primary-team.test.ts`
+- `src/renderer/src/components/linear-issue-attribute-filter-primary-team.ts`
+- `src/renderer/src/components/linear-issue-attribute-filter-sections.tsx`
+- `src/renderer/src/components/linear-issue-attribute-filter-team-ids.test.ts`
+- `src/renderer/src/components/linear-issue-attribute-filter-team-ids.ts`
+- `src/renderer/src/components/linear-issue-text-draft-state.ts`
+- `src/renderer/src/components/LinearIssueTextEditor.tsx`
+- `src/renderer/src/components/linear-issue-text-save-plan.ts`
+- `src/renderer/src/components/LinearIssueWorkspace.tsx`
+- `src/renderer/src/components/linear-issue-workspace-text.ts`
+- `src/renderer/src/components/LinearItemDrawer.tsx`
+- `src/renderer/src/components/linear-project-view-surfaces.tsx`
+- `src/renderer/src/components/linear-scope-selector.test.ts`
+- `src/renderer/src/components/linear-scope-selector.tsx`
+- `src/renderer/src/components/mobile/MobilePageContent.tsx`
+- `src/renderer/src/components/mobile/paired-mobile-devices.ts`
+- `src/renderer/src/components/mobile/use-mobile-install-actions.ts`
+- `src/renderer/src/components/mobile/use-mobile-pairing-generation.ts`
+- `src/renderer/src/components/mobile/use-mobile-pairing-qr-invalidation.ts`
+- `src/renderer/src/components/native-chat/claude-model-switch-confirmation.test.ts`
+- `src/renderer/src/components/native-chat/claude-model-switch-confirmation.ts`
+- `src/renderer/src/components/native-chat/claude-terminal-session-options.ts`
+- `src/renderer/src/components/native-chat/NativeChatAutocompleteMenus.test.tsx`
+- `src/renderer/src/components/native-chat/native-chat-availability.test.ts`
+- `src/renderer/src/components/native-chat/NativeChatComposer.test.tsx`
+- `src/renderer/src/components/native-chat/NativeChatComposerActions.test.tsx`
+- `src/renderer/src/components/native-chat/NativeChatComposerActions.tsx`
+- `src/renderer/src/components/native-chat/native-chat-composer-autogrow.test.tsx`
+- `src/renderer/src/components/native-chat/NativeChatComposerField.tsx`
+- `src/renderer/src/components/native-chat/native-chat-composer-state.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-composer-types.ts`
+- `src/renderer/src/components/native-chat/native-chat-diff.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-file-link.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-file-link.ts`
+- `src/renderer/src/components/native-chat/native-chat-incremental-assembler.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-incremental-assembler.ts`
+- `src/renderer/src/components/native-chat/NativeChatInteractiveCard.test.tsx`
+- `src/renderer/src/components/native-chat/native-chat-launch-session-options.ts`
+- `src/renderer/src/components/native-chat/native-chat-leaf-routing.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-leaf-routing.ts`
+- `src/renderer/src/components/native-chat/native-chat-pane-resolution.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-pending.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-pending.ts`
+- `src/renderer/src/components/native-chat/native-chat-pending-occurrence.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-pending-occurrence.ts`
+- `src/renderer/src/components/native-chat/native-chat-preassembled-session-parity.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-pty-session-options.test.ts`
+- `src/renderer/src/components/native-chat/NativeChatQuestionCard.test.tsx`
+- `src/renderer/src/components/native-chat/NativeChatQuestionCard.tsx`
+- `src/renderer/src/components/native-chat/native-chat-runtime-owner.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-runtime-send.ts`
+- `src/renderer/src/components/native-chat/native-chat-runtime-send-launch-draft.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-session-assembler.ts`
+- `src/renderer/src/components/native-chat/native-chat-session-option-labels.test.ts`
+- `src/renderer/src/components/native-chat/native-chat-session-option-labels.ts`
+- `src/renderer/src/components/native-chat/NativeChatSessionOptionPickers.test.tsx`
+- `src/renderer/src/components/native-chat/NativeChatSessionOptionPickers.tsx`
+- `src/renderer/src/components/native-chat/native-chat-session-transport.ts`
+- `src/renderer/src/components/native-chat/native-chat-skill-discovery-context.ts`
+- `src/renderer/src/components/native-chat/native-chat-tool-fold.test.ts`
+- `src/renderer/src/components/native-chat/NativeChatToolRun.test.tsx`
+- `src/renderer/src/components/native-chat/NativeChatToolRun.tsx`
+- `src/renderer/src/components/native-chat/NativeChatView.tsx`
+- `src/renderer/src/components/native-chat/use-native-chat-composer-attachments.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-composer-paste.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-context-menu.tsx`
+- `src/renderer/src/components/native-chat/use-native-chat-hook-status.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-launch-draft-adoption.test.tsx`
+- `src/renderer/src/components/native-chat/use-native-chat-launch-draft-adoption.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-live-session.test.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-live-session.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-live-session-visibility.test.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-skills.react.test.tsx`
+- `src/renderer/src/components/native-chat/use-native-chat-skills.test.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-skills.ts`
+- `src/renderer/src/components/native-chat/use-native-chat-toggle-shortcut.ts`
+- `src/renderer/src/components/new-workspace/project-combobox-matching.ts`
+- `src/renderer/src/components/new-workspace/RunTargetCombobox.tsx`
+- `src/renderer/src/components/new-workspace/RunTargetComboboxRow.tsx`
+- `src/renderer/src/components/new-workspace/SmartWorkspaceNameField.ime-enter.test.tsx`
+- `src/renderer/src/components/new-workspace/SmartWorkspaceNameField.tsx`
+- `src/renderer/src/components/new-workspace/SmartWorkspaceNameField-source-boundaries.test.ts`
+- `src/renderer/src/components/new-workspace/use-jira-source-connection.test.tsx`
+- `src/renderer/src/components/new-workspace/use-jira-source-connection.ts`
+- `src/renderer/src/components/new-workspace/use-jira-url-source.ts`
+- `src/renderer/src/components/new-workspace/use-recent-project-ids.test.ts`
+- `src/renderer/src/components/notification-sound-options.ts`
+- `src/renderer/src/components/onboarding/agent-picked-payload.ts`
+- `src/renderer/src/components/onboarding/FeatureSetupInlineTerminal.test.tsx`
+- `src/renderer/src/components/onboarding/FeatureSetupInlineTerminal.tsx`
+- `src/renderer/src/components/onboarding/GhosttyDiscoveryRow.tsx`
+- `src/renderer/src/components/onboarding/NotificationStep.test.tsx`
+- `src/renderer/src/components/onboarding/onboarding-settings-hydration.test.ts`
+- `src/renderer/src/components/onboarding/onboarding-settings-hydration.ts`
+- `src/renderer/src/components/onboarding/should-show-onboarding.ts`
+- `src/renderer/src/components/onboarding/ThemeStep.tsx`
+- `src/renderer/src/components/onboarding/use-onboarding-flow.test.ts`
+- `src/renderer/src/components/onboarding/use-onboarding-flow.ts`
+- `src/renderer/src/components/onboarding/use-onboarding-flow-persistence.test.ts`
+- `src/renderer/src/components/onboarding/use-onboarding-flow-persistence.ts`
+- `src/renderer/src/components/onboarding/windows-terminal-onboarding-telemetry.ts`
+- `src/renderer/src/components/onboarding/WindowsTerminalStep.test.tsx`
+- `src/renderer/src/components/pet/pet-agent-state.ts`
+- `src/renderer/src/components/pet/PetOverlay.tsx`
+- `src/renderer/src/components/pet/pet-overlay-hit-area.test.tsx`
+- `src/renderer/src/components/pet/usePetUrl.ts`
+- `src/renderer/src/components/pr-check-counts.test.ts`
+- `src/renderer/src/components/pr-check-counts.ts`
+- `src/renderer/src/components/pr-checks-fix-prompt.test.ts`
+- `src/renderer/src/components/pr-comments-resolution-prompt.test.ts`
+- `src/renderer/src/components/provider-check-classification-parity.test.ts`
+- `src/renderer/src/components/pull-request-page-host-boundary.test.ts`
+- `src/renderer/src/components/QuickOpen.mount-gating.test.tsx`
+- `src/renderer/src/components/QuickOpen.tsx`
+- `src/renderer/src/components/quick-open-file-list.react.test.tsx`
+- `src/renderer/src/components/quick-open-file-list.test.ts`
+- `src/renderer/src/components/quick-open-file-list.ts`
+- `src/renderer/src/components/quick-open-search.test.ts`
+- `src/renderer/src/components/quick-open-search.ts`
+- `src/renderer/src/components/repo/NestedRepoChecklist.test.tsx`
+- `src/renderer/src/components/repo/NestedRepoChecklist.tsx`
+- `src/renderer/src/components/repo/NestedRepoScanLimitNotice.test.ts`
+- `src/renderer/src/components/repo/NestedRepoScanLimitNotice.tsx`
+- `src/renderer/src/components/repo/RepoCombobox.tsx`
+- `src/renderer/src/components/repo/repo-fork-indicator.tsx`
+- `src/renderer/src/components/repo/repo-icon.tsx`
+- `src/renderer/src/components/right-sidebar/active-checks-status.ts`
+- `src/renderer/src/components/right-sidebar/activity-bar-buttons.tsx`
+- `src/renderer/src/components/right-sidebar/ai-vault-original-pane.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-scan-issue-state.test.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-scan-issue-state.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-scope-paths.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-session-launch-actions.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-session-projects.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-session-resume.ts`
+- `src/renderer/src/components/right-sidebar/AiVaultSessionRow.tsx`
+- `src/renderer/src/components/right-sidebar/ai-vault-session-row-display.tsx`
+- `src/renderer/src/components/right-sidebar/AiVaultSessionSubagents.test.tsx`
+- `src/renderer/src/components/right-sidebar/ai-vault-session-worktree.ts`
+- `src/renderer/src/components/right-sidebar/ai-vault-virtual-rows.ts`
+- `src/renderer/src/components/right-sidebar/checks-list-expanded-details.test.tsx`
+- `src/renderer/src/components/right-sidebar/checks-panel-async-result-key.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-content.test.tsx`
+- `src/renderer/src/components/right-sidebar/checks-panel-git-status-snapshot.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-pr-refresh-breadcrumb.test.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-pr-refresh-breadcrumb.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-pr-refresh-request.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-review.test.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-review.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-review-creation.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-terminal-worktree.test.ts`
+- `src/renderer/src/components/right-sidebar/checks-panel-terminal-worktree.ts`
+- `src/renderer/src/components/right-sidebar/coalesced-poll-runner.test.ts`
+- `src/renderer/src/components/right-sidebar/CommitArea.chevron-spinner.test.tsx`
+- `src/renderer/src/components/right-sidebar/CommitArea.generate.test.tsx`
+- `src/renderer/src/components/right-sidebar/CommitArea.primary-icons.test.tsx`
+- `src/renderer/src/components/right-sidebar/CommitArea.test.tsx`
+- `src/renderer/src/components/right-sidebar/commit-failure-summary.test.ts`
+- `src/renderer/src/components/right-sidebar/CreateHostedReviewComposer.tsx`
+- `src/renderer/src/components/right-sidebar/CreateHostedReviewComposerFields.tsx`
+- `src/renderer/src/components/right-sidebar/create-pull-request-review-copy.ts`
+- `src/renderer/src/components/right-sidebar/diff-comments-clear-dialog-state.test.ts`
+- `src/renderer/src/components/right-sidebar/discard-all-sequence.test.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-add-project-action.test.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-add-project-action.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-directory-listing.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-entries.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-expanded-dirs-refresh.test.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-inline-input-outside-click.test.tsx`
+- `src/renderer/src/components/right-sidebar/file-explorer-inline-rename-flow.test.tsx`
+- `src/renderer/src/components/right-sidebar/file-explorer-operation-generation.test.ts`
+- `src/renderer/src/components/right-sidebar/FileExplorerQueryStrip.tsx`
+- `src/renderer/src/components/right-sidebar/file-explorer-reset.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-runtime-owner.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-runtime-owner-boundary.test.ts`
+- `src/renderer/src/components/right-sidebar/FileExplorerViewSwitch.tsx`
+- `src/renderer/src/components/right-sidebar/FileExplorerVirtualRows.tsx`
+- `src/renderer/src/components/right-sidebar/file-explorer-watch-drive-root.test.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-watch-reconcile.test.ts`
+- `src/renderer/src/components/right-sidebar/file-explorer-watch-reconcile.ts`
+- `src/renderer/src/components/right-sidebar/folder-workspace-attached-worktrees.test.ts`
+- `src/renderer/src/components/right-sidebar/folder-workspace-attached-worktrees.ts`
+- `src/renderer/src/components/right-sidebar/FolderWorkspacePrChecksPanel.test.tsx`
+- `src/renderer/src/components/right-sidebar/FolderWorkspacePrChecksPanel.tsx`
+- `src/renderer/src/components/right-sidebar/FolderWorkspacePrChecksRow.test.tsx`
+- `src/renderer/src/components/right-sidebar/FolderWorkspacePrChecksRow.tsx`
+- `src/renderer/src/components/right-sidebar/FolderWorkspaceWorktreesPanel.test.tsx`
+- `src/renderer/src/components/right-sidebar/FolderWorkspaceWorktreesPanel.tsx`
+- `src/renderer/src/components/right-sidebar/GitHistoryPanel.test.tsx`
+- `src/renderer/src/components/right-sidebar/github-pr-stack-confirmation.ts`
+- `src/renderer/src/components/right-sidebar/GitHubPRStackMap.test.tsx`
+- `src/renderer/src/components/right-sidebar/GitHubPRStackMap.tsx`
+- `src/renderer/src/components/right-sidebar/github-pr-stack-merge.test.ts`
+- `src/renderer/src/components/right-sidebar/github-pr-stack-merge.ts`
+- `src/renderer/src/components/right-sidebar/github-refresh-error-copy.ts`
+- `src/renderer/src/components/right-sidebar/git-status-refresh.test.ts`
+- `src/renderer/src/components/right-sidebar/git-status-refresh-branch-line-total.test.ts`
+- `src/renderer/src/components/right-sidebar/git-status-refresh-scheduler.test.ts`
+- `src/renderer/src/components/right-sidebar/HostedReviewActions.tsx`
+- `src/renderer/src/components/right-sidebar/hosted-review-github-actions.ts`
+- `src/renderer/src/components/right-sidebar/HostedReviewStateActions.tsx`
+- `src/renderer/src/components/right-sidebar/index.tsx`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-github-pr-cache.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-hosted-review-cache.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-projection-selector.test.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-refresh.test.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-refresh.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-rows.test.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-rows.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-row-status.ts`
+- `src/renderer/src/components/right-sidebar/parent-pr-checks-row-types.ts`
+- `src/renderer/src/components/right-sidebar/pr-comment-fixing-reply-body.ts`
+- `src/renderer/src/components/right-sidebar/pr-comments-ai-launch-ack.test.ts`
+- `src/renderer/src/components/right-sidebar/pr-comments-ai-launch-ack.ts`
+- `src/renderer/src/components/right-sidebar/pr-comments-list-selection.test.tsx`
+- `src/renderer/src/components/right-sidebar/pr-comments-list-selection.ts`
+- `src/renderer/src/components/right-sidebar/pr-comment-thread-resolution.test.ts`
+- `src/renderer/src/components/right-sidebar/pr-comment-thread-resolution.ts`
+- `src/renderer/src/components/right-sidebar/PullRequestComposer.generate-tooltip.test.tsx`
+- `src/renderer/src/components/right-sidebar/push-target-upstream-refresh-cache.ts`
+- `src/renderer/src/components/right-sidebar/right-panel-comment-composer.tsx`
+- `src/renderer/src/components/right-sidebar/runSourceControlAgentActionStart.ts`
+- `src/renderer/src/components/right-sidebar/search-match-open.ts`
+- `src/renderer/src/components/right-sidebar/SearchResultItems.test.tsx`
+- `src/renderer/src/components/right-sidebar/SearchResultItems.tsx`
+- `src/renderer/src/components/right-sidebar/SearchResultsPane.tsx`
+- `src/renderer/src/components/right-sidebar/search-rows.ts`
+- `src/renderer/src/components/right-sidebar/SourceControl.branch-line-total.test.tsx`
+- `src/renderer/src/components/right-sidebar/SourceControl.commit-drafts.test.ts`
+- `src/renderer/src/components/right-sidebar/SourceControl.compare-summary.test.ts`
+- `src/renderer/src/components/right-sidebar/SourceControl.host-context-boundary.test.ts`
+- `src/renderer/src/components/right-sidebar/SourceControl.open-file-highlight.test.tsx`
+- `src/renderer/src/components/right-sidebar/SourceControl.preview-open.test.tsx`
+- `src/renderer/src/components/right-sidebar/SourceControl.virtual-file-list.test.tsx`
+- `src/renderer/src/components/right-sidebar/source-control-action-recipe-match.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-action-recipe-match.ts`
+- `src/renderer/src/components/right-sidebar/source-control-actions.ts`
+- `src/renderer/src/components/right-sidebar/source-control-active-open-file-keys.test.ts`
+- `src/renderer/src/components/right-sidebar/SourceControlAgentActionDialog.test.tsx`
+- `src/renderer/src/components/right-sidebar/SourceControlAgentActionDialog.tsx`
+- `src/renderer/src/components/right-sidebar/SourceControlAgentActionDialogForm.test.tsx`
+- `src/renderer/src/components/right-sidebar/source-control-agent-action-dialog-result.ts`
+- `src/renderer/src/components/right-sidebar/source-control-agent-action-dialog-support.ts`
+- `src/renderer/src/components/right-sidebar/source-control-ai-settings-navigation.ts`
+- `src/renderer/src/components/right-sidebar/source-control-branch-context-stats.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-commit-message-rows.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-create-pr-intent-flow.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-create-pr-intent-state.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-discard-confirmation.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-discard-dialog.test.tsx`
+- `src/renderer/src/components/right-sidebar/source-control-dropdown-items.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-dropdown-items.ts`
+- `src/renderer/src/components/right-sidebar/source-control-entry-actions.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-entry-context-menu.test.tsx`
+- `src/renderer/src/components/right-sidebar/source-control-file-filter.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-fix-split-button.tsx`
+- `src/renderer/src/components/right-sidebar/source-control-header-toolbar.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-header-toolbar-identity.test.tsx`
+- `src/renderer/src/components/right-sidebar/source-control-hosted-review-creation-eligibility-snapshot.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-hosted-review-push-target.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-primary-action.create-pr-intent.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-push-recovery.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-section-order.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-split-open.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-status-sort.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-status-sort.ts`
+- `src/renderer/src/components/right-sidebar/source-control-submodule-expansion.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-text-generation-defaults.test.ts`
+- `src/renderer/src/components/right-sidebar/SourceControlTextGenerationDialog.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-tree.test.ts`
+- `src/renderer/src/components/right-sidebar/source-control-tree.ts`
+- `src/renderer/src/components/right-sidebar/source-control-virtual-file-list.test.tsx`
+- `src/renderer/src/components/right-sidebar/stale-conflict-operation-poll.ts`
+- `src/renderer/src/components/right-sidebar/status-display.ts`
+- `src/renderer/src/components/right-sidebar/use-checks-panel-terminal-worktree.test.ts`
+- `src/renderer/src/components/right-sidebar/use-checks-panel-terminal-worktree.ts`
+- `src/renderer/src/components/right-sidebar/useCreatePullRequestDialogFields.test.ts`
+- `src/renderer/src/components/right-sidebar/useCreatePullRequestDialogFields.ts`
+- `src/renderer/src/components/right-sidebar/useFileExplorerDragDrop.test.ts`
+- `src/renderer/src/components/right-sidebar/useFileExplorerDragDrop.ts`
+- `src/renderer/src/components/right-sidebar/useFileExplorerInlineInput.ts`
+- `src/renderer/src/components/right-sidebar/useFileExplorerTree.stale-dirs.test.tsx`
+- `src/renderer/src/components/right-sidebar/useFileExplorerWatch.pending-refresh.test.tsx`
+- `src/renderer/src/components/right-sidebar/useFileExplorerWatch.ts`
+- `src/renderer/src/components/right-sidebar/useFileSearchPanel.ts`
+- `src/renderer/src/components/right-sidebar/useFileSearchRunner.test.tsx`
+- `src/renderer/src/components/right-sidebar/useFileSearchRunner.ts`
+- `src/renderer/src/components/right-sidebar/useGitStatusPolling.ts`
+- `src/renderer/src/components/right-sidebar/use-git-status-upstream-ref-watch.ts`
+- `src/renderer/src/components/right-sidebar/use-hosted-review-actions.ts`
+- `src/renderer/src/components/right-sidebar/useSavedSourceControlAgentActionAutoStart.ts`
+- `src/renderer/src/components/right-sidebar/use-source-control-ai.test.ts`
+- `src/renderer/src/components/right-sidebar/useSourceControlSelection.test.ts`
+- `src/renderer/src/components/right-sidebar/useSourceControlSubmoduleStatus.test.tsx`
+- `src/renderer/src/components/settings/AdvancedNetworkSettingsSection.test.ts`
+- `src/renderer/src/components/settings/AgentAwakeSetting.tsx`
+- `src/renderer/src/components/settings/AgentCacheTimerSection.tsx`
+- `src/renderer/src/components/settings/AgentDashboardExperimentalSetting.tsx`
+- `src/renderer/src/components/settings/AgentRuntimeSetting.tsx`
+- `src/renderer/src/components/settings/agent-skill-setup-panel-props.ts`
+- `src/renderer/src/components/settings/appearance-interface-summary.ts`
+- `src/renderer/src/components/settings/appearance-status-bar-antigravity-toggle-search.ts`
+- `src/renderer/src/components/settings/appearance-status-bar-grok-toggle-search.ts`
+- `src/renderer/src/components/settings/BrowserLinkRoutingModifierSetting.tsx`
+- `src/renderer/src/components/settings/BrowserLinkRoutingSetting.tsx`
+- `src/renderer/src/components/settings/BrowserProfileRow.tsx`
+- `src/renderer/src/components/settings/BrowserSessionCookiesSection.tsx`
+- `src/renderer/src/components/settings/BrowserTerminalLinkActionsSetting.tsx`
+- `src/renderer/src/components/settings/codex-account-auth-warning.test.ts`
+- `src/renderer/src/components/settings/codex-account-auth-warning.ts`
+- `src/renderer/src/components/settings/codex-session-source-home-control.test.tsx`
+- `src/renderer/src/components/settings/CommitMessageAiPane.test.tsx`
+- `src/renderer/src/components/settings/CompareAgainstUpstreamSetting.tsx`
+- `src/renderer/src/components/settings/DefaultWindowsProjectRuntimeSetting.tsx`
+- `src/renderer/src/components/settings/EditorFontFamilySetting.tsx`
+- `src/renderer/src/components/settings/EditorWordWrapSetting.tsx`
+- `src/renderer/src/components/settings/EphemeralVmRuntimesSection.tsx`
+- `src/renderer/src/components/settings/EphemeralVmsExperimentalSetting.tsx`
+- `src/renderer/src/components/settings/ephemeral-vms-search.ts`
+- `src/renderer/src/components/settings/ExperimentalPane.test.tsx`
+- `src/renderer/src/components/settings/floating-workspace-search.ts`
+- `src/renderer/src/components/settings/GeneralPane.tsx`
+- `src/renderer/src/components/settings/GeneralWorkspaceSettingsSection.tsx`
+- `src/renderer/src/components/settings/GhosttyImportModal.test.ts`
+- `src/renderer/src/components/settings/GhosttyImportModal.tsx`
+- `src/renderer/src/components/settings/GitPane.test.tsx`
+- `src/renderer/src/components/settings/HiddenExperimentalGroup.tsx`
+- `src/renderer/src/components/settings/InputPane.tsx`
+- `src/renderer/src/components/settings/integrations-search.ts`
+- `src/renderer/src/components/settings/keybinding-override-edits.ts`
+- `src/renderer/src/components/settings/LeftSidebarAppearanceSetting.tsx`
+- `src/renderer/src/components/settings/manage-sessions-format.ts`
+- `src/renderer/src/components/settings/McpConfigSection.tsx`
+- `src/renderer/src/components/settings/native-chat-experimental-search-entry.ts`
+- `src/renderer/src/components/settings/NativeChatExperimentalSetting.tsx`
+- `src/renderer/src/components/settings/NotificationsPane.tsx`
+- `src/renderer/src/components/settings/OpenInMenuSetting.tsx`
+- `src/renderer/src/components/settings/orchestration-search.ts`
+- `src/renderer/src/components/settings/OrchestrationSkillAgentCoverage.test.tsx`
+- `src/renderer/src/components/settings/PluginsSettingsSection.lifecycle.test.tsx`
+- `src/renderer/src/components/settings/PluginsSettingsSection.tsx`
+- `src/renderer/src/components/settings/ProjectWindowsRuntimeSetting.test.tsx`
+- `src/renderer/src/components/settings/ProjectWindowsRuntimeSetting.tsx`
+- `src/renderer/src/components/settings/provider-account-visibility.test.ts`
+- `src/renderer/src/components/settings/QuickCommandsList.tsx`
+- `src/renderer/src/components/settings/QuickCommandsScopeFilter.tsx`
+- `src/renderer/src/components/settings/RecentTabOrderControl.tsx`
+- `src/renderer/src/components/settings/repository-git-author-search-entries.ts`
+- `src/renderer/src/components/settings/repository-git-worktree-search-entries.ts`
+- `src/renderer/src/components/settings/RepositoryHooksSection.test.ts`
+- `src/renderer/src/components/settings/RepositoryHostSetupActions.tsx`
+- `src/renderer/src/components/settings/repository-icon-github.ts`
+- `src/renderer/src/components/settings/RepositoryIconPicker.tsx`
+- `src/renderer/src/components/settings/repository-identity-search.ts`
+- `src/renderer/src/components/settings/RepositoryPane.test.ts`
+- `src/renderer/src/components/settings/repository-runtime-session-summary.ts`
+- `src/renderer/src/components/settings/RepositorySourceControlAiActionRows.tsx`
+- `src/renderer/src/components/settings/repository-source-control-ai-draft.ts`
+- `src/renderer/src/components/settings/repository-source-control-ai-global-ux.ts`
+- `src/renderer/src/components/settings/RepositorySourceControlAiSection.tsx`
+- `src/renderer/src/components/settings/RepositoryWindowsRuntimeSection.tsx`
+- `src/renderer/src/components/settings/RepositoryWorktreeDefaultsSection.test.tsx`
+- `src/renderer/src/components/settings/RepositoryWorktreeDefaultsSection.tsx`
+- `src/renderer/src/components/settings/RichMarkdownSpellcheckSetting.tsx`
+- `src/renderer/src/components/settings/setting-labels.ts`
+- `src/renderer/src/components/settings/SettingsConstants.ts`
+- `src/renderer/src/components/settings/SettingsFormControls.segmented-control.test.tsx`
+- `src/renderer/src/components/settings/SettingsFormControls.tsx`
+- `src/renderer/src/components/settings/settings-project-list.test.ts`
+- `src/renderer/src/components/settings/settings-project-list.ts`
+- `src/renderer/src/components/settings/settings-search.ts`
+- `src/renderer/src/components/settings/SettingsSection.tsx`
+- `src/renderer/src/components/settings/SettingsSidebar.test.tsx`
+- `src/renderer/src/components/settings/SettingsSidebar.tsx`
+- `src/renderer/src/components/settings/ShortcutCommandBlock.tsx`
+- `src/renderer/src/components/settings/shortcut-groups.ts`
+- `src/renderer/src/components/settings/SourceControlActionRecipeRow.tsx`
+- `src/renderer/src/components/settings/source-control-integration-cards.tsx`
+- `src/renderer/src/components/settings/sparse-preset-settings-row.tsx`
+- `src/renderer/src/components/settings/SparsePresetSettingsSection.test.tsx`
+- `src/renderer/src/components/settings/SparsePresetSettingsSection.tsx`
+- `src/renderer/src/components/settings/SshPane.tsx`
+- `src/renderer/src/components/settings/SshPassphraseDialog.tsx`
+- `src/renderer/src/components/settings/ssh-session-termination.ts`
+- `src/renderer/src/components/settings/SshTargetCard.tsx`
+- `src/renderer/src/components/settings/ssh-target-save-payload.ts`
+- `src/renderer/src/components/settings/task-source-setup-state.test.ts`
+- `src/renderer/src/components/settings/task-source-setup-state.ts`
+- `src/renderer/src/components/settings/TasksPane.tsx`
+- `src/renderer/src/components/settings/TerminalAdvancedSection.test.tsx`
+- `src/renderer/src/components/settings/TerminalAdvancedSection.tsx`
+- `src/renderer/src/components/settings/TerminalAdvancedTypographyControls.tsx`
+- `src/renderer/src/components/settings/TerminalAppearanceSection.tsx`
+- `src/renderer/src/components/settings/TerminalFontSizeSetting.test.tsx`
+- `src/renderer/src/components/settings/TerminalFontSizeSetting.tsx`
+- `src/renderer/src/components/settings/TerminalInteractionSection.tsx`
+- `src/renderer/src/components/settings/TerminalMacKeyboardSection.tsx`
+- `src/renderer/src/components/settings/TerminalPane.tsx`
+- `src/renderer/src/components/settings/TerminalPaneAppearanceSection.tsx`
+- `src/renderer/src/components/settings/TerminalRenderingSection.tsx`
+- `src/renderer/src/components/settings/TerminalSettingsPreview.lifecycle.test.tsx`
+- `src/renderer/src/components/settings/TerminalSettingsPreview.tsx`
+- `src/renderer/src/components/settings/TerminalSetupScriptSection.tsx`
+- `src/renderer/src/components/settings/TerminalThemeSections.lifecycle.test.ts`
+- `src/renderer/src/components/settings/terminal-window-color-groups.tsx`
+- `src/renderer/src/components/settings/TerminalWindowsShellSection.tsx`
+- `src/renderer/src/components/settings/useGhosttyImport.test.ts`
+- `src/renderer/src/components/settings/useGhosttyImport.ts`
+- `src/renderer/src/components/settings/use-task-source-provider-readiness.test.tsx`
+- `src/renderer/src/components/settings/use-task-source-provider-readiness.ts`
+- `src/renderer/src/components/settings/useWarpThemeImport.test.ts`
+- `src/renderer/src/components/settings/useWarpThemeImport.ts`
+- `src/renderer/src/components/settings/VoicePane.test.tsx`
+- `src/renderer/src/components/settings/VoicePane.tsx`
+- `src/renderer/src/components/settings/WorktreeSymlinksSection.tsx`
+- `src/renderer/src/components/setup-guide/setup-guide-progress-readiness.ts`
+- `src/renderer/src/components/sidebar/active-worktree-focus-after-delete.ts`
+- `src/renderer/src/components/sidebar/AddRepoDialog.tsx`
+- `src/renderer/src/components/sidebar/AddRepoDialogStepContent.tsx`
+- `src/renderer/src/components/sidebar/add-repo-existing-workspaces-telemetry.test.ts`
+- `src/renderer/src/components/sidebar/add-repo-existing-workspaces-telemetry.ts`
+- `src/renderer/src/components/sidebar/add-repo-skip-finalization.test.ts`
+- `src/renderer/src/components/sidebar/add-repo-skip-finalization.ts`
+- `src/renderer/src/components/sidebar/AddRepoStartSteps.test.tsx`
+- `src/renderer/src/components/sidebar/add-repo-store-upsert.ts`
+- `src/renderer/src/components/sidebar/AgentDashboardSidebarEntry.tsx`
+- `src/renderer/src/components/sidebar/complete-nested-folder-open.ts`
+- `src/renderer/src/components/sidebar/DeleteWorktreeDialog.host-context-boundary.test.ts`
+- `src/renderer/src/components/sidebar/DeleteWorktreeDialog.tsx`
+- `src/renderer/src/components/sidebar/delete-worktree-dirty-change-counts.ts`
+- `src/renderer/src/components/sidebar/delete-worktree-failure-toast.tsx`
+- `src/renderer/src/components/sidebar/DeleteWorktreeLineageNotice.tsx`
+- `src/renderer/src/components/sidebar/delete-worktree-parallel-flow.test.ts`
+- `src/renderer/src/components/sidebar/delete-worktree-preference-toast.ts`
+- `src/renderer/src/components/sidebar/DeleteWorktreeTargetPreview.tsx`
+- `src/renderer/src/components/sidebar/empty-project-placeholder-repos.test.ts`
+- `src/renderer/src/components/sidebar/empty-project-placeholder-repos.ts`
+- `src/renderer/src/components/sidebar/focused-agent-row-highlight.test.ts`
+- `src/renderer/src/components/sidebar/folder-workspace-card-pr-display.test.ts`
+- `src/renderer/src/components/sidebar/folder-workspace-card-pr-display.ts`
+- `src/renderer/src/components/sidebar/folder-workspace-composer-helpers.test.ts`
+- `src/renderer/src/components/sidebar/folder-workspace-composer-helpers.ts`
+- `src/renderer/src/components/sidebar/folder-workspace-composer-path-status.test.tsx`
+- `src/renderer/src/components/sidebar/folder-workspace-composer-path-status.ts`
+- `src/renderer/src/components/sidebar/host-section-rows.ts`
+- `src/renderer/src/components/sidebar/imported-worktrees-card-actions.ts`
+- `src/renderer/src/components/sidebar/imported-worktrees-card-candidates.ts`
+- `src/renderer/src/components/sidebar/ImportedWorktreesVisibilityLine.tsx`
+- `src/renderer/src/components/sidebar/local-base-ref-suggestion-toast.test.tsx`
+- `src/renderer/src/components/sidebar/new-external-worktrees-inbox-actions.test.ts`
+- `src/renderer/src/components/sidebar/new-external-worktrees-inbox-actions.ts`
+- `src/renderer/src/components/sidebar/new-external-worktrees-inbox-candidates.ts`
+- `src/renderer/src/components/sidebar/NonGitFolderDialog.test.tsx`
+- `src/renderer/src/components/sidebar/NonGitFolderDialog.tsx`
+- `src/renderer/src/components/sidebar/PreservedBranchBatchReviewDialog.tsx`
+- `src/renderer/src/components/sidebar/preserved-branch-toast.test.tsx`
+- `src/renderer/src/components/sidebar/project-added-default-checkout.test.ts`
+- `src/renderer/src/components/sidebar/project-group-header-dom.test.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drag-commit.test.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drag-commit.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drag-contract.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drag-start.test.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drag-start.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drop.test.ts`
+- `src/renderer/src/components/sidebar/project-group-header-drop.ts`
+- `src/renderer/src/components/sidebar/project-header-drag-commit.test.ts`
+- `src/renderer/src/components/sidebar/project-header-drag-commit.ts`
+- `src/renderer/src/components/sidebar/project-header-drag-contract.ts`
+- `src/renderer/src/components/sidebar/project-header-drag-start.test.ts`
+- `src/renderer/src/components/sidebar/project-header-drag-start.ts`
+- `src/renderer/src/components/sidebar/project-header-drop.test.ts`
+- `src/renderer/src/components/sidebar/project-header-drop.ts`
+- `src/renderer/src/components/sidebar/prompt-cache-timer-selection.ts`
+- `src/renderer/src/components/sidebar/RemoteFileBrowser.tsx`
+- `src/renderer/src/components/sidebar/remote-file-browser-drive-paths.ts`
+- `src/renderer/src/components/sidebar/remote-file-browser-helpers.ts`
+- `src/renderer/src/components/sidebar/rendered-sidebar-worktree-order.test.ts`
+- `src/renderer/src/components/sidebar/rendered-sidebar-worktree-order.ts`
+- `src/renderer/src/components/sidebar/repo-header-create-state.ts`
+- `src/renderer/src/components/sidebar/setup-script-prompt-render-state.ts`
+- `src/renderer/src/components/sidebar/Sidebar.test.tsx`
+- `src/renderer/src/components/sidebar/SidebarFeedbackDialog.test.tsx`
+- `src/renderer/src/components/sidebar/sidebar-filter-state.test.ts`
+- `src/renderer/src/components/sidebar/SidebarGroupByToggle.test.tsx`
+- `src/renderer/src/components/sidebar/SidebarGroupByToggle.tsx`
+- `src/renderer/src/components/sidebar/SidebarHeader.tsx`
+- `src/renderer/src/components/sidebar/sidebar-host-options.ts`
+- `src/renderer/src/components/sidebar/SidebarHostScopeMenuSection.tsx`
+- `src/renderer/src/components/sidebar/sidebar-project-drop.ts`
+- `src/renderer/src/components/sidebar/SidebarProjectFilterPanel.tsx`
+- `src/renderer/src/components/sidebar/SidebarRepositoryFilterSection.tsx`
+- `src/renderer/src/components/sidebar/SidebarTaskNavButton.tsx`
+- `src/renderer/src/components/sidebar/SidebarWorkspaceFilterSection.test.tsx`
+- `src/renderer/src/components/sidebar/sleep-worktree-activation-race.test.ts`
+- `src/renderer/src/components/sidebar/smart-attention.test.ts`
+- `src/renderer/src/components/sidebar/smart-attention.ts`
+- `src/renderer/src/components/sidebar/smart-sort.ts`
+- `src/renderer/src/components/sidebar/ssh-host-remove-resolution.ts`
+- `src/renderer/src/components/sidebar/StatusIndicator.test.ts`
+- `src/renderer/src/components/sidebar/StatusIndicator.tsx`
+- `src/renderer/src/components/sidebar/track-nested-folder-open.ts`
+- `src/renderer/src/components/sidebar/useAddRepoCloneFlow.ts`
+- `src/renderer/src/components/sidebar/use-add-repo-host-change-reset.ts`
+- `src/renderer/src/components/sidebar/use-add-repo-host-selection.ts`
+- `src/renderer/src/components/sidebar/useAddRepoLocalFolderFlow.test.ts`
+- `src/renderer/src/components/sidebar/useAddRepoLocalFolderFlow.ts`
+- `src/renderer/src/components/sidebar/useAddRepoNestedImportFlow.test.ts`
+- `src/renderer/src/components/sidebar/useAddRepoNestedImportFlow.ts`
+- `src/renderer/src/components/sidebar/useAddRepoNestedReviewController.ts`
+- `src/renderer/src/components/sidebar/useAddRepoNestedReviewState.ts`
+- `src/renderer/src/components/sidebar/use-add-repo-remote-nested-scan.ts`
+- `src/renderer/src/components/sidebar/useAddRepoServerPathFlow.test.ts`
+- `src/renderer/src/components/sidebar/useAddRepoServerPathFlow.ts`
+- `src/renderer/src/components/sidebar/use-confirmed-worktree-delete-targets.ts`
+- `src/renderer/src/components/sidebar/useCreateRepo.default-checkout.test.ts`
+- `src/renderer/src/components/sidebar/use-delete-worktree-status-hydration.ts`
+- `src/renderer/src/components/sidebar/useSetupScriptPromptRevalidation.test.tsx`
+- `src/renderer/src/components/sidebar/use-visible-workspace-kanban-worktree-ids.ts`
+- `src/renderer/src/components/sidebar/useWorkspaceBoardPanel.test.tsx`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-area-selection.ts`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-card-pointer-drag.test.ts`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-card-pointer-drag.ts`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-create-worktree.ts`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-search.ts`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-selection.test.tsx`
+- `src/renderer/src/components/sidebar/use-workspace-kanban-selection.ts`
+- `src/renderer/src/components/sidebar/use-workspace-status-drop.ts`
+- `src/renderer/src/components/sidebar/use-worktree-activity-status.test.tsx`
+- `src/renderer/src/components/sidebar/use-worktree-activity-status.ts`
+- `src/renderer/src/components/sidebar/use-worktree-activity-statuses.ts`
+- `src/renderer/src/components/sidebar/useWorktreeAgentRows.test.ts`
+- `src/renderer/src/components/sidebar/use-worktree-card-activation-actions.ts`
+- `src/renderer/src/components/sidebar/use-worktree-card-controller.ts`
+- `src/renderer/src/components/sidebar/use-worktree-card-linked-details.ts`
+- `src/renderer/src/components/sidebar/use-worktree-card-review-details.ts`
+- `src/renderer/src/components/sidebar/use-worktree-card-workspace-actions.ts`
+- `src/renderer/src/components/sidebar/use-worktree-issue-link.ts`
+- `src/renderer/src/components/sidebar/use-worktree-meta-workspace.ts`
+- `src/renderer/src/components/sidebar/visible-worktree-activity-inputs.test.ts`
+- `src/renderer/src/components/sidebar/visible-worktree-activity-inputs.ts`
+- `src/renderer/src/components/sidebar/visible-worktrees.test.ts`
+- `src/renderer/src/components/sidebar/visible-worktrees.ts`
+- `src/renderer/src/components/sidebar/workspace-board-task-status-sync.ts`
+- `src/renderer/src/components/sidebar/workspace-creator-visibility.test.ts`
+- `src/renderer/src/components/sidebar/workspace-creator-visibility.ts`
+- `src/renderer/src/components/sidebar/workspace-delete-lineage.test.ts`
+- `src/renderer/src/components/sidebar/workspace-delete-lineage.ts`
+- `src/renderer/src/components/sidebar/workspace-kanban-area-selection.test.ts`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanCard.tsx`
+- `src/renderer/src/components/sidebar/workspace-kanban-card-drag-preview-dom.ts`
+- `src/renderer/src/components/sidebar/workspace-kanban-card-pointer-drag-dom.ts`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanDrawer.search.test.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanDrawer.task-status-sync.test.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanDrawer.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanDrawerHeader.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanLaneCardList.test.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanLaneCardList.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanLaneGrid.test.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanLaneGrid.tsx`
+- `src/renderer/src/components/sidebar/workspace-kanban-search.ts`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanSettingsMenu.test.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanSettingsMenu.tsx`
+- `src/renderer/src/components/sidebar/workspace-kanban-sidebar-drop.test.ts`
+- `src/renderer/src/components/sidebar/workspace-kanban-sidebar-drop.ts`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanStatusLane.test.tsx`
+- `src/renderer/src/components/sidebar/WorkspaceKanbanStatusLane.tsx`
+- `src/renderer/src/components/sidebar/workspace-kanban-virtual-lane-layout.ts`
+- `src/renderer/src/components/sidebar/workspace-kanban-worktree-groups.test.ts`
+- `src/renderer/src/components/sidebar/workspace-kanban-worktree-groups.ts`
+- `src/renderer/src/components/sidebar/workspace-lineage-menu-actions.test.ts`
+- `src/renderer/src/components/sidebar/workspace-lineage-menu-actions.ts`
+- `src/renderer/src/components/sidebar/workspace-status.ts`
+- `src/renderer/src/components/sidebar/WorkspaceStatusAppearancePopover.tsx`
+- `src/renderer/src/components/sidebar/worktree-agent-activity-summary.test.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-activity-summary.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-freshness-selector.test.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-live-index-patch.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-orchestration-batch.test.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-orchestration-index.test.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-row-fallback-tab.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-rows.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-row-selectors.test.ts`
+- `src/renderer/src/components/sidebar/worktree-agent-row-selectors.ts`
+- `src/renderer/src/components/sidebar/WorktreeCard.test.ts`
+- `src/renderer/src/components/sidebar/WorktreeCardAgents.activation.test.tsx`
+- `src/renderer/src/components/sidebar/WorktreeCardAgents.expansion-remount.test.tsx`
+- `src/renderer/src/components/sidebar/WorktreeCardAgents.send-target.test.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-agent-summary.ts`
+- `src/renderer/src/components/sidebar/WorktreeCardAutomationDetailSection.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-compact-agent-row.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-compact-agents.tsx`
+- `src/renderer/src/components/sidebar/WorktreeCardDisplayMenuSection.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-display-property-options.ts`
+- `src/renderer/src/components/sidebar/WorktreeCardHelpers.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-jira-issue-display.ts`
+- `src/renderer/src/components/sidebar/WorktreeCardMetadataStatusBadges.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-parent-content.tsx`
+- `src/renderer/src/components/sidebar/worktree-card-pr-display.ts`
+- `src/renderer/src/components/sidebar/worktree-card-status-inputs.test.ts`
+- `src/renderer/src/components/sidebar/worktree-card-status-inputs.ts`
+- `src/renderer/src/components/sidebar/WorktreeCardStatusSlot.test.tsx`
+- `src/renderer/src/components/sidebar/WorktreeCardStatusSlot.tsx`
+- `src/renderer/src/components/sidebar/WorktreeContextMenu.test.ts`
+- `src/renderer/src/components/sidebar/worktree-context-menu-delete-intent.test.ts`
+- `src/renderer/src/components/sidebar/worktree-context-menu-delete-intent.ts`
+- `src/renderer/src/components/sidebar/worktree-delete-execution.ts`
+- `src/renderer/src/components/sidebar/worktree-delete-request.ts`
+- `src/renderer/src/components/sidebar/WorktreeDeveloperMenuReveal.test.tsx`
+- `src/renderer/src/components/sidebar/worktree-drag-preview-offsets.ts`
+- `src/renderer/src/components/sidebar/worktree-drag-units.ts`
+- `src/renderer/src/components/sidebar/worktree-header-section-boundaries.ts`
+- `src/renderer/src/components/sidebar/worktree-keyboard-cycle.test.ts`
+- `src/renderer/src/components/sidebar/worktree-keyboard-cycle.ts`
+- `src/renderer/src/components/sidebar/worktree-lineage-drag-drop.test.ts`
+- `src/renderer/src/components/sidebar/worktree-lineage-drag-drop.ts`
+- `src/renderer/src/components/sidebar/worktree-lineage-projection.ts`
+- `src/renderer/src/components/sidebar/worktree-manual-order.test.ts`
+- `src/renderer/src/components/sidebar/worktree-manual-order.ts`
+- `src/renderer/src/components/sidebar/worktree-manual-order-ranks.ts`
+- `src/renderer/src/components/sidebar/worktree-meta-updates.ts`
+- `src/renderer/src/components/sidebar/worktree-name-suggestions.test.ts`
+- `src/renderer/src/components/sidebar/worktree-name-suggestions.ts`
+- `src/renderer/src/components/sidebar/worktree-parent-candidates.ts`
+- `src/renderer/src/components/sidebar/worktree-parent-eligibility.test.ts`
+- `src/renderer/src/components/sidebar/worktree-parent-eligibility.ts`
+- `src/renderer/src/components/sidebar/worktree-parent-picker-filtering.ts`
+- `src/renderer/src/components/sidebar/WorktreeParentPickerPopover.test.ts`
+- `src/renderer/src/components/sidebar/WorktreeParentPickerRow.tsx`
+- `src/renderer/src/components/sidebar/worktree-review-helpers.test.tsx`
+- `src/renderer/src/components/sidebar/worktree-review-helpers.tsx`
+- `src/renderer/src/components/sidebar/worktree-scroll-to-current-button.test.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-drag-geometry.test.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-drag-geometry.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-drop-preview.test.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-drop-preview.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-reveal.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-row-preference.test.ts`
+- `src/renderer/src/components/sidebar/worktree-sidebar-row-preference.ts`
+- `src/renderer/src/components/sidebar/worktree-subagent-child-rows.ts`
+- `src/renderer/src/components/sidebar/worktree-title-derived-agent-rows.ts`
+- `src/renderer/src/components/skills/skill-display-labels.ts`
+- `src/renderer/src/components/skills/skills-filter.test.ts`
+- `src/renderer/src/components/skills/skills-filter.ts`
+- `src/renderer/src/components/skills/SkillsPage.test.tsx`
+- `src/renderer/src/components/skills/SkillsPage.tsx`
+- `src/renderer/src/components/source-control/SourceControlActionVariableChips.tsx`
+- `src/renderer/src/components/sparse/SparseCheckoutPresetSelect.tsx`
+- `src/renderer/src/components/stats/UsageBreakdownSection.tsx`
+- `src/renderer/src/components/stats/usage-overview-model.ts`
+- `src/renderer/src/components/stats/UsageOverviewPane.tsx`
+- `src/renderer/src/components/stats/usage-overview-sections.tsx`
+- `src/renderer/src/components/status-bar/CaffeinateStatusSegment.tsx`
+- `src/renderer/src/components/status-bar/codex-restart-status-summary.ts`
+- `src/renderer/src/components/status-bar/mergeSnapshotAndSessions.ts`
+- `src/renderer/src/components/status-bar/remote-host-connection-status.ts`
+- `src/renderer/src/components/status-bar/resource-memory-metric-copy.test.ts`
+- `src/renderer/src/components/status-bar/resource-memory-metric-copy.ts`
+- `src/renderer/src/components/status-bar/resource-session-bindings.test.ts`
+- `src/renderer/src/components/status-bar/resource-session-bindings.ts`
+- `src/renderer/src/components/status-bar/resource-session-classification-parity.test.ts`
+- `src/renderer/src/components/status-bar/resource-usage-merge-types.ts`
+- `src/renderer/src/components/status-bar/ResourceUsageStatusSegment.session-polling.test.ts`
+- `src/renderer/src/components/status-bar/RuntimeHostStatusRow.test.tsx`
+- `src/renderer/src/components/status-bar/RuntimeHostStatusRow.tsx`
+- `src/renderer/src/components/status-bar/SshStatusSegment.test.ts`
+- `src/renderer/src/components/status-bar/SshStatusSegment.tsx`
+- `src/renderer/src/components/status-bar/status-bar-agent-gating.ts`
+- `src/renderer/src/components/status-bar/status-bar-runtime-groups.test.ts`
+- `src/renderer/src/components/status-bar/tooltip.tsx`
+- `src/renderer/src/components/status-bar/use-available-status-bar-toggles.ts`
+- `src/renderer/src/components/status-bar/WorkspaceSpaceManagerPanel.tsx`
+- `src/renderer/src/components/status-bar/workspace-space-presentation.test.ts`
+- `src/renderer/src/components/status-bar/workspace-space-presentation.ts`
+- `src/renderer/src/components/tab-bar/BrowserTab.test.tsx`
+- `src/renderer/src/components/tab-bar/EditorFileTab.tsx`
+- `src/renderer/src/components/tab-bar/editor-tab-local-open-guard.ts`
+- `src/renderer/src/components/tab-bar/group-tab-order.test.ts`
+- `src/renderer/src/components/tab-bar/group-tab-order.ts`
+- `src/renderer/src/components/tab-bar/open-tab-entry-dedupe.test.ts`
+- `src/renderer/src/components/tab-bar/open-tab-entry-dedupe.ts`
+- `src/renderer/src/components/tab-bar/open-tab-search.test.ts`
+- `src/renderer/src/components/tab-bar/open-tab-search.ts`
+- `src/renderer/src/components/tab-bar/open-tab-search-entries.ts`
+- `src/renderer/src/components/tab-bar/open-tab-selection-routing.test.ts`
+- `src/renderer/src/components/tab-bar/open-tab-selection-routing.ts`
+- `src/renderer/src/components/tab-bar/QuickLaunchButton.tsx`
+- `src/renderer/src/components/tab-bar/RecentTabSwitcher.test.tsx`
+- `src/renderer/src/components/tab-bar/recent-tab-switching.test.ts`
+- `src/renderer/src/components/tab-bar/recent-tab-switching.ts`
+- `src/renderer/src/components/tab-bar/reconcile-order.ts`
+- `src/renderer/src/components/tab-bar/SortableTabContextMenu.test.tsx`
+- `src/renderer/src/components/tab-bar/SortableTabContextMenu.tsx`
+- `src/renderer/src/components/tab-bar/tab-agent-launch-options.test.ts`
+- `src/renderer/src/components/tab-bar/tab-agent-launch-options.ts`
+- `src/renderer/src/components/tab-bar/tab-agent-types-by-tab-id.test.ts`
+- `src/renderer/src/components/tab-bar/tab-agent-types-by-tab-id.ts`
+- `src/renderer/src/components/tab-bar/TabBar.context-menu.test.ts`
+- `src/renderer/src/components/tab-bar/TabBar.tsx`
+- `src/renderer/src/components/tab-bar/TabBarCreateEntry.keyboard.test.tsx`
+- `src/renderer/src/components/tab-bar/TabBarCreateEntry.tab-results.test.tsx`
+- `src/renderer/src/components/tab-bar/TabBarCreateEntry.tsx`
+- `src/renderer/src/components/tab-bar/TabBarCreateEntryRow.test.tsx`
+- `src/renderer/src/components/tab-bar/TabBarCreateEntryRow.tsx`
+- `src/renderer/src/components/tab-bar/tab-bar-item-model.ts`
+- `src/renderer/src/components/tab-bar/tab-bar-item-surface.tsx`
+- `src/renderer/src/components/tab-bar/tab-bar-props.ts`
+- `src/renderer/src/components/tab-bar/TabBarQuickCommandsButton.tsx`
+- `src/renderer/src/components/tab-bar/tab-bar-static-create-menu.tsx`
+- `src/renderer/src/components/tab-bar/tab-bar-surface.tsx`
+- `src/renderer/src/components/tab-bar/tab-context-menu-consistency.test.tsx`
+- `src/renderer/src/components/tab-bar/tab-create-entry-action.test.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-action.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-active-option.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-classifier.test.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-classifier.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-file-matches.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-local-path.test.ts`
+- `src/renderer/src/components/tab-bar/tab-create-entry-url-classification.ts`
+- `src/renderer/src/components/tab-bar/tab-create-menu-options.test.ts`
+- `src/renderer/src/components/tab-bar/TabDragPreview.tsx`
+- `src/renderer/src/components/tab-bar/tab-move-to-pane-column.test.ts`
+- `src/renderer/src/components/tab-bar/tab-strip-pointer-activation.test.tsx`
+- `src/renderer/src/components/tab-bar/tab-strip-pointer-activation.ts`
+- `src/renderer/src/components/tab-bar/tab-title-tooltip.test.tsx`
+- `src/renderer/src/components/tab-bar/terminal-tab-activity-status.test.ts`
+- `src/renderer/src/components/tab-bar/terminal-tab-activity-status.ts`
+- `src/renderer/src/components/tab-bar/TerminalTabLeadingIcon.test.tsx`
+- `src/renderer/src/components/tab-bar/TerminalTabLeadingIcon.tsx`
+- `src/renderer/src/components/tab-bar/terminal-tab-spinner-launch-agent.test.ts`
+- `src/renderer/src/components/tab-bar/use-open-tab-search.test.ts`
+- `src/renderer/src/components/tab-bar/use-open-tab-search.ts`
+- `src/renderer/src/components/tab-bar/use-tab-bar-create-menu-controller.ts`
+- `src/renderer/src/components/tab-bar/use-tab-bar-item-projection.ts`
+- `src/renderer/src/components/tab-bar/use-tab-bar-quick-command-search-input.test.ts`
+- `src/renderer/src/components/tab-bar/use-tab-bar-quick-command-search-input.ts`
+- `src/renderer/src/components/tab-group/tab-drag-data.ts`
+- `src/renderer/src/components/tab-group/tab-drag-preview-activation.test.ts`
+- `src/renderer/src/components/tab-group/TabGroupPanel.context-menu.test.ts`
+- `src/renderer/src/components/tab-group/TabGroupPanel.tsx`
+- `src/renderer/src/components/tab-group/tab-group-panel-split-target.test.ts`
+- `src/renderer/src/components/tab-group/tab-group-panel-split-target.ts`
+- `src/renderer/src/components/tab-group/TabGroupSplitLayout.tsx`
+- `src/renderer/src/components/tab-group/tab-group-visible-id.ts`
+- `src/renderer/src/components/tab-group/useTabDragSplit.test.ts`
+- `src/renderer/src/components/tab-group/useTabDragSplit.ts`
+- `src/renderer/src/components/tab-group/useTabGroupWorkspaceModel.ts`
+- `src/renderer/src/components/task-drawer-source-boundary.test.ts`
+- `src/renderer/src/components/task-page-cache-selectors.ts`
+- `src/renderer/src/components/task-page-checks-pill.ts`
+- `src/renderer/src/components/task-page-default-repo-selection.ts`
+- `src/renderer/src/components/task-page-github-dialog-state-authority.test.ts`
+- `src/renderer/src/components/task-page-github-dialog-state-authority.ts`
+- `src/renderer/src/components/task-page-github-issue-creation.test.ts`
+- `src/renderer/src/components/task-page-github-resume-cache.ts`
+- `src/renderer/src/components/task-page-github-status-actions.ts`
+- `src/renderer/src/components/task-page-github-status-state.ts`
+- `src/renderer/src/components/task-page-github-task-kind.ts`
+- `src/renderer/src/components/task-page-github-work-item-authority-refresh.ts`
+- `src/renderer/src/components/task-page-github-work-item-filter-membership.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-composition.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-lifecycle.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-pages.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-patches.test.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-patches.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-registry.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-regressions.test.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutations.test.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutations.ts`
+- `src/renderer/src/components/task-page-github-work-item-mutation-types.ts`
+- `src/renderer/src/components/task-page-github-work-item-quiet-adopt.ts`
+- `src/renderer/src/components/task-page-github-work-item-quiet-revalidate.ts`
+- `src/renderer/src/components/task-page-github-work-item-registry-types.ts`
+- `src/renderer/src/components/task-page-github-work-item-status.ts`
+- `src/renderer/src/components/task-page-jira-cache-selectors.test.ts`
+- `src/renderer/src/components/task-page-jira-cache-selectors.ts`
+- `src/renderer/src/components/task-page-jira-create-fields.test.ts`
+- `src/renderer/src/components/task-page-jira-create-fields.ts`
+- `src/renderer/src/components/task-page-jira-grouping.test.ts`
+- `src/renderer/src/components/task-page-jira-issue-list.tsx`
+- `src/renderer/src/components/task-page-jira-item-source-context.ts`
+- `src/renderer/src/components/task-page-jira-load-state.ts`
+- `src/renderer/src/components/task-page-jira-project-selection.test.ts`
+- `src/renderer/src/components/task-page-jira-project-selection.ts`
+- `src/renderer/src/components/task-page-jira-sorting.test.ts`
+- `src/renderer/src/components/task-page-jira-status-order.ts`
+- `src/renderer/src/components/task-page-linear-cache-selectors.ts`
+- `src/renderer/src/components/task-page-linear-issue-empty-state.test.ts`
+- `src/renderer/src/components/task-page-linear-issue-empty-state.ts`
+- `src/renderer/src/components/task-page-linear-issue-request.test.ts`
+- `src/renderer/src/components/task-page-linear-issue-request.ts`
+- `src/renderer/src/components/task-page-linear-team-selection.test.ts`
+- `src/renderer/src/components/task-page-linear-team-selection.ts`
+- `src/renderer/src/components/task-page-list-chrome-visibility.ts`
+- `src/renderer/src/components/task-page-new-issue-draft.test.ts`
+- `src/renderer/src/components/task-page-new-issue-draft.ts`
+- `src/renderer/src/components/task-page-pr-check-summary.test.ts`
+- `src/renderer/src/components/task-page-pr-check-summary.ts`
+- `src/renderer/src/components/task-page-pr-delta-summary.ts`
+- `src/renderer/src/components/task-page-source-switch-boundary.test.ts`
+- `src/renderer/src/components/task-page-task-creation-drafts.test.ts`
+- `src/renderer/src/components/task-page-work-item-pagination.test.ts`
+- `src/renderer/src/components/task-page-work-item-pagination.ts`
+- `src/renderer/src/components/task-page-work-item-signatures.ts`
+- `src/renderer/src/components/task-page-workspace-composer-boundary.test.ts`
+- `src/renderer/src/components/task-project-source-combobox.tsx`
+- `src/renderer/src/components/task-project-source-combobox-model.ts`
+- `src/renderer/src/components/task-source-context-summary.ts`
+- `src/renderer/src/components/task-source-provider-availability.ts`
+- `src/renderer/src/components/terminal/active-terminal-repair.test.ts`
+- `src/renderer/src/components/terminal/active-terminal-repair.ts`
+- `src/renderer/src/components/terminal/active-terminal-repair-loop.react185.test.tsx`
+- `src/renderer/src/components/terminal/background-terminal-worktree-mount.test.ts`
+- `src/renderer/src/components/terminal/background-terminal-worktree-mount.ts`
+- `src/renderer/src/components/terminal/initial-terminal.test.ts`
+- `src/renderer/src/components/terminal/initial-terminal.ts`
+- `src/renderer/src/components/terminal/split-group-mount.test.ts`
+- `src/renderer/src/components/terminal/split-group-mount.ts`
+- `src/renderer/src/components/terminal/tab-type-cycle.ts`
+- `src/renderer/src/components/terminal/terminal-close-confirm-keyboard-vs-mouse.test.ts`
+- `src/renderer/src/components/terminal/terminal-provider-snapshot-capability.test.ts`
+- `src/renderer/src/components/terminal/terminal-provider-snapshot-capability.ts`
+- `src/renderer/src/components/terminal/terminal-tab-actions.test.ts`
+- `src/renderer/src/components/terminal/terminal-tab-actions.ts`
+- `src/renderer/src/components/terminal/terminal-tab-actions-kill-all.test.ts`
+- `src/renderer/src/components/terminal/terminal-tab-bulk-actions.ts`
+- `src/renderer/src/components/terminal/use-active-terminal-repair.ts`
+- `src/renderer/src/components/terminal/use-terminal-provider-snapshot-capability.test.tsx`
+- `src/renderer/src/components/terminal/use-terminal-provider-snapshot-capability.ts`
+- `src/renderer/src/components/terminal-pane/agent-completion-coordinator.ts`
+- `src/renderer/src/components/terminal-pane/agent-completion-coordinator-dispose-leak.test.ts`
+- `src/renderer/src/components/terminal-pane/agent-completion-coordinator-types.ts`
+- `src/renderer/src/components/terminal-pane/agent-completion-no-evidence-cadence.test.ts`
+- `src/renderer/src/components/terminal-pane/agent-completion-snapshot-staleness.ts`
+- `src/renderer/src/components/terminal-pane/agent-interrupt-inference.test.ts`
+- `src/renderer/src/components/terminal-pane/agent-interrupt-inference.ts`
+- `src/renderer/src/components/terminal-pane/agent-process-inspection-queue.ts`
+- `src/renderer/src/components/terminal-pane/agent-task-complete-policy.ts`
+- `src/renderer/src/components/terminal-pane/command-code-output-ownership.ts`
+- `src/renderer/src/components/terminal-pane/compose-active-terminal-theme.test.ts`
+- `src/renderer/src/components/terminal-pane/hidden-reveal-reconciliation.fuzz.test.ts`
+- `src/renderer/src/components/terminal-pane/keyboard-handlers-ime.test.tsx`
+- `src/renderer/src/components/terminal-pane/keyboard-handlers-ime-enter-keyup.test.tsx`
+- `src/renderer/src/components/terminal-pane/native-chat-leaf-title-agent.ts`
+- `src/renderer/src/components/terminal-pane/pane-foreground-agent-tracker.test.ts`
+- `src/renderer/src/components/terminal-pane/parked-terminal-byte-watcher.ts`
+- `src/renderer/src/components/terminal-pane/parked-terminal-command-status.test.ts`
+- `src/renderer/src/components/terminal-pane/pty-buffer-serializer.ts`
+- `src/renderer/src/components/terminal-pane/pty-connection-types.ts`
+- `src/renderer/src/components/terminal-pane/pty-dispatcher.ts`
+- `src/renderer/src/components/terminal-pane/pty-exit-delivery.ts`
+- `src/renderer/src/components/terminal-pane/pty-input-write-queue.test.ts`
+- `src/renderer/src/components/terminal-pane/pty-input-write-queue.ts`
+- `src/renderer/src/components/terminal-pane/pty-pre-handler-buffer.test.ts`
+- `src/renderer/src/components/terminal-pane/pty-pre-handler-buffer.ts`
+- `src/renderer/src/components/terminal-pane/pty-transport-pi-coalesce.test.ts`
+- `src/renderer/src/components/terminal-pane/pty-transport-pi-spinner.test.ts`
+- `src/renderer/src/components/terminal-pane/pty-transport-types.ts`
+- `src/renderer/src/components/terminal-pane/remote-pane-layout-push.test.ts`
+- `src/renderer/src/components/terminal-pane/remote-pane-layout-push.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-pty-batching.test.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-pty-batching.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-pty-query-reply-immediate.test.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-pty-recovery-state.test.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-pty-recovery-state.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-pty-snapshot-escape-tail.test.ts`
+- `src/renderer/src/components/terminal-pane/remote-runtime-resubscribe-failure-recovery-routing.test.ts`
+- `src/renderer/src/components/terminal-pane/resolve-split-cwd.test.ts`
+- `src/renderer/src/components/terminal-pane/resolve-split-cwd.ts`
+- `src/renderer/src/components/terminal-pane/sleeping-record-park-exemption.ts`
+- `src/renderer/src/components/terminal-pane/ssh-reattach-model-restore.ts`
+- `src/renderer/src/components/terminal-pane/terminal-agent-session-continuation.ts`
+- `src/renderer/src/components/terminal-pane/terminal-agent-session-fork.ts`
+- `src/renderer/src/components/terminal-pane/terminal-appearance.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-appearance.ts`
+- `src/renderer/src/components/terminal-pane/terminal-bracketed-paste.ts`
+- `src/renderer/src/components/terminal-pane/terminal-capability-replies.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-captured-input-dispatch.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-captured-input-dispatch.ts`
+- `src/renderer/src/components/terminal-pane/terminal-clipboard-paste.ts`
+- `src/renderer/src/components/terminal-pane/terminal-cold-park-pre-gate-loop.react185.test.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-cold-park-verdict-loop.test.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-cold-park-withheld-tabs.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-cold-park-withheld-tabs.ts`
+- `src/renderer/src/components/terminal-pane/TerminalContextMenu.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-drop-path-writer.ts`
+- `src/renderer/src/components/terminal-pane/terminal-error-accumulation.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-error-accumulation.ts`
+- `src/renderer/src/components/terminal-pane/terminal-file-link-actions.ts`
+- `src/renderer/src/components/terminal-pane/terminal-fit-restore.ts`
+- `src/renderer/src/components/terminal-pane/terminal-freeze-breadcrumbs.ts`
+- `src/renderer/src/components/terminal-pane/terminal-hidden-delivery-gate.ts`
+- `src/renderer/src/components/terminal-pane/terminal-hidden-view-parking.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-hidden-view-parking.ts`
+- `src/renderer/src/components/terminal-pane/terminal-hidden-worktree-retention.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-hidden-worktree-retention.ts`
+- `src/renderer/src/components/terminal-pane/terminal-http-url-extraction.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-composition-route.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-composition-route.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-composition-tracker.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-deferred-newline.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-deferred-newline.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-kitty-commit-encoding.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-linux-candidate-state.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-native-text-forwarder.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-native-text-forwarder.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-substituted-text-commit.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-xterm-linux-native-trace-replay.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-xterm-resumed-preedit-visibility.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-ime-xterm-transaction-events.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-keyboard-protocol-pane-agent.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-leaf-detach.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-leaf-detach.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-leaf-ids.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-leaf-ids.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-pty-ownership.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-pty-ownership.ts`
+- `src/renderer/src/components/terminal-pane/terminal-layout-pty-ownership-depth.test.ts`
+- `src/renderer/src/components/terminal-pane/TerminalLinkActionPopover.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-link-action-request.ts`
+- `src/renderer/src/components/terminal-pane/terminal-live-layout-reconciliation.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-notification-state.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-close-identity.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-host-state.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-host-state.ts`
+- `src/renderer/src/components/terminal-pane/TerminalPaneOverlayLayer.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-pane-recovery.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-recovery.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-split-with-inherited-cwd.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-split-with-inherited-cwd.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-split-writer-paths.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-tab-detach.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-pane-tab-detach.ts`
+- `src/renderer/src/components/terminal-pane/terminal-parked-pty-watcher.ts`
+- `src/renderer/src/components/terminal-pane/terminal-parked-tab-watchers.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-parked-tab-watchers.ts`
+- `src/renderer/src/components/terminal-pane/terminal-parked-watcher-reconciliation.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-parked-watcher-reconciliation.ts`
+- `src/renderer/src/components/terminal-pane/terminal-parked-watcher-registry.ts`
+- `src/renderer/src/components/terminal-pane/terminal-park-verdict-flip-telemetry.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-park-verdict-flip-telemetry.ts`
+- `src/renderer/src/components/terminal-pane/terminal-paste-chunks.ts`
+- `src/renderer/src/components/terminal-pane/terminal-paste-coordinator.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-paste-coordinator.ts`
+- `src/renderer/src/components/terminal-pane/terminal-paste-diagnostics.ts`
+- `src/renderer/src/components/terminal-pane/terminal-paste-executor.ts`
+- `src/renderer/src/components/terminal-pane/terminal-paste-payload-metadata.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-quick-command-dispatch.ts`
+- `src/renderer/src/components/terminal-pane/TerminalQuickCommandsSubmenu.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-render-desync-frame.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-render-desync-frame.ts`
+- `src/renderer/src/components/terminal-pane/terminal-render-desync-sentinel.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-renderer-policy.ts`
+- `src/renderer/src/components/terminal-pane/terminal-replay-cursor-state.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-shutdown-layout-capture.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-shutdown-layout-capture.ts`
+- `src/renderer/src/components/terminal-pane/terminal-side-effect-facts-handler.ts`
+- `src/renderer/src/components/terminal-pane/terminal-snapshot-replay-paint.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-snapshot-replay-paint.ts`
+- `src/renderer/src/components/terminal-pane/TerminalSshReconnectOverlay.test.tsx`
+- `src/renderer/src/components/terminal-pane/terminal-startup-grid-settle.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-startup-grid-settle.ts`
+- `src/renderer/src/components/terminal-pane/terminal-tab-agent-type-index.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-tab-agent-type-index.ts`
+- `src/renderer/src/components/terminal-pane/terminal-tab-lookup.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-tab-lookup.ts`
+- `src/renderer/src/components/terminal-pane/terminal-title-evidence.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-title-evidence.ts`
+- `src/renderer/src/components/terminal-pane/terminal-unified-tab-lookup.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-unified-tab-lookup.ts`
+- `src/renderer/src/components/terminal-pane/terminal-view-attributes-publisher.ts`
+- `src/renderer/src/components/terminal-pane/terminal-visibility-resume.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-webgl-atlas-recovery.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-webgl-atlas-recovery.ts`
+- `src/renderer/src/components/terminal-pane/terminal-webgl-diagnostics-breadcrumbs.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-windows-shift-enter.test.ts`
+- `src/renderer/src/components/terminal-pane/terminal-windows-shift-enter.ts`
+- `src/renderer/src/components/terminal-pane/use-parked-terminal-watcher-synchronization.react185.test.tsx`
+- `src/renderer/src/components/terminal-pane/use-parked-terminal-watcher-synchronization.ts`
+- `src/renderer/src/components/terminal-pane/use-terminal-pane-global-effects.ts`
+- `src/renderer/src/components/terminal-pane/use-terminal-tab-cold-parking.test.ts`
+- `src/renderer/src/components/terminal-pane/use-terminal-tab-cold-parking.ts`
+- `src/renderer/src/components/terminal-pane/use-terminal-window-wake-recovery.test.ts`
+- `src/renderer/src/components/terminal-pane/use-terminal-window-wake-recovery.ts`
+- `src/renderer/src/components/terminal-pane/xterm-bypass-policy-interrupt.test.ts`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandActionToggle.tsx`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandAdvancedSection.tsx`
+- `src/renderer/src/components/terminal-quick-commands/terminal-quick-command-agent-options.ts`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandAppendEnterSwitch.tsx`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandContentSection.tsx`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandDialog.test.tsx`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandDialog.tsx`
+- `src/renderer/src/components/terminal-quick-commands/terminal-quick-command-dialog-draft.test.ts`
+- `src/renderer/src/components/terminal-quick-commands/terminal-quick-command-dialog-draft.ts`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandDialogFooter.tsx`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandLabelField.tsx`
+- `src/renderer/src/components/terminal-quick-commands/TerminalQuickCommandScopeField.tsx`
+- `src/renderer/src/components/terminal-search-decoration-leak.test.ts`
+- `src/renderer/src/components/ui/context-menu.tsx`
+- `src/renderer/src/components/ui/dialog.tsx`
+- `src/renderer/src/components/ui/dropdown-menu.tsx`
+- `src/renderer/src/components/ui/popover.tsx`
+- `src/renderer/src/components/ui/progress.tsx`
+- `src/renderer/src/components/ui/repo-multi-combobox.tsx`
+- `src/renderer/src/components/ui/select.tsx`
+- `src/renderer/src/components/ui/slider.tsx`
+- `src/renderer/src/components/use-github-task-search-commit.test.ts`
+- `src/renderer/src/components/use-github-task-search-commit.ts`
+- `src/renderer/src/components/window-close-request-coordinator.test.ts`
+- `src/renderer/src/components/window-close-request-coordinator.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-ancestor-skips.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-background-removal.test.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-background-removal.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-background-removal-late-settlement.test.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-labels.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-list.test.tsx`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-list.tsx`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-row.test.tsx`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-row.tsx`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-row-data.test.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-candidate-row-data.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-filter-sort.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-post-batch-late-settlement.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-presentation.test.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-presentation.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-presentation-fixtures.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-removal-candidates.test.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-removal-candidates.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-removal-settlement.test.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-removal-settlement.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-removal-toasts.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-skipped-ancestor-reclassification.ts`
+- `src/renderer/src/components/workspace-cleanup/workspace-cleanup-status-pill.tsx`
+- `src/renderer/src/components/workspace-emoji/WorkspaceEmojiSuggestionPopover.tsx`
+- `src/renderer/src/components/workspace-space/WorkspaceSpacePage.tsx`
+- `src/renderer/src/components/worktree-base-fallback-notice.ts`
+- `src/renderer/src/components/WorktreeJumpPalette.recent-tabs.test.tsx`
+- `src/renderer/src/components/WorktreeJumpPalette.test.tsx`
+- `src/renderer/src/components/worktree-jump-palette-interleaved-sections.test.tsx`
+- `src/renderer/src/components/worktree-jump-palette-sleeping-filter.test.ts`
+- `src/renderer/src/components/worktree-jump-palette-source-context-boundary.test.ts`
+- `src/renderer/src/components/worktree-jump-palette-test-fixtures.ts`
+- `src/renderer/src/env.d.ts`
+- `src/renderer/src/hooks/agent-hook-completion-notifications.test.ts`
+- `src/renderer/src/hooks/agent-hook-completion-notifications.ts`
+- `src/renderer/src/hooks/agent-hook-completion-store-sync.ts`
+- `src/renderer/src/hooks/direct-ssh-host-hydration.test.ts`
+- `src/renderer/src/hooks/direct-ssh-host-hydration.ts`
+- `src/renderer/src/hooks/direct-ssh-reconnect-coordinator-stabilization.ts`
+- `src/renderer/src/hooks/direct-ssh-runtime-wake-isolation.test.tsx`
+- `src/renderer/src/hooks/installed-agent-skill-discovery.ts`
+- `src/renderer/src/hooks/installed-agent-skill-discovery-cache.test.ts`
+- `src/renderer/src/hooks/installed-agent-skill-discovery-cache.ts`
+- `src/renderer/src/hooks/ipc-events-test-harness.ts`
+- `src/renderer/src/hooks/ipc-tab-switch.test.ts`
+- `src/renderer/src/hooks/ipc-tab-switch.ts`
+- `src/renderer/src/hooks/MacosTccPromptNoticeHost.tsx`
+- `src/renderer/src/hooks/modal-return-focus-action.ts`
+- `src/renderer/src/hooks/remote-workspace-session-merge.ts`
+- `src/renderer/src/hooks/remote-workspace-snapshot-apply.ts`
+- `src/renderer/src/hooks/remote-workspace-snapshot-duplicate-tab-repair.test.ts`
+- `src/renderer/src/hooks/remote-workspace-target-sync.test.ts`
+- `src/renderer/src/hooks/remote-workspace-target-sync.ts`
+- `src/renderer/src/hooks/runtime-client-events-sync.test.ts`
+- `src/renderer/src/hooks/runtime-project-refresh-scheduler.test.ts`
+- `src/renderer/src/hooks/runtime-project-refresh-scheduler.ts`
+- `src/renderer/src/hooks/useAgentDetectionTarget.test.ts`
+- `src/renderer/src/hooks/useAgentDetectionTarget.ts`
+- `src/renderer/src/hooks/use-audio-capture.capture-loss.test.ts`
+- `src/renderer/src/hooks/use-audio-capture.ts`
+- `src/renderer/src/hooks/useAutoAckViewedAgent.test.ts`
+- `src/renderer/src/hooks/useAutoAckViewedAgent.ts`
+- `src/renderer/src/hooks/useDetectedAgents.test.tsx`
+- `src/renderer/src/hooks/useEditorExternalWatch-self-move.test.ts`
+- `src/renderer/src/hooks/useEditorExternalWatch-targets.test.ts`
+- `src/renderer/src/hooks/useGitHubSlugMetadata.ts`
+- `src/renderer/src/hooks/useIssueMetadata.test.tsx`
+- `src/renderer/src/hooks/useIssueMetadata.ts`
+- `src/renderer/src/hooks/useLinearProviderConnected.test.tsx`
+- `src/renderer/src/hooks/useResetCountdownClock.ts`
+- `src/renderer/src/hooks/useSettingsNavigationMetadata.capability-owner.test.tsx`
+- `src/renderer/src/hooks/useTaskPageGitHubWorkItemMutation.ts`
+- `src/renderer/src/hooks/use-terminal-quick-command-hosts.test.ts`
+- `src/renderer/src/hooks/use-terminal-quick-command-hosts.ts`
+- `src/renderer/src/hooks/useUnreadDockBadge.test.ts`
+- `src/renderer/src/hooks/useUnreadDockBadge.ts`
+- `src/renderer/src/hooks/worktree-head-identity-apply.test.ts`
+- `src/renderer/src/hooks/worktree-head-identity-apply.ts`
+- `src/renderer/src/i18n/hosted-review-localized-copy.ts`
+- `src/renderer/src/lib/active-agent-note-target.ts`
+- `src/renderer/src/lib/active-agent-terminal-send-readiness.ts`
+- `src/renderer/src/lib/active-view-persist.ts`
+- `src/renderer/src/lib/agent-background-draft-delivery.ts`
+- `src/renderer/src/lib/agent-background-session-contract.ts`
+- `src/renderer/src/lib/agent-background-session-timeout-toast.ts`
+- `src/renderer/src/lib/agent-draft-paste-content.ts`
+- `src/renderer/src/lib/agent-draft-readiness.ts`
+- `src/renderer/src/lib/agent-favicon-assets.ts`
+- `src/renderer/src/lib/agent-followup-delivery.ts`
+- `src/renderer/src/lib/agent-hibernation-coordinator.test.ts`
+- `src/renderer/src/lib/agent-hibernation-coordinator.ts`
+- `src/renderer/src/lib/agent-hibernation-planner.test.ts`
+- `src/renderer/src/lib/agent-hibernation-planner.ts`
+- `src/renderer/src/lib/agent-launch-prompt-delivery.test.ts`
+- `src/renderer/src/lib/agent-launch-prompt-delivery.ts`
+- `src/renderer/src/lib/agent-native-draft-prefill.ts`
+- `src/renderer/src/lib/agent-paste-draft.ts`
+- `src/renderer/src/lib/agent-send-title-status.ts`
+- `src/renderer/src/lib/agent-status.ts`
+- `src/renderer/src/lib/agent-status-count.test.ts`
+- `src/renderer/src/lib/agent-tab-shortcuts.ts`
+- `src/renderer/src/lib/ai-vault-resume-shell.ts`
+- `src/renderer/src/lib/ai-vault-resume-target.ts`
+- `src/renderer/src/lib/ai-vault-session-resume-preparation.ts`
+- `src/renderer/src/lib/ai-vault-tab-title-requests.ts`
+- `src/renderer/src/lib/ai-vault-tab-title-sync.test.ts`
+- `src/renderer/src/lib/ai-vault-tab-title-sync-inputs.ts`
+- `src/renderer/src/lib/automation-session-observer.test.ts`
+- `src/renderer/src/lib/automation-session-observer.ts`
+- `src/renderer/src/lib/automation-session-reuse.ts`
+- `src/renderer/src/lib/automation-terminal-ownership.ts`
+- `src/renderer/src/lib/background-agent-status-consumer.ts`
+- `src/renderer/src/lib/browser-cookie-import-toast.test.ts`
+- `src/renderer/src/lib/browser-cookie-import-toast.ts`
+- `src/renderer/src/lib/browser-page-palette-activation.ts`
+- `src/renderer/src/lib/browser-palette-page-entries.test.ts`
+- `src/renderer/src/lib/browser-palette-page-entries.ts`
+- `src/renderer/src/lib/composer-issue-command.ts`
+- `src/renderer/src/lib/connection-owner-resolution.ts`
+- `src/renderer/src/lib/crash-diagnostics.test.ts`
+- `src/renderer/src/lib/crash-diagnostics.ts`
+- `src/renderer/src/lib/create-untitled-markdown.ts`
+- `src/renderer/src/lib/diff-comment-compat.test.ts`
+- `src/renderer/src/lib/diff-comment-compat.ts`
+- `src/renderer/src/lib/diff-comments-format.test.ts`
+- `src/renderer/src/lib/direct-ssh-target-scope-types.ts`
+- `src/renderer/src/lib/document-theme.ts`
+- `src/renderer/src/lib/duplicate-browser-tab-options.ts`
+- `src/renderer/src/lib/editable-target.ts`
+- `src/renderer/src/lib/emulator-right-split-target.ts`
+- `src/renderer/src/lib/ensure-simulator-tab.ts`
+- `src/renderer/src/lib/ensure-simulator-tab-behavior.test.ts`
+- `src/renderer/src/lib/ephemeral-vm-runtime-cleanup.ts`
+- `src/renderer/src/lib/ephemeral-vm-worktree-creation.ts`
+- `src/renderer/src/lib/explicit-file-link-target.ts`
+- `src/renderer/src/lib/external-editor-open-capability.ts`
+- `src/renderer/src/lib/file-search-result-owner.ts`
+- `src/renderer/src/lib/file-type-icons.ts`
+- `src/renderer/src/lib/fix-checks-agent-launch.test.ts`
+- `src/renderer/src/lib/fix-checks-agent-launch.ts`
+- `src/renderer/src/lib/floating-workspace-tab-creation.ts`
+- `src/renderer/src/lib/floating-workspace-terminal-actions.ts`
+- `src/renderer/src/lib/folder-workspace-connection.ts`
+- `src/renderer/src/lib/folder-workspace-runtime-owner.ts`
+- `src/renderer/src/lib/github-pr-start-point.ts`
+- `src/renderer/src/lib/github-source-runtime-context.ts`
+- `src/renderer/src/lib/github-work-item-source-lookup.ts`
+- `src/renderer/src/lib/github-work-item-workspace-attachment.test.ts`
+- `src/renderer/src/lib/github-work-item-workspace-attachment.ts`
+- `src/renderer/src/lib/gitlab-work-item-source-lookup.test.ts`
+- `src/renderer/src/lib/gitlab-work-item-source-lookup.ts`
+- `src/renderer/src/lib/keyboard-layout/layout-base-character.test.ts`
+- `src/renderer/src/lib/keyboard-layout/layout-base-character.ts`
+- `src/renderer/src/lib/language-detect.test.ts`
+- `src/renderer/src/lib/language-detect.ts`
+- `src/renderer/src/lib/launch-agent-background-session.ts`
+- `src/renderer/src/lib/launch-agent-in-new-tab-windows-quoting.test.ts`
+- `src/renderer/src/lib/launch-agent-paste-timeout-notice.ts`
+- `src/renderer/src/lib/launch-agent-session-continuation.ts`
+- `src/renderer/src/lib/launch-agent-web-host-tab.ts`
+- `src/renderer/src/lib/launch-work-item-direct-types.ts`
+- `src/renderer/src/lib/left-sidebar-appearance.ts`
+- `src/renderer/src/lib/linear-issue-context-snapshot.test.ts`
+- `src/renderer/src/lib/linear-issue-context-snapshot.ts`
+- `src/renderer/src/lib/linear-issue-workspace-attachment.ts`
+- `src/renderer/src/lib/linear-issue-workspace-open.test.ts`
+- `src/renderer/src/lib/linear-linked-work-item.test.ts`
+- `src/renderer/src/lib/linear-linked-work-item.ts`
+- `src/renderer/src/lib/linked-work-item-context.ts`
+- `src/renderer/src/lib/local-path-open-guard.ts`
+- `src/renderer/src/lib/local-preflight-context.test.ts`
+- `src/renderer/src/lib/local-preflight-context.ts`
+- `src/renderer/src/lib/markdown-comment-blocks.test.ts`
+- `src/renderer/src/lib/markdown-comment-blocks.ts`
+- `src/renderer/src/lib/markdown-review-note-copy.test.ts`
+- `src/renderer/src/lib/markdown-review-notes.test.ts`
+- `src/renderer/src/lib/markdown-review-notes.ts`
+- `src/renderer/src/lib/mobile-terminal-tab-mount.test.ts`
+- `src/renderer/src/lib/mobile-terminal-tab-mount.ts`
+- `src/renderer/src/lib/native-chat-initial-view-mode.test.ts`
+- `src/renderer/src/lib/native-chat-initial-view-mode.ts`
+- `src/renderer/src/lib/native-chat-launch-prompt.ts`
+- `src/renderer/src/lib/native-chat-telemetry.ts`
+- `src/renderer/src/lib/nested-repo-selected-paths.ts`
+- `src/renderer/src/lib/new-workspace-composer-repo.ts`
+- `src/renderer/src/lib/new-workspace-project-options.ts`
+- `src/renderer/src/lib/notes-send-agent-targets.test.ts`
+- `src/renderer/src/lib/onboarding-folder-agent-startup.ts`
+- `src/renderer/src/lib/onboarding-project-checklist.ts`
+- `src/renderer/src/lib/open-in-app-catalog.tsx`
+- `src/renderer/src/lib/open-in-application-selection.ts`
+- `src/renderer/src/lib/open-mobile-emulator-tab.test.ts`
+- `src/renderer/src/lib/orchestration-skill-coverage.ts`
+- `src/renderer/src/lib/order-empty-query-worktrees.test.ts`
+- `src/renderer/src/lib/order-empty-query-worktrees.ts`
+- `src/renderer/src/lib/pane-agent-evidence.ts`
+- `src/renderer/src/lib/pane-manager/browser-mobile-driver-state.ts`
+- `src/renderer/src/lib/pane-manager/pane-fit.ts`
+- `src/renderer/src/lib/pane-manager/pane-identity-registry.ts`
+- `src/renderer/src/lib/pane-manager/pane-manager-registry.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-manager-registry.ts`
+- `src/renderer/src/lib/pane-manager/pane-metric-options-deferral.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-metric-options-deferral.ts`
+- `src/renderer/src/lib/pane-manager/pane-public-view.ts`
+- `src/renderer/src/lib/pane-manager/pane-rendering-control.ts`
+- `src/renderer/src/lib/pane-manager/pane-reveal-repaint.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-reveal-repaint.ts`
+- `src/renderer/src/lib/pane-manager/pane-split-close.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-split-close.ts`
+- `src/renderer/src/lib/pane-manager/pane-terminal-gpu-acceleration.ts`
+- `src/renderer/src/lib/pane-manager/pane-tree-ops.ts`
+- `src/renderer/src/lib/pane-manager/pane-tree-reparent-frame.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-webgl-context-recovery.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-webgl-reattach.ts`
+- `src/renderer/src/lib/pane-manager/pane-webgl-refresh-lifecycle.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-webgl-renderer.test.ts`
+- `src/renderer/src/lib/pane-manager/pane-webgl-renderer.ts`
+- `src/renderer/src/lib/pane-manager/terminal-canvas-dpr-repair.test.ts`
+- `src/renderer/src/lib/pane-manager/terminal-canvas-dpr-repair.ts`
+- `src/renderer/src/lib/pane-manager/terminal-ime-anchor.test.ts`
+- `src/renderer/src/lib/pane-manager/terminal-ime-anchor.ts`
+- `src/renderer/src/lib/pane-manager/terminal-ime-candidate-anchor.test.ts`
+- `src/renderer/src/lib/pane-manager/terminal-ime-candidate-anchor.ts`
+- `src/renderer/src/lib/pane-manager/terminal-render-pause-release.test.ts`
+- `src/renderer/src/lib/pane-manager/terminal-render-pause-release.ts`
+- `src/renderer/src/lib/paste-payload-metadata.test.ts`
+- `src/renderer/src/lib/paste-payload-metadata.ts`
+- `src/renderer/src/lib/pi-session-resume-wake.test.ts`
+- `src/renderer/src/lib/pr-comment-action-state.test.ts`
+- `src/renderer/src/lib/pr-comment-reactions.ts`
+- `src/renderer/src/lib/project-host-clone-url.ts`
+- `src/renderer/src/lib/project-host-workspace-target.ts`
+- `src/renderer/src/lib/project-skill-runtime.ts`
+- `src/renderer/src/lib/provider-runtime-context.ts`
+- `src/renderer/src/lib/quick-workspace-agent-selection.ts`
+- `src/renderer/src/lib/react-error-boundary-reporting.test.ts`
+- `src/renderer/src/lib/recent-workspace-tab-rows.test.ts`
+- `src/renderer/src/lib/recent-workspace-tab-rows.ts`
+- `src/renderer/src/lib/repo-runtime-owner.test.ts`
+- `src/renderer/src/lib/repo-runtime-owner.ts`
+- `src/renderer/src/lib/repo-search.ts`
+- `src/renderer/src/lib/repo-slug-cache.test.ts`
+- `src/renderer/src/lib/repo-slug-cache.ts`
+- `src/renderer/src/lib/repo-slug-index.test.ts`
+- `src/renderer/src/lib/resume-sleeping-agent-session.test.ts`
+- `src/renderer/src/lib/resume-sleeping-agent-session.ts`
+- `src/renderer/src/lib/resume-sleeping-agent-session-replay.test.ts`
+- `src/renderer/src/lib/right-sidebar-visibility.test.ts`
+- `src/renderer/src/lib/right-sidebar-visibility.ts`
+- `src/renderer/src/lib/running-agent-targets.test.ts`
+- `src/renderer/src/lib/running-agent-targets.ts`
+- `src/renderer/src/lib/run-quick-command-in-new-tab.ts`
+- `src/renderer/src/lib/runtime-agent-background-create.ts`
+- `src/renderer/src/lib/runtime-pane-title-leaf-id.test.ts`
+- `src/renderer/src/lib/runtime-pane-title-leaf-id.ts`
+- `src/renderer/src/lib/scroll-cache.test.ts`
+- `src/renderer/src/lib/session-write-subscriber.test.ts`
+- `src/renderer/src/lib/session-write-subscriber.ts`
+- `src/renderer/src/lib/setup-script-prompt.ts`
+- `src/renderer/src/lib/setup-script-status.ts`
+- `src/renderer/src/lib/sidebar-worktree-activation.test.ts`
+- `src/renderer/src/lib/sidebar-worktree-activation.ts`
+- `src/renderer/src/lib/simulator-pane-shutdown-scheduler.ts`
+- `src/renderer/src/lib/simulator-tab-palette-activation.test.ts`
+- `src/renderer/src/lib/sleeping-agent-pane-ownership.ts`
+- `src/renderer/src/lib/sleeping-agent-session-launch.ts`
+- `src/renderer/src/lib/sleeping-agent-session-launch-windows-quoting.test.ts`
+- `src/renderer/src/lib/smart-github-submit.ts`
+- `src/renderer/src/lib/source-control-launch-agent-selection.test.ts`
+- `src/renderer/src/lib/source-control-launch-agent-selection.ts`
+- `src/renderer/src/lib/ssh-mutation-expectation.test.ts`
+- `src/renderer/src/lib/startup-ui-hydration.test.ts`
+- `src/renderer/src/lib/tab-agent.ts`
+- `src/renderer/src/lib/tab-agent-status-index.test.ts`
+- `src/renderer/src/lib/tab-agent-status-index.ts`
+- `src/renderer/src/lib/tab-number-shortcuts.test.ts`
+- `src/renderer/src/lib/tab-number-shortcuts.ts`
+- `src/renderer/src/lib/terminal-contrast-correction.test.ts`
+- `src/renderer/src/lib/terminal-layout-equality.ts`
+- `src/renderer/src/lib/terminal-pane-title-sanitization.test.ts`
+- `src/renderer/src/lib/terminal-pane-title-sanitization.ts`
+- `src/renderer/src/lib/terminal-quick-command-project-scope.ts`
+- `src/renderer/src/lib/terminal-quick-command-search.test.ts`
+- `src/renderer/src/lib/terminal-quick-command-search.ts`
+- `src/renderer/src/lib/terminal-theme.ts`
+- `src/renderer/src/lib/terminal-themes/shared.ts`
+- `src/renderer/src/lib/terminal-title-contrast.ts`
+- `src/renderer/src/lib/titlebar-worktree-history-controls.test.ts`
+- `src/renderer/src/lib/titlebar-worktree-history-controls.ts`
+- `src/renderer/src/lib/ui-zoom.ts`
+- `src/renderer/src/lib/unread-badge-count.test.ts`
+- `src/renderer/src/lib/unread-badge-count.ts`
+- `src/renderer/src/lib/update-check-click-options.ts`
+- `src/renderer/src/lib/use-tab-agent.ts`
+- `src/renderer/src/lib/use-tab-agent-opencode-native-title.test.ts`
+- `src/renderer/src/lib/use-tab-agent-pi-identity.test.ts`
+- `src/renderer/src/lib/use-tab-agent-process-signals.test.ts`
+- `src/renderer/src/lib/use-tab-agent-retained-identity.test.ts`
+- `src/renderer/src/lib/use-tab-agent-sleeping-session.test.ts`
+- `src/renderer/src/lib/wake-sleeping-agents-in-background.ts`
+- `src/renderer/src/lib/window-visibility-interval.test.ts`
+- `src/renderer/src/lib/workspace-activation-path-gate.test.ts`
+- `src/renderer/src/lib/workspace-activation-terminal-focus.test.ts`
+- `src/renderer/src/lib/workspace-activation-terminal-focus.ts`
+- `src/renderer/src/lib/workspace-emoji-shortcodes.ts`
+- `src/renderer/src/lib/workspace-port-localhost-label.ts`
+- `src/renderer/src/lib/workspace-port-localhost-label-selector.ts`
+- `src/renderer/src/lib/workspace-runtime-host-ownership.ts`
+- `src/renderer/src/lib/workspace-session.test.ts`
+- `src/renderer/src/lib/workspace-session-browser-history.test.ts`
+- `src/renderer/src/lib/workspace-session-editor-drafts.test.ts`
+- `src/renderer/src/lib/workspace-session-focus-recency.ts`
+- `src/renderer/src/lib/workspace-session-host-field-ownership.ts`
+- `src/renderer/src/lib/workspace-session-host-persistence.test.ts`
+- `src/renderer/src/lib/workspace-session-host-persistence.ts`
+- `src/renderer/src/lib/workspace-session-host-records.ts`
+- `src/renderer/src/lib/workspace-session-host-split.test.ts`
+- `src/renderer/src/lib/workspace-session-host-split.ts`
+- `src/renderer/src/lib/workspace-session-hydration-keys.test.ts`
+- `src/renderer/src/lib/workspace-session-hydration-keys.ts`
+- `src/renderer/src/lib/workspace-session-liveness.test.ts`
+- `src/renderer/src/lib/workspace-session-patch.test.ts`
+- `src/renderer/src/lib/workspace-session-patch.ts`
+- `src/renderer/src/lib/workspace-session-relevant-fields.test.ts`
+- `src/renderer/src/lib/workspace-session-sleeping-agents.ts`
+- `src/renderer/src/lib/workspace-session-unified-tabs.ts`
+- `src/renderer/src/lib/workspace-tab-agent-metadata.ts`
+- `src/renderer/src/lib/workspace-tab-palette-results.ts`
+- `src/renderer/src/lib/workspace-tab-palette-search.ts`
+- `src/renderer/src/lib/worktree-activation.ts`
+- `src/renderer/src/lib/worktree-activation-automation-filter.test.ts`
+- `src/renderer/src/lib/worktree-activation-created-agent-test-state.ts`
+- `src/renderer/src/lib/worktree-activity-state.test.ts`
+- `src/renderer/src/lib/worktree-activity-state.ts`
+- `src/renderer/src/lib/worktree-attachment-label.ts`
+- `src/renderer/src/lib/worktree-creation-agent-seeds.test.ts`
+- `src/renderer/src/lib/worktree-creation-agent-seeds.ts`
+- `src/renderer/src/lib/worktree-creation-flow.ts`
+- `src/renderer/src/lib/worktree-creation-flow-agent-trust-preflight.test.ts`
+- `src/renderer/src/lib/worktree-creation-flow-dedupe.test.ts`
+- `src/renderer/src/lib/worktree-creation-flow-startup.ts`
+- `src/renderer/src/lib/worktree-default-display-name.ts`
+- `src/renderer/src/lib/worktree-display-name-order.test.ts`
+- `src/renderer/src/lib/worktree-display-name-order.ts`
+- `src/renderer/src/lib/worktree-operation-route.test.ts`
+- `src/renderer/src/lib/worktree-operation-route.ts`
+- `src/renderer/src/lib/worktree-palette-comment-snippet.ts`
+- `src/renderer/src/lib/worktree-palette-create-action.test.ts`
+- `src/renderer/src/lib/worktree-palette-create-action.ts`
+- `src/renderer/src/lib/worktree-reactivation-preserved-pane-replacement.test.ts`
+- `src/renderer/src/lib/worktree-reactivation-tab-forkbomb.test.ts`
+- `src/renderer/src/lib/worktree-runtime-owner.ts`
+- `src/renderer/src/lib/worktree-runtime-owner-index.ts`
+- `src/renderer/src/lib/worktree-runtime-owner-state.ts`
+- `src/renderer/src/lib/worktree-status.test.ts`
+- `src/renderer/src/lib/worktree-status.ts`
+- `src/renderer/src/lib/worktree-status-spinner-launch-agent.test.ts`
+- `src/renderer/src/lib/worktree-status-terminal-layout-roots.test.ts`
+- `src/renderer/src/runtime/close-mirrored-editor-tab.ts`
+- `src/renderer/src/runtime/file-explorer-delete-owner-provenance.test.ts`
+- `src/renderer/src/runtime/github-check-details-timeout.ts`
+- `src/renderer/src/runtime/gitlab-job-trace-client.ts`
+- `src/renderer/src/runtime/local-jira-search-cancellation.ts`
+- `src/renderer/src/runtime/remote-agent-session-launch.test.ts`
+- `src/renderer/src/runtime/remote-browser-tab-ownership.ts`
+- `src/renderer/src/runtime/remote-host-file-delete-repro.test.ts`
+- `src/renderer/src/runtime/remote-server-parity.test.ts`
+- `src/renderer/src/runtime/remote-server-update-coordinator.ts`
+- `src/renderer/src/runtime/remote-terminal-layout-resolution.test.ts`
+- `src/renderer/src/runtime/remote-terminal-layout-resolution.ts`
+- `src/renderer/src/runtime/runtime-client-events.test.ts`
+- `src/renderer/src/runtime/runtime-client-events.ts`
+- `src/renderer/src/runtime/runtime-client-target.ts`
+- `src/renderer/src/runtime/runtime-compatibility-test-fixture.ts`
+- `src/renderer/src/runtime/runtime-file-search-bounds.ts`
+- `src/renderer/src/runtime/runtime-git-client.test.ts`
+- `src/renderer/src/runtime/runtime-git-client.ts`
+- `src/renderer/src/runtime/runtime-host-connection-state.test.ts`
+- `src/renderer/src/runtime/runtime-host-connection-state.ts`
+- `src/renderer/src/runtime/runtime-jira-client.ts`
+- `src/renderer/src/runtime/runtime-jira-summary-client.ts`
+- `src/renderer/src/runtime/runtime-jira-target.ts`
+- `src/renderer/src/runtime/runtime-linear-client.test.ts`
+- `src/renderer/src/runtime/runtime-linear-client.ts`
+- `src/renderer/src/runtime/runtime-provider-accounts-client.test.ts`
+- `src/renderer/src/runtime/runtime-repo-client.ts`
+- `src/renderer/src/runtime/runtime-rpc-client.ts`
+- `src/renderer/src/runtime/runtime-rpc-result.ts`
+- `src/renderer/src/runtime/runtime-server-directory-browser.ts`
+- `src/renderer/src/runtime/runtime-skills-client.test.ts`
+- `src/renderer/src/runtime/runtime-terminal-stream.ts`
+- `src/renderer/src/runtime/sync-runtime-graph.test.ts`
+- `src/renderer/src/runtime/sync-runtime-graph.ts`
+- `src/renderer/src/runtime/sync-runtime-graph-agent-status-projection.test.ts`
+- `src/renderer/src/runtime/sync-runtime-graph-automation-leaf.test.ts`
+- `src/renderer/src/runtime/sync-runtime-graph-publication-cost.test.ts`
+- `src/renderer/src/runtime/sync-runtime-graph-scheduling.test.ts`
+- `src/renderer/src/runtime/sync-runtime-graph-terminal-layout.test.ts`
+- `src/renderer/src/runtime/use-runtime-session-mirror-environment-key.test.ts`
+- `src/renderer/src/runtime/web-session-close-intent.test.ts`
+- `src/renderer/src/runtime/web-session-close-intent.ts`
+- `src/renderer/src/runtime/web-session-focus-intent.ts`
+- `src/renderer/src/runtime/web-session-intent-owner.test.ts`
+- `src/renderer/src/runtime/web-session-tabs-sync.test.ts`
+- `src/renderer/src/runtime/web-session-tabs-sync.ts`
+- `src/renderer/src/runtime/web-session-tabs-sync-mirror-identity.test.ts`
+- `src/renderer/src/runtime/web-session-tabs-sync-remote-status-title-flap.test.ts`
+- `src/renderer/src/runtime/web-session-tabs-sync-visibility-collision.test.tsx`
+- `src/renderer/src/runtime/web-session-tabs-sync-window-visibility.test.tsx`
+- `src/renderer/src/runtime/web-session-terminal-orphan-mixed-version.test.ts`
+- `src/renderer/src/runtime/web-session-terminal-orphan-recovery.test.ts`
+- `src/renderer/src/runtime/web-session-terminal-orphan-recovery.ts`
+- `src/renderer/src/runtime/web-session-terminal-orphan-topology.ts`
+- `src/renderer/src/store/active-terminal-chrome-selector.ts`
+- `src/renderer/src/store/pinned-tab-close-guard.test.ts`
+- `src/renderer/src/store/pinned-tab-close-guard.ts`
+- `src/renderer/src/store/project-host-setup-selector.ts`
+- `src/renderer/src/store/project-host-setup-selector-normalization.ts`
+- `src/renderer/src/store/right-sidebar-route.ts`
+- `src/renderer/src/store/running-terminal-close-confirm.ts`
+- `src/renderer/src/store/slices/active-tab-owner-worktree.test.ts`
+- `src/renderer/src/store/slices/active-tab-owner-worktree.ts`
+- `src/renderer/src/store/slices/agent-pane-authority.test.ts`
+- `src/renderer/src/store/slices/agent-status-ack-cleanup.test.ts`
+- `src/renderer/src/store/slices/agent-status-drop.test.ts`
+- `src/renderer/src/store/slices/agent-status-freshness-scheduler.ts`
+- `src/renderer/src/store/slices/agent-status-provider-session.test.ts`
+- `src/renderer/src/store/slices/agent-status-quit-capture.test.ts`
+- `src/renderer/src/store/slices/agent-status-retained-leak.test.ts`
+- `src/renderer/src/store/slices/browser-webview-cleanup.test.ts`
+- `src/renderer/src/store/slices/browser-webview-cleanup.ts`
+- `src/renderer/src/store/slices/commit-message-generation.ts`
+- `src/renderer/src/store/slices/degraded-repo-hydration.test.ts`
+- `src/renderer/src/store/slices/degraded-repo-worktree-validity.ts`
+- `src/renderer/src/store/slices/detected-agents.ts`
+- `src/renderer/src/store/slices/diffComments.ts`
+- `src/renderer/src/store/slices/direct-ssh-pane-retry-ledger.ts`
+- `src/renderer/src/store/slices/direct-ssh-terminal-authority-ledger.ts`
+- `src/renderer/src/store/slices/direct-ssh-terminal-recovery.test.ts`
+- `src/renderer/src/store/slices/direct-ssh-terminal-recovery.ts`
+- `src/renderer/src/store/slices/direct-ssh-terminal-recovery-types.ts`
+- `src/renderer/src/store/slices/direct-ssh-terminal-workspace-scope.test.ts`
+- `src/renderer/src/store/slices/direct-ssh-terminal-workspace-scope.ts`
+- `src/renderer/src/store/slices/editor-branch-line-total.test.ts`
+- `src/renderer/src/store/slices/editor-state-worktree-purge-leak.test.ts`
+- `src/renderer/src/store/slices/folder-workspace-activation-and-activity.test.ts`
+- `src/renderer/src/store/slices/folder-workspace-owner-routed-mutations.test.ts`
+- `src/renderer/src/store/slices/generation-records-worktree-removal-leak.test.ts`
+- `src/renderer/src/store/slices/github-cache-key.ts`
+- `src/renderer/src/store/slices/github-checks.test.ts`
+- `src/renderer/src/store/slices/github-checks.ts`
+- `src/renderer/src/store/slices/github-checks-cache.test.ts`
+- `src/renderer/src/store/slices/github-project-row-owner.test.ts`
+- `src/renderer/src/store/slices/github-pr-refresh-owner-routing.test.ts`
+- `src/renderer/src/store/slices/github-repo-lookup-index.test.ts`
+- `src/renderer/src/store/slices/github-repo-lookup-index.ts`
+- `src/renderer/src/store/slices/github-work-items-query-bounds.ts`
+- `src/renderer/src/store/slices/hosted-review.ts`
+- `src/renderer/src/store/slices/hosted-review-cache-identity.ts`
+- `src/renderer/src/store/slices/jira.test.ts`
+- `src/renderer/src/store/slices/jira.ts`
+- `src/renderer/src/store/slices/linear.test.ts`
+- `src/renderer/src/store/slices/linear.ts`
+- `src/renderer/src/store/slices/linear-invalidation.test.ts`
+- `src/renderer/src/store/slices/memory.test.ts`
+- `src/renderer/src/store/slices/memory.ts`
+- `src/renderer/src/store/slices/native-chat-launch-draft-teardown.test.ts`
+- `src/renderer/src/store/slices/new-issue-draft.test.ts`
+- `src/renderer/src/store/slices/new-issue-draft.ts`
+- `src/renderer/src/store/slices/new-markdown.test.ts`
+- `src/renderer/src/store/slices/pane-column-split-drop-no-op.test.ts`
+- `src/renderer/src/store/slices/pane-column-split-drop-no-op.ts`
+- `src/renderer/src/store/slices/pane-foreground-agent.test.ts`
+- `src/renderer/src/store/slices/pane-foreground-agent.ts`
+- `src/renderer/src/store/slices/pinned-tab-close-confirm.test.ts`
+- `src/renderer/src/store/slices/pinned-tab-close-confirm.ts`
+- `src/renderer/src/store/slices/preflight.test.ts`
+- `src/renderer/src/store/slices/preflight.ts`
+- `src/renderer/src/store/slices/project-group-removal-targets.test.ts`
+- `src/renderer/src/store/slices/project-group-removal-targets.ts`
+- `src/renderer/src/store/slices/pull-request-generation.ts`
+- `src/renderer/src/store/slices/remote-server-updates.ts`
+- `src/renderer/src/store/slices/repo-host-identity.ts`
+- `src/renderer/src/store/slices/repo-identity-reconcile.test.ts`
+- `src/renderer/src/store/slices/repo-identity-reconcile.ts`
+- `src/renderer/src/store/slices/repo-reorder-host-split.test.ts`
+- `src/renderer/src/store/slices/repo-reorder-host-split.ts`
+- `src/renderer/src/store/slices/repos-all-hosts-folder-workspaces.test.ts`
+- `src/renderer/src/store/slices/repos-catalog-merge-identity.test.ts`
+- `src/renderer/src/store/slices/repos-cross-host-project-collisions.test.ts`
+- `src/renderer/src/store/slices/repos-manual-order-hydration.test.ts`
+- `src/renderer/src/store/slices/repos-nested-ssh-projection.test.ts`
+- `src/renderer/src/store/slices/repos-project-host-lifecycle.test.ts`
+- `src/renderer/src/store/slices/repos-remove-project-purge-leak.test.ts`
+- `src/renderer/src/store/slices/repos-selected-owner-routing.test.ts`
+- `src/renderer/src/store/slices/repos-setup-script-dismissals.test.ts`
+- `src/renderer/src/store/slices/repos-stale-fetch.test.ts`
+- `src/renderer/src/store/slices/repos-update-serialization.test.ts`
+- `src/renderer/src/store/slices/runtime-catalog-merge-removed-env-guard.test.ts`
+- `src/renderer/src/store/slices/runtime-detected-agents.ts`
+- `src/renderer/src/store/slices/runtime-environment-ssh.test.ts`
+- `src/renderer/src/store/slices/runtime-host-purge-session-partition-split.test.ts`
+- `src/renderer/src/store/slices/runtime-pane-title-sort-epoch.test.ts`
+- `src/renderer/src/store/slices/runtime-status-refresh.ts`
+- `src/renderer/src/store/slices/selected-host-active-workspace-identity.test.ts`
+- `src/renderer/src/store/slices/set-runtime-environments-purge-wiring.test.ts`
+- `src/renderer/src/store/slices/sparse-presets.test.ts`
+- `src/renderer/src/store/slices/sparse-presets.ts`
+- `src/renderer/src/store/slices/sparse-presets-repo-removal-purge-leak.test.ts`
+- `src/renderer/src/store/slices/ssh.test.ts`
+- `src/renderer/src/store/slices/ssh.ts`
+- `src/renderer/src/store/slices/ssh-target-cleanup.ts`
+- `src/renderer/src/store/slices/stats.ts`
+- `src/renderer/src/store/slices/superseded-ssh-repo-rows.test.ts`
+- `src/renderer/src/store/slices/superseded-ssh-repo-rows.ts`
+- `src/renderer/src/store/slices/tab-group-reference-repair.ts`
+- `src/renderer/src/store/slices/tab-group-state.test.ts`
+- `src/renderer/src/store/slices/tab-group-state.ts`
+- `src/renderer/src/store/slices/tabs.ts`
+- `src/renderer/src/store/slices/tabs-hydration.test.ts`
+- `src/renderer/src/store/slices/tabs-hydration.ts`
+- `src/renderer/src/store/slices/tabs-hydration-generated-title.test.ts`
+- `src/renderer/src/store/slices/tabs-hydration-group-validation.test.ts`
+- `src/renderer/src/store/slices/tab-worktree-orphan-map-purge-leak.test.ts`
+- `src/renderer/src/store/slices/terminal-activation-spawn-suppression.ts`
+- `src/renderer/src/store/slices/terminal-helpers.test.ts`
+- `src/renderer/src/store/slices/terminal-helpers.ts`
+- `src/renderer/src/store/slices/terminal-orphan-helpers.test.ts`
+- `src/renderer/src/store/slices/terminal-orphan-helpers.ts`
+- `src/renderer/src/store/slices/terminal-pane-detach-agent-retention.test.ts`
+- `src/renderer/src/store/slices/terminal-pty-identity-replacement.test.ts`
+- `src/renderer/src/store/slices/terminal-quick-command-hosts.test.ts`
+- `src/renderer/src/store/slices/terminal-session-row-hydration.ts`
+- `src/renderer/src/store/slices/terminals-hydration.test.ts`
+- `src/renderer/src/store/slices/terminals-hydration-canonical-pty-overlap.test.ts`
+- `src/renderer/src/store/slices/terminals-hydration-canonical-rows.test.ts`
+- `src/renderer/src/store/slices/terminal-tab-id-hydration.test.ts`
+- `src/renderer/src/store/slices/terminal-tab-recovery-remount.test.ts`
+- `src/renderer/src/store/slices/terminal-tab-retirement.test.ts`
+- `src/renderer/src/store/slices/terminal-tab-retirement-store.test.ts`
+- `src/renderer/src/store/slices/terminal-write-identity-bailouts.test.ts`
+- `src/renderer/src/store/slices/workspace-cleanup.ts`
+- `src/renderer/src/store/slices/workspace-cleanup-removal-preflight.test.ts`
+- `src/renderer/src/store/slices/workspace-cleanup-scan-progress.test.ts`
+- `src/renderer/src/store/slices/workspace-cleanup-slice-test-harness.ts`
+- `src/renderer/src/store/slices/workspace-space.ts`
+- `src/renderer/src/store/slices/worktree-by-id-index.test.ts`
+- `src/renderer/src/store/slices/worktree-by-id-index.ts`
+- `src/renderer/src/store/slices/worktree-catalog-reconciliation.test.ts`
+- `src/renderer/src/store/slices/worktree-catalog-reconciliation.ts`
+- `src/renderer/src/store/slices/worktree-helpers.test.ts`
+- `src/renderer/src/store/slices/worktree-listing-branch-switch.test.ts`
+- `src/renderer/src/store/slices/worktree-listing-branch-switch.ts`
+- `src/renderer/src/store/slices/worktree-nav-history.test.ts`
+- `src/renderer/src/store/slices/worktree-nav-history.ts`
+- `src/renderer/src/store/slices/worktree-removal-maps-leak.test.ts`
+- `src/renderer/src/store/worktree-diff-comments-selector.test.ts`
+- `src/renderer/src/store/worktree-diff-comments-selector.ts`
+- `src/renderer/src/store/worktree-repo-index.ts`
+- `src/renderer/src/web/web-clipboard-copy-fallback.test.ts`
+- `src/renderer/src/web/web-file-mutation-methods.test.ts`
+- `src/renderer/src/web/web-file-mutation-methods.ts`
+- `src/renderer/src/web/web-workspace-session.test.ts`
+- `src/renderer/src/web/web-workspace-session.ts`
+- `src/shared/agent-decorative-title-signature.ts`
+- `src/shared/agent-detection.ts`
+- `src/shared/agent-headless-command.ts`
+- `src/shared/agent-hook-listener-roster-retention.test.ts`
+- `src/shared/agent-hook-request-body-memory.test.ts`
+- `src/shared/agent-hook-status-cache.test.ts`
+- `src/shared/agent-hook-status-cache.ts`
+- `src/shared/agent-kind.test.ts`
+- `src/shared/agent-model-probe-spec.test.ts`
+- `src/shared/agent-model-probe-spec.ts`
+- `src/shared/agent-node-entrypoint-identities.ts`
+- `src/shared/agent-prompt-injection.test.ts`
+- `src/shared/agent-prompt-injection.ts`
+- `src/shared/agent-resume-argv-drop.test.ts`
+- `src/shared/agent-resume-argv-drop.ts`
+- `src/shared/agent-scratch-worktrees.ts`
+- `src/shared/agent-session-option-catalog-claude-codex.ts`
+- `src/shared/agent-session-option-catalog-grok.test.ts`
+- `src/shared/agent-session-option-catalog-grok.ts`
+- `src/shared/agent-session-resume.test.ts`
+- `src/shared/agent-session-resume.ts`
+- `src/shared/agent-status-osc.test.ts`
+- `src/shared/agent-status-osc.ts`
+- `src/shared/agent-title-decoration.ts`
+- `src/shared/agent-title-identity.ts`
+- `src/shared/agent-title-owner.ts`
+- `src/shared/agent-title-status.ts`
+- `src/shared/ai-vault-resume-preparation.ts`
+- `src/shared/ai-vault-types.ts`
+- `src/shared/artifacts.ts`
+- `src/shared/automation-schedules.test.ts`
+- `src/shared/automation-schedules.ts`
+- `src/shared/automations-types.ts`
+- `src/shared/automation-workspace-provenance.ts`
+- `src/shared/auto-rename-branch-from-work-settings.ts`
+- `src/shared/base-ref-search-result.ts`
+- `src/shared/bounded-secure-json-file.ts`
+- `src/shared/branch-prefix.ts`
+- `src/shared/browser-find-source.ts`
+- `src/shared/browser-page-zoom.ts`
+- `src/shared/browser-viewport-presets.ts`
+- `src/shared/claude-background-task-status.test.ts`
+- `src/shared/codex-config-sync-types.ts`
+- `src/shared/codex-reset-credit-scope.test.ts`
+- `src/shared/codex-reset-credit-scope.ts`
+- `src/shared/codex-subagent-rollout-lifecycle.test.ts`
+- `src/shared/codex-subagent-roster.test.ts`
+- `src/shared/codex-subagent-roster.ts`
+- `src/shared/codex-subagent-transcript.test.ts`
+- `src/shared/codex-subagent-transcript.ts`
+- `src/shared/command-code-output-status.ts`
+- `src/shared/commit-message-generation.ts`
+- `src/shared/commit-message-plan.test.ts`
+- `src/shared/commit-message-prompt.test.ts`
+- `src/shared/composer-branch-selection.ts`
+- `src/shared/computer-use-runtime-types.ts`
+- `src/shared/crash-reporting.test.ts`
+- `src/shared/crash-reporting.ts`
+- `src/shared/cross-platform-path.ts`
+- `src/shared/dashboard-snapshot.ts`
+- `src/shared/detected-worktree-provider-contract.ts`
+- `src/shared/diff-comments-format.ts`
+- `src/shared/draft-paste-ready-scanner.test.ts`
+- `src/shared/execution-host.test.ts`
+- `src/shared/execution-host.ts`
+- `src/shared/external-worktree-visibility.ts`
+- `src/shared/feature-education-telemetry.ts`
+- `src/shared/feature-interaction-catalog.ts`
+- `src/shared/feature-interaction-categories.ts`
+- `src/shared/folder-workspaces.ts`
+- `src/shared/folder-workspace-worktree.ts`
+- `src/shared/foreground-wrapper-agent.test.ts`
+- `src/shared/foreground-wrapper-agent.ts`
+- `src/shared/git-branch-line-total.ts`
+- `src/shared/git-exec-mutation.ts`
+- `src/shared/git-history.test.ts`
+- `src/shared/git-history-graph.test.ts`
+- `src/shared/git-history-graph.ts`
+- `src/shared/gitlab-job-trace-check-details.ts`
+- `src/shared/gitlab-pipeline-checks.ts`
+- `src/shared/gitlab-projects.ts`
+- `src/shared/git-publish-target-status.ts`
+- `src/shared/git-push-target-validation.ts`
+- `src/shared/git-rebase-source.ts`
+- `src/shared/git-remote-identity.test.ts`
+- `src/shared/git-remote-identity.ts`
+- `src/shared/grok-model-list-probe.test.ts`
+- `src/shared/grok-model-list-probe.ts`
+- `src/shared/hook-command-source-policy.ts`
+- `src/shared/hosted-review.ts`
+- `src/shared/hosted-review-creation-providers.ts`
+- `src/shared/hosted-review-github.ts`
+- `src/shared/hosted-review-refs.test.ts`
+- `src/shared/hosted-review-refs.ts`
+- `src/shared/host-lineage-contract.ts`
+- `src/shared/host-repo-catalog-contract.ts`
+- `src/shared/host-setting-overrides.test.ts`
+- `src/shared/host-setting-overrides.ts`
+- `src/shared/integration-credential-errors.ts`
+- `src/shared/issue-link-input.ts`
+- `src/shared/jira-types.ts`
+- `src/shared/local-account-runtime.ts`
+- `src/shared/local-windows-terminal-runtime.ts`
+- `src/shared/managed-agent-hook-targets.ts`
+- `src/shared/manual-repo-order.test.ts`
+- `src/shared/manual-repo-order.ts`
+- `src/shared/map-settled-with-concurrency.test.ts`
+- `src/shared/markdown-document-listing-limits.test.ts`
+- `src/shared/markdown-document-listing-limits.ts`
+- `src/shared/mcp-config.ts`
+- `src/shared/mcp-server-inspection.ts`
+- `src/shared/native-chat-diff.ts`
+- `src/shared/native-chat-image-transcript-markers.ts`
+- `src/shared/native-chat-session-option-commands.test.ts`
+- `src/shared/native-chat-session-option-snapshot.test.ts`
+- `src/shared/native-chat-session-option-snapshot.ts`
+- `src/shared/native-chat-streaming.test.ts`
+- `src/shared/native-chat-streaming.ts`
+- `src/shared/native-chat-tool-fold.ts`
+- `src/shared/native-chat-tool-summary.ts`
+- `src/shared/native-chat-types.ts`
+- `src/shared/nested-repo-telemetry.test.ts`
+- `src/shared/nested-repo-telemetry.ts`
+- `src/shared/new-workspace/github-links.ts`
+- `src/shared/new-workspace/smart-workspace-source-results.ts`
+- `src/shared/new-workspace/worktree-create-retry-policy.test.ts`
+- `src/shared/new-workspace/worktree-create-retry-policy.ts`
+- `src/shared/new-workspace-dialog-repo.ts`
+- `src/shared/node-bounded-file-reader.ts`
+- `src/shared/node-markdown-document-discovery.test.ts`
+- `src/shared/opencode-terminal-title.test.ts`
+- `src/shared/opencode-terminal-title.ts`
+- `src/shared/open-in-applications.ts`
+- `src/shared/orchestration-worker-output.ts`
+- `src/shared/osc52-clipboard-settings.ts`
+- `src/shared/pane-agent-owner.test.ts`
+- `src/shared/persisted-ui-equality.ts`
+- `src/shared/pi-compatible-synthetic-title.ts`
+- `src/shared/plugins/plugin-vm-recipe-artifact.test.ts`
+- `src/shared/pr-check-severity-order.test.ts`
+- `src/shared/pr-check-severity-order.ts`
+- `src/shared/pr-checks-fix-prompt.ts`
+- `src/shared/pr-check-status.test.ts`
+- `src/shared/pr-check-status.ts`
+- `src/shared/pr-comment-audience.test.ts`
+- `src/shared/pr-comment-audience.ts`
+- `src/shared/pr-comment-groups.test.ts`
+- `src/shared/pr-comment-groups.ts`
+- `src/shared/process-table-snapshot.test.ts`
+- `src/shared/process-table-snapshot.ts`
+- `src/shared/project-groups.test.ts`
+- `src/shared/project-groups.ts`
+- `src/shared/project-host-setup-projection.ts`
+- `src/shared/provider-check-summary.ts`
+- `src/shared/pty-slave-line-discipline-echo.test.ts`
+- `src/shared/pty-startup-ingress-contract.ts`
+- `src/shared/pty-startup-ingress-live-query-reply.test.ts`
+- `src/shared/pull-request-generation.test.ts`
+- `src/shared/quick-open-directory-reader.ts`
+- `src/shared/quick-open-install-rg.ts`
+- `src/shared/raster-image-dimensions.test.ts`
+- `src/shared/remote-runtime-client-error.ts`
+- `src/shared/remote-runtime-memory-limits.ts`
+- `src/shared/remote-runtime-outbound-admission.test.ts`
+- `src/shared/remote-runtime-request-connection.test.ts`
+- `src/shared/remote-runtime-request-ready-waiters.ts`
+- `src/shared/remote-runtime-shared-control-connection.ts`
+- `src/shared/remote-runtime-shared-control-frame-handler.ts`
+- `src/shared/remote-runtime-shared-control-keepalive-refresh.test.ts`
+- `src/shared/remote-runtime-shared-control-ready.ts`
+- `src/shared/remote-runtime-shared-control-reconnect.ts`
+- `src/shared/remote-runtime-shared-control-requests.ts`
+- `src/shared/remote-runtime-shared-control-state.ts`
+- `src/shared/remote-runtime-shared-control-types.ts`
+- `src/shared/remote-server-update.ts`
+- `src/shared/remote-workspace-session-projection.test.ts`
+- `src/shared/remote-workspace-session-projection.ts`
+- `src/shared/remote-workspace-types.ts`
+- `src/shared/renderer-restart-preparation.test.ts`
+- `src/shared/repo-kind.ts`
+- `src/shared/resolved-worktree-lineage.ts`
+- `src/shared/ripgrep-process-availability.ts`
+- `src/shared/runtime-client-events.ts`
+- `src/shared/runtime-rpc-call-queue.test.ts`
+- `src/shared/runtime-rpc-call-queue.ts`
+- `src/shared/runtime-types.ts`
+- `src/shared/search-match-count.test.ts`
+- `src/shared/search-match-count.ts`
+- `src/shared/secure-file.ts`
+- `src/shared/setup-agent-startup-policy.ts`
+- `src/shared/setup-script-import-codex-environment.ts`
+- `src/shared/setup-script-imports.ts`
+- `src/shared/skills.ts`
+- `src/shared/source-control-ai.test.ts`
+- `src/shared/source-control-ai.ts`
+- `src/shared/source-control-ai-action-recipes.test.ts`
+- `src/shared/source-control-ai-actions.ts`
+- `src/shared/source-control-ai-recipe-save.test.ts`
+- `src/shared/source-control-ai-recipe-save.ts`
+- `src/shared/source-control-ai-types.ts`
+- `src/shared/source-control-commit-failure.ts`
+- `src/shared/source-control-conflict-prompts.ts`
+- `src/shared/source-control-group-order.ts`
+- `src/shared/source-control-primary-action-decision-types.ts`
+- `src/shared/source-control-push-failure.ts`
+- `src/shared/ssh-pty-id.test.ts`
+- `src/shared/startup-command-submission.test.ts`
+- `src/shared/status-bar-defaults.ts`
+- `src/shared/synthetic-agent-title.test.ts`
+- `src/shared/synthetic-agent-title.ts`
+- `src/shared/tab-title-resolution.ts`
+- `src/shared/task-preset-query.ts`
+- `src/shared/task-provider-identity.ts`
+- `src/shared/task-source-context.ts`
+- `src/shared/terminal-color-scheme-protocol.ts`
+- `src/shared/terminal-cursor-style-settings.ts`
+- `src/shared/terminal-custom-themes.ts`
+- `src/shared/terminal-fonts.ts`
+- `src/shared/terminal-github-pr-link-detector.ts`
+- `src/shared/terminal-mode-reset-profiles.test.ts`
+- `src/shared/terminal-preview.ts`
+- `src/shared/terminal-query-reply.test.ts`
+- `src/shared/terminal-query-reply.ts`
+- `src/shared/terminal-reply-query-scan.test.ts`
+- `src/shared/terminal-reply-query-scan.ts`
+- `src/shared/terminal-side-effect-facts.ts`
+- `src/shared/terminal-startup-cwd.ts`
+- `src/shared/terminal-tab-close.ts`
+- `src/shared/terminal-title-agent-type.ts`
+- `src/shared/text-search.ts`
+- `src/shared/top-level-view.ts`
+- `src/shared/tui-agent-detection-commands.ts`
+- `src/shared/tui-agent-display-names.ts`
+- `src/shared/tui-agent-launch-command.ts`
+- `src/shared/tui-agent-permissions.ts`
+- `src/shared/tui-agent-selection.ts`
+- `src/shared/tui-agent-startup-session-options.test.ts`
+- `src/shared/tui-agent-startup-shell.ts`
+- `src/shared/windows-batch-spawn.ts`
+- `src/shared/window-shortcut-policy.ts`
+- `src/shared/workspace-cleanup.test.ts`
+- `src/shared/workspace-creator-provenance.ts`
+- `src/shared/workspace-linked-item.ts`
+- `src/shared/workspace-linked-item-schema.ts`
+- `src/shared/workspace-linked-item-source-context.ts`
+- `src/shared/workspace-name.ts`
+- `src/shared/workspace-scope.ts`
+- `src/shared/workspace-session-browser-history.ts`
+- `src/shared/workspace-session-browser-schema.ts`
+- `src/shared/workspace-session-salvage.ts`
+- `src/shared/workspace-session-schema.sleeping-agent.test.ts`
+- `src/shared/workspace-session-schema.ts`
+- `src/shared/workspace-session-terminal-buffers.test.ts`
+- `src/shared/workspace-session-terminal-buffers.ts`
+- `src/shared/workspace-session-terminal-tab-close.test.ts`
+- `src/shared/workspace-session-terminal-tab-close.ts`
+- `src/shared/workspace-space-types.ts`
+- `src/shared/workspace-status-defaults.ts`
+- `src/shared/workspace-statuses.ts`
+- `src/shared/wsl-paths.test.ts`
+- `src/shared/wsl-paths.ts`
+- `src/shared/ws-outbound-backpressure-queue.test.ts`
+- `src/shared/ws-outbound-backpressure-queue.ts`
+- `tests/e2e/artificial-opencode-hidden-pressure-script.ts`
+- `tests/e2e/cross-version-wire/cross-version-terminal-wire.unit.test.ts`
+- `tests/e2e/cross-version-wire/host-terminal-runtime-stub.ts`
+- `tests/e2e/cross-version-wire/terminal-skew-journey.ts`
+- `tests/e2e/cross-version-wire/versioned-terminal-wire.ts`
+- `tests/e2e/fixtures/daemon-generation-entry.ts`
+- `tests/e2e/fixtures/terminal-emoji-table.md`
+- `tests/e2e/fixtures/visible-tui-scroll-fixture.cjs`
+- `tests/e2e/helpers/daemon-generation-processes.ts`
+- `tests/e2e/helpers/e2e-completed-onboarding-profile.ts`
+- `tests/e2e/helpers/local-https-test-server.ts`
+- `tests/e2e/helpers/orchestration-mail-store.ts`
+- `tests/e2e/helpers/runtime-types.ts`
+- `tests/e2e/terminal-foreground-confirmation.unit.test.ts`
+- `tests/tools/repro-watcher-crash-7547/run.cjs`
+
+---
+
+## Fabrica-Only (0)
+
+Files in upstream-changed list that exist in Fabrica but not in baseline.
+
+---
+
+## Not in Fabrica (73)
+
+Files in upstream-changed list that don't exist in Fabrica-app.
+- `.github/workflows/adhoc-mac-build.yml`
+- `.github/workflows/daily-mac-build.yml`
+- `.github/workflows/hourly-mac-build.yml`
+- `config/scripts/orca-cli-skill-guidance.test.mjs`
+- `native/computer-use-macos/Sources/OrcaComputerUseMacOS/main.swift`
+- `native/computer-use-macos/Sources/OrcaComputerUseMacOSCore/ActionArgumentValidation.swift`
+- `native/computer-use-macos/Sources/OrcaComputerUseMacOSCore/SyntheticMouseClickDelivery.swift`
+- `native/computer-use-macos/Tests/OrcaComputerUseMacOSTests/ActionArgumentValidationTests.swift`
+- `native/computer-use-macos/Tests/OrcaComputerUseMacOSTests/SyntheticMouseClickDeliveryTests.swift`
+- `resources/darwin/bin/orca`
+- `resources/linux/bin/orca-ide`
+- `skill-guides/computer-use.md`
+- `skill-guides/linear-tickets.md`
+- `skill-guides/orca-cli.md`
+- `skill-guides/orca-emulator.md`
+- `skill-guides/orca-emulator-android.md`
+- `skill-guides/orca-linear.md`
+- `skill-guides/orca-per-workspace-env.md`
+- `skill-guides/orchestration.md`
+- `skills/computer-use/SKILL.md`
+- `skills/orca-cli/SKILL.md`
+- `skills/orchestration/SKILL.md`
+- `skill-stubs/computer-use.md`
+- `src/main/cli/linux-bare-orca-dispatcher.test.ts`
+- `src/main/cli/linux-bare-orca-dispatcher.ts`
+- `src/main/cli/linux-terminal-orca-cli-shim.test.ts`
+- `src/main/cli/linux-terminal-orca-cli-shim.ts`
+- `src/main/ipc/orca-profile-auth-handlers.test.ts`
+- `src/main/ipc/orca-profiles.test.ts`
+- `src/main/ipc/orca-profiles.ts`
+- `src/main/orca-profiles/profile-cloud-index.ts`
+- `src/main/orca-profiles/profile-index-store.test.ts`
+- `src/main/orca-profiles/profile-index-store.ts`
+- `src/main/orca-profiles/profile-project-presence.test.ts`
+- `src/main/orca-profiles/profile-project-session-state.test.ts`
+- `src/main/orca-profiles/profile-project-session-state.ts`
+- `src/main/orca-profiles/profile-project-session-transfer.ts`
+- `src/main/orca-profiles/profile-project-source-removal.ts`
+- `src/main/orca-profiles/profile-project-state-file.ts`
+- `src/main/orca-profiles/profile-project-transfer.test.ts`
+- `src/main/orca-profiles/profile-project-transfer-payload.ts`
+- `src/main/orca-profiles/profile-project-worktree-identity.ts`
+- `src/main/orca-profiles/profile-storage-paths.ts`
+- `src/main/pty/wsl-orca-env.test.ts`
+- `src/main/pty/wsl-orca-env.ts`
+- `src/main/runtime/orca-runtime.test.ts`
+- `src/main/runtime/orca-runtime.ts`
+- `src/main/runtime/orca-runtime-agent-session-operation.test.ts`
+- `src/main/runtime/orca-runtime-automations.test.ts`
+- `src/main/runtime/orca-runtime-browser.test.ts`
+- `src/main/runtime/orca-runtime-browser.ts`
+- `src/main/runtime/orca-runtime-emulator.ts`
+- `src/main/runtime/orca-runtime-files.ts`
+- `src/main/runtime/orca-runtime-files-ssh-rearm.test.ts`
+- `src/main/runtime/orca-runtime-files-watch.test.ts`
+- `src/main/runtime/orca-runtime-git.test.ts`
+- `src/main/runtime/orca-runtime-git.ts`
+- `src/main/runtime/orca-runtime-git-branch-diff.test.ts`
+- `src/main/runtime/orca-runtime-headless-hydration-repo-gate.test.ts`
+- `src/main/runtime/orca-runtime-hook-agent-status-projection.test.ts`
+- `src/main/runtime/orca-runtime-linked-issue-live-meta.integration.test.ts`
+- `src/main/runtime/orca-runtime-mobile-agent-status-title-truthfulness.test.ts`
+- `src/main/runtime/orca-runtime-terminal-create-idempotency.test.ts`
+- `src/main/runtime/orca-runtime-terminal-retirement.test.ts`
+- `src/main/runtime/orca-runtime-terminal-retirement-host-partition.test.ts`
+- `src/main/ssh/ssh-remote-orca-cli.test.ts`
+- `src/main/ssh/ssh-remote-orca-cli.ts`
+- `src/renderer/src/components/settings/OrcaAccountSettingsPane.tsx`
+- `src/renderer/src/components/task-page-linear-in-orca-issues.test.ts`
+- `src/renderer/src/components/task-page-linear-in-orca-issues.ts`
+- `src/shared/orca-yaml.ts`
+- `tests/e2e/helpers/orca-app.ts`
+- `tests/e2e/helpers/orca-restart.ts`
+

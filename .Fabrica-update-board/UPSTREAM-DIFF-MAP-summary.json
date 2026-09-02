@@ -1,0 +1,12 @@
+﻿{
+  "timestamp": "2026-09-02T18:45:52.7846112+01:00",
+  "baseline_files": 13195,
+  "upstream_files": 22647,
+  "summary": {
+    "added_count": 9875,
+    "deleted_count": 423,
+    "modified_count": 5269,
+    "unchanged_count": 7503,
+    "total_changed": 15567
+  }
+}
