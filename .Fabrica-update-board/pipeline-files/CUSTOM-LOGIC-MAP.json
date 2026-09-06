@@ -1,0 +1,211 @@
+{
+  "summary": {
+    "total": 24,
+    "scenario_1_merge": 6,
+    "scenario_2_reimplement": 12,
+    "scenario_3_skip": 0,
+    "scenario_4_archive": 6
+  },
+  "entries": [
+    {
+      "old_path": "package.json",
+      "new_path": "package.json",
+      "scenario": 1,
+      "risk": "medium",
+      "guidance": "After upstream fork, merge our additions: @supabase/supabase-js, remove @stablyai/playwright-test, add esbuild. Upstream grew significantly (30+ new deps). Diff carefully.",
+      "notes": "Supabase addition was for planned cloud auth (may be partially superseded by upstream's own auth additions)."
+    },
+    {
+      "old_path": "config/electron-builder.config.cjs",
+      "new_path": "config/electron-builder.config.cjs",
+      "scenario": 1,
+      "risk": "medium",
+      "guidance": "Our custom logic removed dev-channel build infrastructure. Upstream grew from 27KB to 34KB. Merge our simplification on top of upstream's new version.",
+      "notes": "Upstream added new build targets. Need to decide whether to keep our simplification or adopt upstream's expanded config."
+    },
+    {
+      "old_path": "config/scripts/locale-ko-key-overrides.json",
+      "new_path": "config/scripts/locale-ko-key-overrides.json",
+      "scenario": 1,
+      "risk": "easy",
+      "guidance": "Apply our 90% trim (5033→503 entries) to upstream's version. Check for new keys upstream may have added.",
+      "notes": "The trim was intentional to reduce maintenance burden."
+    },
+    {
+      "old_path": "src/renderer/src/assets/main.css",
+      "new_path": "src/renderer/src/assets/main.css",
+      "scenario": 1,
+      "risk": "hard",
+      "guidance": "Merge font migration (Geist→Inter/Space Grotesk/JetBrains Mono) on top of upstream's new CSS. High-risk because upstream may have added new CSS variables, components, or changed the design system.",
+      "notes": "Font migration is the core custom logic. Upstream still uses Geist fonts."
+    },
+    {
+      "old_path": "resources/skills/snapshot-registry.json",
+      "new_path": "resources/skills/snapshot-registry.json",
+      "scenario": 1,
+      "risk": "medium",
+      "guidance": "Decide: use our trimmed format (149 lines) with upstream's new skill revisions, or keep upstream's full history (1751+ lines). Upstream added new skills (orca-per-workspace-env, etc.).",
+      "notes": "The trim was intentional — historical revisions are not needed at runtime."
+    },
+    {
+      "old_path": "resources/skills/release-mapping.json",
+      "new_path": "resources/skills/release-mapping.json",
+      "scenario": 1,
+      "risk": "medium",
+      "guidance": "Decide: use our trimmed format (18 lines) with upstream's latest version mappings, or keep upstream's full history (644+ lines). Upstream added new skills and versions.",
+      "notes": "Same decision as snapshot-registry.json."
+    },
+    {
+      "old_path": "src/renderer/src/assets/fonts/Inter-*.woff2",
+      "new_path": "src/renderer/src/assets/fonts/",
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add new font files (Inter, JetBrains Mono, Space Grotesk subsets) to the upstream fonts directory. Upstream still has Geist-Variable.woff2 only.",
+      "notes": "Font file swap is straightforward asset addition."
+    },
+    {
+      "old_path": "src/renderer/src/assets/fonts/JetBrainsMono-*.woff2",
+      "new_path": "src/renderer/src/assets/fonts/",
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add JetBrains Mono font files to upstream fonts directory.",
+      "notes": "Part of font migration set."
+    },
+    {
+      "old_path": "src/renderer/src/assets/fonts/SpaceGrotesk-*.woff2",
+      "new_path": "src/renderer/src/assets/fonts/",
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add Space Grotesk font files to upstream fonts directory.",
+      "notes": "Part of font migration set."
+    },
+    {
+      "old_path": "config/scripts/build-fabrica-icons.mjs",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "medium",
+      "guidance": "Re-implement icon build pipeline. Generates app icons, tray icons, macOS icns from brand emblem. Depends on trim-windows-icon-source.mjs (check if upstream has equivalent).",
+      "notes": "Brand-specific icon pipeline. Upstream uses different icon generation."
+    },
+    {
+      "old_path": "src/renderer/src/components/StartupGate.tsx",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "hard",
+      "guidance": "Re-implement login screen with Fabrica branding and cloud auth integration. Depends on FABRICAProfileAuthStatus store state and cloud auth config. No upstream equivalent.",
+      "notes": "Core brand feature — auth gate shown before app loads. Needs cloud auth infrastructure."
+    },
+    {
+      "old_path": "mobile/eas.json",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Re-implement Expo Application Services config for development/preview/production builds.",
+      "notes": "New file for mobile build pipeline."
+    },
+    {
+      "old_path": "mobile/SIGNING.md",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Re-implement Android APK signing documentation. References Fabrica package identity (com.autoscalers.fabrica.mobile).",
+      "notes": "Documentation only."
+    },
+    {
+      "old_path": "mobile/.easignore",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Re-implement standard EAS ignore rules (node_modules, .expo, android, ios, .git, *.log).",
+      "notes": "Trivial file — copy as-is."
+    },
+    {
+      "old_path": "mobile/src/test-support/source-text.ts",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Re-implement test utility that normalizes CRLF to LF for cross-platform test assertions. 8 lines.",
+      "notes": "Simple utility, no dependencies."
+    },
+    {
+      "old_path": "resources/app-icons/fabrica-dark.png",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add Fabrica brand icon asset. Upstream has orca-blue.png and orca-watercolor.png — replace or keep alongside.",
+      "notes": "Brand asset — must be provided by design."
+    },
+    {
+      "old_path": "resources/app-icons/fabrica-light.png",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add Fabrica brand icon asset. Pair with fabrica-dark.png for light/dark theme icons.",
+      "notes": "Brand asset — must be provided by design."
+    },
+    {
+      "old_path": "resources/icon-source/fabrica-logo_icon.png",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add Fabrica brand emblem source PNG. Feeds the icon build pipeline.",
+      "notes": "Brand asset — source for all icon generation."
+    },
+    {
+      "old_path": "resources/fabrica-hero-bg.jpg",
+      "new_path": null,
+      "scenario": 2,
+      "risk": "easy",
+      "guidance": "Add hero background image used by StartupGate component.",
+      "notes": "Brand asset for auth gate UI."
+    },
+    {
+      "old_path": "src/shared/fabrica-attribution.ts",
+      "new_path": null,
+      "scenario": 4,
+      "risk": "easy",
+      "guidance": "Archive — do not re-implement. Upstream removed the git commit trailer feature entirely. FABRICA_GIT_COMMIT_TRAILER is dead code.",
+      "notes": "Upstream deleted orca-attribution.ts. If we want attribution, it needs a new design decision."
+    },
+    {
+      "old_path": "visual-palette-reference.md",
+      "new_path": null,
+      "scenario": 4,
+      "risk": "easy",
+      "guidance": "Archive — design system documentation, not source code. Contains OKLCH design token reference.",
+      "notes": "Documentation artifact."
+    },
+    {
+      "old_path": "contrast-audit.js",
+      "new_path": null,
+      "scenario": 4,
+      "risk": "easy",
+      "guidance": "Archive — WCAG contrast audit script. Development tooling, not production code.",
+      "notes": "Tooling artifact."
+    },
+    {
+      "old_path": "build-eb.cmd",
+      "new_path": null,
+      "scenario": 4,
+      "risk": "easy",
+      "guidance": "Archive — local build convenience script with hardcoded path. Not portable.",
+      "notes": "Local convenience script."
+    },
+    {
+      "old_path": "build-win-wrap.cmd",
+      "new_path": null,
+      "scenario": 4,
+      "risk": "easy",
+      "guidance": "Archive — local build convenience script with hardcoded path. Not portable.",
+      "notes": "Local convenience script."
+    },
+    {
+      "old_path": "electron.vite.config.1787972008048.mjs",
+      "new_path": null,
+      "scenario": 4,
+      "risk": "easy",
+      "guidance": "Archive — inlined/bundled electron-vite config (build artifact). Not source code.",
+      "notes": "Build artifact."
+    }
+  ]
+}

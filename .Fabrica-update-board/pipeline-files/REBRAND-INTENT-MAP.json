@@ -1,0 +1,776 @@
+{
+  "summary": {
+    "total_files": 4214,
+    "renamed": 132,
+    "added": 70,
+    "deleted": 48,
+    "modified": 3937,
+    "binary_files": 42,
+    "text_files": 4172,
+    "intent_breakdown": {
+      "rebrand": 4100,
+      "custom_logic": 80,
+      "incidental": 34
+    }
+  },
+  "rebrand_patterns": [
+    {"pattern": "orca → fabrica", "scope": "filenames, functions, variables, imports, CLI commands"},
+    {"pattern": "Orca → Fabrica", "scope": "class names, product name, UI strings"},
+    {"pattern": "ORCA → FABRICA", "scope": "constants, env vars, wire tokens"},
+    {"pattern": "orca-profiles → fabrica-profiles", "scope": "directory/module rename"},
+    {"pattern": "stablyai → fabrica-ai", "scope": "npm scopes, GitHub URLs"},
+    {"pattern": "stablyai/orca → Auto-Scalers/Fabrica-app", "scope": "GitHub repo references"},
+    {"pattern": "@stablyai/* → @autoscalers/*", "scope": "package names"},
+    {"pattern": "com.stablyai.orca → ai.autoscalers.fabrica", "scope": "Electron app ID"},
+    {"pattern": "onorca.dev → fabrica-ai.vercel.app", "scope": "production URLs"},
+    {"pattern": "orca-cli → fabrica-cli", "scope": "CLI command name"},
+    {"pattern": "orca-ide → fabrica", "scope": "Linux executable name"},
+    {"pattern": "Geist → Inter/Space Grotesk/JetBrains Mono", "scope": "font families"},
+    {"pattern": "Orca Nerd Font Symbols → Fabrica Nerd Font Symbols", "scope": "font family"}
+  ],
+  "files": [
+    {
+      "path": "package.json",
+      "intent": "rebrand+custom_logic",
+      "description": "Name, author, homepage, CLI binaries, build env vars. Added @supabase/supabase-js, removed @stablyai/playwright-test, added esbuild",
+      "pattern": "orca→fabrica, stablyai→Auto-Scalers, ORCA_MAC_RELEASE→FABRICA_MAC_RELEASE",
+      "notes": "Supabase addition for planned cloud auth"
+    },
+    {
+      "path": "electron.vite.config.ts",
+      "intent": "rebrand",
+      "description": "Rebrand constants, env var names",
+      "pattern": "ORCA_* → FABRICA_*",
+      "notes": ""
+    },
+    {
+      "path": "orca.yaml",
+      "intent": "rebrand",
+      "description": "Renamed to fabrica.yaml",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "config/electron-builder.config.cjs",
+      "intent": "rebrand+custom_logic",
+      "description": "App ID, product name, artifact names, env vars, signing, Linux package names, GitHub publish. Removed dev-channel build infrastructure",
+      "pattern": "com.stablyai.orca→ai.autoscalers.fabrica, ORCA_*→FABRICA_*, stablyai→Auto-Scalers",
+      "notes": "Dev-channel removal is custom_logic simplification"
+    },
+    {
+      "path": "config/reliability-gates.jsonc",
+      "intent": "rebrand",
+      "description": "GitHub URL references updated",
+      "pattern": "stablyai/orca→Auto-Scalers/fabrica",
+      "notes": ""
+    },
+    {
+      "path": "config/scripts/locale-ko-key-overrides.json",
+      "intent": "rebrand+custom_logic",
+      "description": "Korean locale overrides trimmed from ~5033 to ~503 entries",
+      "pattern": "orca→fabrica in remaining strings",
+      "notes": "90% trim is custom_logic"
+    },
+    {
+      "path": "config/scripts/build-fabrica-icons.mjs",
+      "intent": "custom_logic",
+      "description": "New icon build script for Fabrica brand assets",
+      "pattern": "",
+      "notes": "Generates app icons, tray icons, macOS icns from brand emblem"
+    },
+    {
+      "path": "src/main/index.ts",
+      "intent": "rebrand",
+      "description": "Import paths, function names, class names",
+      "pattern": "OrcaRuntimeService→FABRICARuntimeService, initOrcaProfilePaths→initFABRICAProfilePaths",
+      "notes": ""
+    },
+    {
+      "path": "src/main/runtime/orca-runtime.ts",
+      "intent": "rebrand",
+      "description": "Renamed to fabrica-runtime.ts with all internal references",
+      "pattern": "orca→fabrica in filenames, class names, functions",
+      "notes": ""
+    },
+    {
+      "path": "src/main/runtime/fabrica-runtime.test.ts",
+      "intent": "rebrand",
+      "description": "Test mocks, env vars, function references updated",
+      "pattern": "ORCA_ROOT_PATH→FABRICA_ROOT_PATH, parseOrcaYaml→parseFABRICAYaml",
+      "notes": ""
+    },
+    {
+      "path": "src/main/github/client.ts",
+      "intent": "rebrand",
+      "description": "GitHub API calls, star check endpoint",
+      "pattern": "stablyai/orca→Auto-Scalers/Fabrica-app",
+      "notes": ""
+    },
+    {
+      "path": "src/main/github/client.test.ts",
+      "intent": "rebrand",
+      "description": "Test assertions updated for new repo names",
+      "pattern": "checkOrcaStarred→checkFABRICAStarred",
+      "notes": ""
+    },
+    {
+      "path": "src/main/fabrica-profiles/profile-cloud-auth-config.ts",
+      "intent": "rebrand+custom_logic",
+      "description": "Cloud auth endpoints for fabrica-ai.vercel.app, client ID FABRICA-desktop",
+      "pattern": "ORCA→FABRICA in config",
+      "notes": "Custom cloud auth infrastructure"
+    },
+    {
+      "path": "src/main/fabrica-profiles/profile-cloud-client.ts",
+      "intent": "rebrand",
+      "description": "Type names, function names",
+      "pattern": "OrcaProfile→FABRICAProfile",
+      "notes": ""
+    },
+    {
+      "path": "src/main/fabrica-profiles/profile-cloud-service.ts",
+      "intent": "rebrand",
+      "description": "Function names, error message strings",
+      "pattern": "OrcaProfile→FABRICAProfile, orca_cloud_auth→FABRICA_cloud_auth",
+      "notes": ""
+    },
+    {
+      "path": "src/main/cli/linux-bare-fabrica-dispatcher.ts",
+      "intent": "rebrand",
+      "description": "Renamed from linux-bare-orca-dispatcher.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/cli/linux-terminal-fabrica-cli-shim.ts",
+      "intent": "rebrand",
+      "description": "Renamed from linux-terminal-orca-cli-shim.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/ssh/ssh-remote-fabrica-cli.ts",
+      "intent": "rebrand",
+      "description": "Renamed from ssh-remote-orca-cli.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/shared/fabrica-yaml.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-yaml.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/shared/fabrica-yaml-file-limit.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-yaml-file-limit.ts",
+      "pattern": "ORCA_YAML_*→FABRICA_YAML_*",
+      "notes": ""
+    },
+    {
+      "path": "src/shared/fabrica-attribution.ts",
+      "intent": "custom_logic",
+      "description": "Single constant: FABRICA_GIT_COMMIT_TRAILER",
+      "pattern": "",
+      "notes": "Brand-specific git commit trailer"
+    },
+    {
+      "path": "src/shared/fabrica-cli-command-name.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-cli-command-name.ts",
+      "pattern": "orca→fabrica in return values",
+      "notes": ""
+    },
+    {
+      "path": "src/shared/fabrica-profiles.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-profiles.ts",
+      "pattern": "OrcaProfile*→FABRICAProfile*",
+      "notes": ""
+    },
+    {
+      "path": "src/shared/fabrica-dispatch-status-prompt.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-dispatch-status-prompt.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/assets/main.css",
+      "intent": "rebrand+custom_logic",
+      "description": "Font family renamed, added font-face declarations for Inter subsets, Space Grotesk, JetBrains Mono",
+      "pattern": "Geist→Inter, Orca Nerd Font→Fabrica Nerd Font",
+      "notes": "Font migration is custom_logic"
+    },
+    {
+      "path": "src/renderer/src/assets/fonts/",
+      "intent": "rebrand+custom_logic",
+      "description": "Removed Geist-Variable.woff2, added Inter/Space Grotesk/JetBrains Mono subsets, renamed nerd font",
+      "pattern": "SymbolsNerdFontMono→FabricaNerdFontSymbols",
+      "notes": "Font file swap is custom_logic"
+    },
+    {
+      "path": "src/renderer/src/components/StartupGate.tsx",
+      "intent": "custom_logic",
+      "description": "New auth gate component shown before app loads",
+      "pattern": "",
+      "notes": "Login screen with Fabrica branding, cloud auth integration"
+    },
+    {
+      "path": "src/renderer/src/components/settings/FabricaAccountSettingsPane.tsx",
+      "intent": "rebrand",
+      "description": "Renamed from OrcaAccountSettingsPane.tsx",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/components/settings/fabrica-account-settings-search.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-account-settings-search.ts",
+      "pattern": "orca→fabrica in search terms",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/components/sidebar/FabricaYamlTrustDialog.tsx",
+      "intent": "rebrand",
+      "description": "Renamed from OrcaYamlTrustDialog.tsx",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/components/task-page-linear-in-fabrica-issues.ts",
+      "intent": "rebrand",
+      "description": "Renamed from task-page-linear-in-orca-issues.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/lib/fabrica-hook-trust.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-hook-trust.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/store/slices/fabrica-profiles.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-profiles.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/store/slices/fabrica-profiles-auth-actions.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-profiles-auth-actions.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/i18n/locales/en.json",
+      "intent": "rebrand",
+      "description": "All UI strings: Orca→Fabrica",
+      "pattern": "Orca→Fabrica",
+      "notes": "CJK characters may have encoding corruption"
+    },
+    {
+      "path": "src/renderer/src/i18n/locales/zh.json",
+      "intent": "rebrand",
+      "description": "Chinese locale rebrand (~23K lines)",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/i18n/locales/ja.json",
+      "intent": "rebrand",
+      "description": "Japanese locale rebrand (~23K lines)",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/i18n/locales/ko.json",
+      "intent": "rebrand",
+      "description": "Korean locale rebrand (~23K lines)",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/renderer/src/i18n/locales/es.json",
+      "intent": "rebrand",
+      "description": "Spanish locale rebrand",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/cli/index.ts",
+      "intent": "rebrand",
+      "description": "CLI command name, help text",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/cli/index.test.ts",
+      "intent": "rebrand",
+      "description": "Test assertions updated",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "mobile/src/components/FabricaLogo.tsx",
+      "intent": "rebrand",
+      "description": "Renamed from OrcaLogo.tsx",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "mobile/eas.json",
+      "intent": "custom_logic",
+      "description": "Expo Application Services config for mobile builds",
+      "pattern": "",
+      "notes": "New EAS configuration"
+    },
+    {
+      "path": "mobile/SIGNING.md",
+      "intent": "custom_logic",
+      "description": "Mobile signing documentation",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "mobile/.easignore",
+      "intent": "custom_logic",
+      "description": "EAS ignore rules",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "mobile/src/test-support/source-text.ts",
+      "intent": "custom_logic",
+      "description": "Test support utility",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "native/computer-use-macos/Sources/FabricaComputerUse*/",
+      "intent": "rebrand",
+      "description": "Directory + file renames from OrcaComputerUse*",
+      "pattern": "Orca→Fabrica in directory/file/class names",
+      "notes": ""
+    },
+    {
+      "path": "native/computer-use-macos/Tests/FabricaComputerUse*/",
+      "intent": "rebrand",
+      "description": "Directory + file renames from OrcaComputerUse*",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "native/windows-cli-launcher/FabricaCliLauncher.cs",
+      "intent": "rebrand",
+      "description": "Renamed from OrcaCliLauncher.cs",
+      "pattern": "Orca→Fabrica",
+      "notes": ""
+    },
+    {
+      "path": "native/computer-use-windows/runtime.ps1",
+      "intent": "rebrand",
+      "description": "Class name, function names updated",
+      "pattern": "OrcaDesktopWin32→FabricaDesktopWin32, *-Orca*→*-Fabrica*",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-cli/SKILL.md",
+      "intent": "rebrand",
+      "description": "All references updated",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-orchestration/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from orchestration/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-linear/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from orca-linear/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-computer-use/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from computer-use/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-emulator/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from orca-emulator/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-emulator-android/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from orca-emulator-android/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-linear-tickets/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from linear-tickets/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "skills/fabrica-per-workspace-env/SKILL.md",
+      "intent": "rebrand",
+      "description": "Renamed from orca-per-workspace-env/SKILL.md",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/skills/snapshot-registry.json",
+      "intent": "rebrand+custom_logic",
+      "description": "Trimmed from ~1751 to ~149 lines — all historical skill revisions removed",
+      "pattern": "orca-cli→fabrica-cli",
+      "notes": "92% trim is custom_logic"
+    },
+    {
+      "path": "resources/skills/release-mapping.json",
+      "intent": "rebrand+custom_logic",
+      "description": "Trimmed from ~644 to ~18 lines — all historical Orca version mappings removed",
+      "pattern": "orca-cli→fabrica-cli",
+      "notes": "97% trim is custom_logic"
+    },
+    {
+      "path": "resources/app-icons/fabrica-dark.png",
+      "intent": "custom_logic",
+      "description": "New brand icon asset",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "resources/app-icons/fabrica-light.png",
+      "intent": "custom_logic",
+      "description": "New brand icon asset",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "resources/icon-source/fabrica-logo_icon.png",
+      "intent": "custom_logic",
+      "description": "Brand emblem source PNG",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "resources/fabrica-hero-bg.jpg",
+      "intent": "custom_logic",
+      "description": "Hero background image for StartupGate",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "resources/tray/fabrica-menu-barTemplate.png",
+      "intent": "rebrand",
+      "description": "Renamed from orca-menu-barTemplate.png",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/tray/fabrica-menu-barTemplate@2x.png",
+      "intent": "rebrand",
+      "description": "Renamed from orca-menu-barTemplate@2x.png",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/plugins/launch/autoscalers.fabrica-multipass-recipes/",
+      "intent": "rebrand",
+      "description": "Renamed from stablyai.orca-multipass-recipes/",
+      "pattern": "stablyai.orca→autoscalers.fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/plugins/launch/autoscalers.fabrica-navigation-shortcuts/",
+      "intent": "rebrand",
+      "description": "Renamed from stablyai.orca-navigation-shortcuts/",
+      "pattern": "stablyai.orca→autoscalers.fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/plugins/launch/autoscalers.fabrica-portuguese/",
+      "intent": "rebrand",
+      "description": "Renamed from stablyai.orca-portuguese/",
+      "pattern": "stablyai.orca→autoscalers.fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/plugins/launch/fabrica-marketplace.json",
+      "intent": "rebrand",
+      "description": "Renamed from orca-marketplace.json",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/darwin/bin/fabrica",
+      "intent": "rebrand",
+      "description": "Renamed from orca",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/linux/bin/fabrica",
+      "intent": "rebrand",
+      "description": "Renamed from orca-ide",
+      "pattern": "orca-ide→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "resources/win32/bin/fabrica.cmd",
+      "intent": "rebrand",
+      "description": "Renamed from orca.cmd",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "tests/e2e/helpers/fabrica-app.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-app.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "tests/e2e/helpers/fabrica-restart.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-restart.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "tests/e2e/fabrica-restart-navigation.unit.test.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-restart-navigation.unit.test.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "tests/e2e/setup-script-prompt-unreadable-fabrica-yaml.spec.ts",
+      "intent": "rebrand",
+      "description": "Renamed from orca-yaml.spec.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "tests/e2e/terminal-panes.spec.ts",
+      "intent": "rebrand",
+      "description": "Mock paths, env vars, function references",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "Casks/fabrica.rb",
+      "intent": "rebrand",
+      "description": "Renamed from orca.rb",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "Casks/fabrica@rc.rb",
+      "intent": "rebrand",
+      "description": "Renamed from orca@rc.rb",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "examples/plugins/hello-fabrica/main.mjs",
+      "intent": "rebrand",
+      "description": "Renamed from hello-orca/",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "visual-palette-reference.md",
+      "intent": "custom_logic",
+      "description": "OKLCH design token reference for visual palette migration",
+      "pattern": "",
+      "notes": "Design system documentation"
+    },
+    {
+      "path": "contrast-audit.js",
+      "intent": "custom_logic",
+      "description": "WCAG contrast audit script for CSS tokens",
+      "pattern": "",
+      "notes": "Accessibility tooling"
+    },
+    {
+      "path": "build-eb.cmd",
+      "intent": "custom_logic",
+      "description": "Local build convenience script",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "build-win-wrap.cmd",
+      "intent": "custom_logic",
+      "description": "Local build convenience script",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "electron.vite.config.1787972008048.mjs",
+      "intent": "custom_logic",
+      "description": "Inlined/bundled electron-vite config (build artifact)",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": ".github/workflows/adhoc-mac-build.yml",
+      "intent": "incidental",
+      "description": "Dev-channel build workflow removed",
+      "pattern": "",
+      "notes": "Simplified release model"
+    },
+    {
+      "path": ".github/workflows/daily-mac-build.yml",
+      "intent": "incidental",
+      "description": "Dev-channel build workflow removed",
+      "pattern": "",
+      "notes": "Simplified release model"
+    },
+    {
+      "path": ".github/workflows/hourly-mac-build.yml",
+      "intent": "incidental",
+      "description": "Dev-channel build workflow removed",
+      "pattern": "",
+      "notes": "Simplified release model"
+    },
+    {
+      "path": "config/scripts/setup-adhoc-release-repo.sh",
+      "intent": "incidental",
+      "description": "Dev-channel setup script removed",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "config/scripts/setup-daily-release-repo.sh",
+      "intent": "incidental",
+      "description": "Dev-channel setup script removed",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "config/scripts/setup-hourly-release-token.sh",
+      "intent": "incidental",
+      "description": "Dev-channel setup script removed",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "ORCA_WINDOWS_SETUP_GUIDE.md",
+      "intent": "incidental",
+      "description": "Removed — superseded",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "docs/mobile-relay-ux-findings.md",
+      "intent": "incidental",
+      "description": "Removed",
+      "pattern": "",
+      "notes": ""
+    },
+    {
+      "path": "tests/tools/benchmarks/results/*.json",
+      "intent": "incidental",
+      "description": "Benchmark result files removed (build artifacts)",
+      "pattern": "",
+      "notes": "Not source code"
+    },
+    {
+      "path": "src/main/ipc/orca-profiles.ts",
+      "intent": "rebrand",
+      "description": "Renamed to fabrica-profiles.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/ipc/fabrica-profile-auth-handlers.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-profile-auth-handlers.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/ipc/fabrica-profile-org-members-handlers.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-profile-org-members-handlers.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/pty/wsl-fabrica-env.ts",
+      "intent": "rebrand",
+      "description": "Renamed from wsl-orca-env.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/pty/wsl-fabrica-env.test.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of wsl-orca-env.test.ts",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    },
+    {
+      "path": "src/main/plugins/plugin-marketplace-provenance.test.ts",
+      "intent": "rebrand",
+      "description": "New file, rebrand of orca-marketplace-provenance test",
+      "pattern": "orca→fabrica",
+      "notes": ""
+    }
+  ],
+  "custom_logic_files_requiring_reimplementation": [
+    "src/renderer/src/components/StartupGate.tsx",
+    "src/shared/fabrica-attribution.ts",
+    "src/main/fabrica-profiles/profile-cloud-auth-config.ts",
+    "src/main/fabrica-profiles/profile-cloud-client.ts",
+    "src/main/fabrica-profiles/profile-cloud-service.ts",
+    "src/main/fabrica-profiles/profile-cloud-session-exchange.ts",
+    "src/main/fabrica-profiles/profile-cloud-dev-service.ts",
+    "src/main/fabrica-profiles/profile-cloud-org-members-service.ts",
+    "src/main/ipc/fabrica-profile-auth-handlers.ts",
+    "src/main/ipc/fabrica-profile-org-members-handlers.ts",
+    "src/renderer/src/store/slices/fabrica-profiles.ts",
+    "src/renderer/src/store/slices/fabrica-profiles-auth-actions.ts",
+    "src/renderer/src/components/settings/fabrica-account-settings-search.ts",
+    "config/scripts/build-fabrica-icons.mjs",
+    "resources/skills/snapshot-registry.json",
+    "resources/skills/release-mapping.json",
+    "mobile/eas.json",
+    "mobile/SIGNING.md",
+    "mobile/.easignore",
+    "mobile/src/test-support/source-text.ts",
+    "src/main/plugins/plugin-marketplace-provenance.test.ts",
+    "src/main/pty/wsl-fabrica-env.test.ts",
+    "visual-palette-reference.md",
+    "contrast-audit.js",
+    "build-eb.cmd",
+    "build-win-wrap.cmd",
+    "src/renderer/src/assets/main.css",
+    "src/renderer/src/assets/fonts/Inter-*.woff2",
+    "src/renderer/src/assets/fonts/JetBrainsMono-*.woff2",
+    "src/renderer/src/assets/fonts/SpaceGrotesk-*.woff2",
+    "resources/app-icons/fabrica-dark.png",
+    "resources/app-icons/fabrica-light.png",
+    "resources/icon-source/fabrica-logo_icon.png",
+    "resources/fabrica-hero-bg.jpg"
+  ]
+}

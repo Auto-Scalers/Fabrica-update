@@ -1,0 +1,263 @@
+{
+  "summary": {
+    "total_files_baseline": 13195,
+    "total_files_upstream": 23562,
+    "common_files": 12779,
+    "added": 10783,
+    "deleted": 416,
+    "modified": 5511,
+    "identical": 7268,
+    "potential_renames": 152
+  },
+  "by_directory": {
+    "src": { "added": 9541, "deleted": 378, "modified": 4843 },
+    "mobile": { "added": 357, "deleted": 6, "modified": 354 },
+    "cloud": { "added": 339, "deleted": 0, "modified": 0 },
+    "tests": { "added": 212, "deleted": 4, "modified": 131 },
+    "docs": { "added": 146, "deleted": 3, "modified": 14 },
+    "config": { "added": 142, "deleted": 6, "modified": 107 },
+    ".github": { "added": 43, "deleted": 0, "modified": 28 },
+    "native": { "added": 3, "deleted": 0, "modified": 6 },
+    "skill-guides": { "added": 0, "deleted": 0, "modified": 8 },
+    "skills": { "added": 0, "deleted": 0, "modified": 3 },
+    ".husky": { "added": 0, "deleted": 17, "modified": 0 },
+    "root_files": { "added": 0, "deleted": 2, "modified": 12 }
+  },
+  "src_subdirectories": {
+    "renderer/src": { "added": 4032, "modified": 2680 },
+    "main/runtime": { "added": 1139, "modified": 284 },
+    "main/ipc": { "added": 555, "modified": 215 },
+    "main/browser": { "added": 424, "modified": 42 },
+    "main/native-chat": { "added": 193, "modified": 27 },
+    "main/git": { "added": 170, "modified": 35 },
+    "main/daemon": { "added": 162, "modified": 102 },
+    "main/skills": { "added": 155, "modified": 0 },
+    "main/codex": { "added": 151, "modified": 61 },
+    "preload/api": { "added": 138, "modified": 0 },
+    "main/github": { "added": 127, "modified": 43 },
+    "main/persistence": { "added": 121, "modified": 0 },
+    "main/ssh": { "added": 110, "modified": 85 },
+    "main/providers": { "added": 95, "modified": 48 },
+    "main/codex-accounts": { "added": 74, "modified": 16 },
+    "main/agent-hooks": { "added": 72, "modified": 37 },
+    "main/startup": { "added": 67, "modified": 22 },
+    "main/rate-limits": { "added": 57, "modified": 0 },
+    "shared/agent-hook-listener": { "added": 51, "modified": 0 },
+    "main/orcad": { "added": 44, "modified": 0 },
+    "shared/worktree": { "added": 44, "modified": 0 },
+    "main/window": { "added": 41, "modified": 18 },
+    "main/cli": { "added": 39, "modified": 0 },
+    "main/claude-accounts": { "added": 38, "modified": 0 },
+    "main/automations": { "added": 38, "modified": 0 }
+  },
+  "cloud_new_directory": {
+    "description": "Entirely new cloud/ directory for relay server deployment",
+    "subdirectories": {
+      "dev/scripts": 117,
+      "apps/relay": 111,
+      "apps/relay-ops": 34,
+      "infra/terraform": 23,
+      "packages/relay-contract": 20,
+      "apps/relay-fence-broker": 13,
+      "root_files": 8
+    }
+  },
+  "files": [
+    {
+      "path": "package.json",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 500, "new_start": 1, "new_count": 592, "description": "92 insertions, 62 deletions. New dependencies added (30+), version bumps, workspace config changes." }
+      ]
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 10, "new_start": 1, "new_count": 56, "description": "46 insertions. Expanded workspace to include cloud/ packages (relay, relay-ops, relay-fence-broker, relay-contract, dev scripts)." }
+      ]
+    },
+    {
+      "path": "electron.vite.config.ts",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 400, "new_start": 1, "new_count": 414, "description": "14 insertions, 7 deletions. Build config updates for new modules and entry points." }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 200, "new_start": 1, "new_count": 231, "description": "31 insertions, 4 deletions. Expanded agent instructions and capabilities documentation." }
+      ]
+    },
+    {
+      "path": "README.md",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 500, "new_start": 1, "new_count": 508, "description": "8 insertions, 4 deletions. Updated project documentation." }
+      ]
+    },
+    {
+      "path": "config/reliability-gates.jsonc",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 30000, "new_start": 1, "new_count": 55000, "description": "12,780 insertions, 5,476 deletions. Massive expansion from 851KB to 1.6MB. New test contracts, coverage requirements, and quality gates." }
+      ]
+    },
+    {
+      "path": "config/max-lines-baseline.txt",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 335, "new_start": 1, "new_count": 10, "description": "335 deletions. Reduced from 17,919 to 844 bytes. Most line-count baselines removed." }
+      ]
+    },
+    {
+      "path": "config/electron-builder.config.cjs",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 800, "new_start": 1, "new_count": 1000, "description": "Grew from 27,339 to 34,735 bytes. New build targets and packaging configuration." }
+      ]
+    },
+    {
+      "path": "config/tsconfig.cli.json",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 150, "new_start": 1, "new_count": 240, "description": "Grew from 4,559 to 7,317 bytes. New TypeScript compilation targets for CLI modules." }
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 100, "new_start": 1, "new_count": 140, "description": "Grew from 3,312 to 4,613 bytes. New ignore patterns for cloud/, relay, and new build artifacts." }
+      ]
+    },
+    {
+      "path": ".oxlintrc.json",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 200, "new_start": 1, "new_count": 240, "description": "Grew from 5,961 to 7,072 bytes. New linting rules for expanded codebase." }
+      ]
+    },
+    {
+      "path": "config/localization-coverage-allowlist.json",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 60, "new_start": 1, "new_count": 80, "description": "Grew from 1,990 to 2,586 bytes. New i18n coverage entries for new components." }
+      ]
+    },
+    {
+      "path": "cloud/",
+      "status": "added",
+      "hunks": [
+        { "old_start": 0, "old_count": 0, "new_start": 0, "new_count": 339, "description": "Entirely new directory. Relay server (111 files), relay-ops (34), relay-fence-broker (13), relay-contract (20), terraform infra (23), dev scripts (117)." }
+      ]
+    },
+    {
+      "path": "src/main/skills/",
+      "status": "added",
+      "hunks": [
+        { "old_start": 0, "old_count": 0, "new_start": 0, "new_count": 155, "description": "New skills system with 155 files for plugin/skill management." }
+      ]
+    },
+    {
+      "path": "src/main/runtime/",
+      "status": "added",
+      "hunks": [
+        { "old_start": 0, "old_count": 0, "new_start": 0, "new_count": 1139, "description": "Massive runtime system expansion with 1,139 new files." }
+      ]
+    },
+    {
+      "path": "src/main/browser/",
+      "status": "modified",
+      "hunks": [
+        { "old_start": 1, "old_count": 50, "new_start": 1, "new_count": 424, "description": "424 new files added. Browser pane rebuilt with remote streaming, markup tools, annotation system." }
+      ]
+    },
+    {
+      "path": "src/renderer/src/components/browser-pane/",
+      "status": "added",
+      "hunks": [
+        { "old_start": 0, "old_count": 0, "new_start": 0, "new_count": 60, "description": "Entirely new browser pane component tree: address bar, annotations, toolbar, remote browser streaming, markup tools, webview registry." }
+      ]
+    },
+    {
+      "path": "src/renderer/src/components/right-sidebar/",
+      "status": "added",
+      "hunks": [
+        { "old_start": 0, "old_count": 0, "new_start": 0, "new_count": 40, "description": "New source control panel: git history, PR creation, AI code review, branch management, bulk actions." }
+      ]
+    },
+    {
+      "path": "src/renderer/src/components/editor/",
+      "status": "added",
+      "hunks": [
+        { "old_start": 0, "old_count": 0, "new_start": 0, "new_count": 25, "description": "New combined diff viewer: file tree, section loading, scrollbar, commit message integration." }
+      ]
+    },
+    {
+      "path": ".husky/_/",
+      "status": "removed",
+      "hunks": [
+        { "old_start": 1, "old_count": 17, "new_start": 0, "new_count": 0, "description": "17 husky hook template files removed from upstream." }
+      ]
+    },
+    {
+      "path": "src/renderer/src/components/browser-pane/ (old)",
+      "status": "removed",
+      "hunks": [
+        { "old_start": 1, "old_count": 60, "new_start": 0, "new_count": 0, "description": "~60 browser pane files removed from baseline locations. Refactored to new component structure." }
+      ]
+    },
+    {
+      "path": "src/shared/",
+      "status": "removed",
+      "hunks": [
+        { "old_start": 1, "old_count": 40, "new_start": 0, "new_count": 0, "description": "~40 shared utility files removed: GitHub utils, worktree management, Linear integration, types." }
+      ]
+    }
+  ],
+  "architectural_changes": [
+    {
+      "name": "Relay Server Split",
+      "description": "New cloud/ directory extracts relay server into separate deployment package with relay-ops, relay-fence-broker, relay-contract, and terraform infrastructure.",
+      "files_affected": 339
+    },
+    {
+      "name": "Browser Pane Rebuild",
+      "description": "Entire browser pane deleted from old locations and rebuilt with new components: remote browser streaming, markup/annotation tools, webview management.",
+      "files_affected": 424
+    },
+    {
+      "name": "Source Control Expansion",
+      "description": "Git history panel, PR creation flow, AI code review, and branch management completely rewritten in right-sidebar.",
+      "files_affected": 40
+    },
+    {
+      "name": "Runtime System Growth",
+      "description": "1,139 new files in src/main/runtime/ indicate major runtime architecture changes.",
+      "files_affected": 1139
+    },
+    {
+      "name": "Skills System",
+      "description": "155 new files in src/main/skills/ for plugin/skill management architecture.",
+      "files_affected": 155
+    },
+    {
+      "name": "IPC Expansion",
+      "description": "555 new IPC handlers in src/main/ipc/ indicate significant new main-renderer communication.",
+      "files_affected": 555
+    },
+    {
+      "name": "Config Explosion",
+      "description": "reliability-gates.jsonc doubled in size with comprehensive test/quality gate definitions.",
+      "files_affected": 1
+    },
+    {
+      "name": "Dependency Growth",
+      "description": "package.json increased by 4,684 bytes with 30+ new dependencies.",
+      "files_affected": 1
+    }
+  ]
+}

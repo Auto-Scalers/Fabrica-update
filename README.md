@@ -31,10 +31,14 @@ AGENTS.md                               # Worker instructions
 
 | Phase | What | Output |
 |-------|------|--------|
-| 0 | Update upstream Orca to latest commit | `upstream-orca/` at recorded hash |
-| 1 | Upstream diff (`orca-baseline` vs `upstream-orca`) | `UPSTREAM-DIFF-MAP.md` + `.json` |
-| 2 | Targeted rebrand diff (`orca-baseline` vs `Fabrica-app`, scoped to upstream-touching files) | `REBRAND-DIFF-MAP.md` + `.json` |
-| 3 | Implementation mapping (risk × intent matrix → action) | `SYNC-IMPLEMENTATION-PLAN.md` |
+| T0 | Pin upstream Orca to latest commit | `upstream-orca/` at recorded hash |
+| T1 | Fork `Auto-Scalers/Fabrica` from upstream | Clean baseline pushed to GitHub |
+| T2 | Rebrand intent diff (`orca-baseline` vs `Fabrica-app`) | `pipeline-files/REBRAND-INTENT-MAP.md` + `.json` |
+| T3 | Upstream diff (`orca-baseline` vs `upstream-orca`) | `pipeline-files/UPSTREAM-DIFF-MAP.md` + `.json` |
+| T4 | Custom-logic map (diff-of-diffs) | `pipeline-files/CUSTOM-LOGIC-MAP.md` + `.json` |
+| T5 | Apply rebrand to new `Fabrica/` | `pipeline-files/REBRAND-LOG.txt` + `rebrand-verification-report.md` |
+| T6 | Re-implement custom logic | `pipeline-files/CUSTOM-LOGIC-LOG.txt` + `CUSTOM-LOGIC-REVIEW.md` |
+| T7 | Final verification | `pipeline-files/FINAL-VERIFICATION-REPORT.md` |
 
 ## Related
 
