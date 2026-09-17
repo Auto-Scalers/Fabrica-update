@@ -1,4 +1,4 @@
-# Fabrica-app Update Pipeline — Plan (v3, fork-from-upstream)
+# Fabrica-app Update Pipeline — Plan (v3.1, fork-from-upstream)
 
 > Plan for **forking upstream Orca as the new Fabrica-app** and re-applying every rebrand + custom-logic on top of it. Goal: a clean, repeatable way to keep Fabrica in sync with upstream without ever trying to "port over" thousands of upstream-only files into the old fork.
 
@@ -6,9 +6,9 @@
 
 ## Why v3
 
-v2 (fork-from-upstream) produced a working pipeline but revealed **13 patterns** that v2 didn't account for. The C-phase audits (14 audits, 60 findings) and I-phase implementation (26 tasks) showed that content rebranding alone is insufficient — filenames, binary assets, shared directories, app IDs, auth endpoints, dependencies, build configs, and documentation all need explicit handling.
+v2 (fork-from-upstream) produced a working pipeline but revealed **18 patterns** that v2 didn't account for. The C-phase audits (14 audits, 60 findings), I-phase implementation (26 tasks), and H-phase physical testing (20 issues) showed that content rebranding alone is insufficient — filenames, binary assets, shared directories, app IDs, auth endpoints, dependencies, build configs, documentation, React runtime, CSS theming, plugin naming, and skill naming all need explicit handling.
 
-**v3 adds:** 4 new phases (filename/binary rebrand, dependency audit, build/CI verification, coexistence analysis), refines the verification phase into a 7-check matrix, and codifies every pattern discovered so future syncs get it right the first time.
+**v3.1 adds:** 6 new phases (filename/binary rebrand, dependency audit, build/CI verification, coexistence analysis, physical testing, build verification), expands the verification phase into a 12-check matrix, and codifies every pattern discovered (including H-phase runtime and naming issues) so future syncs get it right the first time.
 
 ## Why v2
 
@@ -72,7 +72,7 @@ By **diffing the diffs**, we can map each piece of our custom logic onto its new
                   Fabrica/  (final)
 ```
 
-## Eleven-phase approach (fork-from-upstream, v3)
+## Thirteen-phase approach (fork-from-upstream, v3.1)
 
 ### Phase 0 — Pin upstream
 
@@ -219,7 +219,7 @@ By **diffing the diffs**, we can map each piece of our custom logic onto its new
 
 ### Phase 10 — Verification matrix ← REFINED FROM v2 Phase 7
 
-**Goal:** comprehensive verification across 7 dimensions. v2 only checked 3 (grep orca, grep stablyai, build smoke). v3 checks everything.
+**Goal:** comprehensive verification across 12 dimensions. v2 only checked 3 (grep orca, grep stablyai, build smoke). v3.1 checks everything.
 
 | # | Check | Method | Expected |
 |---|-------|--------|----------|
@@ -230,8 +230,62 @@ By **diffing the diffs**, we can map each piece of our custom logic onto its new
 | 5 | App ID consistency | Verify `ai.autoscalers.fabrica` in: `package.json`, `electron-builder.config.cjs`, `local-build-compatibility-contract.json`, `mobile/app.json`, `mobile/SIGNING.md` | All match |
 | 6 | Import path integrity | After all renames, grep for old filenames in import/require statements | 0 stale imports |
 | 7 | Custom-logic coverage | Every entry in `CUSTOM-LOGIC-MAP` is `applied` or `flagged_for_review` | None silently dropped |
+| 8 | React runtime validation | Launch app via `pnpm dev`; verify no "Maximum update depth exceeded" error; check status bar mounts | App starts clean, status bar functional |
+| 9 | CSS theme verification | Grep for hardcoded hex colors in `.tsx` files; verify CSS custom properties used for brand colors | 0 inline hex colors; brand colors via variables |
+| 10 | Skill installation + visibility | Verify `~/.agents/skills/` contains `fabrica-*` dirs; verify app Skills tab lists them | All 8 Fabrica skills visible |
+| 11 | Plugin naming convention | Grep plugin dirs for `stablyai.*` or `fabrica-ai.*` prefix | 0 matches; only `auto-scalers.*` |
+| 12 | Dev mode launch | Run `pnpm dev`; verify Electron starts, dev server on port 5173 | App launches without errors |
 
 **Output:** `pipeline-files/FINAL-VERIFICATION-REPORT.md`
+
+### Phase 11 — Physical Testing & Manual Validation ← NEW IN v3.1
+
+**Goal:** catch issues that automated checks miss — visual branding, React runtime, theme identity, plugin/skill naming, and end-to-end flows.
+
+**Pattern discovered in v3:** Automated tests (AT-1 to AT-4) passed, but physical testing found 20 issues including a critical React infinite loop, CSS theme mismatches, and plugin naming errors. These cannot be caught by grep alone.
+
+1. **App startup test:**
+   - Launch via `pnpm dev` (or production build if available)
+   - Verify no "Maximum update depth exceeded" errors
+   - Verify status bar mounts and functions
+   - Verify StartupGate renders (or "Continue locally" fallback)
+2. **Visual branding audit:**
+   - Verify app icon is Fabrica (not Orca)
+   - Verify help menu Discord link points to Fabrica server
+   - Verify all logo imports resolve to Fabrica assets
+   - Grep for Orca in `*.png`, `*.ico`, `*.svg` filenames
+3. **Theme identity check:**
+   - Verify CSS variables match brand palette (copper/teal/indigo)
+   - Grep for hardcoded hex colors in `.tsx` component files
+   - Verify light/dark mode both apply brand colors
+4. **Plugin & skill naming audit:**
+   - Verify plugin dirs use `auto-scalers.fabrica-*` (kebab-case publisher)
+   - Verify `OFFICIAL_PLUGIN_PUBLISHER` matches
+   - Verify `agent-feature-install-commands.ts` uses `fabrica-*` skill names
+   - Verify help/feedback dialogs use `Auto-Scalers/Fabrica` GitHub URL
+5. **Skills visibility test:**
+   - Verify `~/.agents/skills/` contains Fabrica skill dirs
+   - Verify app Skills tab lists them
+6. **Output:** `pipeline-files/PHYSICAL-TESTING-REPORT.md` — per-issue findings and fixes
+
+### Phase 12 — Build Verification ← NEW IN v3.1
+
+**Goal:** verify production build works on target platforms. Document known blockers.
+
+**Pattern discovered in v3:** `electron-builder` production build fails on Windows when the source path contains spaces (e.g., `C:\Users\BAB AL SAFA\Desktop\...`). MSBuild FileTracker (FTK1011) cannot handle long paths with spaces. No workaround found (substitution, junctions, and filetracker disable all fail).
+
+1. **Production build test:**
+   - Run `pnpm build:win` (Windows), `pnpm build:mac` (macOS), `pnpm build:linux` (Linux)
+   - If path has spaces: document as known blocker; use `pnpm dev` for testing
+   - If path is clean: verify installer launches and passes smoke test
+2. **Dev mode verification:**
+   - Run `pnpm dev` from source
+   - Verify Electron starts, dev server on port 5173, DevTools on port 9413
+   - Verify all panels work (terminal, file explorer, worktrees, settings)
+3. **Native module check:**
+   - Verify `node-pty`, `conpty.node` load without errors
+   - If rebuild fails: document Spectre library requirement
+4. **Output:** `pipeline-files/BUILD-VERIFICATION-REPORT.md` — build status per platform, known blockers
 
 ## Rebrand Pattern (complete)
 
@@ -314,9 +368,9 @@ When a custom-logic file is no longer present in upstream:
 | 3 | No | Yes (new location) | Skip — upstream absorbed it |
 | 4 | No | No | Archive (dead code) |
 
-## Lessons learned (codified from v2 C-phase + I-phase)
+## Lessons learned (codified from v2 C-phase + I-phase + H-phase)
 
-These patterns were discovered during the first v2 execution and are now mandatory checks for every future sync:
+These patterns were discovered during the first v2 execution and physical testing, and are now mandatory checks for every future sync:
 
 ### L1: Content rebrand ≠ filename rebrand
 Phase 5 changes file contents. It does NOT rename files. A separate Phase 7 pass is required to rename files and directories. Build will break if code imports `fabrica-blue.png` but the file on disk is still `orca-blue.png`.
@@ -330,8 +384,8 @@ The app ID (`ai.autoscalers.fabrica`) appears in 5+ locations: `package.json`, `
 ### L4: Dead dependencies accumulate silently
 Upstream may add dependencies that our custom logic doesn't use (e.g., `@supabase/supabase-js`). Phase 8 must scan for packages that are imported nowhere in the codebase.
 
-### L5: Build channels are Orca-specific
-Hourly/daily/adhoc build channels are Orca infrastructure. Fabrica should drop them. Their workflow files and config references must be removed.
+### L5: Build channels are Orca-specific dead code
+Hourly/daily/adhoc build channels have no callers in Fabrica. They are dead code — safe to leave as-is or remove. Removal is optional, not required.
 
 ### L6: Shared directories need coexistence analysis
 The `~/.agents/skills/` directory is a community standard shared by multiple agents (Claude, Codex, Cursor, Fabrica). Both Orca and Fabrica write to it. Skill names must not collide.
@@ -354,8 +408,23 @@ Font-face declarations may be incomplete after merge. Phase 8 must verify that `
 ### L12: Documentation with old brand references
 Docs in `docs/reference/` may still reference "Orca". Phase 8 must grep docs for old brand names.
 
-### L13: Skill registries need rebrand + dedup
-`snapshot-registry.json`, `current-manifest.json`, and `release-mapping.json` must be rebranded. Extra Fabrica-only entries (duplicates of existing skills) must be removed.
+### L13: Skill registries need rebrand (not dedup)
+`snapshot-registry.json`, `current-manifest.json`, and `release-mapping.json` must be rebranded. Fabrica-prefixed entries (`fabrica-computer-use`, `fabrica-linear-tickets`, `fabrica-orchestration`) are the ONLY versions — do NOT remove them as "duplicates."
+
+### L14: Zustand selectors need `useShallow` ← FROM H-PHASE
+Zustand selectors that return new objects on every call cause infinite re-render loops. Wrap all selectors with `useShallow` from `zustand/react/shallow`. Discovered in H-1/H-2 (critical startup crash).
+
+### L15: CSS: use custom properties, never hardcode hex ← FROM H-PHASE
+Brand colors must use CSS custom properties and Tailwind classes. Never hardcode hex values in component inline styles — they break light/dark mode theming. Discovered in H-7/H-20.
+
+### L16: Plugin publisher must be kebab-case ← FROM H-PHASE
+Plugin directory naming convention is `<publisher>.<plugin-name>`. Publisher must be lowercase kebab-case: `auto-scalers.fabrica-*` (not `fabrica-ai.fabrica-*` — PascalCase fails `isSafePluginId()`). Discovered in H-17.
+
+### L17: Skill names must use `fabrica-*` prefix ← FROM H-PHASE
+All Fabrica skills use `fabrica-` prefix: `fabrica-computer-use`, `fabrica-orchestration`, `fabrica-linear-tickets`. The `agent-feature-install-commands.ts` file must reference these prefixed names. Discovered in H-19.
+
+### L18: GitHub org must be consistent everywhere ← FROM H-PHASE
+All GitHub references must use `Auto-Scalers/Fabrica` — not `fabrica-ai/fabrica` (old org). Applies to: help menu, feedback dialog, skill install commands, package.json homepage, CI workflows. Discovered in H-12/H-18.
 
 ## Output artifacts (under `Fabrica-update/.Fabrica-update-board/pipeline-files/`)
 
@@ -381,7 +450,7 @@ Docs in `docs/reference/` may still reference "Orca". Phase 8 must grep docs for
 - **Substitutions are case-sensitive, longest-match first**, in the documented order.
 - **Read-only** on `orca-baseline/`, `upstream-orca/`, and `Fabrica-plugins/` (until T5 of the plugins plan).
 - **No commits/pushes by the worker** — orchestrator handles git. Workers report `worker_done`.
-- **No actual deletes.** All archived material goes under `.Fabrica-update-board/.archive/` (or `Fabrica/.Fabrica-app-board/.archive/` for the new fork).
+- **No actual deletes.** All archived material goes under `.Fabrica-update-board/.archive/` (or `Fabrica/.Fabrica-board/.archive/` for the new fork).
 - **Exclude from diff noise:** `node_modules/`, `.next/`, `dist/`, `out/`, `build/`, `.git/`, `.backup/`, `_sources/`.
 - **Workers must claim** `IN_PROGRESS` in the task file and record their handle in the Session Ledger **before** starting — anti-overlap protocol.
 - **(v3)** Filename rebrand (Phase 7) is mandatory after content rebrand (Phase 5). Do not skip it.
@@ -401,7 +470,9 @@ Docs in `docs/reference/` may still reference "Orca". Phase 8 must grep docs for
 | T7 | **Filename & binary rebrand** → `pipeline-files/FILENAME-REBRAND-LOG.txt` | Worker | T5, T6 |
 | T8 | **Dependency & config audit** → `pipeline-files/DEPENDENCY-AUDIT-REPORT.md` | Worker | T7 |
 | T9 | **Coexistence & conflict analysis** → `pipeline-files/COEXISTENCE-ANALYSIS.md` | Worker | T7 |
-| T10 | **Verification matrix** (7 checks) → `pipeline-files/FINAL-VERIFICATION-REPORT.md` | Worker | T8, T9 |
+| T10 | **Verification matrix** (12 checks) → `pipeline-files/FINAL-VERIFICATION-REPORT.md` | Worker | T8, T9 |
+| T11 | **Physical testing & manual validation** → `pipeline-files/PHYSICAL-TESTING-REPORT.md` | Worker (+ PM manual) | T10 |
+| T12 | **Build verification** → `pipeline-files/BUILD-VERIFICATION-REPORT.md` | Worker | T10 |
 
 ## Status
 
@@ -409,5 +480,77 @@ Docs in `docs/reference/` may still reference "Orca". Phase 8 must grep docs for
 - Old `Fabrica-app` (v0.0.6, `0a5d258`): cloned into `Fabrica-update/Fabrica-app/` as a read-only reference.
 - Upstream `stablyai/orca` (`7106101ed2`): cloned into `Fabrica/` as the new target repo.
 - v2 (fork-from-upstream): **completed 2026-09-08** — all 48 tasks done (T0-T7, C1-C14, I-01 to I-26).
-- v3 (refined pipeline): **ready** — 11-phase approach with lessons codified.
+- v3 (refined pipeline): **completed 2026-09-17** — 13-phase approach with 18 lessons codified. All phases executed successfully.
 - Upstream commit for this sync: `7ed86a98ae` ("fix(mobile): restore terminal input when reopening worktrees").
+
+---
+
+## Lessons Learned from Physical Testing (H-phase, 2026-09-16)
+
+These issues were found during first physical testing after the automated pipeline completed. **Future syncs should check for these proactively.**
+
+### Build Environment Issues
+
+| Lesson | Details | Fix for Next Time |
+|--------|---------|-------------------|
+| **Path spaces break MSBuild** | `C:\Users\BAB AL SAFA\Desktop\...` causes FileTracker .tlog errors and native module build failures | Always build from a path without spaces (e.g., `C:\Fabrica-dev`) |
+| **Spectre libraries required** | node-pty's conpty.vcxproj requires Spectre-mitigated libs | Install `Microsoft.VisualStudio.Component.VC.Spectre` via VS Installer before building |
+| **esbuild 0.25 rejects shebangs** | `#!/usr/bin/env node` in .ts entry points causes `Syntax error "!"` | Remove shebangs from TypeScript entry points; add via esbuild `banner` option if needed |
+| **BOM in JSON files** | UTF-8 BOM in `en-runtime-required.json` causes `Unexpected token` error | Strip BOM from all JSON files before build |
+| **Skills verification naming** | `verify-skills-cli-runtime.cjs` expects `computer-use` but rebrand renamed it to `fabrica-computer-use` | Update verification scripts after rebrand |
+
+### Branding Issues Found
+
+| Issue | Where | Fix |
+|-------|-------|-----|
+| App icon still Orca | Desktop icon, window icon | Replace icon assets in `resources/` |
+| Orca logo on mobile page | Fabrica mobile UI | Search for Orca logo references in mobile components |
+| Orca Discord link | Help page | Update Discord URL to Fabrica server |
+| Orca logos in various UI places | Multiple surfaces | Systematic grep for Orca icon/image assets |
+
+### Configuration Issues
+
+| Issue | Where | Fix |
+|-------|-------|-----|
+| Skills GitHub wrong | Skills registry/config | Change `fabrica-ai/fabrica` → `Auto-Scalers/Fabrica` |
+| Fabrica skills not visible | Skills tab | Check skill registration in marketplace index |
+| Skills overlap with Orca | Shared `~/.agents/skills/` | Accept coexistence; document in AGENTS.md |
+
+### React Runtime Issues
+
+| Issue | Where | Fix |
+|-------|-------|-----|
+| Maximum update depth exceeded | `PortsStatusSegment.tsx:19` | Wrap Zustand selectors with `useShallow` from `zustand/react/shallow` to prevent infinite re-renders |
+| Status bar error | Overlay surface | Same root cause — error boundary catches infinite loop crash |
+
+### Theme & Identity Issues
+
+| Issue | Where | Fix |
+|-------|-------|-----|
+| Default theme doesn't match brand | `src/renderer/src/assets/main.css` | Update CSS variables with brand palette (copper/teal/indigo). Use CSS custom properties, not hardcoded colors |
+| Hardcoded colors in components | Various `.tsx` files | Replace inline `style={{ backgroundColor: '#...' }}` with Tailwind classes like `bg-card` |
+
+### Plugin & Skill Naming Issues
+
+| Issue | Where | Fix |
+|-------|-------|-----|
+| Plugin dirs use wrong publisher | `resources/plugins/launch/` | Use kebab-case publisher: `auto-scalers.fabrica-*` (not `fabrica-ai.fabrica-*` or `stablyai.fabrica-*`) |
+| Plugin marketplace publisher constant | `src/shared/plugins/plugin-marketplace.ts` | Update `OFFICIAL_PLUGIN_PUBLISHER` and `OFFICIAL_MARKETPLACE_OWNER` to match |
+| Skills repo URL wrong | `src/shared/agent-feature-install-commands.ts` | Use `https://github.com/Auto-Scalers/Fabrica` (not `fabrica-ai/fabrica`) |
+| Skill names wrong | `src/shared/agent-feature-install-commands.ts` | Use `fabrica-*` prefix for all skills (e.g., `fabrica-computer-use`, not `computer-use`) |
+| GitHub URLs in help/feedback | `SidebarSettingsHelpMenu.tsx`, `SidebarFeedbackDialog.tsx` | Use `Auto-Scalers/Fabrica` (not `fabrica-ai/fabrica`) |
+
+### What to Add to Next Sync Checklist
+
+1. ✅ Grep for Orca icons/images (not just text) — `*.png`, `*.ico`, `*.svg` files
+2. ✅ Verify app icon matches Fabrica branding
+3. ✅ Check Discord/help links point to Fabrica resources
+4. ✅ Verify skills registry points to correct GitHub org
+5. ✅ Test app startup and status bar functionality
+6. ✅ Verify no React infinite loops in status bar components
+7. ✅ Check crash report submission works
+8. ✅ **Wrap all Zustand selectors with `useShallow`** — prevents infinite re-render loops
+9. ✅ **Use CSS custom properties for brand colors** — never hardcode hex values in components
+10. ✅ **Use kebab-case for plugin publisher** — `auto-scalers.*` not `fabrica-ai.*`
+11. ✅ **Use `fabrica-*` prefix for all skill names** — matches actual skill directories
+12. ✅ **Use `Auto-Scalers/Fabrica` for all GitHub references** — repo, help links, feedback
