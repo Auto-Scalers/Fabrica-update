@@ -6,9 +6,9 @@
 
 ## Why v3
 
-v2 (fork-from-upstream) produced a working pipeline but revealed **18 patterns** that v2 didn't account for. The C-phase audits (14 audits, 60 findings), I-phase implementation (26 tasks), and H-phase physical testing (20 issues) showed that content rebranding alone is insufficient — filenames, binary assets, shared directories, app IDs, auth endpoints, dependencies, build configs, documentation, React runtime, CSS theming, plugin naming, and skill naming all need explicit handling.
+v2 (fork-from-upstream) produced a working pipeline but revealed **24 patterns** that v2 didn't account for. The C-phase audits (14 audits, 60 findings), I-phase implementation (26 tasks), and H-phase physical testing (20 issues) showed that content rebranding alone is insufficient — filenames, binary assets, shared directories, app IDs, auth endpoints, dependencies, build configs, documentation, React runtime, CSS theming, plugin naming, and skill naming all need explicit handling.
 
-**v3.1 adds:** 6 new phases (filename/binary rebrand, dependency audit, build/CI verification, coexistence analysis, physical testing, build verification), expands the verification phase into a 12-check matrix, and codifies every pattern discovered (including H-phase runtime and naming issues) so future syncs get it right the first time.
+**v3.1 adds:** 6 new phases (filename/binary rebrand, dependency audit, build/CI verification, coexistence analysis, physical testing, build verification), expands the verification phase into a 12-check matrix, and codifies every pattern discovered (including H-phase runtime, naming, asset generation, and CSS theming issues) so future syncs get it right the first time.
 
 ## Why v2
 
@@ -426,6 +426,24 @@ All Fabrica skills use `fabrica-` prefix: `fabrica-computer-use`, `fabrica-orche
 ### L18: GitHub org must be consistent everywhere ← FROM H-PHASE
 All GitHub references must use `Auto-Scalers/Fabrica` — not `fabrica-ai/fabrica` (old org). Applies to: help menu, feedback dialog, skill install commands, package.json homepage, CI workflows. Discovered in H-12/H-18.
 
+### L19: Filename rebrand ≠ content rebrand ← FROM H21–H25 (REFINEMENT)
+Filenames can be rebranded (`orca-*` → `fabrica-*`) while the **pixel content** inside the files still shows the old logo. Always verify image content — not just filenames. Found in H-21 (icon.png, icon.ico, icon.icns), H-23 (app-icon selector PNGs), H-24 (mobile assets). Grep for filenames is not enough; visually inspect or compare file sizes/hashes.
+
+### L20: Use canonical JPG sources for all icon generation ← FROM H21–H25 (REFINEMENT)
+`.Fabrica-board/Assets/` contains the canonical Fabrica artwork as JPGs (`app_icon_light.jpg`, `app_icon_dark.jpg`, `fabrica-logo.jpg`). All icon PNGs (app icons, tray icons, mobile assets, build icons) should be generated from these sources — not copied from old references. Use `System.Drawing` (Windows) or `sips`/`magick` (macOS) to resize and convert.
+
+### L21: icon.icns requires macOS toolchain ← FROM H21–H25 (REFINEMENT)
+Proper `.icns` generation requires `xcrun actool`, `iconutil`, and `sips` (macOS-only). `generate.sh` cannot run on Windows. Raw Icon Composer output is ~6KB (one slot); proper .icns with all icon slots (16–1024px) is much larger. **For Windows dev:** use `.ico` only; defer `.icns` to macOS build.
+
+### L22: logo.svg embeds PNG as base64 ← FROM H21–H25 (REFINEMENT)
+`resources/logo.svg` is an SVG wrapper around a base64-encoded PNG (`<image href="data:image/png;base64,...">`). To rebrand, extract the base64, replace the PNG, re-encode, and write back. The `aria-label` attribute should also be updated. Both `resources/logo.svg` and `icon-source/icon.icon/Assets/logo.svg` must be updated together.
+
+### L23: CSS accent colors need contrast testing ← FROM H21–H25 (REFINEMENT)
+Initial teal/cyan accent values (`#0891b2` light / `#22d3ee` dark) were too light for UI contrast. Darkened to `#155e75` (light mode) and `#0891b2` (dark mode). 6 CSS values affected: `--color-fabrica-teal`, `--color-fabrica-cyan`, `--accent` (×2), `--chart-2` (×2). Always test color contrast against backgrounds.
+
+### L24: Inline SVG components need manual replacement ← FROM H21–H25 (REFINEMENT)
+React components with inline SVG paths (e.g., `FabricaLogo` in `HomeSlide.tsx`) can have old brand artwork hardcoded. These are NOT covered by importing a rebranded `logo.svg`. Each inline SVG must be manually identified (grep for `viewBox`, `<path d=`) and replaced with the new brand's SVG or a simple text-based fallback.
+
 ## Output artifacts (under `Fabrica-update/.Fabrica-update-board/pipeline-files/`)
 
 | File | Phase | Purpose |
@@ -499,7 +517,7 @@ These issues were found during first physical testing after the automated pipeli
 | **BOM in JSON files** | UTF-8 BOM in `en-runtime-required.json` causes `Unexpected token` error | Strip BOM from all JSON files before build |
 | **Skills verification naming** | `verify-skills-cli-runtime.cjs` expects `computer-use` but rebrand renamed it to `fabrica-computer-use` | Update verification scripts after rebrand |
 
-### Branding Issues Found
+### Branding Issues Found (Initial + Refinement)
 
 | Issue | Where | Fix |
 |-------|-------|-----|
@@ -507,6 +525,11 @@ These issues were found during first physical testing after the automated pipeli
 | Orca logo on mobile page | Fabrica mobile UI | Search for Orca logo references in mobile components |
 | Orca Discord link | Help page | Update Discord URL to Fabrica server |
 | Orca logos in various UI places | Multiple surfaces | Systematic grep for Orca icon/image assets |
+| Icon filenames rebranded but pixel content still Orca | `icon.png`, `icon.ico`, `app-icons/*.png`, `mobile/assets/*.png` | Extract canonical JPGs from `.Fabrica-board/Assets/`; regenerate all PNGs via System.Drawing |
+| `logo.svg` embeds old Orca PNG as base64 | `resources/logo.svg`, `icon-source/icon.icon/Assets/logo.svg` | Extract base64, replace PNG with Fabrica artwork, re-encode |
+| `icon.ico` has 0 icon entries | `resources/build/icon.ico` | Write proper ICO with BinaryWriter: header + directory entries + PNG data for each size |
+| Inline SVG in `FabricaLogo` component | `HomeSlide.tsx:250-258` | Replace hardcoded Orca path with Fabrica "F" lettermark or correct SVG |
+| Teal accent colors too light for contrast | `main.css` (6 values) | Darken: light `#155e75`, dark `#0891b2` |
 
 ### Configuration Issues
 
@@ -554,3 +577,9 @@ These issues were found during first physical testing after the automated pipeli
 10. ✅ **Use kebab-case for plugin publisher** — `auto-scalers.*` not `fabrica-ai.*`
 11. ✅ **Use `fabrica-*` prefix for all skill names** — matches actual skill directories
 12. ✅ **Use `Auto-Scalers/Fabrica` for all GitHub references** — repo, help links, feedback
+13. ✅ **Verify image file CONTENT, not just filenames** — Orca pixel content can persist inside rebranded filenames (H-21–H-24)
+14. ✅ **Generate all icons from canonical JPG sources** in `.Fabrica-board/Assets/` — not from old references
+15. ✅ **Defer icon.icns to macOS** — Windows can only produce .ico; .icns needs `generate.sh` on macOS
+16. ✅ **Update both logo.svg files** — `resources/logo.svg` and `icon-source/icon.icon/Assets/logo.svg` (embedded base64 PNG)
+17. ✅ **Test CSS accent color contrast** — initial teal/cyan too light; darken for accessibility
+18. ✅ **Grep for inline SVG paths** — components like `FabricaLogo` may have old artwork hardcoded in JSX

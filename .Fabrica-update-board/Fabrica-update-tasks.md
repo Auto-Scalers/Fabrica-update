@@ -35,10 +35,10 @@ Upstream sources: `https://github.com/stablyai/orca` (the app), `https://github.
 | Metric         | Value |
 | -------------- | ----- |
 | Total tasks    | 63    |
-| ? DONE         | 52    |
+| ? DONE         | 53    |
 | ?? IN_PROGRESS | 0     |
 | ?? VERIFY      | 0     |
-| ? TODO         | 12    |
+| ? TODO         | 11    |
 | ?? BLOCKED     | 1     |
 | ? CANCELLED    | 0     |
 | Completion     | 84%   |
@@ -203,7 +203,7 @@ Upstream sources: `https://github.com/stablyai/orca` (the app), `https://github.
 | #                | Task                                                                                                                                                                                                                                                                                                                                                                                         | Status | Notes                             |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------------------------- |
 | Plan-Refinements | We need to see all we did in Phase 2 and 3 in order to refine the UPDATE-PIPELINE-PLAN.md based on the refinements patterns and preferences we did in those 2 extra phases so the next time we process the pipeline when new Orca updates come we do it the correct way in the first place. (keep it general, mention patterns not specific paths) | ✅ | Done — v3 plan written with 11 phases, 13 lessons codified, 4 new phases added |
-| Fabrica-Refinement-Check | After Fabrica/ refinements are complete: review all changes, identify new patterns (Zustand, CSS, naming, build, runtime), log them in UPDATE-PIPELINE-PLAN.md as new lessons, and update the verification matrix if needed | TODO | Depends on Fabrica/ task completion |
+| Fabrica-Refinement-Check | After Fabrica/ refinements are complete: review all changes, identify new patterns (Zustand, CSS, naming, build, runtime), log them in UPDATE-PIPELINE-PLAN.md as new lessons, and update the verification matrix if needed | ✅ | Done — 6 new lessons added (L19-L24): filename≠content rebrand, JPG source assets, icon.icns macOS requirement, logo.svg base64 embedding, CSS contrast testing, inline SVG replacement. Updated branding issues table (9 items) and sync checklist (18 items). Lesson count: 18→24. |
 | Plan-v3.1-Refinement | Review and refine UPDATE-PIPELINE-PLAN.md after H-phase: correct L5/L13, add L14-L18 (useShallow, CSS properties, kebab publisher, fabrica- prefix, GitHub org), expand Phase 10 to 12 checks, add Phase 11 (Physical Testing) + Phase 12 (Build Verification), update Tasks table | ✅ | Done — v3.1 plan with 13 phases, 18 lessons, 12 verification checks |
 
 
